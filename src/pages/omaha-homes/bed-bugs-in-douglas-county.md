@@ -1,9 +1,9 @@
 ---
 layout: ../../layouts/OmahaGuide.astro
 slug: bed-bugs-in-douglas-county
-title: "Bed Bugs in Douglas County: Who Does What (Health Department, Landlord, Pest Control)"
+title: "Bed Bugs in Douglas County: Who Does What in Omaha"
 h1: "Bed bugs in Douglas County: who does what"
-description: "The Douglas County Health Department educates but does not treat bed bugs. What DCHD, Nebraska DHHS, your landlord under state law, a licensed pest professional and a mattress cleaner each handle in Omaha."
+description: "Douglas County's health department educates but doesn't treat bed bugs. What DCHD, DHHS, your landlord, a pest pro and a mattress cleaner each handle."
 answer: "In Douglas County, bed bugs are a job for a licensed pest professional, arranged through your landlord if you rent. The Douglas County Health Department's role is education, because bed bugs have not been shown to spread disease. Omaha Mattress Cleaning comes after treatment, not instead of it."
 published: "2026-10-03"
 updated: "2026-10-03"

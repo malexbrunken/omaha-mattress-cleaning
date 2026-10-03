@@ -1,9 +1,9 @@
 ---
 layout: ../../layouts/OmahaGuide.astro
 slug: getting-rid-of-a-mattress-in-omaha
-title: "Getting Rid of a Mattress in Omaha: Cleanup Saturdays, River City and Pheasant Point"
+title: "Omaha Mattress Disposal: Cleanup Saturdays, River City, Pheasant Point"
 h1: "Getting rid of a mattress in Omaha"
-description: "A mattress can't go in an Omaha trash cart. The three routes: free Fall and Spring Cleanup Saturdays, the city's subsidized River City Transfer program, and Pheasant Point Landfill."
+description: "A mattress can't go in an Omaha trash cart. Three routes: free Cleanup Saturdays, the city's River City program, and Pheasant Point Landfill."
 answer: "A mattress can't go in an Omaha curbside cart. City residents have three ways out: a free Cleanup Saturday, the city's subsidized bulky program at River City Recycling and Transfer Station, or Pheasant Point Landfill. If the bed is sound and you'd rather keep it, cleaning is the other option."
 published: "2026-10-03"
 updated: "2026-10-03"
@@ -18,7 +18,7 @@ facts:
     source: "Wasteline, City of Omaha"
     url: "https://www.wasteline.org/general-information/fall-cleanup/"
   - label: "River City Recycling and Transfer Station"
-    value: "6404 S 60th St, just north of Harrison. City program: a $15 administrative fee at the first visit of the year buys 4 dump vouchers; a regular car load is typically one voucher."
+    value: "6404 S 60th St, just north of Harrison. City program: a $15 administrative fee at the first visit of the year buys 4 dump vouchers; a regular car load is typically one voucher. Phone 402-889-8721."
     source: "Wasteline bulky item program"
     url: "https://www.wasteline.org/special-waste-information/bulky-item-disposal/"
   - label: "Pheasant Point Landfill"
@@ -74,7 +74,7 @@ changelog:
 - **Tarp the load.** State and local law require a covered load.
 - **Wear a vest and hard hat** if you step out to unload, or buy them there ($12 hard hat, $6 vest, as listed by the city).
 - **Pay without cash.** River City is a cashless business.
-- **Check hours by season.** Easter to Thanksgiving: Monday to Friday 6 AM to 4 PM, Saturday 6 AM to 1 PM. Thanksgiving to Easter: Saturday hours shorten to 7 AM to 11:30 AM.
+- **Check hours by season, or call 402-889-8721** (the number on the City's Wasteline page). Easter to Thanksgiving: Monday to Friday 6 AM to 4 PM, Saturday 6 AM to 1 PM. Thanksgiving to Easter: Saturday hours shorten to 7 AM to 11:30 AM.
 
 ## When keeping it makes more sense
 
@@ -84,6 +84,5 @@ If you suspect bed bugs, read [who does what about bed bugs in Douglas County](/
 
 ## What we don't know
 
-- **River City's phone number.** The city's Wasteline page lists 402-889-8721; the Omaha Recycling Guide lists (402) 731-0414. Try both.
 - **Pheasant Point's mattress fee.** The city guide says fees may apply but doesn't list one.
 - **2027 Cleanup dates.** The city posts them at cleanup.wasteline.org once they are set.

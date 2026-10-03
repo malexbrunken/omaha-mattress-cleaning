@@ -3,7 +3,7 @@ layout: ../../layouts/OmahaGuide.astro
 slug: humid-summers-and-basement-bedrooms
 title: "Omaha Summer Humidity and Basement Bedrooms: What the NOAA Normals Say"
 h1: "Omaha summer humidity and basement bedrooms"
-description: "Omaha's average dew point climbs from 16°F in January to 66°F in July, by NOAA's 1991 to 2020 normals for Eppley Airfield. What that means for a mattress in a basement guest room, and when to schedule a cleaning."
+description: "Omaha's average dew point runs from 16°F in January to 66°F in July (NOAA, Eppley). What that means for a basement guest bed and when to book a cleaning."
 answer: "Omaha's air holds the highest moisture in July and August. NOAA's normals for Eppley Airfield put the average July dew point near 66°F, against 16°F in January. A basement guest room that stays cooler than the outdoor dew point in summer can collect moisture, so that is the room and season to watch."
 published: "2026-10-03"
 updated: "2026-10-03"

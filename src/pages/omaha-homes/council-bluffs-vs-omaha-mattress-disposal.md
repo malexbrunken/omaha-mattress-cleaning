@@ -3,7 +3,7 @@ layout: ../../layouts/OmahaGuide.astro
 slug: council-bluffs-vs-omaha-mattress-disposal
 title: "Council Bluffs vs Omaha: Mattress Disposal Rules Side by Side"
 h1: "Council Bluffs vs Omaha: mattress disposal rules"
-description: "Council Bluffs picks mattresses up at the curb twice a year if they are bagged or shrink wrapped. Omaha has no curbside mattress pickup but runs free Cleanup Saturdays and a subsidized drop-off program."
+description: "Council Bluffs picks up bagged or shrink-wrapped mattresses twice a year. Omaha has no curbside pickup but runs Cleanup Saturdays and a drop-off program."
 answer: "Council Bluffs will pick a mattress up at your curb, twice a year, by appointment, if it is bagged or completely shrink wrapped. Omaha has no curbside pickup for mattresses; you drop it off at a Cleanup Saturday, at River City under the city program, or at Pheasant Point."
 published: "2026-10-03"
 updated: "2026-10-03"
