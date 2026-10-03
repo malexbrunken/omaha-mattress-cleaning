@@ -1,11 +1,11 @@
 {
-  "version": 2,
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "astro",
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
-  ],
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "crons": [{ "path": "/api/indexnow", "schedule": "23 13 * * *" }],
   "headers": [
     {
       "source": "/(.*)",
