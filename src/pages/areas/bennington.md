@@ -10,7 +10,7 @@ answer: "We clean mattresses in Bennington. Bennington is a separate city in nor
 order: 7
 hubCounty: "Douglas"
 hubHealth: "Douglas County Health Department"
-hubTrash: "City lists a trash and yard waste line"
+hubTrash: "Trash and yard waste line; hauler not named"
 hubFree: "None found on the city site"
 hubMedian: "2002 (plus or minus 8)"
 published: "2026-10-03"
@@ -56,8 +56,8 @@ faq:
     a: "We didn't find one on the city's site as of October 3, 2026. Call the city office at (402) 238-2375 to ask."
   - q: "Can I take a mattress to Pheasant Point myself?"
     a: "The Omaha Recycling Guide lists Pheasant Point as an option and says flat rates or special handling fees may apply. Call (866) 909-4458 first."
-  - q: "Is Bennington too far out for an appointment?"
-    a: "No. Bennington is on our Omaha service list at the same rate: $249 for the first mattress, or $199 under the Fall 2026 first-mattress offer."
+  - q: "Who do I call about trash in Bennington?"
+    a: "The city's services page lists a trash and yard waste number, (402) 238-2455, without naming a company. Papillion Sanitation also lists Bennington in its residential service area."
 sources:
   - name: "City of Bennington: Services"
     url: "https://benningtonne.com/services/"
@@ -96,7 +96,7 @@ What the City of Bennington does publish is a services directory. Its utilities 
 
 ## The landfill up the road
 
-Bennington is the closest town on our list to a landfill that takes mattresses. Pheasant Point Landfill is at Highway 36 and 216th Street, and the Omaha Recycling Guide lists it as a mattress option with flat rates or special handling fees that may apply. Waste Management's office at 13505 N 216th Street carries a Bennington address. Call (866) 909-4458 before you load a truck, because the guide doesn't publish a mattress fee.
+Pheasant Point Landfill is at Highway 36 and 216th Street, and the Omaha Recycling Guide lists it as an option for mattresses with flat rates or special handling fees that may apply. Waste Management's office at 13505 N 216th Street carries a Bennington address. Call (866) 909-4458 before you load a truck, because the guide doesn't publish a mattress fee.
 
 ## Bennington housing by the numbers
 
@@ -106,11 +106,7 @@ So a Bennington appointment is as likely to be in a house finished in the last f
 
 ## Bed bugs and Douglas County
 
-Bennington is in Douglas County, where the Douglas County Health Department's pest page describes its role with bed bugs as education, since they have not been shown to be a vector of disease. Questions go to its Environmental Health section at (402) 444-7485; treatment goes to a licensed pest professional, and cleaning comes after. This page is general information, not medical advice.
-
-## A Bennington appointment
-
-A technician in gloves and shoe booties brings equipment that has been disinfected since the previous job. We document your Bennington mattress on an inspection form with its material, special care notes and any urine or odor observations, and we run a moisture test after the job. If we find a severe or biohazard case, the surcharge is quoted before we begin. Check your care label and warranty terms first.
+Bennington is in Douglas County, where the Douglas County Health Department's pest page describes its role with bed bugs as education, since they have not been shown to be a vector of disease. Questions go to its Environmental Health section at (402) 444-7485; treatment goes to a licensed pest professional, and cleaning comes after. This page is general information, not medical advice. Check your care label and warranty terms before booking; the [areas page](/areas) lists what stays the same at every address.
 
 ## What we don't know
 

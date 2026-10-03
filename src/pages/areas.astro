@@ -44,12 +44,12 @@ const jsonld = [
       <p style="font-size:0.9rem;"><a href="/">Home</a> › Areas we serve</p>
       <span class="eyebrow">Douglas and Sarpy counties</span>
       <h1>Areas we serve around Omaha</h1>
-      <p class="lead" style="max-width:68ch;">Cleaning a mattress works the same in every suburb. Getting rid of one doesn't. Ralston and Bellevue contract with one hauler, La Vista and Gretna leave it to private companies, and part of Elkhorn is inside Omaha while part isn't. Each page below starts from those local rules, with the source and the date we checked it.</p>
+      <p class="lead" style="max-width:68ch;">Getting rid of a mattress around Omaha depends on where you live. Ralston and Bellevue contract with one hauler, La Vista and Gretna leave it to private companies, and part of Elkhorn is inside Omaha while part isn't; each area page cites the city or county source behind those rules and the date we checked it.</p>
 
       <h2>The seven areas side by side</h2>
       <div class="scroll">
         <table class="cmp">
-          <thead><tr><th>Area</th><th>County</th><th>Trash setup</th><th>Free mattress drop-off</th><th>Median year built</th><th>Health department</th></tr></thead>
+          <thead><tr><th>Area</th><th>County</th><th>Trash setup</th><th>Cleanup event</th><th>Median year built</th><th>Health department</th></tr></thead>
           <tbody>
             {areas.map((a) => (
               <tr>
@@ -71,20 +71,16 @@ const jsonld = [
         {areas.map((a) => (
           <a href={`/areas/${a.slug}`}>
             <h3>{a.name}</h3>
-            <p>{a.h1}</p>
+            <p>{a.hubTrash}</p>
           </a>
         ))}
       </div>
 
       <div class="prose">
         <h2>What stays the same in every area</h2>
-        <ul>
-          <li><strong>Price.</strong> $249 for the first mattress, or $199 under the Fall 2026 first-mattress offer. Severe or biohazard cases carry a surcharge, quoted before we start.</li>
-          <li><strong>Tests.</strong> Our only tests are a moisture test after the job, a bedroom CO2 test and a built-in dust mite sensor on the UV-C vacuum.</li>
-          <li><strong>Records.</strong> Each job is documented on an inspection form covering the material, special care notes and urine or odor observations.</li>
-          <li><strong>Hygiene.</strong> Technicians wear gloves and shoe booties, and equipment is disinfected between jobs.</li>
-        </ul>
-        <p>How dry vapor steam works, how long a mattress takes to dry and what bed mites (house dust mites) are don't change at the county line, so the <a href="https://sleepsanitation.com/knowledge-center">Sleep Sanitation Knowledge Center</a> covers them. For Omaha itself, see <a href="/omaha-homes">Mattresses and Omaha homes</a>.</p>
+        <p>Every area gets the same visit: $249 for the first mattress, or $199 under the Fall 2026 first-mattress offer, with a surcharge only for severe or biohazard cases and quoted before we start; an inspection form covering the material, special care notes and urine or odor observations; and technicians in gloves and shoe booties, with equipment disinfected between jobs. Our only tests are a moisture test after the job, a bedroom CO2 test and a built-in dust mite sensor on the UV-C vacuum. Check your care label and warranty terms before booking.</p>
+        <p>This page is general information, not medical advice.</p>
+        <p>How dry vapor steam works, how long a mattress takes to dry and what bed mites (house dust mites) are don't change at the county line, so the <a href="https://sleepsanitation.com/knowledge-center">Sleep Sanitation Knowledge Center</a> covers them; the City of Omaha's own disposal rules and housing figures are in <a href="/omaha-homes">Mattresses and Omaha homes</a>.</p>
         <h2>What we don't know</h2>
         <ul>
           <li>Fall 2026 cleanup dates for Bellevue and any cleanup event in Ralston or Bennington. We list what the cities and Sarpy County had posted on October 3, 2026.</li>

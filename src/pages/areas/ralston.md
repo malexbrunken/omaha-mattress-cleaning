@@ -53,8 +53,8 @@ faq:
     a: "The city of Omaha opens them to City of Omaha households. Ralston is a separate city, so check with Ralston City Hall about any Ralston cleanup event instead."
   - q: "Do I pay Papillion Sanitation directly for regular trash in Ralston?"
     a: "No. Ralston's page says trash services are included in your water bill. A bulk pickup for a mattress is arranged with Papillion Sanitation."
-  - q: "Is an older Ralston house harder to work in?"
-    a: "We need an outlet near the bed and room to move around it. If either is tight in your Ralston bedroom, tell us when you book."
+  - q: "When does Ralston collect yard waste?"
+    a: "Ralston's trash page lists yard waste in the last two weeks of May and in November. Public Works is at 8220 Serum Avenue, 402-331-4118."
 sources:
   - name: "City of Ralston: Trash and Recycling Information"
     url: "https://www.cityofralston.com/1262/Trash-and-Recycling-Information"
@@ -99,11 +99,7 @@ Ralston is in Douglas County, so the Douglas County Health Department is the cou
 
 ## Finding Ralston, for orientation
 
-Ralston City Hall is at 5500 S 77th Street, with the Baright Public Library next door at 5555 S 77th Street. Ralston Public Works is at 8220 Serum Ave., open weekdays.
-
-## What a Ralston job includes
-
-Our Ralston rate is the same as everywhere: $249 for the first mattress, or $199 under the Fall 2026 first-mattress offer. The technician wears gloves and shoe booties, and every piece of equipment is disinfected between jobs. We run three checks and only three: a moisture test after the job, a bedroom CO2 test, and the built-in dust mite sensor on our UV-C vacuum. The inspection form for your Ralston job records material, special care notes and urine or odor observations. Check your care label and warranty terms first.
+Ralston City Hall is at 5500 S 77th Street, with the Baright Public Library next door at 5555 S 77th Street. Ralston Public Works is at 8220 Serum Ave., open weekdays. Check your care label and warranty terms before booking; the [areas page](/areas) lists what stays the same at every address.
 
 ## What we don't know
 

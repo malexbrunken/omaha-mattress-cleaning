@@ -10,7 +10,7 @@ answer: "We clean mattresses in Papillion. If a mattress is done, Papillion's ne
 order: 2
 hubCounty: "Sarpy"
 hubHealth: "Sarpy/Cass Health Department"
-hubTrash: "Permitted private haulers (four residential)"
+hubTrash: "Permitted private haulers (four residential on the 2025 list)"
 hubFree: "Fall Cleanup Days, Oct 19 to 25, 2026"
 hubMedian: "1991"
 published: "2026-10-03"
@@ -37,7 +37,7 @@ contacts:
     contact: "City Hall 402-597-2000"
     url: "https://www.papillion.gov/cleanupdays"
   - for: "Weekly trash or a bulky pickup"
-    who: "Your permitted hauler (the city lists four residential ones)"
+    who: "Your permitted hauler (four residential ones on the city's 2025 list)"
     contact: "See the city's hauler list"
     url: "https://www.papillion.gov/230/Trash-Refuse-Haulers"
   - for: "Indoor nuisance complaints, including pests"
@@ -49,8 +49,8 @@ faq:
     a: "No. Sarpy County says the cities set the dates and sites, and asks residents not to bring cleanup items straight to the transfer station. Use the Portal Road site."
   - q: "I live in an SID with a Papillion address. Can I use Cleanup Days?"
     a: "Papillion opens the event to Papillion residents, Papillion water customers and La Vista residents. Sarpy County's page says SID residents should ask their SID about similar events."
-  - q: "What does a Papillion appointment cost?"
-    a: "The first mattress is $249, or $199 under the Fall 2026 first-mattress offer. A severe or biohazard case carries a surcharge, quoted before work starts."
+  - q: "Does Papillion control who can haul my trash?"
+    a: "Yes. Chapter 162 of the city code requires haulers to hold an annual city permit. The city's 2025 permit list names Abe's, Gretna Sanitation, Papillion Sanitation and Waste Services of Nebraska for residential service."
 sources:
   - name: "City of Papillion: 2026 Papillion and La Vista Fall Cleanup Days"
     url: "https://www.papillion.gov/cleanupdays"
@@ -93,7 +93,7 @@ Sarpy County supports the event with a reduced disposal fee, and it asks residen
 
 ## Outside Cleanup week: Papillion's haulers
 
-Papillion has no city trash truck. Chapter 162 of the Papillion City Code requires each hauler to hold an annual city permit, and the city lists four residential haulers: Abe's Trash Service, Gretna Sanitation, Papillion Sanitation and Waste Services of Nebraska. A mattress pickup outside Cleanup week is between you and whichever of them serves your house. Papillion Sanitation, for one, schedules bulk pickups for an added fee and wants mattresses wrapped in plastic.
+Papillion has no city trash truck. Chapter 162 of the Papillion City Code requires each hauler to hold an annual city permit, and the city's 2025 permit list names four residential haulers: Abe's Trash Service, Gretna Sanitation, Papillion Sanitation and Waste Services of Nebraska. A mattress pickup outside Cleanup week is between you and whichever of them serves your house. Papillion Sanitation, for one, schedules bulk pickups for an added fee and wants mattresses wrapped in plastic.
 
 ## Papillion housing by the numbers
 
@@ -103,11 +103,7 @@ None of that tells us what's on the mattress. By the numbers, though, a Papillio
 
 ## Pests and the Sarpy/Cass Health Department
 
-Papillion is in the Sarpy/Cass Health Department's area, and its Sarpy County office is in Papillion at 701 Olson Drive, Suite 101. The department takes indoor nuisance complaints within Sarpy and Cass counties through an online form, and staff follow up or point you to the right contact. If a Papillion bed has bed bugs, a licensed pest professional comes first; we clean after treatment, not instead of it. This is general information, not medical advice.
-
-## A Papillion appointment
-
-Our technician wears gloves and shoe booties, and the equipment is disinfected between jobs. The inspection form for a Papillion job records the mattress material, special care notes and any urine or odor observations. Our only tests are a moisture test after the job, a bedroom CO2 test and the dust mite sensor built into the UV-C vacuum. For deciding between cleaning and replacing, Sleep Sanitation's [clean, replace or hire guide](https://sleepsanitation.com/knowledge-center/mattress-owners-decision-center/mattress-owners-decision-guide-clean-replace-or-hire) applies anywhere. Read your care label and warranty terms first.
+Papillion is in the Sarpy/Cass Health Department's area, and its Sarpy County office is in Papillion at 701 Olson Drive, Suite 101. The department takes indoor nuisance complaints within Sarpy and Cass counties through an online form, and staff follow up or point you to the right contact. If a Papillion bed has bed bugs, a licensed pest professional comes first; we clean after treatment, not instead of it. This is general information, not medical advice. Check your care label and warranty terms before booking; the [areas page](/areas) lists what stays the same at every address.
 
 ## What we don't know
 

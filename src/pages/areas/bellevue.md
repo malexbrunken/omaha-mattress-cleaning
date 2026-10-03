@@ -83,7 +83,7 @@ changelog:
 
 ## Bellevue's mattress rules, step by step
 
-Bellevue is the one Sarpy County city on our list with a single citywide hauler. The city's contract with Papillion Sanitation covers single-family and duplex homes inside the city limits, and the welcome packet spells out what happens to items that don't fit in the blue landfill cart:
+Bellevue is the one Sarpy County city on our list that contracts residential trash to a single hauler. The contract with Papillion Sanitation covers single-family and duplex homes inside the city limits, and the welcome packet spells out what happens to items that don't fit in the blue landfill cart:
 
 1. **Small extras go on a free bulk pickup.** Each household gets two a year, for items up to 60 pounds and 4 feet by 2 feet, scheduled ahead with Papillion Sanitation.
 2. **A mattress is an oversized item.** The packet names couches and mattresses as items over those limits. Papillion Sanitation will schedule a large item curbside pickup year round, for a fee.
@@ -104,11 +104,7 @@ A 1960s ranch and a 2015 build get the same cleaning; the mattress, not the hous
 
 ## Pests, odor and the county
 
-Bellevue residents bring indoor nuisance complaints to the Sarpy/Cass Health Department, which handles them within Sarpy and Cass counties. Suspected bed bugs go to a licensed pest professional first; our cleaning follows treatment. For a pet accident on a Bellevue mattress, Sleep Sanitation's [urine, pet accident and odor guide](https://sleepsanitation.com/knowledge-center/mattress-accidents/mattress-urine-pet-accidents-and-odor-guide) explains when cleaning helps. This page is general information, not medical advice.
-
-## A Bellevue appointment
-
-The first mattress is $249, or $199 under our Fall 2026 first-mattress offer. Severe or biohazard cases carry a surcharge, and we'll say so before starting. Technicians wear gloves and shoe booties, and our equipment is disinfected between jobs. We document each Bellevue job on an inspection form: material, special care notes, and urine or odor observations. Check your care label and warranty terms first.
+Bellevue residents bring indoor nuisance complaints to the Sarpy/Cass Health Department, which handles them within Sarpy and Cass counties. Suspected bed bugs go to a licensed pest professional first; our cleaning follows treatment. For a pet accident on a Bellevue mattress, Sleep Sanitation's [urine, pet accident and odor guide](https://sleepsanitation.com/knowledge-center/mattress-accidents/mattress-urine-pet-accidents-and-odor-guide) explains when cleaning helps. This page is general information, not medical advice. Check your care label and warranty terms before booking; the [areas page](/areas) lists what stays the same at every address.
 
 ## What we don't know
 

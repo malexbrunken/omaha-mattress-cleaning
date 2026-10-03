@@ -6,12 +6,12 @@ county: Sarpy County
 title: "Gretna Mattress Cleaning: Haulers, Clean Up Day and Housing"
 h1: "Mattress cleaning in Gretna, one of the newest housing markets we serve"
 description: "Gretna's median home was built in 2002. The city lists four trash haulers and holds a spring Clean Up Day for city residents. Local mattress facts, checked."
-answer: "We clean mattresses in Gretna. More than half of Gretna's homes were built in 2000 or later, and the city doesn't run trash service: it lists four private haulers, and its free Clean Up Day, held May 2 in 2026 at 20090 Husker Drive, is open only to residents inside city limits. Outside that day, a Gretna mattress leaves through your hauler's bulk pickup."
+answer: "We clean mattresses in Gretna. More than half of Gretna's homes were built in 2000 or later, and the city doesn't run trash service: it lists four private haulers, and its Clean Up Day, held May 2 in 2026 at 20090 Husker Drive, was open only to residents inside city limits; the notice doesn't list accepted items, so ask City Hall, 402-332-3336. Outside that day, a Gretna mattress leaves through your hauler's bulk pickup."
 order: 5
 hubCounty: "Sarpy"
 hubHealth: "Sarpy/Cass Health Department"
 hubTrash: "Private haulers (city lists four)"
-hubFree: "Clean Up Day for city residents (May 2 in 2026)"
+hubFree: "Clean Up Day for city residents (May 2 in 2026); items not listed"
 hubMedian: "2002"
 published: "2026-10-03"
 updated: "2026-10-03"
@@ -50,8 +50,8 @@ faq:
     a: "Its terms describe a monthly bulk route, typically the last Friday of the month, with a $75 minimum and a quote you approve first. Gretna Sanitation's terms also exclude bio-hazardous materials or waste."
   - q: "I live in an SID near Gretna. Can I go to Clean Up Day?"
     a: "Gretna's 2026 notice said you had to live within city limits. Sarpy County's cleanup page tells SID residents to ask their SID about similar events."
-  - q: "Is a newer Gretna house a reason to skip cleaning?"
-    a: "No. A 2002 median year built says nothing about the mattress, and a new Gretna build can hold a bed that has moved with the family for years."
+  - q: "Does Gretna run its own trash pickup?"
+    a: "No. The city's New Residents Guide lists four private haulers: Abe's Trash, Papillion Sanitation, Waste Management and Gretna Sanitation. Each hauler sets its own bulk pickup rules."
 sources:
   - name: "City of Gretna: New Residents Guide"
     url: "https://www.gretnane.org/141/New-Residents-Guide"
@@ -89,7 +89,7 @@ A newly finished Gretna house hasn't had decades of beds in it, yet the mattress
 
 The City of Gretna lists four trash haulers in its New Residents Guide: Abe's Trash, Papillion Sanitation, Waste Management and Gretna Sanitation. Gretna has no city pickup, so your hauler's rules decide what a mattress costs to remove.
 
-- **Clean Up Day.** Gretna Public Works hosted it on Saturday, May 2, 2026, from 7:30 a.m. to 2 p.m., rain or shine, at 20090 Husker Drive. You had to live within Gretna city limits. The 2027 date isn't posted yet.
+- **Clean Up Day.** Gretna Public Works hosted it on Saturday, May 2, 2026, from 7:30 a.m. to 2 p.m., rain or shine, at 20090 Husker Drive. You had to live within Gretna city limits. The notice doesn't list accepted items or fees, so ask City Hall at 402-332-3336 before bringing a mattress. The 2027 date isn't posted yet.
 - **Gretna Sanitation customers.** Its terms of service describe a bulk pickup route once a month, typically the last Friday, with a minimum fee of $75 and a quote you approve before the pickup is added. Gretna Sanitation doesn't take appliances, and its "will not pick up" list includes bio-hazardous materials or waste, which matters for a badly soiled mattress.
 - **Papillion Sanitation customers.** Papillion Sanitation, which lists Gretna in its service area, schedules bulky pickups for an extra fee and requires mattresses and box springs to be wrapped in plastic.
 
@@ -97,11 +97,7 @@ If the mattress is sound and the problem is a stain or smell, price cleaning aga
 
 ## Gretna and the Sarpy/Cass Health Department
 
-Gretna is in the Sarpy/Cass Health Department's area. The department takes indoor nuisance complaints within Sarpy and Cass counties and will follow up or redirect you. In a Gretna home, bed bugs need a licensed pest professional before any cleaning. This page is general information, not medical advice.
-
-## What a Gretna visit includes
-
-We price the first mattress at $249, or $199 with the Fall 2026 first-mattress offer, and add a surcharge only for severe or biohazard cases. Our technician arrives at a Gretna door in gloves and shoe booties, with equipment disinfected since the last job. Before we leave a Gretna home we run a moisture test, and the inspection form records the material, special care notes and any urine or odor observations. Check your care label and warranty terms first.
+Gretna is in the Sarpy/Cass Health Department's area. The department takes indoor nuisance complaints within Sarpy and Cass counties and will follow up or redirect you. This page is general information, not medical advice. Check your care label and warranty terms before booking; the [areas page](/areas) lists what stays the same at every address.
 
 ## What we don't know
 

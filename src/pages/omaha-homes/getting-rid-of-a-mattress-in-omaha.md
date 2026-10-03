@@ -63,7 +63,7 @@ changelog:
 - **Find your Saturday.** Each date covers one part of the city: Southwest on October 3, Southeast on October 10, Northeast on October 17 and Northwest on October 24. The Wasteline page links a map and a site list.
 - **Go between 9 AM and 2 PM.** That is the window the city publishes for every site.
 - **Bring help.** Residents unload their own vehicles, and the city says no assistance is provided.
-- **Keep it residential.** Commercial waste is prohibited, so a landlord clearing several units may be turned away.
+- **Keep it residential.** Commercial waste is prohibited.
 - **Missed October?** The spring event runs on Saturdays in April and May. In 2026 the pattern started with Central on April 18 and ended with Southwest on May 16.
 
 ## River City checklist

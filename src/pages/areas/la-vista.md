@@ -49,8 +49,8 @@ faq:
     a: "No. La Vista's Trash Pickup page says trash pickup is handled by non-city resources. Ask your hauler about a bulky pickup or use the Cleanup Days."
   - q: "Do La Vista residents need a Papillion water bill for Cleanup Days?"
     a: "No. The event is open to La Vista residents as well as Papillion residents and water customers. Bring identification that shows a La Vista address."
-  - q: "Can you clean a mattress in a La Vista apartment?"
-    a: "Yes. In a La Vista apartment we need a nearby outlet for the equipment and room to work around the bed."
+  - q: "Which trash haulers does La Vista list?"
+    a: "Abe's, Waste Services of Nebraska, Papillion Sanitation and Waste Management, whose listed office is at 13505 N 216th St in Bennington. City Hall is at 402-331-4343."
 sources:
   - name: "City of La Vista: Trash Pickup"
     url: "https://www.cityoflavista.org/229/Trash-Pickup"
@@ -95,15 +95,11 @@ Twice a year La Vista residents can use the Cleanup Days the two cities run toge
 
 La Vista's 6,958 housing units have a median year built of 1993, plus or minus three years, in the Census Bureau's 2020 to 2024 survey. About 40% went up in 2000 or later and about 16% before 1970. The figure that sets La Vista apart from its neighbors is building type: about 55% of units are single-family detached houses, compared with about 78% in Papillion and 79% in Gretna.
 
-That mix shapes a La Vista visit more than house age does. In a La Vista apartment or townhome, we ask where the nearest outlet is and whether there's room to work on both sides of the bed. Carrying a mattress down from an upper floor for a La Vista bulk pickup is harder than rolling it to a curb, which is one more reason to compare cleaning against replacing first. For a used bed bought for a La Vista apartment, Sleep Sanitation's [guide to whether a used mattress can be sanitized](https://sleepsanitation.com/knowledge-center/mattress-owners-decision-center/can-a-used-mattress-be-sanitized) covers that choice.
+With about 45% of units outside the single-family detached category, a bulk pickup for a La Vista mattress can mean carrying it down from an upper floor rather than rolling it to a curb. For a used bed bought for a La Vista apartment, Sleep Sanitation's [guide to whether a used mattress can be sanitized](https://sleepsanitation.com/knowledge-center/mattress-owners-decision-center/can-a-used-mattress-be-sanitized) covers that choice.
 
 ## La Vista and the Sarpy/Cass Health Department
 
-La Vista falls under the Sarpy/Cass Health Department, which takes indoor nuisance complaints within Sarpy and Cass counties through an online form or by phone at 402-339-4334. In La Vista, as anywhere in Sarpy County, bed bugs are a job for a licensed pest professional; we don't treat them, and we clean after treatment. This page is general information, not medical advice.
-
-## What we bring to La Vista
-
-Gloves and shoe booties go on at the La Vista door, and our equipment is disinfected between jobs. Every La Vista job gets an inspection form noting the mattress material, special care notes and any urine or odor we observe. After a La Vista job we run a moisture test. The first mattress is $249, or $199 with the Fall 2026 first-mattress offer. Check your care label and warranty terms before any cleaning.
+La Vista falls under the Sarpy/Cass Health Department, which takes indoor nuisance complaints within Sarpy and Cass counties through an online form or by phone at 402-339-4334. The department's page covers indoor nuisances; for bed bugs, we don't treat them, and we clean only after a licensed pest professional has. This page is general information, not medical advice. Check your care label and warranty terms before booking; the [areas page](/areas) lists what stays the same at every address.
 
 ## What we don't know
 

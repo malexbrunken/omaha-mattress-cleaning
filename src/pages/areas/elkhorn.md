@@ -56,8 +56,8 @@ faq:
     a: "Only if the address is a City of Omaha household. Wasteline's address lookup answers that. If you're outside the city limits, ask your hauler about a scheduled bulky pickup instead."
   - q: "Is Elkhorn its own city?"
     a: "Not since 2005. Omaha's annexation ordinance took effect March 24, 2005, and the Nebraska Supreme Court upheld it in City of Elkhorn v. City of Omaha (2007). Elkhorn remains a ZIP code (68022) and a community name."
-  - q: "Do you charge more to drive out to Elkhorn?"
-    a: "No. The first mattress is $249, or $199 under our Fall 2026 first-mattress offer, at any address in our Omaha service area."
+  - q: "Who hauls trash for an Elkhorn address?"
+    a: "It depends on the city limits. Inside them, the City of Omaha programs apply. Papillion Sanitation serves Omaha addresses outside the city limits, Elkhorn included, and points customers to Wasteline's lookup to check which side they're on."
 sources:
   - name: "Nebraska Supreme Court, City of Elkhorn v. City of Omaha, 272 Neb. 867 (2007)"
     url: "https://law.justia.com/cases/nebraska/supreme-court/2007/1006.html"
@@ -111,11 +111,7 @@ Douglas County Health Department's pest page says bed bugs have not been shown t
 
 ## Finding your way, for orientation only
 
-ZIP 68022 covers Elkhorn on the western edge of Douglas County. Pheasant Point Landfill, the drop-off of last resort in the Omaha guide, is north of Elkhorn at Highway 36 and 216th Street; call (866) 909-4458 before hauling a mattress there, because the city guide says fees may apply.
-
-## An Elkhorn visit
-
-We bring the equipment to the bedroom, and the technician wears gloves and shoe booties. Equipment is disinfected between jobs. After the job we run a moisture test, and we also run a bedroom CO2 test; the UV-C vacuum has a built-in dust mite sensor. Each Elkhorn job is written up on an inspection form covering the mattress material, special care notes and any urine or odor observations. A severe or biohazard case carries a surcharge, and we'll tell you before we start. Check your care label and warranty terms before booking any cleaning.
+ZIP 68022 covers Elkhorn on the western edge of Douglas County. Pheasant Point Landfill, the drop-off of last resort in the Omaha guide, is north of Elkhorn at Highway 36 and 216th Street; call (866) 909-4458 before hauling a mattress there, because the city guide says fees may apply. Check your care label and warranty terms before booking; the [areas page](/areas) lists what stays the same at every address.
 
 ## What we don't know
 
