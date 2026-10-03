@@ -1,0 +1,116 @@
+---
+/**
+ * O2 "Areas we serve" page layout. Anatomy differs from the O1 OmahaGuide template:
+ * a two-column page with an "area card" (county, health department, trash setup, housing age)
+ * beside the answer, a "who to call" table built from frontmatter, then the markdown body,
+ * questions, sources with checked dates and a changelog.
+ */
+import Base from "./Base.astro";
+const { frontmatter: fm } = Astro.props as { frontmatter: any };
+const path = `/areas/${fm.slug}`;
+const url = `https://omahamattresscleaning.com${path}`;
+const fmt = (d: string) => new Date(`${d}T12:00:00Z`).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" });
+const jsonld: object[] = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: fm.h1,
+    description: fm.description,
+    datePublished: fm.published,
+    dateModified: fm.updated ?? fm.published,
+    mainEntityOfPage: url,
+    about: { "@type": "Place", name: `${fm.name}, Nebraska` },
+    author: { "@type": "Organization", "@id": "https://sleepsanitation.com/#organization", name: "Sleep Sanitation" },
+    publisher: { "@type": "Organization", "@id": "https://sleepsanitation.com/#organization", name: "Sleep Sanitation" },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://omahamattresscleaning.com/" },
+      { "@type": "ListItem", position: 2, name: "Areas we serve", item: "https://omahamattresscleaning.com/areas" },
+      { "@type": "ListItem", position: 3, name: fm.name, item: url },
+    ],
+  },
+];
+if (fm.faq?.length) {
+  jsonld.push({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: fm.faq.map((f: any) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+  });
+}
+---
+<Base title={fm.title} description={fm.description} path={path} jsonld={jsonld}>
+  <style>
+    .area-wrap { display:grid; grid-template-columns: minmax(0,1fr); gap:2rem; }
+    @media (min-width: 960px) { .area-wrap { grid-template-columns: minmax(0,1fr) 320px; } .area-card { position:sticky; top:1.5rem; } }
+    .area-card { background:var(--charcoal); color:var(--cream); border-radius:var(--radius); padding:1.4rem 1.5rem; align-self:start; }
+    .area-card h2 { color:var(--gold); font-size:1rem; letter-spacing:.04em; text-transform:uppercase; margin:0 0 .8rem; }
+    .area-card dt { font-size:.8rem; text-transform:uppercase; letter-spacing:.05em; color:rgba(250,249,246,.6); margin-top:.9rem; }
+    .area-card dd { margin:.2rem 0 0; color:var(--cream); font-size:.95rem; line-height:1.5; }
+    .area-card a { color:var(--gold); text-decoration:underline; text-underline-offset:3px; }
+    .calls { width:100%; border-collapse:collapse; margin:1rem 0 2rem; font-size:.95rem; }
+    .calls th, .calls td { text-align:left; padding:.6rem .7rem; border-bottom:1px solid var(--line); vertical-align:top; }
+    .calls th { background:var(--cream-warm); }
+  </style>
+  <section class="section" style="padding-top:3rem;">
+    <div class="container">
+      <p style="font-size:0.9rem;"><a href="/">Home</a> › <a href="/areas">Areas we serve</a> › {fm.name}</p>
+      <div class="area-wrap">
+        <div class="prose">
+          <span class="eyebrow">{fm.county}</span>
+          <h1>{fm.h1}</h1>
+          <p class="lead">{fm.answer}</p>
+          <h2>Who to call in {fm.name}</h2>
+          <table class="calls">
+            <thead><tr><th>For</th><th>Who</th><th>Contact</th></tr></thead>
+            <tbody>
+              {fm.contacts.map((c: any) => (
+                <tr><td>{c.for}</td><td><a href={c.url} rel="noopener">{c.who}</a></td><td>{c.contact}</td></tr>
+              ))}
+            </tbody>
+          </table>
+          <slot />
+          {fm.faq?.length > 0 && (
+            <>
+              <h2>{fm.name} questions</h2>
+              {fm.faq.map((f: any) => (
+                <>
+                  <h3>{f.q}</h3>
+                  <p>{f.a}</p>
+                </>
+              ))}
+            </>
+          )}
+          <h2>Sources</h2>
+          <ul>
+            {fm.sources.map((s: any) => (
+              <li><a href={s.url} rel="noopener">{s.name}</a>, checked {fmt(s.checked)}</li>
+            ))}
+          </ul>
+          <h2>Changelog</h2>
+          <ul>
+            {fm.changelog.map((c: any) => (
+              <li>{fmt(c.date)}: {c.note}</li>
+            ))}
+          </ul>
+          <p class="note">Published {fmt(fm.published)}{fm.updated && fm.updated !== fm.published ? `, updated ${fmt(fm.updated)}` : ""}. Written by Omaha Mattress Cleaning, operated by Sleep Sanitation.</p>
+          <p><a class="btn btn-primary" href="/book">Book a {fm.name} appointment</a></p>
+        </div>
+        <aside class="area-card" aria-label={`${fm.name} at a glance`}>
+          <h2>{fm.name} at a glance</h2>
+          <dl style="margin:0;">
+            {fm.card.map((c: any) => (
+              <>
+                <dt>{c.label}</dt>
+                <dd>{c.value}{c.url && <> <a href={c.url} rel="noopener">source</a></>}</dd>
+              </>
+            ))}
+          </dl>
+          <p style="font-size:.8rem; color:rgba(250,249,246,.6); margin:1rem 0 0;">Checked {fmt(fm.checked)}.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+</Base>
