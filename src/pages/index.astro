@@ -1,281 +1,25 @@
 ---
-const title = "Omaha Mattress Cleaning & Sanitation | Premium Sleep Surface Care";
-const description = "Premium mattress cleaning and clinical mattress sanitation for Omaha, Elkhorn, Papillion, Lincoln, and the full Nebraska metro. White-glove sleep surface care by Sleep Sanitation. $249 first mattress; $199 during our Fall 2026 promotion.";
-const keywords = "omaha mattress cleaning, omaha mattress sanitation, mattress cleaning omaha ne, mattress sanitation omaha, elkhorn mattress cleaning, papillion mattress cleaning, lincoln mattress cleaning, premium mattress cleaning omaha, dry vapor steam omaha";
-const canonical = "https://omahamattresscleaning.com/";
-const ogImage = "https://images.unsplash.com/photo-1505693416388-b0346efee535?auto=format&fit=crop&w=1200&q=80";
+import Base from "../layouts/Base.astro";
+const business = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "@id": "https://omahamattresscleaning.com/#business",
+  "name": "Omaha Mattress Cleaning & Sanitation",
+  "url": "https://omahamattresscleaning.com",
+  "image": "https://images.unsplash.com/photo-1505693416388-b0346efee535?auto=format&fit=crop&w=1200&q=80",
+  "telephone": "+1-402-512-5658",
+  "email": "info@sleepsanitation.com",
+  "parentOrganization": { "@id": "https://sleepsanitation.com/#organization" },
+  "address": { "@type": "PostalAddress", "addressLocality": "Omaha", "addressRegion": "NE", "addressCountry": "US" },
+  "areaServed": ["Omaha","Elkhorn","Papillion","La Vista","Bellevue","Gretna","Ralston","Chalco","Bennington","Waterloo","Valley","Council Bluffs"].map((n) => ({ "@type": "City", "name": n })),
+  "serviceType": ["Mattress Cleaning","Mattress Sanitation","Dry Vapor Steam Mattress Treatment","Bed Mite Treatment","Pet Odor and Urine Treatment"],
+  "priceRange": "$$",
+  "openingHours": "Mo-Fr 09:00-18:00",
+  "openingHoursSpecification": { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "18:00" },
+  "makesOffer": { "@type": "Offer", "price": "199", "priceCurrency": "USD", "description": "First mattress, any size: limited-time Fall 2026 offer (regular price $249). Normal stains, pet odor and ordinary urine accidents included. Book another cleaning within 7 days of your service and it's also $199." }
+};
 ---
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{title}</title>
-  <meta name="description" content={description} />
-  <meta name="keywords" content={keywords} />
-  <meta name="robots" content="index, follow" />
-  <meta name="theme-color" content="#1a1a1a" />
-  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-  <link rel="canonical" href={canonical} />
-  <meta name="geo.region" content="US-NE" />
-  <meta name="geo.placename" content="Omaha" />
-  <meta name="geo.position" content="41.2565;-95.9345" />
-  <meta name="ICBM" content="41.2565, -95.9345" />
-
-  <meta property="og:title" content={title} />
-  <meta property="og:description" content={description} />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content={canonical} />
-  <meta property="og:image" content={ogImage} />
-
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={title} />
-  <meta name="twitter:description" content={description} />
-  <meta name="twitter:image" content={ogImage} />
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Omaha Mattress Cleaning & Sanitation",
-    "image": "https://images.unsplash.com/photo-1505693416388-b0346efee535?auto=format&fit=crop&w=1200&q=80",
-    "url": "https://omahamattresscleaning.com",
-    "telephone": "+1-402-512-5658",
-    "email": "info@sleepsanitation.com",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Omaha",
-      "addressRegion": "NE",
-      "addressCountry": "US"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 41.2565,
-      "longitude": -95.9345
-    },
-    "areaServed": [
-      {"@type": "City", "name": "Omaha"},
-      {"@type": "City", "name": "Elkhorn"},
-      {"@type": "City", "name": "Papillion"},
-      {"@type": "City", "name": "La Vista"},
-      {"@type": "City", "name": "Bellevue"},
-      {"@type": "City", "name": "Gretna"},
-      {"@type": "City", "name": "Ralston"},
-      {"@type": "City", "name": "Chalco"},
-      {"@type": "City", "name": "Bennington"},
-      {"@type": "City", "name": "Waterloo"},
-      {"@type": "City", "name": "Valley"},
-      {"@type": "City", "name": "Council Bluffs"},
-      {"@type": "City", "name": "Lincoln"}
-    ],
-    "serviceType": [
-      "Mattress Cleaning",
-      "Mattress Sanitation",
-      "Sleep Surface Care",
-      "Dry Vapor Steam Mattress Treatment",
-      "Dust Mite Treatment",
-      "Mattress Allergen",
-      "Mattress Allergies"
-    ],
-    "priceRange": "$$$",
-    "openingHours": "Mo-Fr 09:00-18:00",
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      "opens": "09:00",
-      "closes": "18:00"
-    }
-  }
-  </script>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "Omaha Mattress Cleaning & Sanitation",
-    "serviceType": "Mattress Sanitation",
-    "provider": {
-      "@type": "LocalBusiness",
-      "name": "Omaha Mattress Cleaning & Sanitation",
-      "url": "https://omahamattresscleaning.com"
-    },
-    "areaServed": {
-      "@type": "City",
-      "name": "Omaha"
-    },
-    "description": "Premium mattress cleaning and clinical mattress sanitation using controlled low-moisture dry vapor steam for the Omaha metro area.",
-    "offers": {
-      "@type": "Offer",
-      "price": "199",
-      "priceCurrency": "USD",
-      "description": "First mattress, any size: limited-time Fall 2026 offer (regular price $249). Normal stains, pet odor and ordinary urine accidents included. Book another cleaning within 7 days of your service and it's also $199."
-    }
-  }
-  </script>
-
-  <style is:global>
-    :root {
-      --charcoal: #1a1a1a;
-      --charcoal-light: #2a2a2a;
-      --cream: #faf9f6;
-      --cream-warm: #f3f1ec;
-      --gold: #c9a96e;
-      --gold-dark: #a88b52;
-      --stone: #6e6e6e;
-      --stone-light: #9a9a9a;
-      --line: #e0ddd6;
-      --white: #ffffff;
-      --shadow: 0 20px 50px rgba(26, 26, 26, 0.08);
-      --shadow-deep: 0 30px 70px rgba(26, 26, 26, 0.14);
-      --radius: 14px;
-      --radius-lg: 22px;
-      --max: 1160px;
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      color: var(--charcoal);
-      background: var(--cream);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    h1, h2, h3, h4 {
-      margin: 0 0 0.9rem;
-      font-family: Georgia, "Times New Roman", ui-serif, serif;
-      font-weight: 500;
-      line-height: 1.15;
-      letter-spacing: -0.02em;
-      color: var(--charcoal);
-    }
-
-    h1 { font-size: clamp(2.4rem, 5vw, 4.2rem); max-width: 16ch; }
-    h2 { font-size: clamp(1.9rem, 3.2vw, 2.8rem); max-width: 22ch; }
-    h3 { font-size: clamp(1.2rem, 1.8vw, 1.5rem); }
-    p { margin: 0 0 1.1rem; font-size: 1.05rem; color: var(--stone); }
-
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
-
-    .container {
-      width: min(var(--max), calc(100% - 2.5rem));
-      margin: 0 auto;
-    }
-
-    .section { padding: 5rem 0; }
-
-    .eyebrow {
-      display: inline-block;
-      padding: 0.35rem 0.8rem;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: var(--cream-warm);
-      color: var(--gold-dark);
-      font-size: 0.78rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      font-weight: 700;
-      font-family: ui-sans-serif, system-ui, sans-serif;
-      margin-bottom: 1.2rem;
-    }
-
-    .eyebrow.invert {
-      border-color: rgba(255,255,255,0.15);
-      background: rgba(255,255,255,0.06);
-      color: var(--gold);
-    }
-
-    .lead {
-      font-size: clamp(1.05rem, 1.4vw, 1.25rem);
-      color: var(--stone);
-      max-width: 60ch;
-    }
-
-    .btn-row {
-      display: flex;
-      gap: 0.8rem;
-      flex-wrap: wrap;
-      align-items: center;
-      margin-top: 1.8rem;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      padding: 0.9rem 1.6rem;
-      border-radius: 999px;
-      font-weight: 600;
-      font-size: 0.95rem;
-      transition: all 0.2s ease;
-      border: 1px solid transparent;
-      white-space: nowrap;
-      cursor: pointer;
-      font-family: ui-sans-serif, system-ui, sans-serif;
-    }
-
-    .btn-primary {
-      background: var(--charcoal);
-      color: var(--cream);
-      box-shadow: 0 10px 28px rgba(26,26,26,0.18);
-    }
-    .btn-primary:hover { background: #000; transform: translateY(-1px); }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--charcoal);
-      border-color: var(--line);
-    }
-    .btn-outline:hover { border-color: var(--stone-light); background: var(--cream-warm); }
-
-    .btn-invert {
-      background: var(--cream);
-      color: var(--charcoal);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-    }
-    .btn-invert:hover { transform: translateY(-1px); background: var(--white); }
-
-    @media (max-width: 640px) {
-      .btn-row { flex-direction: column; align-items: stretch; }
-      .btn { width: 100%; }
-    }
-  </style>
-</head>
-
-<body>
-
-  <!-- Navigation -->
-  <header style="position:sticky; top:0; z-index:1000; background:rgba(250,249,246,0.92); backdrop-filter:blur(14px); border-bottom:1px solid var(--line);">
-    <div class="container" style="display:flex; align-items:center; justify-content:space-between; min-height:72px; gap:1rem;">
-      <a href="https://sleepsanitation.com/schedule" style="display:flex; align-items:center; gap:0.7rem; min-width:0;">
-        <div style="width:38px; height:38px; border-radius:10px; background:var(--charcoal); display:grid; place-items:center; color:var(--gold); font-weight:700; font-size:0.9rem; flex-shrink:0;">O</div>
-        <div style="display:flex; flex-direction:column; min-width:0;">
-          <strong style="font-size:0.95rem; color:var(--charcoal); letter-spacing:-0.01em; white-space:nowrap;">Omaha Mattress Cleaning</strong>
-          <span style="font-size:0.78rem; color:var(--stone-light); white-space:nowrap;">& Sanitation</span>
-        </div>
-      </a>
-
-      <nav aria-label="Primary" style="display:flex; align-items:center; gap:1.4rem; flex-wrap:wrap;">
-        <a href="#upgrade" style="font-size:0.92rem; font-weight:600; color:var(--stone); display:none;" class="nav-link-desktop">The Upgrade</a>
-        <a href="#areas" style="font-size:0.92rem; font-weight:600; color:var(--stone); display:none;" class="nav-link-desktop">Omaha Areas</a>
-        <a href="#process" style="font-size:0.92rem; font-weight:600; color:var(--stone); display:none;" class="nav-link-desktop">Process</a>
-        <a href="#pricing" style="font-size:0.92rem; font-weight:600; color:var(--stone); display:none;" class="nav-link-desktop">Pricing</a>
-        <a href="#faq" style="font-size:0.92rem; font-weight:600; color:var(--stone); display:none;" class="nav-link-desktop">FAQ</a>
-        <a class="btn btn-primary" href="#book" style="padding:0.65rem 1.2rem; font-size:0.88rem;">Book Omaha Service</a>
-      </nav>
-    </div>
-    <style>
-      @media (min-width: 780px) { .nav-link-desktop { display:inline !important; } }
-    </style>
-  </header>
-
-  <main>
+<Base title="Omaha Mattress Cleaning & Sanitation | Dry Vapor Steam, Omaha Metro" description="Mattress cleaning and sanitation for Omaha, Elkhorn, Papillion, Bellevue and Council Bluffs. Low-moisture dry vapor steam, UV-C light treatment and HEPA vacuuming. $249 first mattress; $199 during our Fall 2026 promotion." path="/" jsonld={[business]}>
     <!-- Hero -->
     <section style="position:relative; overflow:hidden; background:linear-gradient(160deg, #1a1a1a 0%, #2d2d2d 100%); color:var(--cream); padding: 5.5rem 0 4.5rem;">
       <div style="position:absolute; inset:0; opacity:0.35; background:url('https://images.unsplash.com/photo-1505693416388-b0346efee535?auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;"></div>
@@ -286,14 +30,14 @@ const ogImage = "https://images.unsplash.com/photo-1505693416388-b0346efee535?au
           <span class="eyebrow invert">Premium In-Home Sleep Surface Care — Omaha Metro</span>
           <h1 style="color:var(--cream); max-width:14ch;">Omaha Mattress Cleaning, Elevated to Sanitation</h1>
           <p class="lead" style="color:rgba(250,249,246,0.82); max-width:52ch;">
-            Most Omaha mattress cleaning services use carpet equipment that soaks the mattress and causes mold. We treat your bed as the recovery surface it is—using low-moisture dry vapor steam and a white-glove protocol built for the surface you sleep on.
+            Carpet equipment can put a lot of water into a mattress. We treat your bed as the recovery surface it is—using low-moisture dry vapor steam and a white-glove protocol built for the surface you sleep on.
           </p>
 
           <div style="display:flex; gap:0.6rem; flex-wrap:wrap; margin: 1.4rem 0 0.2rem;">
             <span style="padding:0.5rem 0.85rem; border-radius:999px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); color:rgba(250,249,246,0.85); font-size:0.88rem; font-weight:600;">Serving Omaha</span>
             <span style="padding:0.5rem 0.85rem; border-radius:999px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); color:rgba(250,249,246,0.85); font-size:0.88rem; font-weight:600;">Elkhorn</span>
             <span style="padding:0.5rem 0.85rem; border-radius:999px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); color:rgba(250,249,246,0.85); font-size:0.88rem; font-weight:600;">Papillion</span>
-            <span style="padding:0.5rem 0.85rem; border-radius:999px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); color:rgba(250,249,246,0.85); font-size:0.88rem; font-weight:600;">Lincoln</span>
+            <span style="padding:0.5rem 0.85rem; border-radius:999px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); color:rgba(250,249,246,0.85); font-size:0.88rem; font-weight:600;">Bellevue</span>
           </div>
 
           <p role="note" style="margin:1.4rem 0 0; padding:0.9rem 1.1rem; border-radius:var(--radius); background:rgba(201,169,110,0.14); border:1px solid var(--gold); color:var(--cream); max-width:56ch; font-size:0.98rem; line-height:1.5;">
@@ -301,7 +45,7 @@ const ogImage = "https://images.unsplash.com/photo-1505693416388-b0346efee535?au
           </p>
 
           <div class="btn-row">
-            <a class="btn btn-invert" href="https://sleepsanitation.com/schedule">Reserve Your Omaha Appointment</a>
+            <a class="btn btn-invert" href="/book">Reserve Your Omaha Appointment</a>
             <a class="btn" style="background:rgba(255,255,255,0.05); color:var(--cream); border-color:rgba(255,255,255,0.15);" href="#upgrade">See the Difference</a>
           </div>
         </div>
@@ -331,7 +75,7 @@ const ogImage = "https://images.unsplash.com/photo-1505693416388-b0346efee535?au
         <span class="eyebrow">The Upgrade</span>
         <h2>Why Omaha Homeowners Move from Cleaning to Sanitation</h2>
         <p class="lead" style="max-width:65ch;">
-          In the Omaha metro, "mattress cleaning" usually means a carpet cleaner with an upholstery wand and a bottle of spot treatment. That mindset treats your bed like a floor. We treat it like the most important surface in your home.
+          In the Omaha metro, "mattress cleaning" can mean a carpet cleaner with an upholstery wand and a bottle of spot treatment. That mindset treats your bed like a floor. We treat it like the most important surface in your home.
         </p>
 
         <div style="margin-top:2.5rem; overflow:hidden; border-radius:var(--radius-lg); border:1px solid var(--line); background:var(--white); box-shadow:var(--shadow);">
@@ -393,63 +137,63 @@ const ogImage = "https://images.unsplash.com/photo-1505693416388-b0346efee535?au
         <span class="eyebrow">Local Coverage</span>
         <h2>Where We Work in the Omaha Metro</h2>
         <p class="lead" style="max-width:60ch;">
-          We travel with our white-glove setup throughout the Omaha–Council Bluffs metro, the I-80 corridor, and Lincoln. If you are within the service radius, we bring the same premium standard to your door.
+          We travel with our white-glove setup throughout the Omaha–Council Bluffs metro. If you are within the service radius, we bring the same premium standard to your door.
         </p>
 
         <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:1rem; margin-top:2.5rem;">
-          <a href="#book" style="background:var(--white); border:1px solid var(--line); border-radius:var(--radius); padding:1.2rem 1.3rem; box-shadow:var(--shadow); transition:0.2s; display:block;">
+          <a href="/book" style="background:var(--white); border:1px solid var(--line); border-radius:var(--radius); padding:1.2rem 1.3rem; box-shadow:var(--shadow); transition:0.2s; display:block;">
             <h4 style="margin:0 0 0.3rem; font-size:1.05rem;">Dundee</h4>
             <p style="margin:0; font-size:0.9rem; color:var(--stone-light);">Historic homes, premium care</p>
           </a>
-          <a href="#book" style="background:var(--white); border:1px solid var(--line); border-radius:var(--radius); padding:1.2rem 1.3rem; box-shadow:var(--shadow); transition:0.2s; display:block;">
+          <a href="/book" style="background:var(--white); border:1px solid var(--line); border-radius:var(--radius); padding:1.2rem 1.3rem; box-shadow:var(--shadow); transition:0.2s; display:block;">
             <h4 style="margin:0 0 0.3rem; font-size:1.05rem;">Aksarben Village</h4>
             <p style="margin:0; font-size:0.9rem; color:var(--stone-light);">Midtown modern living</p>
           </a>
-          <a href="#book" style="background:var(--white); border:1px solid var(--line); border-radius:var(--radius); padding:1.2rem 1.3rem; box-shadow:var(--shadow); transition:0.2s; display:block;">
+          <a href="/book" style="background:var(--white); border:1px solid var(--line); border-radius:var(--radius); padding:1.2rem 1.3rem; box-shadow:var(--shadow); transition:0.2s; display:block;">
             <h4 style="margin:0 0 0.3rem; font-size:1.05rem;">Blackstone District</h4>
             <p style="margin:0; font-size:0.9rem; color:var(--stone-light);">Design-forward residences</p>
           </a>
-          <a href="#book" style="background:var(--white); border:1px solid var(--line); border-radius:var(--radius); padding:1.2rem 1.3rem; box-shadow:var(--shadow); transition:0.2s; display:block;">
+          <a href="/book" style="background:var(--white); border:1px solid var(--line); border-radius:var(--radius); padding:1.2rem 1.3rem; box-shadow:var(--shadow); transition:0.2s; display:block;">
             <h4 style="margin:0 0 0.3rem; font-size:1.05rem;">West Omaha</h4>
             <p style="margin:0; font-size:0.9rem; color:var(--stone-light);">Family homes & estates</p>
           </a>
-          <a href="#book" style="background:var(--white); border:1px solid var(--line); border-radius:var(--radius); padding:1.2rem 1.3rem; box-shadow:var(--shadow); transition:0.2s; display:block;">
+          <a href="/book" style="background:var(--white); border:1px solid var(--line); border-radius:var(--radius); padding:1.2rem 1.3rem; box-shadow:var(--shadow); transition:0.2s; display:block;">
             <h4 style="margin:0 0 0.3rem; font-size:1.05rem;">Elkhorn</h4>
             <p style="margin:0; font-size:0.9rem; color:var(--stone-light);">Fast-growing western edge</p>
           </a>
-          <a href="#book" style="background:var(--white); border:1px solid var(--line); border-radius:var(--radius); padding:1.2rem 1.3rem; box-shadow:var(--shadow); transition:0.2s; display:block;">
+          <a href="/book" style="background:var(--white); border:1px solid var(--line); border-radius:var(--radius); padding:1.2rem 1.3rem; box-shadow:var(--shadow); transition:0.2s; display:block;">
             <h4 style="margin:0 0 0.3rem; font-size:1.05rem;">Papillion</h4>
             <p style="margin:0; font-size:0.9rem; color:var(--stone-light);">Suburban sleep environments</p>
           </a>
-          <a href="#book" style="background:var(--white); border:1px solid var(--line); border-radius:var(--radius); padding:1.2rem 1.3rem; box-shadow:var(--shadow); transition:0.2s; display:block;">
+          <a href="/book" style="background:var(--white); border:1px solid var(--line); border-radius:var(--radius); padding:1.2rem 1.3rem; box-shadow:var(--shadow); transition:0.2s; display:block;">
             <h4 style="margin:0 0 0.3rem; font-size:1.05rem;">La Vista</h4>
             <p style="margin:0; font-size:0.9rem; color:var(--stone-light);">South metro coverage</p>
           </a>
-          <a href="#book" style="background:var(--white); border:1px solid var(--line); border-radius:var(--radius); padding:1.2rem 1.3rem; box-shadow:var(--shadow); transition:0.2s; display:block;">
+          <a href="/book" style="background:var(--white); border:1px solid var(--line); border-radius:var(--radius); padding:1.2rem 1.3rem; box-shadow:var(--shadow); transition:0.2s; display:block;">
             <h4 style="margin:0 0 0.3rem; font-size:1.05rem;">Ralston</h4>
             <p style="margin:0; font-size:0.9rem; color:var(--stone-light);">Close-knit community homes</p>
           </a>
-          <a href="#book" style="background:var(--white); border:1px solid var(--line); border-radius:var(--radius); padding:1.2rem 1.3rem; box-shadow:var(--shadow); transition:0.2s; display:block;">
+          <a href="/book" style="background:var(--white); border:1px solid var(--line); border-radius:var(--radius); padding:1.2rem 1.3rem; box-shadow:var(--shadow); transition:0.2s; display:block;">
             <h4 style="margin:0 0 0.3rem; font-size:1.05rem;">Bellevue</h4>
             <p style="margin:0; font-size:0.9rem; color:var(--stone-light);">Offutt corridor & east metro</p>
           </a>
-          <a href="#book" style="background:var(--white); border:1px solid var(--line); border-radius:var(--radius); padding:1.2rem 1.3rem; box-shadow:var(--shadow); transition:0.2s; display:block;">
+          <a href="/book" style="background:var(--white); border:1px solid var(--line); border-radius:var(--radius); padding:1.2rem 1.3rem; box-shadow:var(--shadow); transition:0.2s; display:block;">
             <h4 style="margin:0 0 0.3rem; font-size:1.05rem;">Gretna</h4>
             <p style="margin:0; font-size:0.9rem; color:var(--stone-light);">Southwest corridor estates</p>
           </a>
-          <a href="#book" style="background:var(--white); border:1px solid var(--line); border-radius:var(--radius); padding:1.2rem 1.3rem; box-shadow:var(--shadow); transition:0.2s; display:block;">
+          <a href="/book" style="background:var(--white); border:1px solid var(--line); border-radius:var(--radius); padding:1.2rem 1.3rem; box-shadow:var(--shadow); transition:0.2s; display:block;">
             <h4 style="margin:0 0 0.3rem; font-size:1.05rem;">Bennington</h4>
             <p style="margin:0; font-size:0.9rem; color:var(--stone-light);">Northwest rural luxury</p>
           </a>
-          <a href="#book" style="background:var(--white); border:1px solid var(--line); border-radius:var(--radius); padding:1.2rem 1.3rem; box-shadow:var(--shadow); transition:0.2s; display:block;">
-            <h4 style="margin:0 0 0.3rem; font-size:1.05rem;">Lincoln</h4>
-            <p style="margin:0; font-size:0.9rem; color:var(--stone-light);">I-80 corridor appointments</p>
+          <a href="/book" style="background:var(--white); border:1px solid var(--line); border-radius:var(--radius); padding:1.2rem 1.3rem; box-shadow:var(--shadow); transition:0.2s; display:block;">
+            <h4 style="margin:0 0 0.3rem; font-size:1.05rem;">Council Bluffs</h4>
+            <p style="margin:0; font-size:0.9rem; color:var(--stone-light);">Across the river in Iowa</p>
           </a>
         </div>
 
         <div style="margin-top:2rem; padding:1.2rem 1.5rem; background:var(--white); border:1px solid var(--line); border-radius:var(--radius); display:flex; align-items:center; gap:1rem; flex-wrap:wrap;">
           <div style="width:32px; height:32px; border-radius:50%; background:var(--cream-warm); display:grid; place-items:center; color:var(--gold-dark); font-weight:700; font-size:0.85rem; flex-shrink:0;">?</div>
-          <p style="margin:0; font-size:0.98rem; color:var(--stone);">Not sure if your address is in our radius? <a href="#book" style="color:var(--charcoal); font-weight:600; text-decoration:underline; text-underline-offset:3px;">Send us your location</a> and we will confirm availability.</p>
+          <p style="margin:0; font-size:0.98rem; color:var(--stone);">Not sure if your address is in our radius? <a href="/book" style="color:var(--charcoal); font-weight:600; text-decoration:underline; text-underline-offset:3px;">Send us your location</a> and we will confirm availability.</p>
         </div>
       </div>
       <style>
@@ -475,7 +219,7 @@ const ogImage = "https://images.unsplash.com/photo-1505693416388-b0346efee535?au
           <div style="position:relative; background:var(--white); border:1px solid var(--line); border-radius:var(--radius-lg); padding:2rem 1.8rem; box-shadow:var(--shadow);">
             <div style="position:absolute; top:-16px; left:1.8rem; width:48px; height:48px; border-radius:50%; background:var(--charcoal); color:var(--gold); display:grid; place-items:center; font-weight:700; font-size:1.1rem; box-shadow:0 6px 18px rgba(0,0,0,0.18);">1</div>
             <h3 style="margin-top:1.2rem; margin-bottom:0.7rem;">Assessment & Containment</h3>
-            <p style="font-size:0.98rem; margin:0;">We inspect fabric condition, mattress construction, and the surrounding bedroom environment. Boot covers go on. Tools are staged cleanly. Your home is protected before treatment begins.</p>
+            <p style="font-size:0.98rem; margin:0;">We inspect fabric condition, mattress construction, and the surrounding bedroom environment. Technicians wear gloves and shoe booties, and equipment is disinfected between jobs. Tools are staged cleanly. Your home is protected before treatment begins.</p>
           </div>
           <div style="position:relative; background:var(--white); border:1px solid var(--line); border-radius:var(--radius-lg); padding:2rem 1.8rem; box-shadow:var(--shadow);">
             <div style="position:absolute; top:-16px; left:1.8rem; width:48px; height:48px; border-radius:50%; background:var(--charcoal); color:var(--gold); display:grid; place-items:center; font-weight:700; font-size:1.1rem; box-shadow:0 6px 18px rgba(0,0,0,0.18);">2</div>
@@ -500,9 +244,9 @@ const ogImage = "https://images.unsplash.com/photo-1505693416388-b0346efee535?au
     <section style="background:var(--charcoal); color:var(--cream); padding: 5rem 0;">
       <div class="container">
         <span class="eyebrow invert">Premium Positioning</span>
-        <h2 style="color:var(--cream);">The Most Disciplined Mattress Service in the Metro</h2>
+        <h2 style="color:var(--cream);">A Disciplined Mattress Service for the Metro</h2>
         <p style="color:rgba(250,249,246,0.75); max-width:60ch; font-size:1.08rem;">
-          We are not the cheapest mattress cleaning option in Omaha. We are the most thorough. That distinction matters when you consider how many hours you spend on that surface—and what ordinary methods leave behind.
+          We are not the cheapest mattress cleaning option in Omaha. We are thorough. That distinction matters when you consider how many hours you spend on that surface—and what ordinary methods leave behind.
         </p>
 
         <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:1.2rem; margin-top:2.5rem;">
@@ -583,10 +327,10 @@ const ogImage = "https://images.unsplash.com/photo-1505693416388-b0346efee535?au
             <tbody>
               <tr style="border-top:1px solid var(--line);"><td style="padding:0.85rem 1.2rem;"><strong>Mattress Sanitation, first mattress</strong></td><td style="padding:0.85rem 1.2rem; text-align:right; white-space:nowrap;"><strong><span style="position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap;">Regular price $249, now $199 (limited-time offer)</span><span aria-hidden="true"><s style="font-weight:400; color:var(--stone);">$249</s> $199 (limited-time offer)</span></strong></td></tr>
               <tr style="border-top:1px solid var(--line);"><td style="padding:0.85rem 1.2rem;">Professional inspection: we identify the mattress materials and choose the steam setting and pass speed</td><td style="padding:0.85rem 1.2rem; text-align:right; white-space:nowrap;">Included</td></tr>
-              <tr style="border-top:1px solid var(--line);"><td style="padding:0.85rem 1.2rem;">Clean-entry setup (boot covers, staged tools)</td><td style="padding:0.85rem 1.2rem; text-align:right; white-space:nowrap;">Included</td></tr>
+              <tr style="border-top:1px solid var(--line);"><td style="padding:0.85rem 1.2rem;">Clean-entry setup (gloves, shoe booties, staged tools; equipment disinfected between jobs)</td><td style="padding:0.85rem 1.2rem; text-align:right; white-space:nowrap;">Included</td></tr>
               <tr style="border-top:1px solid var(--line);"><td style="padding:0.85rem 1.2rem;">Dry-vapor sanitation</td><td style="padding:0.85rem 1.2rem; text-align:right; white-space:nowrap;">Included</td></tr>
-              <tr style="border-top:1px solid var(--line);"><td style="padding:0.85rem 1.2rem;">Dry-vapor steaming of seams, tufts, ridges and edges, where dust mites hide</td><td style="padding:0.85rem 1.2rem; text-align:right; white-space:nowrap;">Included</td></tr>
-              <tr style="border-top:1px solid var(--line);"><td style="padding:0.85rem 1.2rem;">UV-C / HEPA protocol</td><td style="padding:0.85rem 1.2rem; text-align:right; white-space:nowrap;">Included</td></tr>
+              <tr style="border-top:1px solid var(--line);"><td style="padding:0.85rem 1.2rem;">Dry-vapor steaming of seams, tufts, ridges and edges, where dust and shed skin flakes collect</td><td style="padding:0.85rem 1.2rem; text-align:right; white-space:nowrap;">Included</td></tr>
+              <tr style="border-top:1px solid var(--line);"><td style="padding:0.85rem 1.2rem;">UV-C light treatment and HEPA vacuuming</td><td style="padding:0.85rem 1.2rem; text-align:right; white-space:nowrap;">Included</td></tr>
               <tr style="border-top:1px solid var(--line);"><td style="padding:0.85rem 1.2rem;">Room reset when we finish</td><td style="padding:0.85rem 1.2rem; text-align:right; white-space:nowrap;">Included</td></tr>
               <tr style="border-top:1px solid var(--line);"><td style="padding:0.85rem 1.2rem;">Normal stain treatment</td><td style="padding:0.85rem 1.2rem; text-align:right; white-space:nowrap;">Included</td></tr>
               <tr style="border-top:1px solid var(--line);"><td style="padding:0.85rem 1.2rem;">Pet odor treatment</td><td style="padding:0.85rem 1.2rem; text-align:right; white-space:nowrap;">Included</td></tr>
@@ -601,7 +345,7 @@ const ogImage = "https://images.unsplash.com/photo-1505693416388-b0346efee535?au
           </table>
           <p style="margin:0; padding:0.85rem 1.2rem; border-top:1px solid var(--line); font-size:0.92rem; color:var(--stone);">The regular first-mattress price is $249. It's $199 for a limited time.</p>
         </div>
-        <p style="color:var(--stone); margin-top:1rem; max-width:62ch;">Severe, biohazard or extensive contamination is quoted after we see the mattress. Full price list at <a href="https://sleepsanitation.com/pricing" style="color:var(--charcoal); font-weight:600; text-decoration:underline; text-underline-offset:3px;">sleepsanitation.com/pricing</a>.</p>
+        <p style="color:var(--stone); margin-top:1rem; max-width:62ch;">Severe, biohazard or extensive contamination is quoted after we see the mattress. Full price list on <a href="https://sleepsanitation.com/pricing" style="color:var(--charcoal); font-weight:600; text-decoration:underline; text-underline-offset:3px;">Sleep Sanitation's pricing page</a>.</p>
       </div>
     </section>
 
@@ -618,7 +362,7 @@ const ogImage = "https://images.unsplash.com/photo-1505693416388-b0346efee535?au
               <span style="position:absolute; right:1.3rem; top:50%; transform:translateY(-50%); color:var(--gold-dark); font-size:1.3rem;">+</span>
             </summary>
             <div style="padding: 0 1.4rem 1.3rem; color:var(--stone); font-size:0.98rem; line-height:1.6;">
-              Yes. We actively serve West Omaha, Elkhorn, Papillion, La Vista, and the full Sarpy County corridor. We also travel to Lincoln along the I-80 corridor and throughout Douglas County. If you are unsure whether your address falls within our routing, <a href="#book" style="color:var(--charcoal); font-weight:600; text-decoration:underline; text-underline-offset:3px;">send us your location</a> and we will confirm.
+              Yes. We serve West Omaha, Elkhorn, Papillion, La Vista, Bellevue and the rest of Douglas and Sarpy counties, plus Council Bluffs. If you are unsure whether your address falls within our routing, <a href="/book" style="color:var(--charcoal); font-weight:600; text-decoration:underline; text-underline-offset:3px;">send us your location</a> and we will confirm.
             </div>
           </details>
 
@@ -638,17 +382,17 @@ const ogImage = "https://images.unsplash.com/photo-1505693416388-b0346efee535?au
               <span style="position:absolute; right:1.3rem; top:50%; transform:translateY(-50%); color:var(--gold-dark); font-size:1.3rem;">+</span>
             </summary>
             <div style="padding: 0 1.4rem 1.3rem; color:var(--stone); font-size:0.98rem; line-height:1.6;">
-              Because we use a low-moisture dry vapor steam methodology rather than hot-water extraction, dry times are significantly shorter. Most Omaha customers find the mattress is ready for normal use the same evening. Factors like humidity, mattress thickness, and bedroom ventilation can affect this slightly, but our protocol is specifically designed to avoid the 24–48 hour dry windows common with standard cleaning.
+              Dry vapor steam puts far less liquid water into a mattress than hot-water extraction, so there is less to dry. Humidity, mattress thickness and bedroom airflow all change the time, and we tell you what to expect for your bed at the visit. Sleep Sanitation's guide to <a href="https://sleepsanitation.com/knowledge-center/mattress-moisture-heat-drying-construction/how-quickly-should-a-treated-mattress-dry" style="color:var(--charcoal); font-weight:600; text-decoration:underline; text-underline-offset:3px;">how quickly a treated mattress should dry</a> has the detail.
             </div>
           </details>
 
           <details style="background:var(--white); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden;">
             <summary style="list-style:none; cursor:pointer; padding:1.2rem 1.4rem; font-weight:600; font-size:1.02rem; position:relative; color:var(--charcoal);">
-              Is your service safe for memory foam, latex, and hybrid mattresses?
+              Can you treat memory foam, latex and hybrid mattresses?
               <span style="position:absolute; right:1.3rem; top:50%; transform:translateY(-50%); color:var(--gold-dark); font-size:1.3rem;">+</span>
             </summary>
             <div style="padding: 0 1.4rem 1.3rem; color:var(--stone); font-size:0.98rem; line-height:1.6;">
-              Yes. Our controlled dry vapor steam process is designed with modern mattress construction in mind. Memory foam and latex are particularly sensitive to saturation, which is why we avoid the high-moisture extraction methods used in carpet cleaning. We assess fabric and construction type during our initial inspection to ensure the treatment matches the material.
+              Yes. Memory foam and latex are sensitive to soaking, which is why we avoid high-moisture extraction. We inspect the fabric and construction first and set steam temperature and pass speed for that material. Your care label and warranty terms still come first, so check them before booking.
             </div>
           </details>
 
@@ -674,11 +418,11 @@ const ogImage = "https://images.unsplash.com/photo-1505693416388-b0346efee535?au
 
           <details style="background:var(--white); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden;">
             <summary style="list-style:none; cursor:pointer; padding:1.2rem 1.4rem; font-weight:600; font-size:1.02rem; position:relative; color:var(--charcoal);">
-              Do you treat bed mites and allergens?
+              Do you treat bed mites?
               <span style="position:absolute; right:1.3rem; top:50%; transform:translateY(-50%); color:var(--gold-dark); font-size:1.3rem;">+</span>
             </summary>
             <div style="padding: 0 1.4rem 1.3rem; color:var(--stone); font-size:0.98rem; line-height:1.6;">
-              Our sanitation protocol targets the zones where dust, skin cells, and mite-related debris accumulate: seams, edges, quilting, and high-contact sleep surfaces. We do not claim to cure allergies or asthma, but we do provide a professional reduction of the allergen reservoirs that build up in mattresses over time. For households in Omaha with sensitive sleepers, this discipline often makes a noticeable difference in air quality and comfort.
+              Yes. Bed mites (house dust mites) live in the dust and shed skin flakes that collect in seams, tufts and edges, and our dry vapor steam uses heat to kill them there. Published steam tests back the heat effect: Glass and Needham (2004) reported 100 percent mortality of D. farinae after a 96°C steam cleaner on carpet and mattress samples, and Colloff and colleagues (1995) found no live mites in steamed, lab-seeded carpet squares over four months. Those were study conditions, not your bedroom. Dead mites and droppings still need removing, so we HEPA vacuum too. We make no allergy or asthma claim. Sleep Sanitation's <a href="https://sleepsanitation.com/knowledge-center/mattress-dust-mites-allergens/does-steam-kill-dust-mites-in-mattresses" style="color:var(--charcoal); font-weight:600; text-decoration:underline; text-underline-offset:3px;">steam and dust mite review</a> covers both studies. <em>General information, not medical advice.</em>
             </div>
           </details>
         </div>
@@ -695,13 +439,13 @@ const ogImage = "https://images.unsplash.com/photo-1505693416388-b0346efee535?au
           <span class="eyebrow invert">Reserve Now</span>
           <h2 style="color:var(--cream); max-width:18ch;">Bring a Higher Standard to Your Omaha Bedroom</h2>
           <p style="color:rgba(250,249,246,0.75); max-width:55ch; font-size:1.08rem;">
-            Whether you are in Dundee, Elkhorn, Papillion, or Lincoln, we bring the same white-glove discipline to your door. Book your mattress sanitation appointment and experience the difference between a carpet-cleaning add-on and a sleep-surface protocol.
+            Whether you are in Dundee, Elkhorn, Papillion or Bellevue, we bring the same white-glove discipline to your door. Book your mattress sanitation appointment and experience the difference between a carpet-cleaning add-on and a sleep-surface protocol.
           </p>
           <p role="note" style="margin:0 0 1rem; padding:0.9rem 1.1rem; border-radius:var(--radius); background:rgba(201,169,110,0.14); border:1px solid var(--gold); color:var(--cream); max-width:55ch; font-size:0.98rem; line-height:1.5;">
             <strong>Fall 2026 promotion:</strong> your first mattress is $199 (regular $249). Any additional cleaning scheduled within 7 days of your first service is also $199, so you can see our work first.
           </p>
           <div class="btn-row">
-            <a class="btn btn-invert" href="https://sleepsanitation.com/schedule">Book Omaha Service</a>
+            <a class="btn btn-invert" href="/book">Book Omaha Service</a>
             <a class="btn" style="background:rgba(255,255,255,0.05); color:var(--cream); border-color:rgba(255,255,255,0.15);" href="tel:+14025125658">Call (402) 512-5658</a>
           </div>
           <p style="color:rgba(250,249,246,0.75); margin:1.2rem 0 0; font-size:0.97rem;">Hours: Monday–Friday, 9am–6pm</p>
@@ -721,7 +465,7 @@ const ogImage = "https://images.unsplash.com/photo-1505693416388-b0346efee535?au
             </div>
             <div style="display:flex; gap:0.8rem; align-items:center;">
               <div style="width:32px; height:32px; border-radius:50%; background:rgba(201,169,110,0.15); color:var(--gold); display:grid; place-items:center; font-weight:700; font-size:0.85rem; flex-shrink:0;">3</div>
-              <p style="margin:0; color:rgba(250,249,246,0.8); font-size:0.97rem;">White-glove service, low-moisture treatment, same-day recovery</p>
+              <p style="margin:0; color:rgba(250,249,246,0.8); font-size:0.97rem;">Gloves and shoe booties on, low-moisture treatment, room reset</p>
             </div>
           </div>
         </div>
@@ -733,36 +477,4 @@ const ogImage = "https://images.unsplash.com/photo-1505693416388-b0346efee535?au
         }
       </style>
     </section>
-  </main>
-
-  <!-- Footer -->
-  <footer style="background:#111; color:rgba(250,249,246,0.55); padding: 2.2rem 0; border-top:1px solid rgba(255,255,255,0.06);">
-    <div class="container" style="display:flex; justify-content:space-between; gap:1.5rem; flex-wrap:wrap; align-items:center;">
-      <div>
-        <div style="font-weight:600; color:rgba(250,249,246,0.85); margin-bottom:0.3rem;">Omaha Mattress Cleaning & Sanitation</div>
-        <div style="font-size:0.88rem;">A Sleep Sanitation Company · Premium Sleep Surface Care</div>
-        <div style="font-size:0.88rem; margin-top:0.3rem;">Monday–Friday, 9am–6pm · Missed calls returned Saturday and Sunday too</div>
-      </div>
-      <div style="display:flex; gap:1.2rem; flex-wrap:wrap;">
-        <a href="/privacy-policy" style="font-size:0.92rem; color:rgba(250,249,246,0.55);">Privacy Policy</a>
-        <a href="/terms-of-service" style="font-size:0.92rem; color:rgba(250,249,246,0.55);">Terms of Service</a>
-        <a href="/contact-us" style="font-size:0.92rem; color:rgba(250,249,246,0.55);">Contact</a>
-        <a href="mailto:info@sleepsanitation.com" style="font-size:0.92rem; color:rgba(250,249,246,0.55);">Email Us</a>
-      </div>
-    </div>
-    <div class="container" style="margin-top:1.2rem; padding-top:1.2rem; border-top:1px solid rgba(255,255,255,0.06); font-size:0.85rem; color:rgba(250,249,246,0.4);">
-      © {new Date().getFullYear()} Sleep Sanitation. All rights reserved. Serving the Omaha–Council Bluffs metro and Lincoln, Nebraska.
-    </div>
-  </footer>
-
-  <script>
-    // Simple details animation helper for consistent +/- states
-    document.querySelectorAll('details').forEach(d => {
-      d.addEventListener('toggle', () => {
-        const marker = d.querySelector('summary span');
-        if (marker) marker.textContent = d.open ? '−' : '+';
-      });
-    });
-  </script>
-</body>
-</html>
+</Base>
