@@ -65,7 +65,7 @@ Averages of NOAA's 1991 to 2020 hourly normals for Eppley Airfield, rounded. The
 
 ## Basement guest room calendar for Omaha
 
-- **June, when Eppley's average dew point reaches 61°F:** put a hygrometer in the basement guest room and write down the reading. The EPA's line is 60 percent relative humidity.
+- **June, when Eppley's average dew point reaches 61°F:** put a hygrometer in the basement guest room and write down the humidity. The EPA's line is 60 percent relative humidity.
 - **July, the peak at 66°F:** keep a closed basement room's door open or the air moving between guests, and run a dehumidifier whenever the hygrometer reads above 60 percent.
 - **August, still 64°F and the second wettest month at Eppley (4.60 in):** leave the dehumidifier running; August rain nearly matches May's 4.66 in.
 - **October, when the dew point has fallen to 41°F:** check the underside of the mattress for spots or a musty smell, and if it sits directly on a slab floor, lift it onto a frame or foundation.
