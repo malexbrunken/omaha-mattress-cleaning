@@ -6,6 +6,7 @@
  * numbered questions, then a claim-by-claim source table and a changelog.
  */
 import Base from "./Base.astro";
+import { guideLastmod } from "../lib/lastmod";
 import { PHONE } from "../lib/founder";
 const { frontmatter: fm } = Astro.props as { frontmatter: any };
 const path = `/airbnb-hosts/${fm.slug}`;
@@ -18,7 +19,7 @@ const jsonld: object[] = [
     headline: fm.h1,
     description: fm.description,
     datePublished: fm.published,
-    dateModified: fm.updated ?? fm.published,
+    dateModified: guideLastmod(fm, "HostBrief"),
     mainEntityOfPage: url,
     author: { "@type": "LocalBusiness", "@id": "https://sleepsanitation.com/#business", name: "Sleep Sanitation" },
     publisher: { "@type": "LocalBusiness", "@id": "https://sleepsanitation.com/#business", name: "Sleep Sanitation" },
