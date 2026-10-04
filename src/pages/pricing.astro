@@ -36,7 +36,7 @@ const included = [
   ["Inspection form", "Notes material, special care notes and any urine or odor observations, and you get a copy."],
   ["Gloves and shoe booties", "Our technicians wear both in your home."],
   ["Equipment disinfected between jobs", "Tools are cleaned and disinfected before they come into the next home."],
-  ["Bedroom CO₂ check and dust mite (bed mite) sensor", "A bedroom CO₂ check during the visit and the built-in sensor on our UV-C vacuum. These are checks, not lab results."],
+  ["Dust mite (bed mite) sensor", "The built-in sensor on our UV-C vacuum. It is a check, not a lab result."],
 ];
 
 const faq = [
@@ -45,7 +45,7 @@ const faq = [
   { q: "Is urine or pet odor treatment extra?", a: `No. Normal stains, pet odor and ordinary urine accidents are included, with enzyme treatment for urine and organic odor. Severe or biohazard urine or odor carries a surcharge, and we quote it before starting.` },
   { q: "What does the underside add-on cost?", a: `The standard visit covers the sleep surface, seams and edges. Treating the underside as well adds ${usd(P.underside.min)} to ${usd(P.underside.max)} per mattress, depending on the mattress.` },
   { q: "When can we use the bed again?", a: "The bed stays unmade until it is dry to the touch, and we run a moisture check after service before we leave." },
-  { q: "Do you offer 72-hour bedroom CO₂ testing?", a: `Yes, as an optional add-on. Ask for a quote when you book; call or text ${PHONE}.` },
+  { q: "Is the 72-hour bedroom CO₂ test included?", a: `No. It is a separate optional service: book it on its own or add it to a mattress visit. It is priced by quote and it isn't a medical test. Call or text ${PHONE}.` },
   { q: "Can wet cleaning affect my mattress warranty?", a: "Wet extraction or hot-water carpet cleaning can void some mattress warranties. Read your care label and warranty terms before any cleaning, ours included." },
   ...(PROMO.active ? [{ q: "Is there a current offer?", a: `Yes. During the ${PROMO.label}, the first mattress is ${priceText.promoFirst} instead of ${priceText.first}. ${priceText.promoFollowUp}` }] : []),
 ];
@@ -61,7 +61,7 @@ const offers: object[] = [
   { "@type": "Offer", name: "Underside treatment add-on, per mattress", priceCurrency: "USD", url: URL_,
     priceSpecification: { "@type": "PriceSpecification", minPrice: String(P.underside.min), maxPrice: String(P.underside.max), priceCurrency: "USD" } },
   { "@type": "Offer", name: "Severe or biohazard urine or odor surcharge", description: "Custom surcharge, quoted before we start.", url: URL_ },
-  { "@type": "Offer", name: "72-hour bedroom CO₂ testing add-on", description: "Optional. Ask for a quote.", url: URL_ },
+  { "@type": "Offer", name: "72-hour bedroom CO₂ test (optional add-on, not included)", description: "Separate optional service, booked on its own or added to a mattress visit. Priced by quote. Not a medical test.", url: URL_ },
 ];
 if (PROMO.active) {
   offers.push({
@@ -188,12 +188,12 @@ const description = `Mattress sanitation price in Omaha: ${priceText.first} firs
       <h2 id="included">What's included in the price?</h2>
       <div class="tbl">
         <table class="rates">
-          <caption>Included in every visit unless marked as an add-on.</caption>
+          <caption>Included in every visit, except the rows marked as optional add-ons.</caption>
           <thead><tr><th scope="col">What you get</th><th scope="col">Details</th><th scope="col" class="num">Price</th></tr></thead>
           <tbody>
             {included.map(([k, v]) => <tr><th scope="row">{k}</th><td>{v}</td><td class="num">Included</td></tr>)}
             <tr><th scope="row">Underside treatment (add-on)</th><td>The underside as well as the sleep surface, seams and edges.</td><td class="num">{priceText.underside} per mattress</td></tr>
-            <tr><th scope="row">72-hour bedroom CO₂ testing (optional add-on)</th><td>Bedroom CO₂ measured over 72 hours.</td><td class="num">Ask for a quote</td></tr>
+            <tr><th scope="row">72-hour bedroom CO₂ test (optional add-on, not included)</th><td>Booked on its own or added to a mattress visit. Not a medical test.</td><td class="num">Priced by quote</td></tr>
           </tbody>
         </table>
       </div>
@@ -203,7 +203,7 @@ const description = `Mattress sanitation price in Omaha: ${priceText.first} firs
       <ul>
         <li><strong>Underside add-on:</strong> {priceText.underside} per mattress, if you want the underside treated too.</li>
         <li><strong>Severe or biohazard urine or odor:</strong> a surcharge, quoted after we see the mattress and before starting. Ordinary urine accidents are not extra.</li>
-        <li><strong>72-hour bedroom CO₂ testing:</strong> optional; ask for a quote.</li>
+        <li><strong>72-hour bedroom CO₂ test:</strong> not included; an optional service booked on its own or added to a visit, priced by quote. It isn't a medical test.</li>
       </ul>
       <p>Mattress size does not change the first-mattress price.</p>
       <blockquote class="pull"><p>In Omaha, each additional full, queen or king mattress cleaned in the same visit is {priceText.additionalLarge}, each additional kids' bed is {priceText.additionalKids}, and an underside treatment adds {usd(P.underside.min)} to {usd(P.underside.max)} per mattress.</p></blockquote>
