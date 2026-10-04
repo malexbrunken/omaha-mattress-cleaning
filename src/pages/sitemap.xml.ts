@@ -4,6 +4,7 @@ const SITE = "https://omahamattresscleaning.com";
 /** Last substantive edit of each fixed page. Bump a date only when that page's content really changes. */
 const STATIC: { path: string; lastmod: string }[] = [
   { path: "/", lastmod: "2026-10-03" },
+  { path: "/pricing", lastmod: "2026-10-04" },
   { path: "/about", lastmod: "2026-10-03" },
   { path: "/book", lastmod: "2026-10-03" },
 ];

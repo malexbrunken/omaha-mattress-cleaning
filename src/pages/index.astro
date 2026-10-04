@@ -1,6 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
-import { PRICES, PROMO, priceText } from "../lib/prices";
+import { PRICES, priceText } from "../lib/prices";
 const SANITATION = { "@type": "Service", "name": "Mattress sanitation", "provider": { "@id": "https://omahamattresscleaning.com/#business" } };
 const business = {
   "@context": "https://schema.org",
@@ -24,18 +24,6 @@ const business = {
     { "@type": "Offer", "name": "Each additional kids bed (twin or full)", "price": String(PRICES.additionalKids), "priceCurrency": "USD", "description": "Same visit as the first mattress.", "itemOffered": SANITATION }
   ]
 };
-// Offer schema for the pricing section (/#pricing) only; this is the one place the promo appears in schema.
-const pricingOffers = PROMO.active ? {
-  "@context": "https://schema.org",
-  "@type": "Offer",
-  "name": `${PROMO.label}: first mattress`,
-  "price": String(PROMO.first),
-  "priceCurrency": "USD",
-  "description": `Limited-time offer on the first mattress, any size (regular price ${priceText.first}). ${priceText.promoFollowUp}`,
-  "url": "https://omahamattresscleaning.com/#pricing",
-  "offeredBy": { "@id": "https://omahamattresscleaning.com/#business" },
-  "itemOffered": SANITATION
-} : null;
 const description = `Omaha mattress cleaning and sanitation with low-moisture dry vapor steam, UV-C light treatment and HEPA vacuuming. ${priceText.first} first mattress, any size.`;
 ---
 <Base title="Omaha Mattress Cleaning & Sanitation | Dry Vapor Steam, Omaha Metro" description={description} path="/" jsonld={[business]}>
@@ -60,7 +48,7 @@ const description = `Omaha mattress cleaning and sanitation with low-moisture dr
           </div>
 
           <p style="margin:1.4rem 0 0; color:rgba(250,249,246,0.85); max-width:56ch; font-size:0.98rem; line-height:1.5;">
-            First mattress {priceText.first}, any size, with normal stains, pet odor and ordinary urine accidents included. <a href="#pricing" style="color:var(--gold); font-weight:600;">See what's included</a>
+            First mattress {priceText.first}, any size, with normal stains, pet odor and ordinary urine accidents included. <a href="/pricing" style="color:var(--gold); font-weight:600;">See pricing and what's included</a>
           </p>
 
           <div class="btn-row">
@@ -330,22 +318,11 @@ const description = `Omaha mattress cleaning and sanitation with low-moisture dr
       <div class="container">
         <span class="eyebrow">Published Pricing</span>
         <h2>What's Included</h2>
-        {pricingOffers && <script type="application/ld+json" set:html={JSON.stringify(pricingOffers)} />}
-        {PROMO.active && <div role="note" aria-label={PROMO.label} style="margin:1.6rem 0; padding:1.4rem 1.6rem; border-radius:var(--radius); background:var(--charcoal); color:var(--cream); border:2px solid var(--gold); max-width:760px;">
-          <span style="display:inline-block; padding:0.3rem 0.8rem; border-radius:999px; background:var(--gold); color:var(--charcoal); font-size:0.8rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;">{PROMO.badge}</span>
-          <p style="position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; margin:0;">First mattress: regular price {priceText.first}, now {priceText.promoFirst}.</p>
-          <div aria-hidden="true" style="display:flex; flex-wrap:wrap; align-items:flex-end; gap:0.4rem 1rem; margin-top:0.8rem;">
-            <s style="font-size:2.3rem; font-weight:700; line-height:1; color:rgba(250,249,246,0.6);">{priceText.first}</s>
-            <span style="font-size:3.8rem; font-weight:800; line-height:1; color:var(--gold);">{priceText.promoFirst}</span>
-            <span style="font-size:1rem; color:rgba(250,249,246,0.75); padding-bottom:0.3rem;">first mattress, any size</span>
-          </div>
-          <p style="margin:0.9rem 0 0; font-size:1.08rem; font-weight:600; line-height:1.5;">{priceText.promoFollowUp}</p>
-        </div>}
         <div style="background:var(--white); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); overflow-x:auto; max-width:760px;">
           <table style="width:100%; border-collapse:collapse; font-size:1rem; color:var(--charcoal);">
             <thead><tr style="background:var(--cream-warm);"><th scope="col" style="text-align:left; padding:0.85rem 1.2rem;">Service</th><th scope="col" style="text-align:right; padding:0.85rem 1.2rem;">Price</th></tr></thead>
             <tbody>
-              <tr style="border-top:1px solid var(--line);"><td style="padding:0.85rem 1.2rem;"><strong>Mattress Sanitation, first mattress</strong></td><td style="padding:0.85rem 1.2rem; text-align:right; white-space:nowrap;"><strong>{PROMO.active ? <><span style="position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap;">Regular price {priceText.first}, now {priceText.promoFirst} (limited-time offer)</span><span aria-hidden="true"><s style="font-weight:400; color:var(--stone);">{priceText.first}</s> {priceText.promoFirst} (limited-time offer)</span></> : priceText.first}</strong></td></tr>
+              <tr style="border-top:1px solid var(--line);"><td style="padding:0.85rem 1.2rem;"><strong>Mattress Sanitation, first mattress (any size)</strong></td><td style="padding:0.85rem 1.2rem; text-align:right; white-space:nowrap;"><strong>{priceText.first}</strong></td></tr>
               <tr style="border-top:1px solid var(--line);"><td style="padding:0.85rem 1.2rem;">Professional inspection: we identify the mattress materials and choose the steam setting and pass speed</td><td style="padding:0.85rem 1.2rem; text-align:right; white-space:nowrap;">Included</td></tr>
               <tr style="border-top:1px solid var(--line);"><td style="padding:0.85rem 1.2rem;">Clean-entry setup (gloves, shoe booties, staged tools; equipment disinfected between jobs)</td><td style="padding:0.85rem 1.2rem; text-align:right; white-space:nowrap;">Included</td></tr>
               <tr style="border-top:1px solid var(--line);"><td style="padding:0.85rem 1.2rem;">Dry-vapor sanitation</td><td style="padding:0.85rem 1.2rem; text-align:right; white-space:nowrap;">Included</td></tr>
@@ -363,9 +340,8 @@ const description = `Omaha mattress cleaning and sanitation with low-moisture dr
               <tr style="border-top:1px solid var(--line);"><td style="padding:0.85rem 1.2rem;">Severe or biohazard contamination</td><td style="padding:0.85rem 1.2rem; text-align:right; white-space:nowrap;">Custom surcharge</td></tr>
             </tbody>
           </table>
-          {PROMO.active && <p style="margin:0; padding:0.85rem 1.2rem; border-top:1px solid var(--line); font-size:0.92rem; color:var(--stone);">The regular first-mattress price is {priceText.first}. It's {priceText.promoFirst} for a limited time.</p>}
         </div>
-        <p style="color:var(--stone); margin-top:1rem; max-width:62ch;">Severe or biohazard contamination is quoted after we see the mattress. Full price list on <a href="https://sleepsanitation.com/pricing" style="color:var(--charcoal); font-weight:600; text-decoration:underline; text-underline-offset:3px;">Sleep Sanitation's pricing page</a>.</p>
+        <p style="color:var(--stone); margin-top:1rem; max-width:62ch;">Severe or biohazard contamination is quoted after we see the mattress. Rate table, household totals and current offers are on our <a href="/pricing" style="color:var(--charcoal); font-weight:600; text-decoration:underline; text-underline-offset:3px;">Omaha pricing page</a>.</p>
       </div>
     </section>
 
