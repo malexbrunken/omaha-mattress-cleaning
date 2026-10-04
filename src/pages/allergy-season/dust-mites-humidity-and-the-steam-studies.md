@@ -14,7 +14,7 @@ watch:
   when: "Check it in June, when Eppley's average dew point first passes 60°F, and again in October at 41°F."
   url: "https://www.epa.gov/mold/brief-guide-mold-moisture-and-your-home"
 published: "2026-10-03"
-updated: "2026-10-03"
+updated: "2026-10-04"
 faq:
   - q: "Why doesn't the NWS Omaha/Valley bulletin list dust mites?"
     a: "DCHD's numbers in that bulletin come from outdoor air and cover trees, weeds and grass. Bed mites live in indoor dust, bedding and mattresses, so DCHD's outdoor sampler and the rooftop samplers at UNMC and in Bellevue never catch them."
@@ -41,6 +41,8 @@ changelog:
     note: "First published, citing the two steam studies for exactly what each measured."
   - date: "2026-10-03"
     note: "Revised: DCHD's sampler no longer called a rooftop, season row credited to UNMC and DCHD, duplicate steam question removed, Eppley indoor estimates and PubMed links added."
+  - date: "2026-10-04"
+    note: "Checks corrected: every visit includes two checks; the 72-hour bedroom CO₂ test is a separate optional service, priced by quote."
 ---
 
 ## Pollen is outdoors and seasonal; mites are indoors and year-round

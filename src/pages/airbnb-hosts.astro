@@ -37,6 +37,7 @@ const jsonld = [
     "@type": "CollectionPage",
     name: "Hosting in Omaha",
     url: "https://omahamattresscleaning.com/airbnb-hosts",
+    dateModified: "2026-10-04",
     hasPart: guides.map((g) => ({ "@type": "Article", headline: g.h1, url: `https://omahamattresscleaning.com/airbnb-hosts/${g.slug}` })),
   },
   {
@@ -73,7 +74,7 @@ const jsonld = [
       <h1>Hosting in Omaha: event weekends, lodging taxes and the beds between stays</h1>
       <p class="lead" style="max-width:68ch;">Omaha's busiest guest weekends are on public calendars: CHI Health Center events and Creighton games through the 2026 holidays, Berkshire Hathaway's first weekend in May, and the College World Series from June 17 to 28, 2027. These guides line those dates up with Omaha's 5.5% occupation tax, what the City Clerk can tell you and Offutt's PCS season, and with the weekdays we can clean.</p>
 
-      <h2>Omaha's hosting calendar, October 2026 to June 2027</h2>
+      <h2>Which Omaha dates matter to hosts, October 2026 to June 2027?</h2>
       <div style="overflow-x:auto;">
         <table class="evt">
           <thead><tr><th>Date</th><th>What</th><th>Where</th></tr></thead>
@@ -84,7 +85,7 @@ const jsonld = [
       </div>
       <p class="note" style="max-width:72ch;">From the CHI Health Center events page, Creighton Athletics, Berkshire Hathaway's 2026 shareholder event sheet, Military OneSource's Offutt page and NCAA.com, all checked on October 3, 2026.</p>
 
-      <h2>One $100 Omaha night, taxed the Department of Revenue's way</h2>
+      <h2>How is one $100 Omaha night taxed?</h2>
       <div class="receipt" aria-label="Worked lodging tax example">
         <div><span>Room</span><span>$100.00</span></div>
         <div><span>City occupation tax, 5.5%</span><span>$5.50</span></div>
@@ -95,13 +96,13 @@ const jsonld = [
       </div>
       <p style="max-width:72ch;">This is DOR's Example 2, a city with a 5.5% occupation tax and a 1.5% city sales tax in a county with a 4% lodging tax, which are Omaha's and Douglas County's rates. Airbnb's help article 2625 says it collects Omaha's 5.5% guest tax on stays of 29 nights or fewer; on a direct booking, GIL 1-19-1 leaves the collecting to you. The <a href="/airbnb-hosts/omaha-lodging-taxes-and-direct-bookings">lodging tax guide</a> adds Omaha's city rules, the City Clerk's number and Gretna, Papillion and Bellevue rates.</p>
 
-      <h2>Areas we often serve</h2>
+      <h2>Which neighborhoods do we often serve for hosts?</h2>
       <p style="max-width:72ch;">Many of our Omaha-area customers live in these neighborhoods. We name them as places we often work, not as short-term rental hot spots: we don't know how many rentals any of them has, and several have homeowners associations with their own covenants.</p>
       <dl class="areas">
         {areas.map((a) => (<><dt>{a.name}</dt><dd>{a.where}</dd></>))}
       </dl>
 
-      <h2>The guides</h2>
+      <h2>Which host guides can you read?</h2>
       <div class="gcards">
         {guides.map((g) => (
           <a href={`/airbnb-hosts/${g.slug}`}>
@@ -114,7 +115,7 @@ const jsonld = [
 
       <div class="prose">
         <section id="visit" aria-label="Prices and the visit">
-          <h2 style="margin-top:0;">Prices and the visit, for every host</h2>
+          <h2 style="margin-top:0;">What does a host visit cost, and what does it include?</h2>
           <p>For a host, the bill starts at {priceText.first} for the first mattress, then {priceText.additionalLarge} for each additional full, queen or king and {priceText.additionalKids} for each additional kids bed. Guest-left normal stains, pet odor and ordinary urine accidents carry no extra charge; only severe or biohazard cases add a surcharge, and you hear that figure before we begin.</p>
           <p>We come Monday to Friday between 9am and 6pm. The technician fills in an inspection form first (material, special care notes, urine or odor observations), works in gloves and shoe booties with equipment disinfected between jobs, and runs our two checks: a moisture check after the job and the dust mite (bed mite) sensor on our UV-C vacuum. A 72-hour bedroom CO₂ test is a separate optional service, booked on its own or added to a visit and priced by quote; it isn't a medical test. Read your mattress's care label and warranty terms before you book.</p>
           <p>Taxes, ordinances and covenants on these pages are general information, not legal or tax advice.</p>
@@ -122,7 +123,7 @@ const jsonld = [
 
         <p>Sleep Sanitation's <a href="https://sleepsanitation.com/knowledge-center/mattress-owners-decision-center">decision center</a> covers clean-or-replace questions for every city, including guest beds.</p>
 
-        <h2>What we don't know</h2>
+        <h2>What don't we know yet?</h2>
         <ul>
           <li>Whether Omaha has adopted a short-term rental registration ordinance: we found none on the city's pages on October 3, 2026, and the City Clerk at 1819 Farnam St, (402) 444-5550, can say.</li>
           <li>Berkshire Hathaway's 2027 meeting date, which Berkshire hadn't posted when we checked.</li>
@@ -130,7 +131,7 @@ const jsonld = [
           <li>Any of these associations' rental rules, which we haven't read.</li>
         </ul>
 
-        <h2>Sources</h2>
+        <h2>Where do these facts come from?</h2>
         <ul>
           <li><a href="https://nebraskalegislature.gov/laws/statutes.php?statute=18-1758" rel="noopener">Nebraska Legislature, Neb. Rev. Stat. 18-1758</a> (checked October 3, 2026)</li>
           <li><a href="https://revenue.nebraska.gov/government/occupation-taxes" rel="noopener">Nebraska DOR, Occupation Taxes, Example 2</a> (checked October 3, 2026)</li>
@@ -143,8 +144,8 @@ const jsonld = [
           <li><a href="https://finance.cityofomaha.org/revenue" rel="noopener">City of Omaha Finance Department, Revenue</a> and <a href="https://cityclerk.cityofomaha.org/" rel="noopener">City Clerk</a> (checked October 3, 2026)</li>
           <li><a href="https://www.ridgeshoa.com/history.html" rel="noopener">The Ridges HOA</a>, <a href="https://lanoha.com/portfolio/the-sanctuary/" rel="noopener">Lanoha: The Sanctuary</a>, <a href="https://www.omahamagazine.com/living/linden-estates/" rel="noopener">Omaha Magazine: Linden Estates</a>, <a href="https://tiburongolf.com/contact-us/" rel="noopener">Tiburon Golf Club</a>, <a href="https://www.aksarbentitle.com/uploads/1/4/1/7/141783493/tiburon-estates-sarpy_1.pdf" rel="noopener">Tiburon Estates declaration (Sarpy County, 2002)</a>, <a href="https://www.eaglerungolf.com/contact/" rel="noopener">Eagle Run Golf Course</a>, <a href="https://www.championsomaha.com/" rel="noopener">Champions Run</a>, <a href="https://regencyomaha.org/about/history" rel="noopener">Regency Homes Association: History</a> (checked October 3, 2026)</li>
         </ul>
-        <h2>Changelog</h2>
-        <ul><li>October 3, 2026: hub and five guides published.</li><li>October 3, 2026: the short-term rental law guide merged into the lodging tax guide; area sources corrected for Tiburon, Champions Run and Regency.</li></ul>
+        <h2>What changed on this page?</h2>
+        <ul><li>October 3, 2026: hub and five guides published.</li><li>October 3, 2026: the short-term rental law guide merged into the lodging tax guide; area sources corrected for Tiburon, Champions Run and Regency.</li><li>October 4, 2026: section headings rewritten as questions; phone number added to every page; checks wording corrected (two included checks; the 72-hour bedroom CO₂ test is optional, priced by quote).</li></ul>
         <p class="note">Published October 3, 2026. Omaha Mattress Cleaning is operated by Sleep Sanitation.</p>
       </div>
     </div>

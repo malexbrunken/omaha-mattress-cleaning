@@ -1,6 +1,7 @@
 ---
 interface Props { title: string; description: string; path: string; jsonld?: object[]; noindex?: boolean }
 const { title, description, path, jsonld = [], noindex = false } = Astro.props;
+import { FOUNDER, PHONE } from "../lib/founder";
 const canonical = new URL(path, "https://omahamattresscleaning.com").href;
 const ogImage = "https://images.unsplash.com/photo-1505693416388-b0346efee535?auto=format&fit=crop&w=1200&q=80";
 const org = {
@@ -9,7 +10,9 @@ const org = {
   "@id": "https://sleepsanitation.com/#business",
   "name": "Sleep Sanitation",
   "legalName": "Sleep Sanitation LLC",
-  "url": "https://sleepsanitation.com"
+  "url": "https://sleepsanitation.com",
+  "telephone": "+1-402-512-5658",
+  "founder": FOUNDER
 };
 ---
 <!DOCTYPE html>
@@ -210,7 +213,8 @@ const org = {
     <div class="container" style="display:flex; justify-content:space-between; gap:1.5rem; flex-wrap:wrap; align-items:center;">
       <div>
         <div style="font-weight:600; color:rgba(250,249,246,0.85); margin-bottom:0.3rem;">Omaha Mattress Cleaning & Sanitation</div>
-        <div style="font-size:0.88rem;">Operated by Sleep Sanitation LLC. <a href="/about" style="color:rgba(250,249,246,0.75); text-decoration:underline; text-underline-offset:3px;">About us</a></div>
+        <div style="font-size:0.88rem;">Call or text <a href={PHONE.tel} style="color:rgba(250,249,246,0.85); font-weight:600; text-decoration:underline; text-underline-offset:3px;">{PHONE.display}</a></div>
+        <div style="font-size:0.88rem; margin-top:0.3rem;">Operated by Sleep Sanitation LLC. <a href="/about" style="color:rgba(250,249,246,0.75); text-decoration:underline; text-underline-offset:3px;">About us</a></div>
         <div style="font-size:0.88rem; margin-top:0.3rem;">Monday–Friday, 9am–6pm · Missed calls returned Saturday and Sunday too</div>
       </div>
       <div style="display:flex; gap:1.2rem; flex-wrap:wrap;">

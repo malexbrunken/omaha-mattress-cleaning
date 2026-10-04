@@ -17,6 +17,7 @@ const jsonld = [
     "@type": "CollectionPage",
     name: "Mattresses and Omaha homes",
     url: "https://omahamattresscleaning.com/omaha-homes",
+    dateModified: "2026-10-04",
     hasPart: mods.map((m) => ({ "@type": "Article", headline: m.h1, url: `https://omahamattresscleaning.com/omaha-homes/${m.slug}` })),
   },
 ];
@@ -34,21 +35,21 @@ const jsonld = [
         <dt>Bed bugs and the county</dt><dd>The Douglas County Health Department's role is education (<a href="https://www.douglascountyhealth.com/environmental/pest-control-nuisances" rel="noopener">DCHD</a>).</dd>
         <dt>Highest dew point</dt><dd>July, average dew point near 66°F at Eppley Airfield (NOAA 1991 to 2020 normals).</dd>
       </dl>
-      <h2>The guides</h2>
+      <h2>Which Omaha home guides can you read?</h2>
       <ul>
         {mods.map((m) => (
           <li><a href={`/omaha-homes/${m.slug}`}><strong>{m.h1}</strong></a>. {m.answer.split(". ")[0]}.</li>
         ))}
       </ul>
-      <h2>What these guides leave to Sleep Sanitation</h2>
-      <p>Cleaning methods, mattress materials, drying science and bed mites aren't specific to Omaha, so we link to the <a href="https://sleepsanitation.com/knowledge-center">Sleep Sanitation Knowledge Center</a> for them instead of repeating them here.</p>
-      <h2>What we don't know</h2>
+      <h2>What do these guides leave to Sleep Sanitation?</h2>
+      <p>Cleaning methods, mattress materials, how a mattress dries and bed mites aren't specific to Omaha, so we link to the <a href="https://sleepsanitation.com/knowledge-center">Sleep Sanitation Knowledge Center</a> for them instead of repeating them here.</p>
+      <h2>What don't we know yet?</h2>
       <ul>
         <li>Fees at River City and Pheasant Point beyond what the city publishes. Call before you go.</li>
         <li>Dates for 2027 Cleanup Saturdays, which the city posts once they are set.</li>
       </ul>
-      <h2>Changelog</h2>
-      <ul><li>October 3, 2026: hub and first four guides published.</li></ul>
+      <h2>What changed on this page?</h2>
+      <ul><li>October 3, 2026: hub and first four guides published.</li><li>October 4, 2026: section headings rewritten as questions; rental-law content removed from the bed bug guide; phone number added to every page.</li></ul>
       <p><a class="btn btn-primary" href="/book">Book or contact us</a></p>
     </div>
   </section>

@@ -1,6 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
 import { PRICES, priceText } from "../lib/prices";
+import { FOUNDER } from "../lib/founder";
 const SANITATION = { "@type": "Service", "name": "Mattress sanitation", "provider": { "@id": "https://omahamattresscleaning.com/#business" } };
 const business = {
   "@context": "https://schema.org",
@@ -8,10 +9,12 @@ const business = {
   "@id": "https://omahamattresscleaning.com/#business",
   "name": "Omaha Mattress Cleaning & Sanitation",
   "url": "https://omahamattresscleaning.com",
-  "image": "https://images.unsplash.com/photo-1505693416388-b0346efee535?auto=format&fit=crop&w=1200&q=80",
+  "image": "https://omahamattresscleaning.com/sleep%20sanitation%20logo.png",
+  "logo": "https://omahamattresscleaning.com/sleep%20sanitation%20logo.png",
   "telephone": "+1-402-512-5658",
   "email": "info@sleepsanitation.com",
   "parentOrganization": { "@type": "LocalBusiness", "@id": "https://sleepsanitation.com/#business" },
+  "founder": FOUNDER,
   "address": { "@type": "PostalAddress", "addressLocality": "Omaha", "addressRegion": "NE", "addressCountry": "US" },
   "areaServed": ["Omaha","Elkhorn","Papillion","La Vista","Bellevue","Gretna","Ralston","Chalco","Bennington","Waterloo","Valley","Council Bluffs"].map((n) => ({ "@type": "City", "name": n })),
   "knowsAbout": ["Mattress Cleaning","Mattress Sanitation","Dry Vapor Steam Mattress Treatment","Bed Mite Treatment","Pet Odor and Urine Treatment"],
@@ -24,9 +27,34 @@ const business = {
     { "@type": "Offer", "name": "Each additional kids bed (twin or full)", "price": String(PRICES.additionalKids), "priceCurrency": "USD", "description": "Same visit as the first mattress.", "itemOffered": SANITATION }
   ]
 };
+const lead = `Omaha Mattress Cleaning & Sanitation is a mattress-only service for the Omaha–Council Bluffs metro, operated by Sleep Sanitation. We use low-moisture dry vapor steam, HEPA vacuuming and UV-C light treatment. The first mattress is ${priceText.first}, any size, with normal stains, pet odor and ordinary urine accidents included. Each additional full, queen or king is ${priceText.additionalLarge}, and each additional kids' bed is ${priceText.additionalKids}. Call or text (402) 512-5658.`;
+const homeFaq = [
+  { q: "Do you offer mattress cleaning in West Omaha and Elkhorn?", a: `Yes. We serve West Omaha, Elkhorn, Papillion, La Vista, Bellevue and the rest of Douglas and Sarpy counties, plus Council Bluffs. If you are unsure whether your address falls within our routing, <a href="/book" style="color:var(--charcoal); font-weight:600; text-decoration:underline; text-underline-offset:3px;">send us your location</a> and we will confirm.` },
+  { q: "What is the difference between mattress cleaning and mattress sanitation?", a: `<strong>Cleaning</strong> can mean anything from spot treatment to wet extraction, so ask any provider what equipment they use and how much water goes in. <strong>Sanitation</strong>, as we do it, is a disciplined protocol that treats the mattress as a sleep environment: controlled dry vapor steam, low-moisture discipline, and attention to seams, tufts and edges. If you want the whole sleep surface treated, not just visible stains, that is what sanitation covers.` },
+  { q: "When can we use the bed again?", a: `The bed stays unmade until it is dry to the touch, and we run a moisture check after service before we leave. Dry vapor steam puts far less liquid water into a mattress than hot-water extraction, so there is less to dry. Sleep Sanitation's guide to <a href="https://sleepsanitation.com/knowledge-center/mattress-moisture-heat-drying-construction/how-quickly-should-a-treated-mattress-dry" style="color:var(--charcoal); font-weight:600; text-decoration:underline; text-underline-offset:3px;">how a treated mattress dries</a> has the detail.` },
+  { q: "Can you treat memory foam, latex and hybrid mattresses?", a: `Yes. Memory foam and latex are sensitive to soaking, which is why we avoid high-moisture extraction. We inspect the fabric and construction first and set steam temperature and pass speed for that material. Your care label and warranty terms still come first, so check them before booking.` },
+  { q: "What does your price cover?", a: `Our first mattress is ${priceText.first}, with normal stains, pet odor and ordinary urine accidents included. Each additional full, queen or king is ${priceText.additionalLarge} and each additional kids bed ${priceText.additionalKids}. We arrive with dedicated dry vapor steam equipment, in gloves and shoe booties, with equipment disinfected between jobs. You are paying for an appointment that is only about your mattress.` },
+  { q: "Do I need to strip the bed and move furniture before you arrive?", a: `We ask that linens and mattress protectors be removed so we can assess and treat the full sleep surface. If you need assistance with this, mention it when booking and our technician will help. We handle light furniture repositioning around the bed, but we do not require you to move heavy dressers or nightstands.` },
+  { q: "Do you treat bed mites?", a: `Yes. Bed mites (house dust mites) live in the dust and shed skin flakes that collect in seams, tufts and edges, and our dry vapor steam uses heat to kill them there. Published steam tests back the heat effect: Glass and Needham (2004) reported 100 percent mortality of D. farinae after a 96°C steam cleaner on carpet and mattress samples, and Colloff and colleagues (1995) found no live mites in steamed, mite-seeded carpet squares over four months. Those were study conditions, not your bedroom. Dead mites and droppings still need removing, so we HEPA vacuum too. We make no allergy or asthma claim. Sleep Sanitation's <a href="https://sleepsanitation.com/knowledge-center/mattress-dust-mites-allergens/does-steam-kill-dust-mites-in-mattresses" style="color:var(--charcoal); font-weight:600; text-decoration:underline; text-underline-offset:3px;">steam and bed mite review</a> covers both studies. <em>General information, not medical advice.</em>` },
+];
+const strip = (h: string) => h.replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
+const faqLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": homeFaq.map((f) => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": strip(f.a) } })),
+};
+const webpage = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://omahamattresscleaning.com/#webpage",
+  "url": "https://omahamattresscleaning.com/",
+  "name": "Mattress cleaning and sanitation in Omaha",
+  "dateModified": "2026-10-04",
+  "about": { "@id": "https://omahamattresscleaning.com/#business" },
+};
 const description = `Omaha mattress cleaning and sanitation with low-moisture dry vapor steam, UV-C light treatment and HEPA vacuuming. ${priceText.first} first mattress, any size.`;
 ---
-<Base title="Omaha Mattress Cleaning & Sanitation | Dry Vapor Steam, Omaha Metro" description={description} path="/" jsonld={[business]}>
+<Base title="Omaha Mattress Cleaning & Sanitation | Dry Vapor Steam, Omaha Metro" description={description} path="/" jsonld={[business, webpage, faqLd]}>
     <!-- Hero -->
     <section style="position:relative; overflow:hidden; background:linear-gradient(160deg, #1a1a1a 0%, #2d2d2d 100%); color:var(--cream); padding: 5.5rem 0 4.5rem;">
       <div style="position:absolute; inset:0; opacity:0.35; background:url('https://images.unsplash.com/photo-1505693416388-b0346efee535?auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;"></div>
@@ -35,9 +63,9 @@ const description = `Omaha mattress cleaning and sanitation with low-moisture dr
       <div class="container" style="position:relative; display:grid; grid-template-columns: 1.1fr 0.9fr; gap: 3rem; align-items:center;">
         <div>
           <span class="eyebrow invert">Premium In-Home Sleep Surface Care — Omaha Metro</span>
-          <h1 style="color:var(--cream); max-width:14ch;">Omaha Mattress Cleaning, Elevated to Sanitation</h1>
+          <h1 style="color:var(--cream); max-width:16ch;">Mattress cleaning and sanitation in Omaha</h1>
           <p class="lead" style="color:rgba(250,249,246,0.82); max-width:52ch;">
-            We clean mattresses with low-moisture dry vapor steam and a white-glove protocol built for the surface you sleep on.
+            {lead}
           </p>
 
           <div style="display:flex; gap:0.6rem; flex-wrap:wrap; margin: 1.4rem 0 0.2rem;">
@@ -48,7 +76,7 @@ const description = `Omaha mattress cleaning and sanitation with low-moisture dr
           </div>
 
           <p style="margin:1.4rem 0 0; color:rgba(250,249,246,0.85); max-width:56ch; font-size:0.98rem; line-height:1.5;">
-            First mattress {priceText.first}, any size, with normal stains, pet odor and ordinary urine accidents included. <a href="/pricing" style="color:var(--gold); font-weight:600;">See pricing and what's included</a>
+            <a href="/pricing" style="color:var(--gold); font-weight:600;">See pricing and what's included</a> · <a href="tel:+14025125658" style="color:var(--gold); font-weight:600;">Call or text (402) 512-5658</a>
           </p>
 
           <div class="btn-row">
@@ -60,8 +88,8 @@ const description = `Omaha mattress cleaning and sanitation with low-moisture dr
         <div style="position:relative; border-radius:var(--radius-lg); overflow:hidden; border:1px solid rgba(255,255,255,0.08); box-shadow:var(--shadow-deep); background:rgba(255,255,255,0.03);">
           <img src="https://static1.squarespace.com/static/66bb648d39b4bd3ed8b10829/t/6a0d1f30776826732caa79f5/1779244848859/grok-image-15c5cd53-84de-4025-acd5-b1a74ad12eea.png" alt="Luxury bedroom interior in an Omaha metro home with pristine white linens" loading="eager" style="width:100%; height:100%; object-fit:cover; min-height:420px; opacity:0.85;" />
           <div style="position:absolute; bottom:0; left:0; right:0; padding:1.4rem; background:linear-gradient(to top, rgba(26,26,26,0.95), transparent);">
-            <strong style="display:block; color:var(--cream); font-size:1.05rem; margin-bottom:0.3rem; font-family: Georgia, serif;">White-glove sleep surface care</strong>
-            <span style="color:rgba(250,249,246,0.75); font-size:0.95rem;">Clean-entry discipline. Low-moisture methodology. Built for beds, not floors.</span>
+            <strong style="display:block; color:var(--cream); font-size:1.05rem; margin-bottom:0.3rem; font-family: Georgia, serif;">Mattress-only, operated by Sleep Sanitation</strong>
+            <span style="color:rgba(250,249,246,0.75); font-size:0.95rem;">Gloves and shoe booties, equipment disinfected between jobs, low-moisture dry vapor steam.</span>
           </div>
         </div>
       </div>
@@ -80,7 +108,7 @@ const description = `Omaha mattress cleaning and sanitation with low-moisture dr
     <section class="section" id="upgrade">
       <div class="container">
         <span class="eyebrow">The Upgrade</span>
-        <h2>Why Omaha Homeowners Move from Cleaning to Sanitation</h2>
+        <h2>Why choose mattress sanitation over regular cleaning?</h2>
         <p class="lead" style="max-width:65ch;">
           A mattress is not a floor or a sofa, so we don't clean it like one. Here are the questions worth asking any mattress cleaner in Omaha, and how we answer them.
         </p>
@@ -142,9 +170,9 @@ const description = `Omaha mattress cleaning and sanitation with low-moisture dr
     <section style="background:linear-gradient(180deg, #f3f1ec 0%, var(--cream) 100%); padding: 5rem 0;" id="areas">
       <div class="container">
         <span class="eyebrow">Local Coverage</span>
-        <h2>Where We Work in the Omaha Metro</h2>
+        <h2>Where do we work in the Omaha metro?</h2>
         <p class="lead" style="max-width:60ch;">
-          We travel with our white-glove setup throughout the Omaha–Council Bluffs metro. If you are within the service radius, we bring the same premium standard to your door.
+          We work throughout the Omaha–Council Bluffs metro. If you are within the service radius, the visit and the price are the same. See every area on our <a href="/areas">areas page</a>.
         </p>
 
         <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:1rem; margin-top:2.5rem;">
@@ -217,7 +245,7 @@ const description = `Omaha mattress cleaning and sanitation with low-moisture dr
     <section class="section" id="process">
       <div class="container">
         <span class="eyebrow">Our Method</span>
-        <h2>A Three-Phase Process Built for Beds</h2>
+        <h2>How does a mattress sanitation visit work?</h2>
         <p class="lead" style="max-width:60ch;">
           Our appointment is precise, not rushed. Every phase is designed around the sleep environment of an Omaha metro home.
         </p>
@@ -225,8 +253,8 @@ const description = `Omaha mattress cleaning and sanitation with low-moisture dr
         <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:1.5rem; margin-top:2.5rem;">
           <div style="position:relative; background:var(--white); border:1px solid var(--line); border-radius:var(--radius-lg); padding:2rem 1.8rem; box-shadow:var(--shadow);">
             <div style="position:absolute; top:-16px; left:1.8rem; width:48px; height:48px; border-radius:50%; background:var(--charcoal); color:var(--gold); display:grid; place-items:center; font-weight:700; font-size:1.1rem; box-shadow:0 6px 18px rgba(0,0,0,0.18);">1</div>
-            <h3 style="margin-top:1.2rem; margin-bottom:0.7rem;">Assessment & Containment</h3>
-            <p style="font-size:0.98rem; margin:0;">We inspect fabric condition, mattress construction, and the surrounding bedroom environment. Technicians wear gloves and shoe booties, and equipment is disinfected between jobs. Tools are staged cleanly. Your home is protected before treatment begins.</p>
+            <h3 style="margin-top:1.2rem; margin-bottom:0.7rem;">Assessment</h3>
+            <p style="font-size:0.98rem; margin:0;">We inspect fabric condition, mattress construction, and the surrounding bedroom environment. Technicians wear gloves and shoe booties, and equipment is disinfected between jobs.</p>
           </div>
           <div style="position:relative; background:var(--white); border:1px solid var(--line); border-radius:var(--radius-lg); padding:2rem 1.8rem; box-shadow:var(--shadow);">
             <div style="position:absolute; top:-16px; left:1.8rem; width:48px; height:48px; border-radius:50%; background:var(--charcoal); color:var(--gold); display:grid; place-items:center; font-weight:700; font-size:1.1rem; box-shadow:0 6px 18px rgba(0,0,0,0.18);">2</div>
@@ -235,8 +263,8 @@ const description = `Omaha mattress cleaning and sanitation with low-moisture dr
           </div>
           <div style="position:relative; background:var(--white); border:1px solid var(--line); border-radius:var(--radius-lg); padding:2rem 1.8rem; box-shadow:var(--shadow);">
             <div style="position:absolute; top:-16px; left:1.8rem; width:48px; height:48px; border-radius:50%; background:var(--charcoal); color:var(--gold); display:grid; place-items:center; font-weight:700; font-size:1.1rem; box-shadow:0 6px 18px rgba(0,0,0,0.18);">3</div>
-            <h3 style="margin-top:1.2rem; margin-bottom:0.7rem;">Environment Reset</h3>
-            <p style="font-size:0.98rem; margin:0;">Tools are broken down orderly. The mattress is left in a cleaner, drier, professionally handled condition. We reset the room so the last impression matches the first.</p>
+            <h3 style="margin-top:1.2rem; margin-bottom:0.7rem;">Vacuum, UV-C and Moisture Check</h3>
+            <p style="font-size:0.98rem; margin:0;">HEPA vacuuming and UV-C light treatment follow the steam. The bed stays unmade until it is dry to the touch, and we run a moisture check after service before we leave.</p>
           </div>
         </div>
       </div>
@@ -251,7 +279,7 @@ const description = `Omaha mattress cleaning and sanitation with low-moisture dr
     <section style="background:var(--charcoal); color:var(--cream); padding: 5rem 0;">
       <div class="container">
         <span class="eyebrow invert">Premium Positioning</span>
-        <h2 style="color:var(--cream);">A Disciplined Mattress Service for the Metro</h2>
+        <h2 style="color:var(--cream);">What does the price cover?</h2>
         <p style="color:rgba(250,249,246,0.75); max-width:60ch; font-size:1.08rem;">
           We are not the cheapest mattress cleaning option in Omaha. Here is what the price covers.
         </p>
@@ -278,8 +306,8 @@ const description = `Omaha mattress cleaning and sanitation with low-moisture dr
           <div style="display:flex; gap:1rem; align-items:flex-start; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:var(--radius); padding:1.2rem 1.4rem;">
             <div style="width:28px; height:28px; border-radius:50%; background:var(--gold); color:var(--charcoal); display:grid; place-items:center; font-weight:700; font-size:0.8rem; flex-shrink:0; margin-top:0.15rem;">✓</div>
             <div>
-              <h4 style="color:var(--cream); font-size:1.05rem; margin:0 0 0.25rem;">Clean-Entry Discipline</h4>
-              <p style="color:rgba(250,249,246,0.6); font-size:0.95rem; margin:0;">Boot covers, clean tool staging, and controlled movement through your Omaha home.</p>
+              <h4 style="color:var(--cream); font-size:1.05rem; margin:0 0 0.25rem;">Gloves, Booties, Disinfected Equipment</h4>
+              <p style="color:rgba(250,249,246,0.6); font-size:0.95rem; margin:0;">Technicians wear gloves and shoe booties, and equipment is disinfected between jobs.</p>
             </div>
           </div>
           <div style="display:flex; gap:1rem; align-items:flex-start; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:var(--radius); padding:1.2rem 1.4rem;">
@@ -317,14 +345,14 @@ const description = `Omaha mattress cleaning and sanitation with low-moisture dr
     <section class="section" id="pricing">
       <div class="container">
         <span class="eyebrow">Published Pricing</span>
-        <h2>What's Included</h2>
+        <h2>What's included in the {priceText.first} first-mattress price?</h2>
         <div style="background:var(--white); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); overflow-x:auto; max-width:760px;">
           <table style="width:100%; border-collapse:collapse; font-size:1rem; color:var(--charcoal);">
             <thead><tr style="background:var(--cream-warm);"><th scope="col" style="text-align:left; padding:0.85rem 1.2rem;">Service</th><th scope="col" style="text-align:right; padding:0.85rem 1.2rem;">Price</th></tr></thead>
             <tbody>
               <tr style="border-top:1px solid var(--line);"><td style="padding:0.85rem 1.2rem;"><strong>Mattress Sanitation, first mattress (any size)</strong></td><td style="padding:0.85rem 1.2rem; text-align:right; white-space:nowrap;"><strong>{priceText.first}</strong></td></tr>
               <tr style="border-top:1px solid var(--line);"><td style="padding:0.85rem 1.2rem;">Professional inspection: we identify the mattress materials and choose the steam setting and pass speed</td><td style="padding:0.85rem 1.2rem; text-align:right; white-space:nowrap;">Included</td></tr>
-              <tr style="border-top:1px solid var(--line);"><td style="padding:0.85rem 1.2rem;">Clean-entry setup (gloves, shoe booties, staged tools; equipment disinfected between jobs)</td><td style="padding:0.85rem 1.2rem; text-align:right; white-space:nowrap;">Included</td></tr>
+              <tr style="border-top:1px solid var(--line);"><td style="padding:0.85rem 1.2rem;">Gloves and shoe booties; equipment disinfected between jobs</td><td style="padding:0.85rem 1.2rem; text-align:right; white-space:nowrap;">Included</td></tr>
               <tr style="border-top:1px solid var(--line);"><td style="padding:0.85rem 1.2rem;">Dry-vapor sanitation</td><td style="padding:0.85rem 1.2rem; text-align:right; white-space:nowrap;">Included</td></tr>
               <tr style="border-top:1px solid var(--line);"><td style="padding:0.85rem 1.2rem;">Dry-vapor steaming of seams, tufts, ridges and edges, where dust and shed skin flakes collect</td><td style="padding:0.85rem 1.2rem; text-align:right; white-space:nowrap;">Included</td></tr>
               <tr style="border-top:1px solid var(--line);"><td style="padding:0.85rem 1.2rem;">UV-C light treatment and HEPA vacuuming</td><td style="padding:0.85rem 1.2rem; text-align:right; white-space:nowrap;">Included</td></tr>
@@ -349,78 +377,18 @@ const description = `Omaha mattress cleaning and sanitation with low-moisture dr
     <section class="section" id="faq">
       <div class="container">
         <span class="eyebrow">Common Questions</span>
-        <h2>What Omaha Customers Ask Before Booking</h2>
+        <h2>What do Omaha customers ask before booking?</h2>
 
         <div style="display:grid; gap:0.9rem; margin-top:2.2rem;">
-          <details style="background:var(--white); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden;">
-            <summary style="list-style:none; cursor:pointer; padding:1.2rem 1.4rem; font-weight:600; font-size:1.02rem; position:relative; color:var(--charcoal);">
-              Do you offer mattress cleaning in West Omaha and Elkhorn?
-              <span style="position:absolute; right:1.3rem; top:50%; transform:translateY(-50%); color:var(--gold-dark); font-size:1.3rem;">+</span>
-            </summary>
-            <div style="padding: 0 1.4rem 1.3rem; color:var(--stone); font-size:0.98rem; line-height:1.6;">
-              Yes. We serve West Omaha, Elkhorn, Papillion, La Vista, Bellevue and the rest of Douglas and Sarpy counties, plus Council Bluffs. If you are unsure whether your address falls within our routing, <a href="/book" style="color:var(--charcoal); font-weight:600; text-decoration:underline; text-underline-offset:3px;">send us your location</a> and we will confirm.
-            </div>
-          </details>
-
-          <details style="background:var(--white); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden;">
-            <summary style="list-style:none; cursor:pointer; padding:1.2rem 1.4rem; font-weight:600; font-size:1.02rem; position:relative; color:var(--charcoal);">
-              What is the difference between mattress cleaning and mattress sanitation?
-              <span style="position:absolute; right:1.3rem; top:50%; transform:translateY(-50%); color:var(--gold-dark); font-size:1.3rem;">+</span>
-            </summary>
-            <div style="padding: 0 1.4rem 1.3rem; color:var(--stone); font-size:0.98rem; line-height:1.6;">
-              <strong>Cleaning</strong> can mean anything from spot treatment to wet extraction, so ask any provider what equipment they use and how much water goes in. <strong>Sanitation</strong>, as we do it, is a disciplined protocol that treats the mattress as a sleep environment: controlled dry vapor steam, low-moisture discipline, and attention to seams, tufts and edges. If you want the whole sleep surface treated, not just visible stains, that is what sanitation covers.
-            </div>
-          </details>
-
-          <details style="background:var(--white); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden;">
-            <summary style="list-style:none; cursor:pointer; padding:1.2rem 1.4rem; font-weight:600; font-size:1.02rem; position:relative; color:var(--charcoal);">
-              How long will my mattress take to dry after service?
-              <span style="position:absolute; right:1.3rem; top:50%; transform:translateY(-50%); color:var(--gold-dark); font-size:1.3rem;">+</span>
-            </summary>
-            <div style="padding: 0 1.4rem 1.3rem; color:var(--stone); font-size:0.98rem; line-height:1.6;">
-              Dry vapor steam puts far less liquid water into a mattress than hot-water extraction, so there is less to dry. Humidity, mattress thickness and bedroom airflow all change the time, and we tell you what to expect for your bed at the visit. Sleep Sanitation's guide to <a href="https://sleepsanitation.com/knowledge-center/mattress-moisture-heat-drying-construction/how-quickly-should-a-treated-mattress-dry" style="color:var(--charcoal); font-weight:600; text-decoration:underline; text-underline-offset:3px;">how quickly a treated mattress should dry</a> has the detail.
-            </div>
-          </details>
-
-          <details style="background:var(--white); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden;">
-            <summary style="list-style:none; cursor:pointer; padding:1.2rem 1.4rem; font-weight:600; font-size:1.02rem; position:relative; color:var(--charcoal);">
-              Can you treat memory foam, latex and hybrid mattresses?
-              <span style="position:absolute; right:1.3rem; top:50%; transform:translateY(-50%); color:var(--gold-dark); font-size:1.3rem;">+</span>
-            </summary>
-            <div style="padding: 0 1.4rem 1.3rem; color:var(--stone); font-size:0.98rem; line-height:1.6;">
-              Yes. Memory foam and latex are sensitive to soaking, which is why we avoid high-moisture extraction. We inspect the fabric and construction first and set steam temperature and pass speed for that material. Your care label and warranty terms still come first, so check them before booking.
-            </div>
-          </details>
-
-          <details style="background:var(--white); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden;">
-            <summary style="list-style:none; cursor:pointer; padding:1.2rem 1.4rem; font-weight:600; font-size:1.02rem; position:relative; color:var(--charcoal);">
-              What does your price cover?
-              <span style="position:absolute; right:1.3rem; top:50%; transform:translateY(-50%); color:var(--gold-dark); font-size:1.3rem;">+</span>
-            </summary>
-            <div style="padding: 0 1.4rem 1.3rem; color:var(--stone); font-size:0.98rem; line-height:1.6;">
-              Our first mattress is {priceText.first}, with normal stains, pet odor and ordinary urine accidents included. Each additional full, queen or king is {priceText.additionalLarge} and each additional kids bed {priceText.additionalKids}. We arrive with a sleep-surface protocol, dedicated dry vapor steam equipment, and a white-glove entry standard. You are paying for an appointment that is only about your mattress.
-            </div>
-          </details>
-
-          <details style="background:var(--white); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden;">
-            <summary style="list-style:none; cursor:pointer; padding:1.2rem 1.4rem; font-weight:600; font-size:1.02rem; position:relative; color:var(--charcoal);">
-              Do I need to strip the bed and move furniture before you arrive?
-              <span style="position:absolute; right:1.3rem; top:50%; transform:translateY(-50%); color:var(--gold-dark); font-size:1.3rem;">+</span>
-            </summary>
-            <div style="padding: 0 1.4rem 1.3rem; color:var(--stone); font-size:0.98rem; line-height:1.6;">
-              We ask that linens and mattress protectors be removed so we can assess and treat the full sleep surface. If you need assistance with this, mention it when booking and our technician will help as part of the clean-entry protocol. We handle light furniture repositioning around the bed, but we do not require you to move heavy dressers or nightstands.
-            </div>
-          </details>
-
-          <details style="background:var(--white); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden;">
-            <summary style="list-style:none; cursor:pointer; padding:1.2rem 1.4rem; font-weight:600; font-size:1.02rem; position:relative; color:var(--charcoal);">
-              Do you treat bed mites?
-              <span style="position:absolute; right:1.3rem; top:50%; transform:translateY(-50%); color:var(--gold-dark); font-size:1.3rem;">+</span>
-            </summary>
-            <div style="padding: 0 1.4rem 1.3rem; color:var(--stone); font-size:0.98rem; line-height:1.6;">
-              Yes. Bed mites (house dust mites) live in the dust and shed skin flakes that collect in seams, tufts and edges, and our dry vapor steam uses heat to kill them there. Published steam tests back the heat effect: Glass and Needham (2004) reported 100 percent mortality of D. farinae after a 96°C steam cleaner on carpet and mattress samples, and Colloff and colleagues (1995) found no live mites in steamed, mite-seeded carpet squares over four months. Those were study conditions, not your bedroom. Dead mites and droppings still need removing, so we HEPA vacuum too. We make no allergy or asthma claim. Sleep Sanitation's <a href="https://sleepsanitation.com/knowledge-center/mattress-dust-mites-allergens/does-steam-kill-dust-mites-in-mattresses" style="color:var(--charcoal); font-weight:600; text-decoration:underline; text-underline-offset:3px;">steam and bed mite review</a> covers both studies. <em>General information, not medical advice.</em>
-            </div>
-          </details>
+          {homeFaq.map((f) => (
+            <details style="background:var(--white); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden;">
+              <summary style="list-style:none; cursor:pointer; padding:1.2rem 1.4rem; font-weight:600; font-size:1.02rem; position:relative; color:var(--charcoal);">
+                {f.q}
+                <span style="position:absolute; right:1.3rem; top:50%; transform:translateY(-50%); color:var(--gold-dark); font-size:1.3rem;">+</span>
+              </summary>
+              <div style="padding: 0 1.4rem 1.3rem; color:var(--stone); font-size:0.98rem; line-height:1.6;" set:html={f.a} />
+            </details>
+          ))}
         </div>
       </div>
     </section>
@@ -433,9 +401,9 @@ const description = `Omaha mattress cleaning and sanitation with low-moisture dr
       <div class="container" style="position:relative; display:grid; grid-template-columns: 1.2fr 0.8fr; gap:3rem; align-items:center;">
         <div>
           <span class="eyebrow invert">Reserve Now</span>
-          <h2 style="color:var(--cream); max-width:18ch;">Bring a Higher Standard to Your Omaha Bedroom</h2>
+          <h2 style="color:var(--cream); max-width:18ch;">How do you book an Omaha appointment?</h2>
           <p style="color:rgba(250,249,246,0.75); max-width:55ch; font-size:1.08rem;">
-            Whether you are in Dundee, Elkhorn, Papillion or Bellevue, we bring the same white-glove discipline to your door. Book your mattress sanitation appointment by call, text or online.
+            Whether you are in Dundee, Elkhorn, Papillion or Bellevue, book your mattress sanitation appointment by call, text or online. Call or text (402) 512-5658.
           </p>
           <div class="btn-row">
             <a class="btn btn-invert" href="/book">Book Omaha Service</a>

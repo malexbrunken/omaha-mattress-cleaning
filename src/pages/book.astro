@@ -1,23 +1,24 @@
 ---
 import Base from "../layouts/Base.astro";
+const jsonld = [{ "@context": "https://schema.org", "@type": "ContactPage", url: "https://omahamattresscleaning.com/book", name: "Book an Omaha appointment", dateModified: "2026-10-04", about: { "@id": "https://omahamattresscleaning.com/#business" } }];
 ---
-<Base title="Book Mattress Cleaning in Omaha | Call, Text or Schedule Online" description="Book an Omaha mattress cleaning: call or text (402) 512-5658, or schedule online with Sleep Sanitation. Hours, service area and what to have ready." path="/book">
+<Base title="Book Mattress Cleaning in Omaha | Call, Text or Schedule Online" description="Book an Omaha mattress cleaning: call or text (402) 512-5658, or schedule online with Sleep Sanitation. Hours, service area and what to have ready." path="/book" jsonld={jsonld}>
   <section class="section">
     <div class="container prose">
       <span class="eyebrow">Book or contact</span>
       <h1>Book an Omaha appointment</h1>
-      <p>There are two ways to book. Both reach the same local crew.</p>
-      <h2>1. Call or text</h2>
+      <p>Call or text (402) 512-5658, or schedule online. Both reach the same local crew. The first mattress is $249, any size.</p>
+      <h2>How do I book by phone or text?</h2>
       <p><a class="btn btn-primary" href="tel:+14025125658">Call (402) 512-5658</a> &nbsp; <a class="btn" href="sms:+14025125658">Text (402) 512-5658</a></p>
       <p>Hours: Monday–Friday, 9am–6pm. Missed a call? We return calls and texts on Saturday and Sunday too.</p>
-      <h2>2. Schedule online</h2>
-      <p>Online booking runs on Sleep Sanitation's scheduler, because Omaha Mattress Cleaning is a division of Sleep Sanitation. The link below opens that page on sleepsanitation.com.</p>
+      <h2>Can I schedule online?</h2>
+      <p>Yes. Online booking runs on Sleep Sanitation's scheduler, because Omaha Mattress Cleaning is operated by Sleep Sanitation. The link below opens that page on sleepsanitation.com.</p>
       <p><a class="btn btn-primary" href="https://sleepsanitation.com/schedule" rel="noopener">Schedule online with Sleep Sanitation</a></p>
-      <h2>Service area</h2>
+      <h2>Which areas do you serve?</h2>
       <p>Omaha, Elkhorn, Papillion, La Vista, Bellevue, Gretna, Ralston, Chalco, Bennington, Waterloo, Valley and Council Bluffs. Not sure about your address? Call or text and we'll confirm.</p>
-      <h2>Helpful to have ready</h2>
+      <h2>What should I have ready?</h2>
       <ul>
-        <li>The mattress brand and model, and a photo of the care label if you can.</li>
+        <li>The mattress brand and model, and what the care label says.</li>
         <li>How many beds, and their sizes.</li>
         <li>Any accident, odor or stain we should know about, and roughly when it happened.</li>
       </ul>
