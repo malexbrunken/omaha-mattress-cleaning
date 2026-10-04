@@ -5,6 +5,9 @@
   "outputDirectory": "dist",
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    { "source": "/airbnb-hosts/nebraska-law-hoa-covenants-and-omaha", "destination": "/airbnb-hosts/omaha-lodging-taxes-and-direct-bookings", "statusCode": 301 }
+  ],
   "crons": [{ "path": "/api/indexnow", "schedule": "23 13 * * *" }],
   "headers": [
     {

@@ -1,0 +1,151 @@
+---
+/**
+ * O4 hub: "Hosting in Omaha". Layout differs from L2 (checklist on top, navy side rail of quoted rules) and
+ * from the O1 to O3 hubs: a dated event calendar table first, a receipt-style card that works the Department
+ * of Revenue's $100 example, a definition list of areas we often serve, guide cards with date chips, then the
+ * one visit and price section for the hub.
+ */
+import Base from "../layouts/Base.astro";
+type Fm = { frontmatter: { slug: string; h1: string; description: string; order: number; dates: { when: string; what: string }[]; draft?: boolean } };
+const guides = Object.values(import.meta.glob<Fm>("./airbnb-hosts/*.md", { eager: true }))
+  .map((m) => m.frontmatter)
+  .filter((f) => !f.draft)
+  .sort((a, b) => a.order - b.order);
+const events = [
+  { date: "Sat, Oct 24, 2026", what: "Thomas Rhett", where: "CHI Health Center" },
+  { date: "Fri to Sun, Nov 13 to 15", what: "Omaha Holiday Boutique (Children's Gala on the 14th)", where: "CHI Health Center" },
+  { date: "Sat, Nov 28", what: "Monster Jam", where: "CHI Health Center" },
+  { date: "Saturdays, Dec 5, 12, 19", what: "Creighton men's basketball vs. Nebraska, Gonzaga, Villanova", where: "CHI Health Center" },
+  { date: "Saturdays, January 16 and 30, 2027", what: "Creighton vs. St. John's, Georgetown", where: "CHI Health Center" },
+  { date: "First May weekend (2026: May 1–3)", what: "Berkshire Hathaway shareholder weekend; 2027 date not yet posted by Berkshire", where: "CHI Health Center, Lewis & Clark Landing" },
+  { date: "May to October", what: "Peak PCS transition months for Offutt AFB families", where: "Offutt AFB, beside Bellevue" },
+  { date: "June 17 to 28, 2027", what: "Men's College World Series (June 28 only if needed)", where: "Charles Schwab Field Omaha" },
+];
+const areas = [
+  { name: "The Ridges", where: "West Omaha, the square mile between Pacific Street, West Center Road, 180th and 192nd; 784 lots in 13 subdivisions, with Shadow Ridge Country Club alongside." },
+  { name: "The Sanctuary", where: "Elkhorn, a 94-lot Lanoha development on 229th Street off Highway 275, beside the Elkhorn River." },
+  { name: "Linden Estates", where: "West Omaha around 144th and Dodge, roughly 120 homes, with a separately managed Second Addition." },
+  { name: "Tiburon", where: "Sarpy County, per the recorded Tiburon Estates declaration, around Tiburon Golf Club at 10302 S 168th St (an Omaha 68136 mailing address)." },
+  { name: "Eagle Run", where: "Northwest Omaha around Eagle Run Golf Course, 3435 N 132nd St." },
+  { name: "Champions Run", where: "Northwest Omaha around the Champions Run club at 13800 Eagle Run Drive, Omaha 68164." },
+  { name: "Regency", where: "Between Pacific and Dodge just east of Interstate 680, with more than 450 homes and villas." },
+];
+const jsonld = [
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Hosting in Omaha",
+    url: "https://omahamattresscleaning.com/airbnb-hosts",
+    hasPart: guides.map((g) => ({ "@type": "Article", headline: g.h1, url: `https://omahamattresscleaning.com/airbnb-hosts/${g.slug}` })),
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://omahamattresscleaning.com/" },
+      { "@type": "ListItem", position: 2, name: "Omaha hosts", item: "https://omahamattresscleaning.com/airbnb-hosts" },
+    ],
+  },
+];
+---
+<Base title="Omaha Airbnb Hosts: Event Weekends, Lodging Taxes and Mattress Care" description="CHI Health Center, Berkshire and College World Series dates, Omaha's lodging taxes worked DOR's way, Offutt's PCS season, and four guides for hosts." path="/airbnb-hosts" jsonld={jsonld}>
+  <style>
+    .evt { width:100%; border-collapse:collapse; font-size:.92rem; background:var(--white); margin:1rem 0 .6rem; }
+    .evt th, .evt td { text-align:left; padding:.6rem .7rem; border-bottom:1px solid var(--line); vertical-align:top; }
+    .evt thead th { background:var(--charcoal); color:var(--cream); }
+    .receipt { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; background:var(--white); border:1px dashed var(--stone-light); border-radius:8px; padding:1.1rem 1.3rem; max-width:34rem; margin:1rem 0 1.4rem; }
+    .receipt div { display:flex; justify-content:space-between; gap:1rem; padding:.2rem 0; font-size:.92rem; }
+    .receipt .tot { border-top:1px solid var(--charcoal); margin-top:.4rem; padding-top:.5rem; font-weight:700; }
+    dl.areas { display:grid; grid-template-columns: minmax(9rem, 12rem) 1fr; gap:.55rem 1.2rem; margin:1rem 0 1.4rem; }
+    dl.areas dt { font-weight:700; color:var(--charcoal); }
+    dl.areas dd { margin:0; color:var(--stone); }
+    .gcards { display:grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap:1rem; margin:1rem 0 2rem; }
+    .gcards a { display:block; border:1px solid var(--line); border-radius:var(--radius); padding:1rem 1.1rem; background:var(--white); color:inherit; }
+    .gcards .c { display:inline-block; font-size:.75rem; border:1px solid var(--gold); border-radius:999px; padding:.15rem .6rem; margin:0 .3rem .5rem 0; }
+    #visit { border-left:6px solid var(--gold); background:var(--cream-warm); border-radius:0 var(--radius) var(--radius) 0; padding:1.3rem 1.5rem; margin:2rem 0; }
+    @media (max-width: 640px) { dl.areas { grid-template-columns: 1fr; } dl.areas dd { margin-bottom:.6rem; } }
+  </style>
+  <section class="section" style="padding-top:3rem;">
+    <div class="container">
+      <p style="font-size:0.9rem;"><a href="/">Home</a> › Omaha hosts</p>
+      <span class="eyebrow">Omaha hosts: CHI, CWS, Berkshire, Offutt</span>
+      <h1>Hosting in Omaha: event weekends, lodging taxes and the beds between stays</h1>
+      <p class="lead" style="max-width:68ch;">Omaha's busiest guest weekends are on public calendars: CHI Health Center events and Creighton games through the 2026 holidays, Berkshire Hathaway's first weekend in May, and the College World Series from June 17 to 28, 2027. These guides line those dates up with Omaha's 5.5% occupation tax, what the City Clerk can tell you and Offutt's PCS season, and with the weekdays we can clean.</p>
+
+      <h2>Omaha's hosting calendar, October 2026 to June 2027</h2>
+      <div style="overflow-x:auto;">
+        <table class="evt">
+          <thead><tr><th>Date</th><th>What</th><th>Where</th></tr></thead>
+          <tbody>
+            {events.map((e) => (<tr><td>{e.date}</td><td>{e.what}</td><td>{e.where}</td></tr>))}
+          </tbody>
+        </table>
+      </div>
+      <p class="note" style="max-width:72ch;">From the CHI Health Center events page, Creighton Athletics, Berkshire Hathaway's 2026 shareholder event sheet, Military OneSource's Offutt page and NCAA.com, all checked on October 3, 2026.</p>
+
+      <h2>One $100 Omaha night, taxed the Department of Revenue's way</h2>
+      <div class="receipt" aria-label="Worked lodging tax example">
+        <div><span>Room</span><span>$100.00</span></div>
+        <div><span>City occupation tax, 5.5%</span><span>$5.50</span></div>
+        <div><span>Gross receipts</span><span>$105.50</span></div>
+        <div><span>Sales tax, 7% (5.5% state, 1.5% city)</span><span>$7.39</span></div>
+        <div><span>Lodging tax, 5% (1% state, 4% county)</span><span>$5.28</span></div>
+        <div class="tot"><span>Guest pays</span><span>$118.17</span></div>
+      </div>
+      <p style="max-width:72ch;">This is DOR's Example 2, a city with a 5.5% occupation tax and a 1.5% city sales tax in a county with a 4% lodging tax, which are Omaha's and Douglas County's rates. Airbnb's help article 2625 says it collects Omaha's 5.5% guest tax on stays of 29 nights or fewer; on a direct booking, GIL 1-19-1 leaves the collecting to you. The <a href="/airbnb-hosts/omaha-lodging-taxes-and-direct-bookings">lodging tax guide</a> adds Omaha's city rules, the City Clerk's number and Gretna, Papillion and Bellevue rates.</p>
+
+      <h2>Areas we often serve</h2>
+      <p style="max-width:72ch;">Many of our Omaha-area customers live in these neighborhoods. We name them as places we often work, not as short-term rental hot spots: we don't know how many rentals any of them has, and several have homeowners associations with their own covenants.</p>
+      <dl class="areas">
+        {areas.map((a) => (<><dt>{a.name}</dt><dd>{a.where}</dd></>))}
+      </dl>
+
+      <h2>The guides</h2>
+      <div class="gcards">
+        {guides.map((g) => (
+          <a href={`/airbnb-hosts/${g.slug}`}>
+            {g.dates.slice(0, 2).map((d) => <span class="c">{d.when}</span>)}
+            <strong style="display:block;">{g.h1}</strong>
+            <span style="font-size:.92rem; color:var(--stone);">{g.description}</span>
+          </a>
+        ))}
+      </div>
+
+      <div class="prose">
+        <section id="visit" aria-label="Prices and the visit">
+          <h2 style="margin-top:0;">Prices and the visit, for every host</h2>
+          <p>For a host, the bill starts at $249 for the first mattress ($199 with the Fall 2026 first-mattress offer), then $199 for each extra full, queen or king and $149 for each extra kids bed. Guest-left normal stains, pet odor and ordinary urine accidents carry no extra charge; only severe or biohazard cases add a surcharge, and you hear that figure before we begin.</p>
+          <p>We come Monday to Friday between 9am and 6pm. The technician fills in an inspection form first (material, special care notes, urine or odor observations), works in gloves and shoe booties with equipment disinfected between jobs, and runs our three checks: a moisture check after the job, a bedroom CO2 check and the dust mite sensor on our UV-C vacuum. Read your mattress's care label and warranty terms before you book.</p>
+          <p>Taxes, ordinances and covenants on these pages are general information, not legal or tax advice.</p>
+        </section>
+
+        <p>Sleep Sanitation's <a href="https://sleepsanitation.com/knowledge-center/mattress-owners-decision-center">decision center</a> covers clean-or-replace questions for every city, including guest beds.</p>
+
+        <h2>What we don't know</h2>
+        <ul>
+          <li>Whether Omaha has adopted a short-term rental registration ordinance: we found none on the city's pages on October 3, 2026, and the City Clerk at 1819 Farnam St, (402) 444-5550, can say.</li>
+          <li>Berkshire Hathaway's 2027 meeting date, which Berkshire hadn't posted when we checked.</li>
+          <li>Which of the areas above sit inside Omaha's city limits for the 5.5% occupation tax, since a mailing address doesn't settle it.</li>
+          <li>Any of these associations' rental rules, which we haven't read.</li>
+        </ul>
+
+        <h2>Sources</h2>
+        <ul>
+          <li><a href="https://nebraskalegislature.gov/laws/statutes.php?statute=18-1758" rel="noopener">Nebraska Legislature, Neb. Rev. Stat. 18-1758</a> (checked October 3, 2026)</li>
+          <li><a href="https://revenue.nebraska.gov/government/occupation-taxes" rel="noopener">Nebraska DOR, Occupation Taxes, Example 2</a> (checked October 3, 2026)</li>
+          <li><a href="https://revenue.nebraska.gov/sites/default/files/doc/legal/gil/GIL01-19-01_Short-term_Rental.pdf" rel="noopener">Nebraska DOR, GIL 1-19-1</a> (checked October 3, 2026)</li>
+          <li><a href="https://www.airbnb.com/help/article/2625" rel="noopener">Airbnb Help Center, article 2625</a> (checked October 3, 2026)</li>
+          <li><a href="https://www.chihealthcenteromaha.com/events" rel="noopener">CHI Health Center Omaha, Events</a> and <a href="https://gocreighton.com/sports/mens-basketball/schedule" rel="noopener">Creighton men's basketball schedule</a> (checked October 3, 2026)</li>
+          <li><a href="https://berkshirehathaway.com/shareholdereventinfo.pdf" rel="noopener">Berkshire Hathaway, Shareholder Event Information (2026)</a> (checked October 3, 2026)</li>
+          <li><a href="https://www.ncaa.com/championships/baseball/d1/future-info" rel="noopener">NCAA.com, Men's College World Series future dates</a> (checked October 3, 2026)</li>
+          <li><a href="https://installations.militaryonesource.mil/military-installation/offutt-afb/housing/temporary-housing" rel="noopener">Military OneSource, Offutt AFB temporary housing</a> and <a href="https://installations.militaryonesource.mil/in-depth-overview/offutt-afb" rel="noopener">in-depth overview</a> (checked October 3, 2026)</li>
+          <li><a href="https://finance.cityofomaha.org/revenue" rel="noopener">City of Omaha Finance Department, Revenue</a> and <a href="https://cityclerk.cityofomaha.org/" rel="noopener">City Clerk</a> (checked October 3, 2026)</li>
+          <li><a href="https://www.ridgeshoa.com/history.html" rel="noopener">The Ridges HOA</a>, <a href="https://lanoha.com/portfolio/the-sanctuary/" rel="noopener">Lanoha: The Sanctuary</a>, <a href="https://www.omahamagazine.com/living/linden-estates/" rel="noopener">Omaha Magazine: Linden Estates</a>, <a href="https://tiburongolf.com/contact-us/" rel="noopener">Tiburon Golf Club</a>, <a href="https://www.aksarbentitle.com/uploads/1/4/1/7/141783493/tiburon-estates-sarpy_1.pdf" rel="noopener">Tiburon Estates declaration (Sarpy County, 2002)</a>, <a href="https://www.eaglerungolf.com/contact/" rel="noopener">Eagle Run Golf Course</a>, <a href="https://www.championsomaha.com/" rel="noopener">Champions Run</a>, <a href="https://regencyomaha.org/about/history" rel="noopener">Regency Homes Association: History</a> (checked October 3, 2026)</li>
+        </ul>
+        <h2>Changelog</h2>
+        <ul><li>October 3, 2026: hub and five guides published.</li><li>October 3, 2026: the short-term rental law guide merged into the lodging tax guide; area sources corrected for Tiburon, Champions Run and Regency.</li></ul>
+        <p class="note">Published October 3, 2026. Omaha Mattress Cleaning is operated by Sleep Sanitation.</p>
+      </div>
+    </div>
+  </section>
+</Base>
