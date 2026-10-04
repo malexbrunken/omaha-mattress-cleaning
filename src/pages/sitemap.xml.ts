@@ -13,6 +13,8 @@ const hub = import.meta.glob<Fm>("./omaha-homes.astro", { eager: true });
 const guides = import.meta.glob<Fm>("./omaha-homes/*.md", { eager: true });
 const areaHub = import.meta.glob<Fm>("./areas.astro", { eager: true });
 const areas = import.meta.glob<Fm>("./areas/*.md", { eager: true });
+const allergyHub = import.meta.glob<Fm>("./allergy-season.astro", { eager: true });
+const allergy = import.meta.glob<Fm>("./allergy-season/*.md", { eager: true });
 
 export const GET: APIRoute = () => {
   const entries = [...STATIC];
@@ -29,6 +31,13 @@ export const GET: APIRoute = () => {
     if (fm.draft) continue;
     const slug = file.replace("./areas/", "").replace(/\.md$/, "");
     entries.push({ path: `/areas/${slug}`, lastmod: String(fm.updated ?? fm.published ?? "2026-10-03") });
+  }
+  if (Object.keys(allergyHub).length) entries.push({ path: "/allergy-season", lastmod: "2026-10-03" });
+  for (const [file, mod] of Object.entries(allergy)) {
+    const fm = mod.frontmatter ?? {};
+    if (fm.draft) continue;
+    const slug = file.replace("./allergy-season/", "").replace(/\.md$/, "");
+    entries.push({ path: `/allergy-season/${slug}`, lastmod: String(fm.updated ?? fm.published ?? "2026-10-03") });
   }
   const body =
     `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
