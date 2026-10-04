@@ -58,4 +58,4 @@ Neither study measured allergy symptoms, an Omaha bedroom or our equipment, so w
 
 ## Where our checks fit
 
-Our dust mite sensor on the UV-C vacuum is a check, not a count like UNMC's or DCHD's, and so are the moisture check after the job and the bedroom CO2 check; all three go on the inspection form. Check your care label and warranty terms before booking.
+Our dust mite sensor on the UV-C vacuum is a check, not a count like UNMC's or DCHD's, and so are the moisture check after the job and the bedroom CO2 check; none of the three is a lab count. Check your care label and warranty terms before booking.
