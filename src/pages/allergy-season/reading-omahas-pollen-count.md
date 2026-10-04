@@ -7,11 +7,11 @@ months: [3, 4, 5, 6, 7, 8, 9, 10]
 title: "Reading Omaha's Pollen Count: DCHD, UNMC and Station 33"
 h1: "How to read Omaha's pollen count, and what it can't tell you about a bedroom"
 description: "Who counts pollen in Omaha, when each count posts, what the October 2, 2026 numbers were, and why an outdoor count says nothing about your mattress."
-answer: "The Douglas County Health Department supplies the numbers in the National Weather Service Omaha/Valley pollen bulletin, UNMC's allergy division posts its own on Tuesdays and Thursdays in peak season, and NAB Station 33 counts from a Bellevue rooftop. On October 2, 2026, DCHD had weeds at 12, a moderate count; all three measure outdoor air above Douglas and Sarpy rooftops, not a bedroom."
+answer: "The Douglas County Health Department supplies the numbers in the National Weather Service Omaha/Valley pollen bulletin, UNMC's allergy division posts its own on Tuesdays and Thursdays in peak season, and NAB Station 33 counts from a Bellevue rooftop. On October 2, 2026, DCHD had weeds at 12, a moderate count; all three sample outdoor air, not a bedroom."
 faqTopic: "Omaha's pollen count"
 watch:
   who: "Douglas County Health Department numbers, published in the NWS Omaha/Valley \"Pollution Index/Pollen Count\" bulletin."
-  when: "We read the five bulletins issued from Monday, September 28 to Friday, October 2, 2026; the last went out at 9:58 a.m."
+  when: "Five NWS Omaha/Valley bulletins, Monday, September 28 to Friday, October 2, 2026; the last went out at 9:58 a.m."
   url: "https://forecast.weather.gov/product.php?issuedby=OAX&product=AQI&site=OAX"
 published: "2026-10-03"
 updated: "2026-10-03"
@@ -19,9 +19,9 @@ faq:
   - q: "Who supplies the numbers in the NWS Omaha/Valley pollen bulletin?"
     a: "Three places. The Douglas County Health Department supplies the counts in the NWS Omaha/Valley bulletin. UNMC's Division of Allergy and Immunology posts counts on Tuesdays and Thursdays in peak season from a sampler on Durham Research Center II. The National Allergy Bureau lists Station 33, run by The Asthma & Allergy Center in Bellevue."
   - q: "Was the pollen count high in Omaha on October 2, 2026?"
-    a: "No. That morning's bulletin had trees at 2 (low, mostly elm), weeds at 12 (moderate, pigweed and ragweed) and grass at 2 (low). On Monday, September 28, weeds were 54, which the bulletin called high."
+    a: "No. The NWS bulletin that morning had DCHD's trees at 2 (low, mostly elm), weeds at 12 (moderate, pigweed and ragweed) and grass at 2 (low). DCHD's weeds on Monday, September 28 were 54, which the bulletin called high."
   - q: "Does a mattress cleaning change what DCHD or UNMC count?"
-    a: "No. Their samplers sit on rooftops, and we make no pollen claim. We run three checks, and none of them measures pollen: moisture after the job, CO2 in the bedroom and the dust mite sensor on our UV-C vacuum."
+    a: "No. DCHD's outdoor sampler and UNMC's rooftop sampler measure outdoor air, and we make no pollen claim. We run three checks, and none of them measures pollen: moisture after the job, CO2 in the bedroom and the dust mite sensor on our UV-C vacuum."
 sources:
   - name: "National Weather Service Omaha/Valley: Omaha Pollution Index/Pollen Count, issued October 2, 2026 (counts by the Douglas County Health Department)"
     url: "https://forecast.weather.gov/product.php?issuedby=OAX&product=AQI&site=OAX"
@@ -44,6 +44,8 @@ sources:
 changelog:
   - date: "2026-10-03"
     note: "First published with the DCHD counts from September 28 to October 2, 2026."
+  - date: "2026-10-03"
+    note: "Revised: DCHD's sampler location is not stated by the bulletin, so it is no longer called a rooftop."
 ---
 
 ## Three counters, three schedules
@@ -51,8 +53,8 @@ changelog:
 | Counter | Where its sampler sits | When it posts |
 | --- | --- | --- |
 | Douglas County Health Department | Not named in the bulletin | In the NWS Omaha/Valley pollution and pollen bulletin |
-| UNMC Division of Allergy and Immunology | Roof of Durham Research Center II, since late 2020 | Tuesdays and Thursdays in peak season |
-| The Asthma & Allergy Center, NAB Station 33 | Roof of Bellevue Medical Center, Highway 370 and South 25th Street | Daily, spring to fall, per the Bellevue center |
+| UNMC Division of Allergy and Immunology | Roof of Durham Research Center II, since late 2020 | UNMC posts Tuesdays and Thursdays in peak season |
+| The Asthma & Allergy Center, NAB Station 33 | Roof of Bellevue Medical Center, Highway 370 and South 25th Street | Daily, spring to fall, per The Asthma & Allergy Center |
 
 UNMC's sampler runs for seven days at a stretch; lab staff then stain the strip and identify grains under a microscope, which is why its numbers arrive twice a week rather than every morning. Station 33 runs a Burkard trap and a Rotorod side by side on the Bellevue Medical Center roof.
 
@@ -66,10 +68,10 @@ UNMC's sampler runs for seven days at a stretch; lab staff then stain the strip 
 | Thursday, October 1 | 0 | 1, low | 0 | 30 |
 | Friday, October 2 | 2, low: elm | 12, moderate: pigweed, ragweed | 2, low | 30 |
 
-The NWS bulletin gives each DCHD count a word (low, moderate or high) and names the plants behind it, so read the word first, then the plants: the weed count fell from 54 to 1 in four bulletins and climbed back to 12 on the fifth, with ragweed named on four of the five days. One bulletin is one day, so a single low Thursday doesn't mean the season is over.
+The NWS bulletin gives each DCHD count a word (low, moderate or high) and names the plants behind it, so read the word first, then the plants: the weed count fell from 54 to 1 in four bulletins and climbed back to 12 on the fifth, with ragweed named on four of the five days. One NWS bulletin is one day, so October 1's weed count of 1 didn't mean the season was over: DCHD had 12 the next morning.
 
-## What a rooftop count can't tell you
+## What an outdoor count can't tell you
 
-DCHD, UNMC and Station 33 all sample outdoor air above a building, and none of the three says how much pollen came in on clothes, a dog or an open window, or measures bedding. In May 2022, UNMC's Andrew Rorie suggested closing house windows when counts are high, which is the step that connects a public count to the room you sleep in.
+DCHD, UNMC and Station 33 all sample outdoor air, and none of the three says how much pollen came in on clothes, a dog or an open window, or measures bedding. In May 2022, UNMC's Andrew Rorie suggested closing house windows when counts are high, which is the step that connects a public count to the room you sleep in.
 
-We don't count pollen either. Sleep Sanitation sets out [what a mattress cleaning can and can't do for allergies](https://sleepsanitation.com/knowledge-center/mattress-dust-mites-allergens/does-mattress-sanitation-cure-allergies). Our prices and the checks we do run are on the [allergy season hub](/allergy-season#visit). Check your mattress's care label and warranty terms before booking.
+We don't count pollen either. Sleep Sanitation sets out [what a mattress cleaning can and can't do for allergies](https://sleepsanitation.com/knowledge-center/mattress-dust-mites-allergens/does-mattress-sanitation-cure-allergies). Check your mattress's care label and warranty terms before booking.
