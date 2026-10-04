@@ -1,5 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
+import { PRICES, PROMO, priceText } from "../lib/prices";
+const SANITATION = { "@type": "Service", "name": "Mattress sanitation", "provider": { "@id": "https://omahamattresscleaning.com/#business" } };
 const business = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
@@ -12,14 +14,31 @@ const business = {
   "parentOrganization": { "@type": "LocalBusiness", "@id": "https://sleepsanitation.com/#business" },
   "address": { "@type": "PostalAddress", "addressLocality": "Omaha", "addressRegion": "NE", "addressCountry": "US" },
   "areaServed": ["Omaha","Elkhorn","Papillion","La Vista","Bellevue","Gretna","Ralston","Chalco","Bennington","Waterloo","Valley","Council Bluffs"].map((n) => ({ "@type": "City", "name": n })),
-  "serviceType": ["Mattress Cleaning","Mattress Sanitation","Dry Vapor Steam Mattress Treatment","Bed Mite Treatment","Pet Odor and Urine Treatment"],
+  "knowsAbout": ["Mattress Cleaning","Mattress Sanitation","Dry Vapor Steam Mattress Treatment","Bed Mite Treatment","Pet Odor and Urine Treatment"],
   "priceRange": "$$",
   "openingHours": "Mo-Fr 09:00-18:00",
   "openingHoursSpecification": { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "18:00" },
-  "makesOffer": { "@type": "Offer", "price": "199", "priceCurrency": "USD", "description": "First mattress, any size: limited-time Fall 2026 offer (regular price $249). Normal stains, pet odor and ordinary urine accidents included. Book another cleaning within 7 days of your service and it's also $199." }
+  "makesOffer": [
+    { "@type": "Offer", "name": "Mattress sanitation, first mattress", "price": String(PRICES.first), "priceCurrency": "USD", "description": "First mattress, any size. Normal stains, pet odor and ordinary urine accidents included.", "itemOffered": SANITATION },
+    { "@type": "Offer", "name": "Each additional full, queen or king mattress", "price": String(PRICES.additionalLarge), "priceCurrency": "USD", "description": "Same visit as the first mattress.", "itemOffered": SANITATION },
+    { "@type": "Offer", "name": "Each additional kids bed (twin or full)", "price": String(PRICES.additionalKids), "priceCurrency": "USD", "description": "Same visit as the first mattress.", "itemOffered": SANITATION }
+  ]
 };
+// Offer schema for the pricing section (/#pricing) only; this is the one place the promo appears in schema.
+const pricingOffers = PROMO.active ? {
+  "@context": "https://schema.org",
+  "@type": "Offer",
+  "name": `${PROMO.label}: first mattress`,
+  "price": String(PROMO.first),
+  "priceCurrency": "USD",
+  "description": `Limited-time offer on the first mattress, any size (regular price ${priceText.first}). ${priceText.promoFollowUp}`,
+  "url": "https://omahamattresscleaning.com/#pricing",
+  "offeredBy": { "@id": "https://omahamattresscleaning.com/#business" },
+  "itemOffered": SANITATION
+} : null;
+const description = `Omaha mattress cleaning and sanitation with low-moisture dry vapor steam, UV-C light treatment and HEPA vacuuming. ${priceText.first} first mattress, any size.`;
 ---
-<Base title="Omaha Mattress Cleaning & Sanitation | Dry Vapor Steam, Omaha Metro" description="Omaha mattress cleaning and sanitation with low-moisture dry vapor steam, UV-C light treatment and HEPA vacuuming. $249 first mattress, $199 this fall." path="/" jsonld={[business]}>
+<Base title="Omaha Mattress Cleaning & Sanitation | Dry Vapor Steam, Omaha Metro" description={description} path="/" jsonld={[business]}>
     <!-- Hero -->
     <section style="position:relative; overflow:hidden; background:linear-gradient(160deg, #1a1a1a 0%, #2d2d2d 100%); color:var(--cream); padding: 5.5rem 0 4.5rem;">
       <div style="position:absolute; inset:0; opacity:0.35; background:url('https://images.unsplash.com/photo-1505693416388-b0346efee535?auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;"></div>
@@ -40,8 +59,8 @@ const business = {
             <span style="padding:0.5rem 0.85rem; border-radius:999px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); color:rgba(250,249,246,0.85); font-size:0.88rem; font-weight:600;">Bellevue</span>
           </div>
 
-          <p role="note" style="margin:1.4rem 0 0; padding:0.9rem 1.1rem; border-radius:var(--radius); background:rgba(201,169,110,0.14); border:1px solid var(--gold); color:var(--cream); max-width:56ch; font-size:0.98rem; line-height:1.5;">
-            <strong>Fall 2026 promotion:</strong> your first mattress is $199 (regular $249). Any additional cleaning scheduled within 7 days of your first service is also $199, so you can see our work first. <a href="#pricing" style="color:var(--gold); font-weight:600;">See what's included</a>
+          <p style="margin:1.4rem 0 0; color:rgba(250,249,246,0.85); max-width:56ch; font-size:0.98rem; line-height:1.5;">
+            First mattress {priceText.first}, any size, with normal stains, pet odor and ordinary urine accidents included. <a href="#pricing" style="color:var(--gold); font-weight:600;">See what's included</a>
           </p>
 
           <div class="btn-row">
@@ -251,9 +270,9 @@ const business = {
 
         <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:1.2rem; margin-top:2.5rem;">
           <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:var(--radius); padding:1.6rem;">
-            <div style="font-family: Georgia, serif; font-size: clamp(2.2rem, 3vw, 3rem); font-weight:500; color:var(--gold); line-height:1; margin-bottom:0.8rem; letter-spacing:-0.03em;">$249</div>
+            <div style="font-family: Georgia, serif; font-size: clamp(2.2rem, 3vw, 3rem); font-weight:500; color:var(--gold); line-height:1; margin-bottom:0.8rem; letter-spacing:-0.03em;">{priceText.first}</div>
             <h3 style="color:var(--cream); font-size:1.15rem; margin-bottom:0.4rem;">First Mattress, Any Size</h3>
-            <p style="color:rgba(250,249,246,0.65); font-size:0.97rem; margin:0;">Normal stains, pet odor and ordinary urine accidents are included. $199 under the limited-time Fall 2026 offer.</p>
+            <p style="color:rgba(250,249,246,0.65); font-size:0.97rem; margin:0;">Normal stains, pet odor and ordinary urine accidents are included.</p>
           </div>
           <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:var(--radius); padding:1.6rem;">
             <div style="font-family: Georgia, serif; font-size: clamp(2.2rem, 3vw, 3rem); font-weight:500; color:var(--gold); line-height:1; margin-bottom:0.8rem; letter-spacing:-0.03em;">3</div>
@@ -311,21 +330,22 @@ const business = {
       <div class="container">
         <span class="eyebrow">Published Pricing</span>
         <h2>What's Included</h2>
-        <div role="note" aria-label="Fall 2026 promotion" style="margin:1.6rem 0; padding:1.4rem 1.6rem; border-radius:var(--radius); background:var(--charcoal); color:var(--cream); border:2px solid var(--gold); max-width:760px;">
-          <span style="display:inline-block; padding:0.3rem 0.8rem; border-radius:999px; background:var(--gold); color:var(--charcoal); font-size:0.8rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;">Limited-time Fall 2026 offer</span>
-          <p style="position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; margin:0;">First mattress: regular price $249, now $199.</p>
+        {pricingOffers && <script type="application/ld+json" set:html={JSON.stringify(pricingOffers)} />}
+        {PROMO.active && <div role="note" aria-label={PROMO.label} style="margin:1.6rem 0; padding:1.4rem 1.6rem; border-radius:var(--radius); background:var(--charcoal); color:var(--cream); border:2px solid var(--gold); max-width:760px;">
+          <span style="display:inline-block; padding:0.3rem 0.8rem; border-radius:999px; background:var(--gold); color:var(--charcoal); font-size:0.8rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;">{PROMO.badge}</span>
+          <p style="position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; margin:0;">First mattress: regular price {priceText.first}, now {priceText.promoFirst}.</p>
           <div aria-hidden="true" style="display:flex; flex-wrap:wrap; align-items:flex-end; gap:0.4rem 1rem; margin-top:0.8rem;">
-            <s style="font-size:2.3rem; font-weight:700; line-height:1; color:rgba(250,249,246,0.6);">$249</s>
-            <span style="font-size:3.8rem; font-weight:800; line-height:1; color:var(--gold);">$199</span>
+            <s style="font-size:2.3rem; font-weight:700; line-height:1; color:rgba(250,249,246,0.6);">{priceText.first}</s>
+            <span style="font-size:3.8rem; font-weight:800; line-height:1; color:var(--gold);">{priceText.promoFirst}</span>
             <span style="font-size:1rem; color:rgba(250,249,246,0.75); padding-bottom:0.3rem;">first mattress, any size</span>
           </div>
-          <p style="margin:0.9rem 0 0; font-size:1.08rem; font-weight:600; line-height:1.5;">Book another cleaning within 7 days of your service and it's also $199.</p>
-        </div>
+          <p style="margin:0.9rem 0 0; font-size:1.08rem; font-weight:600; line-height:1.5;">{priceText.promoFollowUp}</p>
+        </div>}
         <div style="background:var(--white); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); overflow-x:auto; max-width:760px;">
           <table style="width:100%; border-collapse:collapse; font-size:1rem; color:var(--charcoal);">
             <thead><tr style="background:var(--cream-warm);"><th scope="col" style="text-align:left; padding:0.85rem 1.2rem;">Service</th><th scope="col" style="text-align:right; padding:0.85rem 1.2rem;">Price</th></tr></thead>
             <tbody>
-              <tr style="border-top:1px solid var(--line);"><td style="padding:0.85rem 1.2rem;"><strong>Mattress Sanitation, first mattress</strong></td><td style="padding:0.85rem 1.2rem; text-align:right; white-space:nowrap;"><strong><span style="position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap;">Regular price $249, now $199 (limited-time offer)</span><span aria-hidden="true"><s style="font-weight:400; color:var(--stone);">$249</s> $199 (limited-time offer)</span></strong></td></tr>
+              <tr style="border-top:1px solid var(--line);"><td style="padding:0.85rem 1.2rem;"><strong>Mattress Sanitation, first mattress</strong></td><td style="padding:0.85rem 1.2rem; text-align:right; white-space:nowrap;"><strong>{PROMO.active ? <><span style="position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap;">Regular price {priceText.first}, now {priceText.promoFirst} (limited-time offer)</span><span aria-hidden="true"><s style="font-weight:400; color:var(--stone);">{priceText.first}</s> {priceText.promoFirst} (limited-time offer)</span></> : priceText.first}</strong></td></tr>
               <tr style="border-top:1px solid var(--line);"><td style="padding:0.85rem 1.2rem;">Professional inspection: we identify the mattress materials and choose the steam setting and pass speed</td><td style="padding:0.85rem 1.2rem; text-align:right; white-space:nowrap;">Included</td></tr>
               <tr style="border-top:1px solid var(--line);"><td style="padding:0.85rem 1.2rem;">Clean-entry setup (gloves, shoe booties, staged tools; equipment disinfected between jobs)</td><td style="padding:0.85rem 1.2rem; text-align:right; white-space:nowrap;">Included</td></tr>
               <tr style="border-top:1px solid var(--line);"><td style="padding:0.85rem 1.2rem;">Dry-vapor sanitation</td><td style="padding:0.85rem 1.2rem; text-align:right; white-space:nowrap;">Included</td></tr>
@@ -337,13 +357,13 @@ const business = {
               <tr style="border-top:1px solid var(--line);"><td style="padding:0.85rem 1.2rem;"><strong>Ordinary urine accident treatment</strong></td><td style="padding:0.85rem 1.2rem; text-align:right; white-space:nowrap;"><strong>Included</strong></td></tr>
               <tr style="border-top:1px solid var(--line);"><td style="padding:0.85rem 1.2rem;">Enzyme treatment for urine and organic odor</td><td style="padding:0.85rem 1.2rem; text-align:right; white-space:nowrap;">Included</td></tr>
               <tr style="border-top:1px solid var(--line);"><td style="padding:0.85rem 1.2rem;">Organic cleaning methods by default</td><td style="padding:0.85rem 1.2rem; text-align:right; white-space:nowrap;">Included</td></tr>
-              <tr style="border-top:1px solid var(--line);"><td style="padding:0.85rem 1.2rem;">Additional full/queen/king mattress</td><td style="padding:0.85rem 1.2rem; text-align:right; white-space:nowrap;">$199</td></tr>
-              <tr style="border-top:1px solid var(--line);"><td style="padding:0.85rem 1.2rem;">Additional kids bed (twin/full)</td><td style="padding:0.85rem 1.2rem; text-align:right; white-space:nowrap;">$149</td></tr>
-              <tr style="border-top:1px solid var(--line);"><td style="padding:0.85rem 1.2rem;">Underside/full-surface treatment</td><td style="padding:0.85rem 1.2rem; text-align:right; white-space:nowrap;">+$50–$75</td></tr>
+              <tr style="border-top:1px solid var(--line);"><td style="padding:0.85rem 1.2rem;">Additional full/queen/king mattress</td><td style="padding:0.85rem 1.2rem; text-align:right; white-space:nowrap;">{priceText.additionalLarge}</td></tr>
+              <tr style="border-top:1px solid var(--line);"><td style="padding:0.85rem 1.2rem;">Additional kids bed (twin/full)</td><td style="padding:0.85rem 1.2rem; text-align:right; white-space:nowrap;">{priceText.additionalKids}</td></tr>
+              <tr style="border-top:1px solid var(--line);"><td style="padding:0.85rem 1.2rem;">Underside/full-surface treatment</td><td style="padding:0.85rem 1.2rem; text-align:right; white-space:nowrap;">{priceText.underside}</td></tr>
               <tr style="border-top:1px solid var(--line);"><td style="padding:0.85rem 1.2rem;">Severe or biohazard contamination</td><td style="padding:0.85rem 1.2rem; text-align:right; white-space:nowrap;">Custom surcharge</td></tr>
             </tbody>
           </table>
-          <p style="margin:0; padding:0.85rem 1.2rem; border-top:1px solid var(--line); font-size:0.92rem; color:var(--stone);">The regular first-mattress price is $249. It's $199 for a limited time.</p>
+          {PROMO.active && <p style="margin:0; padding:0.85rem 1.2rem; border-top:1px solid var(--line); font-size:0.92rem; color:var(--stone);">The regular first-mattress price is {priceText.first}. It's {priceText.promoFirst} for a limited time.</p>}
         </div>
         <p style="color:var(--stone); margin-top:1rem; max-width:62ch;">Severe or biohazard contamination is quoted after we see the mattress. Full price list on <a href="https://sleepsanitation.com/pricing" style="color:var(--charcoal); font-weight:600; text-decoration:underline; text-underline-offset:3px;">Sleep Sanitation's pricing page</a>.</p>
       </div>
@@ -402,7 +422,7 @@ const business = {
               <span style="position:absolute; right:1.3rem; top:50%; transform:translateY(-50%); color:var(--gold-dark); font-size:1.3rem;">+</span>
             </summary>
             <div style="padding: 0 1.4rem 1.3rem; color:var(--stone); font-size:0.98rem; line-height:1.6;">
-              Our first mattress is $249, with normal stains, pet odor and ordinary urine accidents included ($199 during our Fall 2026 promotion). We arrive with a sleep-surface protocol, dedicated dry vapor steam equipment, and a white-glove entry standard. You are paying for an appointment that is only about your mattress.
+              Our first mattress is {priceText.first}, with normal stains, pet odor and ordinary urine accidents included. Each additional full, queen or king is {priceText.additionalLarge} and each additional kids bed {priceText.additionalKids}. We arrive with a sleep-surface protocol, dedicated dry vapor steam equipment, and a white-glove entry standard. You are paying for an appointment that is only about your mattress.
             </div>
           </details>
 
@@ -440,9 +460,6 @@ const business = {
           <h2 style="color:var(--cream); max-width:18ch;">Bring a Higher Standard to Your Omaha Bedroom</h2>
           <p style="color:rgba(250,249,246,0.75); max-width:55ch; font-size:1.08rem;">
             Whether you are in Dundee, Elkhorn, Papillion or Bellevue, we bring the same white-glove discipline to your door. Book your mattress sanitation appointment by call, text or online.
-          </p>
-          <p role="note" style="margin:0 0 1rem; padding:0.9rem 1.1rem; border-radius:var(--radius); background:rgba(201,169,110,0.14); border:1px solid var(--gold); color:var(--cream); max-width:55ch; font-size:0.98rem; line-height:1.5;">
-            <strong>Fall 2026 promotion:</strong> your first mattress is $199 (regular $249). Any additional cleaning scheduled within 7 days of your first service is also $199, so you can see our work first.
           </p>
           <div class="btn-row">
             <a class="btn btn-invert" href="/book">Book Omaha Service</a>
