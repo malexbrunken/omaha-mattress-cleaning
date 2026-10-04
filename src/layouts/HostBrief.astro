@@ -1,0 +1,98 @@
+---
+/**
+ * O4 "Omaha hosts" guide layout. Anatomy differs from L2 (checklist on top, navy side rail of quoted rules)
+ * and from the Omaha O1 to O3 layouts: a band of dated chips for the weekends or deadlines the guide is about,
+ * the short answer under a gold rule, a one-line "who sets this" strip, the markdown body in a single column,
+ * numbered questions, then a claim-by-claim source table and a changelog.
+ */
+import Base from "./Base.astro";
+const { frontmatter: fm } = Astro.props as { frontmatter: any };
+const path = `/airbnb-hosts/${fm.slug}`;
+const url = `https://omahamattresscleaning.com${path}`;
+const fmt = (d: string) => new Date(`${d}T12:00:00Z`).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" });
+const jsonld: object[] = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: fm.h1,
+    description: fm.description,
+    datePublished: fm.published,
+    dateModified: fm.updated ?? fm.published,
+    mainEntityOfPage: url,
+    author: { "@type": "Organization", "@id": "https://sleepsanitation.com/#organization", name: "Sleep Sanitation" },
+    publisher: { "@type": "Organization", "@id": "https://sleepsanitation.com/#organization", name: "Sleep Sanitation" },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://omahamattresscleaning.com/" },
+      { "@type": "ListItem", position: 2, name: "Omaha hosts", item: "https://omahamattresscleaning.com/airbnb-hosts" },
+      { "@type": "ListItem", position: 3, name: fm.h1, item: url },
+    ],
+  },
+];
+if (fm.faq?.length) {
+  jsonld.push({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: fm.faq.map((f: any) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+  });
+}
+---
+<Base title={fm.title} description={fm.description} path={path} jsonld={jsonld}>
+  <style>
+    .chips { display:flex; flex-wrap:wrap; gap:.5rem; margin:0 0 1.4rem; padding:0; list-style:none; }
+    .chips li { border:1px solid var(--gold); border-radius:999px; padding:.35rem .85rem; font-size:.82rem; background:var(--white); }
+    .chips b { color:var(--charcoal); margin-right:.35rem; }
+    .short { border-top:4px solid var(--gold); padding-top:1rem; max-width:70ch; }
+    .who { font-size:.9rem; background:var(--cream-warm); border-radius:8px; padding:.6rem .9rem; margin:1.2rem 0 2rem; max-width:70ch; }
+    ol.qs { padding-left:1.3rem; }
+    ol.qs li { margin:0 0 1.1rem; }
+    ol.qs li p { margin:.3rem 0 0; }
+    .claims { width:100%; border-collapse:collapse; font-size:.9rem; }
+    .claims th, .claims td { text-align:left; padding:.5rem .6rem; border-bottom:1px solid var(--line); vertical-align:top; }
+    .claims thead th { background:var(--charcoal); color:var(--cream); }
+  </style>
+  <section class="section" style="padding-top:3rem;">
+    <div class="container prose">
+      <p style="font-size:0.9rem;"><a href="/">Home</a> › <a href="/airbnb-hosts">Omaha hosts</a></p>
+      <ul class="chips" aria-label="Dates this guide covers">
+        {fm.dates.map((d: any) => <li><b>{d.when}</b>{d.what}</li>)}
+      </ul>
+      <h1>{fm.h1}</h1>
+      <p class="lead short">{fm.answer}</p>
+      <p class="who"><strong>Who sets this:</strong> {fm.authority}</p>
+      <slot />
+      {fm.faq?.length > 0 && (
+        <>
+          <h2>Host questions</h2>
+          <ol class="qs">
+            {fm.faq.map((f: any) => (
+              <li><strong>{f.q}</strong><p>{f.a}</p></li>
+            ))}
+          </ol>
+        </>
+      )}
+      <h2>Where each fact comes from</h2>
+      <div style="overflow-x:auto;">
+        <table class="claims">
+          <thead><tr><th>Fact</th><th>Source</th><th>Checked</th></tr></thead>
+          <tbody>
+            {fm.claims.map((c: any) => (
+              <tr><td>{c.fact}</td><td><a href={c.url} rel="noopener">{c.source}</a></td><td>{fmt(c.checked)}</td></tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <h2>Changelog</h2>
+      <ul>
+        {fm.changelog.map((c: any) => (
+          <li>{fmt(c.date)}: {c.note}</li>
+        ))}
+      </ul>
+      <p class="note">Published {fmt(fm.published)}{fm.updated && fm.updated !== fm.published ? `, updated ${fmt(fm.updated)}` : ""}. Written by Omaha Mattress Cleaning, operated by Sleep Sanitation. General information, not legal or tax advice.</p>
+      <p><a class="btn btn-primary" href="/airbnb-hosts#visit">Prices and what every visit includes</a></p>
+    </div>
+  </section>
+</Base>
