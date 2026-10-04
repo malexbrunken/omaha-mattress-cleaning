@@ -1,0 +1,28 @@
+---
+/** Fall 2026 promo block. Used only on /pricing. Driven by PROMO in src/lib/prices.ts; renders nothing when PROMO.active is false. */
+import { PROMO, priceText } from "../lib/prices";
+---
+{PROMO.active && (
+  <div role="note" aria-label={PROMO.label} class="promo">
+    <span class="promo-badge">{PROMO.badge}</span>
+    <p class="sr-only">First mattress: regular price {priceText.first}, now {priceText.promoFirst}.</p>
+    <div aria-hidden="true" class="promo-price">
+      <s>{priceText.first}</s>
+      <span class="promo-now">{priceText.promoFirst}</span>
+      <span class="promo-unit">first mattress, any size</span>
+    </div>
+    <p class="promo-follow">{priceText.promoFollowUp}</p>
+    <p class="promo-small">Additional mattresses stay at {priceText.additionalLarge} each (full, queen or king) and {priceText.additionalKids} each (kids' beds). The regular first-mattress price is {priceText.first}.</p>
+  </div>
+)}
+<style>
+  .promo { margin:1.6rem 0; padding:1.4rem 1.6rem; border-radius:var(--radius); background:var(--charcoal); color:var(--cream); border:2px solid var(--gold); max-width:760px; }
+  .promo-badge { display:inline-block; padding:0.3rem 0.8rem; border-radius:999px; background:var(--gold); color:var(--charcoal); font-size:0.8rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; }
+  .sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; margin:0; }
+  .promo-price { display:flex; flex-wrap:wrap; align-items:flex-end; gap:0.4rem 1rem; margin-top:0.8rem; }
+  .promo-price s { font-size:2.3rem; font-weight:700; line-height:1; color:rgba(250,249,246,0.6); }
+  .promo-now { font-size:3.8rem; font-weight:800; line-height:1; color:var(--gold); }
+  .promo-unit { font-size:1rem; color:rgba(250,249,246,0.75); padding-bottom:0.3rem; }
+  .promo-follow { margin:0.9rem 0 0; font-size:1.08rem; font-weight:600; line-height:1.5; }
+  .promo-small { margin:0.6rem 0 0; font-size:0.9rem; color:rgba(250,249,246,0.7); }
+</style>

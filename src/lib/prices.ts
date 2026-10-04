@@ -3,13 +3,12 @@
  * promo change is a single edit.
  *
  * Pricing rule (2026-10-04):
- * - Everywhere except the pricing section on the home page (/#pricing, this site's
- *   pricing page), the first mattress is PRICES.first. No promo, no crossed-out
- *   price, no rebook offer.
+ * - Everywhere except /pricing, the first mattress is PRICES.first. No promo,
+ *   no crossed-out price, no rebook offer.
  * - Additional-mattress and underside rates may appear anywhere, always labelled
  *   as additional.
- * - PROMO is shown only inside the /#pricing section and its Offer schema. Set
- *   `active: false` to switch it off there too.
+ * - PROMO is shown only on /pricing (src/components/PromoBlock.astro) and in that
+ *   page's Offer schema. Set `active: false` to switch it off there too.
  */
 export const PRICES = {
   first: 249,
