@@ -6,6 +6,7 @@
  * then a sources table and a changelog.
  */
 import Base from "./Base.astro";
+import { PHONE } from "../lib/founder";
 const { frontmatter: fm } = Astro.props as { frontmatter: any };
 const path = `/allergy-season/${fm.slug}`;
 const url = `https://omahamattresscleaning.com${path}`;
@@ -96,6 +97,7 @@ if (fm.faq?.length) {
       </ul>
       <p class="note">Published {fmt(fm.published)}{fm.updated && fm.updated !== fm.published ? `, updated ${fmt(fm.updated)}` : ""}. Written by Omaha Mattress Cleaning, operated by Sleep Sanitation. General information, not medical advice.</p>
       <p><a class="btn btn-primary" href="/allergy-season#visit">Prices and what every visit includes</a></p>
+      <p style="margin-top:.6rem;">Call or text <a href={PHONE.tel}><strong>{PHONE.display}</strong></a>, Monday to Friday, 9am to 6pm.</p>
     </div>
   </section>
 </Base>

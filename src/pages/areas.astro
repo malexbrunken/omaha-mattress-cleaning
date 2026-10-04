@@ -16,6 +16,7 @@ const jsonld = [
     "@type": "CollectionPage",
     name: "Areas we serve around Omaha",
     url: "https://omahamattresscleaning.com/areas",
+    dateModified: "2026-10-04",
     hasPart: areas.map((a) => ({ "@type": "Article", headline: a.h1, url: `https://omahamattresscleaning.com/areas/${a.slug}` })),
   },
   {
@@ -47,7 +48,7 @@ const jsonld = [
       <h1>Areas we serve around Omaha</h1>
       <p class="lead" style="max-width:68ch;">Getting rid of a mattress around Omaha depends on where you live. Ralston and Bellevue contract with one hauler, La Vista and Gretna leave it to private companies, and part of Elkhorn is inside Omaha while part isn't; each area page cites the city or county source behind those rules and the date we checked it.</p>
 
-      <h2>The seven areas side by side</h2>
+      <h2>How do the seven areas compare?</h2>
       <div class="scroll">
         <table class="cmp">
           <thead><tr><th>Area</th><th>County</th><th>Trash setup</th><th>Cleanup event</th><th>Median year built</th><th>Health department</th></tr></thead>
@@ -67,7 +68,7 @@ const jsonld = [
       </div>
       <p class="note" style="max-width:72ch;">Median year built is from the U.S. Census Bureau's American Community Survey, 2020 to 2024 five-year estimates, table B25035. For comparison, the City of Omaha's median is 1973.</p>
 
-      <h2>Area pages</h2>
+      <h2>Which area pages can you read?</h2>
       <div class="area-grid">
         {areas.map((a) => (
           <a href={`/areas/${a.slug}`}>
@@ -78,17 +79,17 @@ const jsonld = [
       </div>
 
       <div class="prose">
-        <h2>What stays the same in every area</h2>
+        <h2>What stays the same in every area?</h2>
         <p>Every area gets the same visit: {priceText.first} for the first mattress, with a surcharge only for severe or biohazard cases and quoted before we start; an inspection form covering the material, special care notes and urine or odor observations; and technicians in gloves and shoe booties, with equipment disinfected between jobs. Our only checks are a moisture check after the job and a built-in dust mite (bed mite) sensor on the UV-C vacuum. A 72-hour bedroom CO₂ test is a separate optional service, booked on its own or added to a visit and priced by quote; it isn't a medical test. Check your care label and warranty terms before booking.</p>
         <p>This page is general information, not medical advice.</p>
-        <p>How dry vapor steam works, how long a mattress takes to dry and what bed mites (house dust mites) are don't change at the county line, so the <a href="https://sleepsanitation.com/knowledge-center">Sleep Sanitation Knowledge Center</a> covers them; the City of Omaha's own disposal rules and housing figures are in <a href="/omaha-homes">Mattresses and Omaha homes</a>.</p>
-        <h2>What we don't know</h2>
+        <p>How dry vapor steam works, how a treated mattress dries and what bed mites (house dust mites) are don't change at the county line, so the <a href="https://sleepsanitation.com/knowledge-center">Sleep Sanitation Knowledge Center</a> covers them; the City of Omaha's own disposal rules and housing figures are in <a href="/omaha-homes">Mattresses and Omaha homes</a>.</p>
+        <h2>What don't we know yet?</h2>
         <ul>
           <li>This fall's (2026) cleanup dates for Bellevue and any cleanup event in Ralston or Bennington. We list what the cities and Sarpy County had posted on October 3, 2026.</li>
           <li>Bulk pickup prices. The haulers we found don't publish them, with one exception: Gretna Sanitation lists a $75 minimum.</li>
           <li>Basements. The Census Bureau's housing survey doesn't count them, so our housing figures say nothing about lower-level bedrooms.</li>
         </ul>
-        <h2>Sources</h2>
+        <h2>Where do these facts come from?</h2>
         <ul>
           <li><a href="https://data.census.gov/table/ACSDT5Y2024.B25035?g=160XX00US3103950,160XX00US3104405,160XX00US3120260,160XX00US3126385,160XX00US3137000,160XX00US3138295,160XX00US3140605,860XX00US68022" rel="noopener">U.S. Census Bureau, ACS 2020 to 2024 5-year, B25035 Median Year Structure Built</a>, checked October 3, 2026</li>
           <li><a href="https://www.papillion.gov/cleanupdays" rel="noopener">City of Papillion: Fall Cleanup Days 2026</a>, checked October 3, 2026</li>
@@ -102,8 +103,8 @@ const jsonld = [
           <li><a href="https://www.schd.ne.gov/what-we-do/programs-services/environmental-health-linked-pages/nuisance/indoor-nuisance-complaints.html" rel="noopener">Sarpy/Cass Health Department: Indoor Nuisance Complaints</a>, checked October 3, 2026</li>
           <li><a href="https://www.douglascountyhealth.com/environmental/pest-control-nuisances" rel="noopener">Douglas County Health Department: Pest Control and Nuisances</a>, checked October 3, 2026</li>
         </ul>
-        <h2>Changelog</h2>
-        <ul><li>October 3, 2026: hub and seven area pages published.</li></ul>
+        <h2>What changed on this page?</h2>
+        <ul><li>October 3, 2026: hub and seven area pages published.</li><li>October 4, 2026: section headings rewritten as questions; phone number added to every page; checks wording corrected (two included checks; the 72-hour bedroom CO₂ test is optional, priced by quote).</li></ul>
         <p class="note">Written by Omaha Mattress Cleaning, operated by Sleep Sanitation.</p>
         <p><a class="btn btn-primary" href="/book">Book or contact us</a></p>
       </div>

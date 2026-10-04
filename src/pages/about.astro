@@ -1,15 +1,16 @@
 ---
 import Base from "../layouts/Base.astro";
 import { priceText } from "../lib/prices";
+const jsonld = [{ "@context": "https://schema.org", "@type": "AboutPage", url: "https://omahamattresscleaning.com/about", name: "Who runs Omaha Mattress Cleaning", dateModified: "2026-10-04", about: { "@id": "https://omahamattresscleaning.com/#business" } }];
 ---
-<Base title="About Omaha Mattress Cleaning | A Division of Sleep Sanitation" description="Omaha Mattress Cleaning is operated by Sleep Sanitation LLC. Who we are, how we work in Omaha homes, and the hygiene steps on every visit." path="/about">
+<Base title="About Omaha Mattress Cleaning | Operated by Sleep Sanitation" description="Omaha Mattress Cleaning is operated by Sleep Sanitation LLC. Who we are, how we work in Omaha homes, and the hygiene steps on every visit." path="/about" jsonld={jsonld}>
   <section class="section">
     <div class="container prose">
       <span class="eyebrow">About us</span>
       <h1>Who runs Omaha Mattress Cleaning</h1>
-      <p>Omaha Mattress Cleaning &amp; Sanitation is a locally owned and operated division of <a href="https://sleepsanitation.com/about-us">Sleep Sanitation</a> (Sleep Sanitation LLC). It's the same business, the same crew and the same phone number, (402) 512-5658. This site covers Omaha, the Douglas and Sarpy county suburbs and Council Bluffs; our Lincoln customers have their own site.</p>
+      <p>Omaha Mattress Cleaning &amp; Sanitation is locally owned and operated by <a href="https://sleepsanitation.com/about-us">Sleep Sanitation</a> (Sleep Sanitation LLC). It's the same business, the same crew and the same phone number, (402) 512-5658. This site covers Omaha, the Douglas and Sarpy county suburbs and Council Bluffs; our Lincoln customers have their own site.</p>
       <p>Sleep Sanitation is led by its founder, <a href="https://sleepsanitation.com/matthew-brunken">Matthew Brunken</a>. Our detailed reference articles on cleaning methods, mattress materials and brands, moisture and drying, and bed mites live in the <a href="https://sleepsanitation.com/knowledge-center">Sleep Sanitation Knowledge Center</a>. This site doesn't repeat them. It covers what's specific to Omaha: where a mattress can go when you're done with it, who to call about pests here, and what our weather does to a bedroom.</p>
-      <h2>What happens on a visit</h2>
+      <h2>What happens on a visit?</h2>
       <ul>
         <li><strong>Hygiene first.</strong> Technicians wear gloves and shoe booties, and our equipment is disinfected between jobs.</li>
         <li><strong>Inspection.</strong> We read the care label and identify the materials, then set steam temperature and pass speed for that bed.</li>
@@ -17,8 +18,8 @@ import { priceText } from "../lib/prices";
         <li><strong>Odor and accidents.</strong> Organic cleaning methods are our default, with enzyme treatment for urine and organic odor.</li>
       </ul>
       <p>Your care label and warranty terms come before any method, ours included, so check them before you book.</p>
-      <h2>Prices</h2>
-      <p>The first mattress is {priceText.first}, any size. Each additional full, queen or king is {priceText.additionalLarge}, and each additional kids bed is {priceText.additionalKids}. Normal stains, pet odor and ordinary urine accidents are included. Severe or biohazard contamination is quoted before we start. Every line is on <a href="https://sleepsanitation.com/pricing">Sleep Sanitation's pricing page</a>.</p>
+      <h2>What does it cost?</h2>
+      <p>The first mattress is {priceText.first}, any size. Each additional full, queen or king is {priceText.additionalLarge}, and each additional kids bed is {priceText.additionalKids}. Normal stains, pet odor and ordinary urine accidents are included. Severe or biohazard contamination is quoted before we start. The full rate table is on our <a href="/pricing">Omaha pricing page</a>, and the parent company's list is on <a href="https://sleepsanitation.com/pricing">Sleep Sanitation's pricing page</a>.</p>
       <p><a class="btn btn-primary" href="/book">Book or contact us</a></p>
     </div>
   </section>

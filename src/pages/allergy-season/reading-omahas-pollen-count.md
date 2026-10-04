@@ -14,7 +14,7 @@ watch:
   when: "Five NWS Omaha/Valley bulletins, Monday, September 28 to Friday, October 2, 2026; the last went out at 9:58 a.m."
   url: "https://forecast.weather.gov/product.php?issuedby=OAX&product=AQI&site=OAX"
 published: "2026-10-03"
-updated: "2026-10-03"
+updated: "2026-10-04"
 faq:
   - q: "Who supplies the numbers in the NWS Omaha/Valley pollen bulletin?"
     a: "Three places. The Douglas County Health Department supplies the counts in the NWS Omaha/Valley bulletin. UNMC's Division of Allergy and Immunology posts counts on Tuesdays and Thursdays in peak season from a sampler on Durham Research Center II. The National Allergy Bureau lists Station 33, run by The Asthma & Allergy Center in Bellevue."
@@ -46,6 +46,8 @@ changelog:
     note: "First published with the DCHD counts from September 28 to October 2, 2026."
   - date: "2026-10-03"
     note: "Revised: DCHD's sampler location is not stated by the bulletin, so it is no longer called a rooftop."
+  - date: "2026-10-04"
+    note: "Checks corrected: every visit includes two checks; the 72-hour bedroom CO₂ test is a separate optional service, priced by quote."
 ---
 
 ## Three counters, three schedules

@@ -6,7 +6,7 @@ h1: "Omaha summer humidity and basement bedrooms"
 description: "Omaha's average dew point runs from 16°F in January to 66°F in July (NOAA, Eppley). What that means for a basement guest bed and when to book a cleaning."
 answer: "Omaha's air holds the highest moisture in July and August. NOAA's normals for Eppley Airfield put the average July dew point near 66°F, against 16°F in January. A basement guest room that stays cooler than the outdoor dew point in summer can collect moisture, so that is the room and season to watch."
 published: "2026-10-03"
-updated: "2026-10-03"
+updated: "2026-10-04"
 checked: "2026-10-03"
 facts:
   - label: "Average dew point by season (Eppley Airfield)"
@@ -27,7 +27,7 @@ facts:
     url: "https://www.omaharecyclingguide.org/mattresses"
 faq:
   - q: "Is it a bad idea to have a mattress cleaned in an Omaha summer?"
-    a: "No, but plan for drying. Our steam is low moisture, and an Omaha July averages a 66°F dew point at Eppley, so run the air conditioning or a dehumidifier in the room afterwards rather than opening the windows."
+    a: "No. Our steam is low moisture, the bed stays unmade until it is dry to the touch, and we run a moisture check after service. An Omaha July averages a 66°F dew point at Eppley, so keep the air conditioning or a dehumidifier running in the room rather than opening the windows."
   - q: "My basement guest bed smells musty. Can cleaning fix that?"
     a: "Sometimes. A musty smell can mean moisture or mold in the mattress, and we inspect before we treat. If the bed has been damp for a long time, we will tell you it should be replaced rather than cleaned."
   - q: "What should the humidity be in a bedroom?"
@@ -48,6 +48,8 @@ sources:
 changelog:
   - date: "2026-10-03"
     note: "First published, with dew points averaged from NOAA's 1991 to 2020 hourly normals."
+  - date: "2026-10-04"
+    note: "Scheduling advice reworded: the bed stays unmade until dry to the touch, plus our moisture check after service."
 ---
 
 ## Omaha's moisture year
@@ -70,9 +72,9 @@ Averages of NOAA's 1991 to 2020 hourly normals for Eppley Airfield, rounded. The
 - **August, still 64°F and the second wettest month at Eppley (4.60 in):** leave the dehumidifier running; August rain nearly matches May's 4.66 in.
 - **October, when the dew point has fallen to 41°F:** check the underside of the mattress for spots or a musty smell, and if it sits directly on a slab floor, lift it onto a frame or foundation.
 
-## Scheduling a cleaning in an Omaha summer
+## Can you schedule a mattress cleaning in an Omaha summer?
 
-Book it, then plan the drying. With July's outdoor dew point averaging 66°F at Eppley, an open window lets moisture in; air conditioning or a dehumidifier in the room does the drying instead. An October appointment dries in air with a dew point 25 degrees lower. Sleep Sanitation explains drying times in [how quickly a treated mattress should dry](https://sleepsanitation.com/knowledge-center/mattress-moisture-heat-drying-construction/how-quickly-should-a-treated-mattress-dry). Check your mattress care label and warranty terms before any cleaning.
+Yes. After any visit, the bed stays unmade until it is dry to the touch, and we run a moisture check after service before we leave. With July's outdoor dew point averaging 66°F at Eppley, an open window lets moisture in, so keep the air conditioning or a dehumidifier running in the room instead. Sleep Sanitation covers what affects this in [how quickly a treated mattress should dry](https://sleepsanitation.com/knowledge-center/mattress-moisture-heat-drying-construction/how-quickly-should-a-treated-mattress-dry). Check your mattress care label and warranty terms before any cleaning.
 
 If a basement bed is past saving, our [Omaha disposal guide](/omaha-homes/getting-rid-of-a-mattress-in-omaha) lists where it can go.
 
