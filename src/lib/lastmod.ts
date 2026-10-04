@@ -1,0 +1,42 @@
+/**
+ * Page "last modified" dates for the sitemap and Article dateModified.
+ *
+ * A page changes when its own source changes OR when a template it renders through
+ * changes (e.g. #11 added the phone line to every layout). So a page's lastmod is the
+ * latest of: its own date (frontmatter `updated`, or the date below for .astro pages),
+ * Base.astro's date and its layout's date.
+ *
+ * Keep these equal to the last commit that touched each file:
+ *   git log -1 --format=%cd --date=format:%Y-%m-%d -- src/layouts/<File>.astro
+ * `npm run check:lastmod` (after a build) compares dist/sitemap.xml with git.
+ */
+export const TEMPLATE_LASTMOD = {
+  Base: "2026-10-04",
+  AreaPage: "2026-10-04",
+  HostBrief: "2026-10-04",
+  OmahaGuide: "2026-10-04",
+  SeasonGuide: "2026-10-04",
+} as const;
+export type Layout = keyof typeof TEMPLATE_LASTMOD;
+
+/** Last edit of each .astro page's own source file. */
+export const PAGE_LASTMOD: Record<string, string> = {
+  "/": "2026-10-04",
+  "/pricing": "2026-10-04",
+  "/about": "2026-10-04",
+  "/book": "2026-10-04",
+  "/omaha-homes": "2026-10-04",
+  "/areas": "2026-10-04",
+  "/allergy-season": "2026-10-04",
+  "/airbnb-hosts": "2026-10-04",
+};
+
+const latest = (...dates: (string | undefined)[]) =>
+  dates.filter((d): d is string => !!d).sort().at(-1)!;
+
+/** lastmod for an .astro page that renders through Base only. */
+export const pageLastmod = (path: string) => latest(PAGE_LASTMOD[path], TEMPLATE_LASTMOD.Base);
+
+/** lastmod for a markdown guide: its frontmatter date, Base and its layout. */
+export const guideLastmod = (fm: { updated?: string; published?: string }, layout: Layout) =>
+  latest(fm.updated ?? fm.published, TEMPLATE_LASTMOD.Base, TEMPLATE_LASTMOD[layout]);
