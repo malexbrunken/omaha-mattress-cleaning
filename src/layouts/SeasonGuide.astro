@@ -1,0 +1,101 @@
+---
+/**
+ * O3 "Allergy season in Omaha" guide layout. Anatomy differs from O1 (facts box first) and O2 (two columns
+ * with a sticky area card): a twelve-month strip that marks the guide's months, the short answer, a
+ * "count to watch" panel naming who counts and when, the markdown body, questions as disclosure rows,
+ * then a sources table and a changelog.
+ */
+import Base from "./Base.astro";
+const { frontmatter: fm } = Astro.props as { frontmatter: any };
+const path = `/allergy-season/${fm.slug}`;
+const url = `https://omahamattresscleaning.com${path}`;
+const fmt = (d: string) => new Date(`${d}T12:00:00Z`).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" });
+const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const on = new Set<number>(fm.months ?? []);
+const jsonld: object[] = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: fm.h1,
+    description: fm.description,
+    datePublished: fm.published,
+    dateModified: fm.updated ?? fm.published,
+    mainEntityOfPage: url,
+    author: { "@type": "Organization", "@id": "https://sleepsanitation.com/#organization", name: "Sleep Sanitation" },
+    publisher: { "@type": "Organization", "@id": "https://sleepsanitation.com/#organization", name: "Sleep Sanitation" },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://omahamattresscleaning.com/" },
+      { "@type": "ListItem", position: 2, name: "Allergy season", item: "https://omahamattresscleaning.com/allergy-season" },
+      { "@type": "ListItem", position: 3, name: fm.h1, item: url },
+    ],
+  },
+];
+if (fm.faq?.length) {
+  jsonld.push({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: fm.faq.map((f: any) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+  });
+}
+---
+<Base title={fm.title} description={fm.description} path={path} jsonld={jsonld}>
+  <style>
+    .mstrip { display:grid; grid-template-columns: repeat(12, minmax(0,1fr)); gap:4px; margin:1.2rem 0 1.6rem; max-width:72ch; }
+    .mstrip span { text-align:center; font-size:.78rem; padding:.45rem 0; border-radius:6px; background:var(--cream-warm); color:var(--stone-light); }
+    .mstrip span.on { background:var(--gold); color:var(--charcoal); font-weight:700; }
+    .watch { background:var(--charcoal); color:var(--cream); border-radius:var(--radius); padding:1.1rem 1.3rem; margin:1.4rem 0 2rem; max-width:72ch; }
+    .watch p { color:var(--cream); margin:.2rem 0; font-size:.98rem; }
+    .watch strong { color:var(--gold); }
+    .watch a { color:var(--gold); text-decoration:underline; text-underline-offset:3px; }
+    details.q { border-bottom:1px solid var(--line); padding:.8rem 0; }
+    details.q summary { cursor:pointer; font-weight:600; color:var(--charcoal); }
+    details.q p { margin:.6rem 0 0; }
+    .srcs { width:100%; border-collapse:collapse; font-size:.92rem; }
+    .srcs th, .srcs td { text-align:left; padding:.5rem .6rem; border-bottom:1px solid var(--line); vertical-align:top; }
+  </style>
+  <section class="section" style="padding-top:3rem;">
+    <div class="container prose">
+      <p style="font-size:0.9rem;"><a href="/">Home</a> › <a href="/allergy-season">Allergy season</a></p>
+      <span class="eyebrow">{fm.season}</span>
+      <h1>{fm.h1}</h1>
+      <div class="mstrip" aria-label={`Months this guide covers: ${[...on].map((m) => MONTHS[m - 1]).join(", ")}`}>
+        {MONTHS.map((m, i) => <span class={on.has(i + 1) ? "on" : ""}>{m}</span>)}
+      </div>
+      <p class="lead">{fm.answer}</p>
+      <div class="watch" aria-label="Count to watch">
+        <p><strong>Count to watch:</strong> {fm.watch.who}</p>
+        <p>{fm.watch.when} <a href={fm.watch.url} rel="noopener">Open it</a></p>
+      </div>
+      <slot />
+      {fm.faq?.length > 0 && (
+        <>
+          <h2>Asked about {fm.faqTopic}</h2>
+          {fm.faq.map((f: any) => (
+            <details class="q"><summary>{f.q}</summary><p>{f.a}</p></details>
+          ))}
+        </>
+      )}
+      <h2>Sources</h2>
+      <table class="srcs">
+        <thead><tr><th>Source</th><th>Checked</th></tr></thead>
+        <tbody>
+          {fm.sources.map((s: any) => (
+            <tr><td><a href={s.url} rel="noopener">{s.name}</a></td><td>{fmt(s.checked)}</td></tr>
+          ))}
+        </tbody>
+      </table>
+      <h2>Changelog</h2>
+      <ul>
+        {fm.changelog.map((c: any) => (
+          <li>{fmt(c.date)}: {c.note}</li>
+        ))}
+      </ul>
+      <p class="note">Published {fmt(fm.published)}{fm.updated && fm.updated !== fm.published ? `, updated ${fmt(fm.updated)}` : ""}. Written by Omaha Mattress Cleaning, operated by Sleep Sanitation. General information, not medical advice.</p>
+      <p><a class="btn btn-primary" href="/allergy-season#visit">Prices and what every visit includes</a></p>
+    </div>
+  </section>
+</Base>

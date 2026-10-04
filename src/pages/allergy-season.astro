@@ -1,0 +1,115 @@
+---
+/**
+ * O3 hub: "Allergy season in Omaha". Layout differs from the O1 hub (facts box + list) and the O2 hub
+ * (comparison table + card grid): a month-by-month allergy calendar table built from UNMC's timing and
+ * NOAA's Eppley normals, a numbered guide list keyed to months, a "who counts" block, then the one
+ * visit and price section for the hub.
+ */
+import Base from "../layouts/Base.astro";
+type Fm = { frontmatter: { slug: string; h1: string; season: string; description: string; order: number; draft?: boolean } };
+const guides = Object.values(import.meta.glob<Fm>("./allergy-season/*.md", { eager: true }))
+  .map((m) => m.frontmatter)
+  .filter((f) => !f.draft)
+  .sort((a, b) => a.order - b.order);
+const cal = [
+  { m: "March", unmc: "Trees begin pollinating", dew: "28°F", wind: "11.3 mph", note: "" },
+  { m: "April", unmc: "Full swing by early to mid-April, per Poole", dew: "38°F", wind: "11.8 mph", note: "Windiest month; median last 32°F night April 18" },
+  { m: "May", unmc: "Grass may begin", dew: "50°F", wind: "10.5 mph", note: "UNMC called May 2022 near the tree and grass peak" },
+  { m: "June", unmc: "Grass, under UNMC's May-or-June start", dew: "61°F", wind: "9.7 mph", note: "" },
+  { m: "July", unmc: "No new pollen type in UNMC's timeline", dew: "66°F", wind: "8.5 mph", note: "Highest dew point" },
+  { m: "August", unmc: "Ragweed around August 15", dew: "64°F", wind: "8.2 mph", note: "Calmest month" },
+  { m: "September", unmc: "Ragweed and other weeds", dew: "55°F", wind: "9.2 mph", note: "DCHD weeds 54, high, on September 28, 2026" },
+  { m: "October", unmc: "Weeds tapering", dew: "41°F", wind: "9.8 mph", note: "DCHD weeds 12, moderate, on October 2, 2026; median first 32°F night October 21" },
+];
+const jsonld = [
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Allergy season in Omaha",
+    url: "https://omahamattresscleaning.com/allergy-season",
+    hasPart: guides.map((g) => ({ "@type": "Article", headline: g.h1, url: `https://omahamattresscleaning.com/allergy-season/${g.slug}` })),
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://omahamattresscleaning.com/" },
+      { "@type": "ListItem", position: 2, name: "Allergy season", item: "https://omahamattresscleaning.com/allergy-season" },
+    ],
+  },
+];
+---
+<Base title="Omaha Allergy Season: Pollen Counts, Humidity and the Bed" description="Omaha's pollen calendar from UNMC, the Douglas County weed counts for late September 2026, Eppley's wind and dew points, and five guides for the bedroom." path="/allergy-season" jsonld={jsonld}>
+  <style>
+    .cal { width:100%; border-collapse:collapse; font-size:.92rem; background:var(--white); margin:1.2rem 0 1rem; }
+    .cal th, .cal td { text-align:left; padding:.6rem .7rem; border-bottom:1px solid var(--line); vertical-align:top; }
+    .cal thead th { background:var(--cream-warm); color:var(--charcoal); }
+    .cal tbody th { font-weight:700; white-space:nowrap; }
+    .scroll { overflow-x:auto; }
+    ol.glist { counter-reset: g; list-style:none; padding:0; margin:1.2rem 0 2rem; }
+    ol.glist li { counter-increment: g; position:relative; padding:0 0 1.1rem 3rem; border-left:2px solid var(--gold); margin-left:1rem; }
+    ol.glist li::before { content: counter(g); position:absolute; left:-1rem; top:0; width:2rem; height:2rem; border-radius:50%; background:var(--charcoal); color:var(--gold); display:grid; place-items:center; font-weight:700; }
+    ol.glist small { display:block; color:var(--gold-dark); font-weight:600; text-transform:uppercase; letter-spacing:.04em; font-size:.75rem; }
+    #visit { background:var(--cream-warm); border-radius:var(--radius); padding:1.4rem 1.6rem; margin:2rem 0; }
+  </style>
+  <section class="section" style="padding-top:3rem;">
+    <div class="container">
+      <p style="font-size:0.9rem;"><a href="/">Home</a> › Allergy season</p>
+      <span class="eyebrow">Douglas County pollen, Eppley weather</span>
+      <h1>Allergy season in Omaha: pollen counts, humidity and the bed</h1>
+      <p class="lead" style="max-width:68ch;">Omaha's pollen year runs from trees in March to weeds in October, and three public counts track it: the Douglas County Health Department's numbers in the National Weather Service bulletin, UNMC's twice-weekly counts, and NAB Station 33 in Bellevue. These guides pair those counts with NOAA's Eppley Airfield normals and say where a mattress cleaning fits, and where it doesn't.</p>
+
+      <h2>Omaha's allergy calendar</h2>
+      <div class="scroll">
+        <table class="cal">
+          <thead><tr><th>Month</th><th>Pollen in UNMC's timeline</th><th>Eppley dew point</th><th>Eppley wind</th><th>Also worth knowing</th></tr></thead>
+          <tbody>
+            {cal.map((c) => (<tr><th scope="row">{c.m}</th><td>{c.unmc}</td><td>{c.dew}</td><td>{c.wind}</td><td>{c.note}</td></tr>))}
+          </tbody>
+        </table>
+      </div>
+      <p class="note" style="max-width:72ch;">Pollen timing is from UNMC allergist Jill Poole (March 2014) and UNMC's May 2022 release. Dew point and wind are our monthly averages of NOAA's 1991 to 2020 hourly normals for Eppley Airfield; freeze dates are NOAA's medians. Weed counts are the Douglas County Health Department's, as printed in the NWS Omaha/Valley bulletin.</p>
+
+      <h2>The guides</h2>
+      <ol class="glist">
+        {guides.map((g) => (
+          <li><small>{g.season}</small><a href={`/allergy-season/${g.slug}`}><strong>{g.h1}</strong></a><br /><span style="color:var(--stone); font-size:.95rem;">{g.description}</span></li>
+        ))}
+      </ol>
+
+      <div class="prose">
+        <h2>Who counts Omaha's pollen</h2>
+        <p>The Douglas County Health Department supplies the daily counts and air quality forecast that the National Weather Service in Valley publishes as the Omaha Pollution Index/Pollen Count. UNMC's Division of Allergy and Immunology has run a seven-day sampler on the roof of Durham Research Center II since late 2020 and posts on Tuesdays and Thursdays in peak season. The National Allergy Bureau lists The Asthma & Allergy Center's rooftop at Bellevue Medical Center as Station 33. Our <a href="/allergy-season/reading-omahas-pollen-count">pollen count guide</a> lays DCHD's five bulletins from September 28 to October 2, 2026 side by side.</p>
+
+        <section id="visit" aria-label="Booking a visit">
+          <h2 style="margin-top:0;">Booking a visit between counts</h2>
+          <p>Weekday visits (Monday to Friday, 9am to 6pm) open with an inspection form noting material, special care notes and any urine or odor observations; our technicians work in gloves and shoe booties, disinfect equipment between jobs, and finish with three checks only, a moisture check after the job, a bedroom CO2 check and the dust mite sensor on our UV-C vacuum. Pricing: $249 for the first mattress ($199 under the Fall 2026 first-mattress offer), $199 per additional full, queen or king and $149 per additional kids bed, with normal stains, pet odor and ordinary urine accidents included and a surcharge only for severe or biohazard cases, quoted before we start; check your care label and warranty terms before booking.</p>
+          <p>We make no allergy, asthma or other health claim for a mattress cleaning; this page is general information, not medical advice.</p>
+        </section>
+
+        <p>How heat affects bed mites (house dust mites), and why killing them isn't the same as removing them, is covered once for every city in the <a href="https://sleepsanitation.com/knowledge-center">Sleep Sanitation Knowledge Center</a>.</p>
+
+        <h2>What we don't know</h2>
+        <ul>
+          <li>Where the Douglas County Health Department's sampler sits. The NWS bulletin doesn't say.</li>
+          <li>The units behind DCHD's numbers, which the NWS bulletin labels low, moderate or high without stating grains per cubic meter.</li>
+          <li>When UNMC will post its first 2027 counts. Its page says only "during peak season."</li>
+        </ul>
+        <h2>Sources</h2>
+        <ul>
+          <li><a href="https://forecast.weather.gov/product.php?issuedby=OAX&product=AQI&site=OAX" rel="noopener">NWS Omaha/Valley: Omaha Pollution Index/Pollen Count (counts by the Douglas County Health Department)</a>, checked October 3, 2026</li>
+          <li><a href="https://www.unmc.edu/intmed/divisions/allergy-immunology/research/pollen.html" rel="noopener">UNMC Division of Allergy and Immunology: Pollen Counts</a>, checked October 3, 2026</li>
+          <li><a href="https://www.unmc.edu/newsroom/2014/03/17/tree-pollen-kicks-off-nebraska-allergy-season/" rel="noopener">UNMC Newsroom: Tree pollen kicks off Nebraska allergy season (2014)</a>, checked October 3, 2026</li>
+          <li><a href="https://www.unmc.edu/newsroom/2022/05/09/as-pollen-season-peaks-unmc-reporting-pollen-counts/" rel="noopener">UNMC Newsroom: As pollen season peaks, UNMC reporting pollen counts (2022)</a>, checked October 3, 2026</li>
+          <li><a href="https://allergist.aaaai.org/forms/NABDataReleaseInformation.pdf" rel="noopener">AAAAI National Allergy Bureau: station list</a>, checked October 3, 2026</li>
+          <li><a href="https://www.ncei.noaa.gov/data/normals-hourly/1991-2020/access/USW00014942.csv" rel="noopener">NOAA NCEI: hourly normals, Eppley Airfield</a>, checked October 3, 2026</li>
+          <li><a href="https://www.ncei.noaa.gov/data/normals-annualseasonal/1991-2020/access/USW00014942.csv" rel="noopener">NOAA NCEI: annual and seasonal normals (freeze dates), Eppley Airfield</a>, checked October 3, 2026</li>
+        </ul>
+        <h2>Changelog</h2>
+        <ul><li>October 3, 2026: hub and five guides published.</li></ul>
+        <p class="note">Written by Omaha Mattress Cleaning, operated by Sleep Sanitation.</p>
+        <p><a class="btn btn-primary" href="/book">Book or contact us</a></p>
+      </div>
+    </div>
+  </section>
+</Base>
