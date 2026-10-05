@@ -1,8 +1,9 @@
 import type { APIRoute } from "astro";
-import { guideLastmod, pageLastmod, type Layout } from "../lib/lastmod";
+import { guideLastmod, kcLastmod, pageLastmod, type Layout } from "../lib/lastmod";
 
 const SITE = "https://omahamattresscleaning.com";
 const STATIC = ["/", "/pricing", "/about", "/book"].map((path) => ({ path, lastmod: pageLastmod(path) }));
+const KC_GUIDES = import.meta.glob<Fm>(["./omaha-homes/*.md", "./areas/*.md", "./allergy-season/*.md", "./airbnb-hosts/*.md"], { eager: true });
 
 type Fm = { frontmatter?: { updated?: string; published?: string; draft?: boolean } };
 const hub = import.meta.glob<Fm>("./omaha-homes.astro", { eager: true });
@@ -16,6 +17,8 @@ const hosts = import.meta.glob<Fm>("./airbnb-hosts/*.md", { eager: true });
 
 export const GET: APIRoute = () => {
   const entries = [...STATIC];
+  const kcGuides = Object.values(KC_GUIDES).map((m) => m.frontmatter ?? {}).filter((f) => !f.draft);
+  entries.push({ path: "/knowledge-center", lastmod: kcLastmod(kcGuides) });
   if (Object.keys(hub).length) entries.push({ path: "/omaha-homes", lastmod: pageLastmod("/omaha-homes") });
   for (const [file, mod] of Object.entries(guides)) {
     const fm = mod.frontmatter ?? {};

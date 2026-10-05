@@ -29,6 +29,7 @@ export const PAGE_LASTMOD: Record<string, string> = {
   "/areas": "2026-10-04",
   "/allergy-season": "2026-10-04",
   "/airbnb-hosts": "2026-10-04",
+  "/knowledge-center": "2026-10-04",
 };
 
 const latest = (...dates: (string | undefined)[]) =>
@@ -36,6 +37,13 @@ const latest = (...dates: (string | undefined)[]) =>
 
 /** lastmod for an .astro page that renders through Base only. */
 export const pageLastmod = (path: string) => latest(PAGE_LASTMOD[path], TEMPLATE_LASTMOD.Base);
+
+/**
+ * lastmod for /knowledge-center: its own source and Base, plus every guide it lists
+ * (a new or updated guide changes the index).
+ */
+export const kcLastmod = (guides: { updated?: string; published?: string }[]) =>
+  latest(pageLastmod("/knowledge-center"), ...guides.map((g) => g.updated ?? g.published));
 
 /** lastmod for a markdown guide: its frontmatter date, Base and its layout. */
 export const guideLastmod = (fm: { updated?: string; published?: string }, layout: Layout) =>
