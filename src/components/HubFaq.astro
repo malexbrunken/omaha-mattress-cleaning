@@ -1,0 +1,14 @@
+---
+/** Visible FAQ block for hub pages. Pair with faqLd(faq) in the page's jsonld so schema matches what readers see. */
+import type { Faq } from "../lib/faq";
+const { faq, heading = "Quick answers" } = Astro.props as { faq: Faq[]; heading?: string };
+---
+<section class="hub-faq" aria-label={heading}>
+  <h2>{heading}</h2>
+  {faq.map((f) => (
+    <>
+      <h3>{f.q}</h3>
+      <p set:html={f.a} />
+    </>
+  ))}
+</section>

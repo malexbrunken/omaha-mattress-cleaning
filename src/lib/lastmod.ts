@@ -17,21 +17,23 @@ export const TEMPLATE_LASTMOD = {
   OmahaGuide: "2026-10-04",
   SeasonGuide: "2026-10-04",
   DevelopmentGuide: "2026-10-05",
+  CompareGuide: "2026-10-05",
 } as const;
 export type Layout = keyof typeof TEMPLATE_LASTMOD;
 
 /** Last edit of each .astro page's own source file. */
 export const PAGE_LASTMOD: Record<string, string> = {
-  "/": "2026-10-04",
-  "/pricing": "2026-10-04",
+  "/": "2026-10-05",
+  "/pricing": "2026-10-05",
   "/about": "2026-10-04",
   "/book": "2026-10-04",
   "/omaha-homes": "2026-10-05",
-  "/areas": "2026-10-04",
-  "/allergy-season": "2026-10-04",
+  "/areas": "2026-10-05",
+  "/allergy-season": "2026-10-05",
   "/airbnb-hosts": "2026-10-05",
   "/developments": "2026-10-05",
   "/knowledge-center": "2026-10-05",
+  "/compare": "2026-10-05",
 };
 
 const latest = (...dates: (string | undefined)[]) =>

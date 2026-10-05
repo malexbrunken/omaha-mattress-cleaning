@@ -9,7 +9,8 @@ import { PRICES, PROMO, priceText, usd } from "../lib/prices";
 
 const SITE = "https://omahamattresscleaning.com";
 const URL_ = `${SITE}/pricing`;
-const MODIFIED = "2026-10-04";
+const PUBLISHED = "2026-10-04";
+const MODIFIED = "2026-10-05";
 const PHONE = "(402) 512-5658";
 const AREAS = ["Omaha","Elkhorn","Papillion","La Vista","Bellevue","Gretna","Ralston","Chalco","Bennington","Waterloo","Valley","Council Bluffs"];
 
@@ -46,6 +47,8 @@ const faq = [
   { q: "What does the underside add-on cost?", a: `The standard visit covers the sleep surface, seams and edges. Treating the underside as well adds ${usd(P.underside.min)} to ${usd(P.underside.max)} per mattress, depending on the mattress.` },
   { q: "When can we use the bed again?", a: "The bed stays unmade until it is dry to the touch, and we run a moisture check after service before we leave." },
   { q: "Is the 72-hour bedroom CO₂ test included?", a: `No. It is a separate optional service: book it on its own or add it to a mattress visit. It is priced by quote and it isn't a medical test. Call or text ${PHONE}.` },
+  { q: "What checks are included in every visit?", a: "Two: a moisture check after service and the built-in bed mite (dust mite) sensor on our UV-C vacuum. UV-C light treatment and HEPA vacuuming are also included on every visit." },
+  { q: "Is a mattress specialist worth it over a carpet cleaner's mattress add-on?", a: "If the job is the bed, yes. A carpet add-on is typically hot-water extraction with the floor equipment; our visit is built around the mattress, with an inspection, dry vapor steam on the seams and tufts, HEPA vacuuming, UV-C light treatment and two checks. See our comparison pages at omahamattresscleaning.com/compare." },
   { q: "Can wet cleaning affect my mattress warranty?", a: "Wet extraction or hot-water carpet cleaning can void some mattress warranties. Read your care label and warranty terms before any cleaning, ours included." },
   ...(PROMO.active ? [{ q: "Is there a current offer?", a: `Yes. During the ${PROMO.label}, the first mattress is ${priceText.promoFirst} instead of ${priceText.first}. ${priceText.promoFollowUp}` }] : []),
 ];
@@ -78,7 +81,7 @@ const jsonld = [
     "@id": `${URL_}#webpage`,
     url: URL_,
     name: "Mattress cleaning cost in Omaha",
-    datePublished: MODIFIED,
+    datePublished: PUBLISHED,
     dateModified: MODIFIED,
     breadcrumb: { "@id": `${URL_}#breadcrumb` },
     mainEntity: { "@id": `${URL_}#service` },
@@ -223,7 +226,7 @@ const description = `Mattress sanitation price in Omaha: ${priceText.first} firs
           </tbody>
         </table>
       </div>
-      <p>For a national reference point, <a href="https://www.angi.com/articles/mattress-cleaning-cost.htm" rel="noopener">Angi's mattress cleaning cost guide</a> (updated August 3, 2026) gives a $130 average, with basic cleaning at $80 to $130 and deep cleaning at $130 to $200. Those are national figures, not Omaha quotes. Sleep Sanitation's guide <a href="https://sleepsanitation.com/knowledge-center/mattress-owners-decision-center/how-much-should-mattress-sanitation-cost">How much should professional mattress sanitation cost?</a> walks through how to judge a price against the work behind it.</p>
+      <p>For a national reference point, <a href="https://www.angi.com/articles/mattress-cleaning-cost.htm" rel="noopener">Angi's mattress cleaning cost guide</a> (updated August 3, 2026) gives a $130 average, with basic cleaning at $80 to $130 and deep cleaning at $130 to $200. Those are national figures, not Omaha quotes. Sleep Sanitation's guide <a href="https://sleepsanitation.com/knowledge-center/mattress-owners-decision-center/how-much-should-mattress-sanitation-cost">How much should professional mattress sanitation cost?</a> walks through how to judge a price against the work behind it. For the Omaha decision itself, read <a href="/compare/mattress-cleaning-vs-carpet-cleaner">mattress specialist or carpet cleaner in Omaha</a> and <a href="/compare/dry-vapor-vs-wet-extraction">dry vapor steam vs wet extraction</a>.</p>
 
       <h2 id="faq">Mattress cleaning price questions</h2>
       <dl class="faq">
@@ -236,6 +239,7 @@ const description = `Mattress sanitation price in Omaha: ${priceText.first} firs
         <li><a href="/areas">Areas we serve</a><br />Neighborhood and suburb pages for the metro.</li>
         <li><a href="/airbnb-hosts">Airbnb and short-term rental hosts</a><br />Guest-turnover scheduling and multi-bed visits.</li>
         <li><a href="/allergy-season">Allergy season in Omaha</a><br />Pollen timing, humidity and the bedroom.</li>
+        <li><a href="/compare">Compare your options</a><br />Dry vapor vs wet extraction, and specialist vs carpet cleaner.</li>
         <li><a href="/omaha-homes">Omaha homes</a><br />Mattress disposal, bed bugs in Douglas County and other local guides.</li>
       </ul>
       <p>Omaha Mattress Cleaning & Sanitation is operated by Sleep Sanitation. See the parent company's <a href="https://sleepsanitation.com/pricing">Sleep Sanitation pricing page</a> for its full price list.</p>

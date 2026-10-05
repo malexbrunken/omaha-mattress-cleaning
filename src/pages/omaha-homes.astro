@@ -1,5 +1,8 @@
 ---
 import Base from "../layouts/Base.astro";
+import HubFaq from "../components/HubFaq.astro";
+import { faqLd } from "../lib/faq";
+import { priceText } from "../lib/prices";
 type Fm = { frontmatter: { slug: string; h1: string; answer: string; draft?: boolean } };
 const order = [
   "getting-rid-of-a-mattress-in-omaha",
@@ -14,7 +17,13 @@ const mods = Object.values(import.meta.glob<Fm>("./omaha-homes/*.md", { eager: t
   .map((m) => m.frontmatter)
   .filter((f) => !f.draft)
   .sort((a, b) => order.indexOf(a.slug) - order.indexOf(b.slug));
-const jsonld = [
+const faq = [
+  { q: "How much does mattress cleaning cost in Omaha?", a: `${priceText.first} for the first mattress, any size, with normal stains, pet odor and ordinary urine accidents included. Each additional full, queen or king is ${priceText.additionalLarge}; each additional kids' bed is ${priceText.additionalKids}.` },
+  { q: "Can an Omaha mattress go in the trash cart?", a: "No. The Omaha Recycling Guide lists mattresses as a bulky item, so they need a Cleanup Saturday, the River City program or Pheasant Point Landfill." },
+  { q: "Do you treat bed bugs?", a: "No. Bed bugs need a licensed pest-control company. We treat the mattress surface and kill bed mites (house dust mites) with steam heat." },
+  { q: "When can we use the bed again?", a: "The bed stays unmade until it is dry to the touch, and we run a moisture check after service before we leave. In an Omaha summer, run the air conditioning or a dehumidifier rather than opening the windows." },
+];
+const jsonld: object[] = [
   {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
@@ -33,6 +42,7 @@ const jsonld = [
     ],
   },
 ];
+jsonld.push(faqLd(faq));
 ---
 <Base title="Omaha Homes: Mattress Disposal, Bed Bugs and Humidity" description="Omaha home mattress guides: disposal, bed bugs, humidity, west Omaha new-construction dust, river-bottom humidity and Offutt PCS resets." path="/omaha-homes" jsonld={jsonld}>
   <section class="section" style="padding-top:3rem;">
@@ -56,6 +66,7 @@ const jsonld = [
       </ul>
       <h2>What do these guides leave to Sleep Sanitation?</h2>
       <p>Cleaning methods, mattress materials, how a mattress dries and bed mites aren't specific to Omaha, so we link to the <a href="https://sleepsanitation.com/knowledge-center">Sleep Sanitation Knowledge Center</a> for them instead of repeating them here.</p>
+      <HubFaq faq={faq} heading="Quick answers for Omaha homes" />
       <h2>What don't we know yet?</h2>
       <ul>
         <li>Fees at River City and Pheasant Point beyond what the city publishes. Call before you go.</li>

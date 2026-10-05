@@ -19,6 +19,13 @@ const list = (mods: Record<string, Mod>) =>
 const SITE = "https://omahamattresscleaning.com";
 const hubs = [
   {
+    path: "/compare",
+    q: "Which mattress cleaning option fits an Omaha home?",
+    name: "Compare your options",
+    blurb: "Dry vapor steam vs wet extraction, and a mattress specialist vs a carpet cleaner, with Omaha prices.",
+    guides: list(import.meta.glob<Mod>("./compare/*.md", { eager: true })),
+  },
+  {
     path: "/omaha-homes",
     q: "What do Omaha homeowners ask about mattresses?",
     name: "Mattresses and Omaha homes",
@@ -90,7 +97,7 @@ const jsonld = [
 ];
 const guideCount = hubs.reduce((n, h) => n + h.guides.length, 0);
 ---
-<Base title="Omaha Mattress Knowledge Center | Local Guides and Hubs" description={`${guideCount} Omaha guides in 5 hubs: Omaha homes, suburbs, allergy season, Airbnb hosts and named developments. Operated by Sleep Sanitation.`} path="/knowledge-center" jsonld={jsonld}>
+<Base title="Omaha Mattress Knowledge Center | Local Guides and Hubs" description={`${guideCount} Omaha guides in 6 hubs: comparisons, Omaha homes, suburbs, allergy season, Airbnb hosts and developments. Operated by Sleep Sanitation.`} path="/knowledge-center" jsonld={jsonld}>
   <style>
     .hub { border-top:1px solid var(--line); padding-top:1.2rem; margin-top:2rem; }
     .hub ul { margin:.6rem 0 0; }
@@ -100,7 +107,7 @@ const guideCount = hubs.reduce((n, h) => n + h.guides.length, 0);
       <p style="font-size:0.9rem;"><a href="/">Home</a> › Knowledge Center</p>
       <span class="eyebrow">Knowledge Center</span>
       <h1>Omaha Mattress Cleaning Knowledge Center</h1>
-      <p class="lead">This Knowledge Center collects our Omaha-specific guides: mattress disposal and bed bugs, the suburbs we serve, allergy season, hosting short-term rentals and named developments. Omaha Mattress Cleaning & Sanitation is operated by Sleep Sanitation. The first mattress is {priceText.first}, any size; see <a href="/pricing">our pricing page</a> for every rate. Call or text <a href={PHONE.tel}>{PHONE.display}</a>.</p>
+      <p class="lead">This Knowledge Center collects our Omaha-specific guides: method and specialist comparisons, mattress disposal and bed bugs, the suburbs we serve, allergy season, hosting short-term rentals and named developments. Omaha Mattress Cleaning & Sanitation is operated by Sleep Sanitation. The first mattress is {priceText.first}, any size; see <a href="/pricing">our pricing page</a> for every rate. Call or text <a href={PHONE.tel}>{PHONE.display}</a>.</p>
 
       {hubs.map((h) => (
         <div class="hub">
