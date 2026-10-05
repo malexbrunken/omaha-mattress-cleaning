@@ -21,7 +21,7 @@ const emailHref = `mailto:${EMAIL}?subject=${encodeURIComponent("Mattress sanita
 const AREAS = ["Omaha", "Elkhorn", "Papillion", "La Vista", "Bellevue", "Gretna", "Ralston", "Chalco", "Bennington", "Waterloo", "Valley", "Council Bluffs"];
 
 const options = [
-  { key: "call", title: "Call", detail: PHONE.display, note: "Fastest way to a time and a price", href: PHONE.tel, primary: true, icon: "M5.2 3.5h3l1.5 4.1-2 1.3a11.5 11.5 0 0 0 7.4 7.4l1.3-2 4.1 1.5v3a2 2 0 0 1-2.2 2A17 17 0 0 1 3.2 5.7a2 2 0 0 1 2-2.2z" },
+  { key: "call", title: "Call", detail: PHONE.display, note: "Talk to us directly", href: PHONE.tel, primary: true, icon: "M5.2 3.5h3l1.5 4.1-2 1.3a11.5 11.5 0 0 0 7.4 7.4l1.3-2 4.1 1.5v3a2 2 0 0 1-2.2 2A17 17 0 0 1 3.2 5.7a2 2 0 0 1 2-2.2z" },
   { key: "text", title: "Text", detail: PHONE.display, note: "Same number, texts welcome", href: SMS, primary: false, icon: "M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v8a2.5 2.5 0 0 1-2.5 2.5H10l-4.5 4v-4A2.5 2.5 0 0 1 4 13.5zM8.5 9.5h.01M12 9.5h.01M15.5 9.5h.01" },
   { key: "email", title: "Email", detail: EMAIL, note: "Opens a pre-filled request", href: emailHref, primary: false, icon: "M5.2 5h13.6A2.2 2.2 0 0 1 21 7.2v9.6a2.2 2.2 0 0 1-2.2 2.2H5.2A2.2 2.2 0 0 1 3 16.8V7.2A2.2 2.2 0 0 1 5.2 5zM3.8 6.5l8.2 6.3 8.2-6.3" },
 ];
@@ -48,7 +48,7 @@ const trust = [
 ];
 
 const faq = [
-  { q: "How quickly will you confirm a time?", a: "We answer calls and reply to texts and emails Monday–Friday, 9am–6pm. Missed a call? We return calls and texts on Saturday and Sunday too. We confirm your time and your price before the visit." },
+  { q: "When are you open for bookings?", a: "Our hours are Monday–Friday, 9am–6pm. Call, text or email, and we'll confirm your time and your price before the visit." },
   { q: "What will my visit cost?", a: `The first mattress is ${priceText.first}, any size. Each additional full, queen or king mattress in the same visit is ${priceText.additionalLarge}, and each additional kids bed is ${priceText.additionalKids}. Underside treatment is ${priceText.underside} per mattress. Normal stains, pet odor and ordinary urine accidents are included; severe or biohazard cases carry a surcharge, quoted before we start.` },
   { q: "Which areas do you serve?", a: `${AREAS.slice(0, -1).join(", ")} and ${AREAS.at(-1)}. Not sure about your address? Call, text or email and we'll confirm it.` },
   { q: "Is the 72-hour bedroom CO₂ test part of the visit?", a: "No. It's a separate optional service, booked on its own or added to a visit and priced by quote. It isn't a medical test." },
@@ -128,7 +128,6 @@ const jsonld = [
           <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="8.5" /><path d="M12 7.5V12l3 2" /></svg>
           Hours: Mon–Fri 9–6
         </strong>
-        <span>Missed a call? We return calls and texts on Saturday and Sunday too.</span>
       </p>
     </div>
   </section>
