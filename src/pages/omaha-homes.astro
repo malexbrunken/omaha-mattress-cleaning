@@ -20,11 +20,21 @@ const jsonld = [
     dateModified: "2026-10-04",
     hasPart: mods.map((m) => ({ "@type": "Article", headline: m.h1, url: `https://omahamattresscleaning.com/omaha-homes/${m.slug}` })),
   },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://omahamattresscleaning.com/" },
+      { "@type": "ListItem", position: 2, name: "Knowledge Center", item: "https://omahamattresscleaning.com/knowledge-center" },
+      { "@type": "ListItem", position: 3, name: "Omaha homes", item: "https://omahamattresscleaning.com/omaha-homes" },
+    ],
+  },
 ];
 ---
 <Base title="Omaha Homes: Mattress Disposal, Bed Bugs and Humidity" description="Local answers for Omaha homes: where a mattress can go, how Council Bluffs differs, who handles bed bugs in Douglas County, and summer basement humidity." path="/omaha-homes" jsonld={jsonld}>
   <section class="section" style="padding-top:3rem;">
     <div class="container prose">
+      <p style="font-size:0.9rem;"><a href="/">Home</a> › <a href="/knowledge-center">Knowledge Center</a> › Omaha homes</p>
       <span class="eyebrow">Omaha homes</span>
       <h1>Mattresses and Omaha homes</h1>
       <p class="lead">These guides answer the questions that change when you live in Omaha: which city program takes a mattress, what Council Bluffs does differently, who to call about bed bugs in Douglas County, and what July does to a basement bedroom. Each one starts with the local facts and the source we checked.</p>
