@@ -1,28 +1,269 @@
 ---
 import Base from "../layouts/Base.astro";
-const jsonld = [{ "@context": "https://schema.org", "@type": "ContactPage", url: "https://omahamattresscleaning.com/book", name: "Book an Omaha appointment", dateModified: "2026-10-04", about: { "@id": "https://omahamattresscleaning.com/#business" } }];
+import { PHONE } from "../lib/founder";
+import { priceText } from "../lib/prices";
+import { PAGE_LASTMOD } from "../lib/lastmod";
+
+const EMAIL = "info@sleepsanitation.com";
+const SMS = "sms:+14025125658";
+const emailBody = [
+  "Hi, I'd like to book a mattress sanitation visit.",
+  "",
+  "Name:",
+  "Address or neighborhood:",
+  "Number and size of mattresses:",
+  "Any urine or odor concerns:",
+  "Preferred days or times:",
+  "Best phone number:",
+].join("\n");
+const emailHref = `mailto:${EMAIL}?subject=${encodeURIComponent("Mattress sanitation booking - Omaha")}&body=${encodeURIComponent(emailBody)}`;
+
+const AREAS = ["Omaha", "Elkhorn", "Papillion", "La Vista", "Bellevue", "Gretna", "Ralston", "Chalco", "Bennington", "Waterloo", "Valley", "Council Bluffs"];
+
+const options = [
+  { key: "call", title: "Call", detail: PHONE.display, note: "Fastest way to a time and a price", href: PHONE.tel, primary: true, icon: "M5.2 3.5h3l1.5 4.1-2 1.3a11.5 11.5 0 0 0 7.4 7.4l1.3-2 4.1 1.5v3a2 2 0 0 1-2.2 2A17 17 0 0 1 3.2 5.7a2 2 0 0 1 2-2.2z" },
+  { key: "text", title: "Text", detail: PHONE.display, note: "Same number, texts welcome", href: SMS, primary: false, icon: "M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v8a2.5 2.5 0 0 1-2.5 2.5H10l-4.5 4v-4A2.5 2.5 0 0 1 4 13.5zM8.5 9.5h.01M12 9.5h.01M15.5 9.5h.01" },
+  { key: "email", title: "Email", detail: EMAIL, note: "Opens a pre-filled request", href: emailHref, primary: false, icon: "M5.2 5h13.6A2.2 2.2 0 0 1 21 7.2v9.6a2.2 2.2 0 0 1-2.2 2.2H5.2A2.2 2.2 0 0 1 3 16.8V7.2A2.2 2.2 0 0 1 5.2 5zM3.8 6.5l8.2 6.3 8.2-6.3" },
+];
+
+const steps = [
+  { t: "You reach out", d: "Call, text or email with your neighborhood, how many mattresses and their sizes, and any urine or odor concerns." },
+  { t: "We confirm a time", d: "We pick a weekday slot with you and confirm the price before anything starts." },
+  { t: "The visit", d: "We fill in an inspection form, treat each mattress with dry vapor steam, UV-C light and HEPA vacuuming, and run our two checks." },
+];
+
+const prep = [
+  "Strip the bedding and remove mattress protectors. If you need help with this, mention it when you book.",
+  "Clear the nightstands and the floor around the bed. You don't need to move heavy dressers or nightstands.",
+  "Check the mattress care label and warranty terms.",
+  "Tell us about any urine, odor or stains when you book.",
+  "Afterward, the bed stays unmade until it's dry to the touch, plus the moisture check before we leave.",
+];
+
+const trust = [
+  { t: "Vapor Clean dry vapor steam", d: "Low-moisture steam instead of wet extraction." },
+  { t: "Two checks included", d: "A moisture check after the job and the bed mite sensor on our UV-C vacuum." },
+  { t: "Inspection form", d: "Material, special care notes and any urine or odor observations, for every mattress." },
+  { t: "Gloves, shoe booties, disinfected equipment", d: "Gloves and shoe booties on every job, and equipment disinfected between jobs." },
+];
+
+const faq = [
+  { q: "How quickly will you confirm a time?", a: "We answer calls and reply to texts and emails Monday–Friday, 9am–6pm. Missed a call? We return calls and texts on Saturday and Sunday too. We confirm your time and your price before the visit." },
+  { q: "What will my visit cost?", a: `The first mattress is ${priceText.first}, any size. Each additional full, queen or king mattress in the same visit is ${priceText.additionalLarge}, and each additional kids bed is ${priceText.additionalKids}. Underside treatment is ${priceText.underside} per mattress. Normal stains, pet odor and ordinary urine accidents are included; severe or biohazard cases carry a surcharge, quoted before we start.` },
+  { q: "Which areas do you serve?", a: `${AREAS.slice(0, -1).join(", ")} and ${AREAS.at(-1)}. Not sure about your address? Call, text or email and we'll confirm it.` },
+  { q: "Is the 72-hour bedroom CO₂ test part of the visit?", a: "No. It's a separate optional service, booked on its own or added to a visit and priced by quote. It isn't a medical test." },
+];
+
+const url = "https://omahamattresscleaning.com/book";
+const jsonld = [
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "@id": `${url}#webpage`,
+    url,
+    name: "Book your mattress sanitation in Omaha",
+    dateModified: PAGE_LASTMOD["/book"],
+    inLanguage: "en-US",
+    mainEntity: {
+      "@type": "LocalBusiness",
+      "@id": "https://omahamattresscleaning.com/#business",
+      name: "Omaha Mattress Cleaning & Sanitation",
+      url: "https://omahamattresscleaning.com",
+      telephone: "+1-402-512-5658",
+      email: EMAIL,
+      openingHours: "Mo-Fr 09:00-18:00",
+      parentOrganization: { "@type": "LocalBusiness", "@id": "https://sleepsanitation.com/#business" },
+    },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faq.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://omahamattresscleaning.com/" },
+      { "@type": "ListItem", position: 2, name: "Book", item: url },
+    ],
+  },
+];
 ---
-<Base title="Book Mattress Cleaning in Omaha | Call, Text or Schedule Online" description="Book an Omaha mattress cleaning: call or text (402) 512-5658, or schedule online with Sleep Sanitation. Hours, service area and what to have ready." path="/book" jsonld={jsonld}>
-  <section class="section">
-    <div class="container prose">
-      <span class="eyebrow">Book or contact</span>
-      <h1>Book an Omaha appointment</h1>
-      <p>Call or text (402) 512-5658, or schedule online. Both reach the same local crew. The first mattress is $249, any size.</p>
-      <h2>How do I book by phone or text?</h2>
-      <p><a class="btn btn-primary" href="tel:+14025125658">Call (402) 512-5658</a> &nbsp; <a class="btn" href="sms:+14025125658">Text (402) 512-5658</a></p>
-      <p>Hours: Monday–Friday, 9am–6pm. Missed a call? We return calls and texts on Saturday and Sunday too.</p>
-      <h2>Can I schedule online?</h2>
-      <p>Yes. Online booking runs on Sleep Sanitation's scheduler, because Omaha Mattress Cleaning is operated by Sleep Sanitation. The link below opens that page on sleepsanitation.com.</p>
-      <p><a class="btn btn-primary" href="https://sleepsanitation.com/schedule" rel="noopener">Schedule online with Sleep Sanitation</a></p>
-      <h2>Which areas do you serve?</h2>
-      <p>Omaha, Elkhorn, Papillion, La Vista, Bellevue, Gretna, Ralston, Chalco, Bennington, Waterloo, Valley and Council Bluffs. Not sure about your address? Call or text and we'll confirm.</p>
-      <h2>What should I have ready?</h2>
-      <ul>
-        <li>The mattress brand and model, and what the care label says.</li>
-        <li>How many beds, and their sizes.</li>
-        <li>Any accident, odor or stain we should know about, and roughly when it happened.</li>
+<Base
+  title="Book Mattress Sanitation in Omaha: Call, Text or Email"
+  description={`Book mattress sanitation in Omaha: call or text ${PHONE.display} or email ${EMAIL}. ${priceText.first} first mattress, any size. Mon–Fri 9am–6pm.`}
+  path="/book"
+  jsonld={jsonld}
+>
+  <section class="bk-hero">
+    <div class="container">
+      <nav aria-label="Breadcrumb" class="bk-crumbs"><a href="/">Home</a> <span aria-hidden="true">›</span> Book</nav>
+      <span class="eyebrow bk-eyebrow">Omaha metro · Operated by Sleep Sanitation</span>
+      <h1>Book your mattress sanitation</h1>
+      <p class="bk-intro">
+        The first mattress is {priceText.first}, any size; each additional full, queen or king is {priceText.additionalLarge} and each additional kids bed is {priceText.additionalKids} (<a href="/pricing">see pricing</a>). We serve Omaha and nearby towns, operated by Sleep Sanitation.
+      </p>
+
+      <ul class="bk-options" aria-label="Ways to book">
+        {options.map((o) => (
+          <li>
+            <a href={o.href} class:list={["bk-card", { "bk-card--primary": o.primary }]}>
+              <span class="bk-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d={o.icon} /></svg>
+              </span>
+              <span class="bk-card-text">
+                <span class="bk-card-title">{o.title}</span>
+                <span class="bk-card-detail">{o.detail}</span>
+                <span class="bk-card-note">{o.note}</span>
+              </span>
+              <span class="bk-chev" aria-hidden="true">›</span>
+            </a>
+          </li>
+        ))}
       </ul>
-      <p>Email works too: <a href="mailto:info@sleepsanitation.com">info@sleepsanitation.com</a>.</p>
+
+      <p class="bk-hours">
+        <strong>
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="8.5" /><path d="M12 7.5V12l3 2" /></svg>
+          Hours: Mon–Fri 9–6
+        </strong>
+        <span>Missed a call? We return calls and texts on Saturday and Sunday too.</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="bk-section" aria-labelledby="next">
+    <div class="container">
+      <h2 id="next">What happens after you reach out?</h2>
+      <ol class="bk-steps">
+        {steps.map((s, i) => (
+          <li>
+            <span class="bk-step-num" aria-hidden="true">{i + 1}</span>
+            <h3><span class="sr-only">Step {i + 1}: </span>{s.t}</h3>
+            <p>{s.d}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="bk-section bk-warm">
+    <div class="container bk-split">
+      <div>
+        <h2>How should you prep for the visit?</h2>
+        <ul class="bk-checks">
+          {prep.map((p) => <li><span class="bk-tick" aria-hidden="true">✓</span><span>{p}</span></li>)}
+        </ul>
+      </div>
+      <div>
+        <h2>What comes with every visit?</h2>
+        <ul class="bk-trust">
+          {trust.map((t) => <li><strong>{t.t}</strong><span>{t.d}</span></li>)}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="bk-section" aria-labelledby="faq">
+    <div class="container bk-narrow">
+      <h2 id="faq">What do Omaha customers ask before booking?</h2>
+      <div class="bk-faq">
+        {faq.map((f) => (
+          <div>
+            <h3>{f.q}</h3>
+            <p>{f.a}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="bk-final">
+        <p class="bk-final-title">Ready when you are.</p>
+        <div class="btn-row" style="margin-top:0;">
+          <a class="btn btn-invert" href={PHONE.tel}>Call {PHONE.display}</a>
+          <a class="btn bk-btn-ghost" href={SMS}>Text us</a>
+          <a class="btn bk-btn-ghost" href={emailHref}>Email us</a>
+        </div>
+      </div>
     </div>
   </section>
 </Base>
+
+<style>
+  .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+  a:focus-visible { outline: 3px solid var(--gold-dark); outline-offset: 3px; border-radius: 6px; }
+
+  .bk-hero { background: linear-gradient(180deg, var(--cream-warm) 0%, var(--cream) 100%); border-bottom: 1px solid var(--line); padding: 1.4rem 0 2.6rem; }
+  .bk-crumbs { font-size: 0.88rem; color: var(--stone); margin-bottom: 0.9rem; }
+  .bk-crumbs a { color: var(--charcoal); text-decoration: underline; text-underline-offset: 3px; }
+  .bk-eyebrow { display: none; }
+  .bk-hero h1 { font-size: clamp(2.1rem, 5.4vw, 3.9rem); max-width: 18ch; margin-bottom: 0.7rem; }
+  .bk-intro { font-size: 1.06rem; color: var(--charcoal-light); max-width: 62ch; margin-bottom: 1.3rem; }
+  .bk-intro a { color: var(--charcoal); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--gold); }
+
+  .bk-options { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.75rem; }
+  .bk-card { display: flex; align-items: center; gap: 1rem; min-height: 76px; height: 100%; padding: 0.9rem 1.1rem; border-radius: var(--radius); background: var(--white); border: 1px solid var(--line); box-shadow: var(--shadow); color: var(--charcoal); transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease; }
+  .bk-card:hover { transform: translateY(-2px); border-color: var(--gold); box-shadow: var(--shadow-deep); }
+  .bk-card--primary { background: var(--charcoal); border-color: var(--charcoal); color: var(--cream); }
+  .bk-card--primary:hover { border-color: var(--gold); background: #000; }
+  .bk-icon { width: 48px; height: 48px; flex-shrink: 0; border-radius: 12px; display: grid; place-items: center; background: var(--cream-warm); color: var(--gold-dark); }
+  .bk-card--primary .bk-icon { background: rgba(201,169,110,0.16); color: var(--gold); }
+  .bk-icon svg { width: 24px; height: 24px; }
+  .bk-card-text { display: flex; flex-direction: column; min-width: 0; flex: 1; line-height: 1.3; }
+  .bk-card-title { font-family: Georgia, "Times New Roman", serif; font-size: 1.3rem; }
+  .bk-card-detail { font-weight: 700; font-size: 1.04rem; overflow-wrap: anywhere; }
+  .bk-card-note { font-size: 0.92rem; color: var(--stone); }
+  .bk-card--primary .bk-card-note { color: rgba(250,249,246,0.78); }
+  .bk-chev { font-size: 1.6rem; color: var(--stone-light); }
+  .bk-card--primary .bk-chev { color: var(--gold); }
+
+  .bk-hours { display: flex; flex-wrap: wrap; gap: 0.3rem 0.8rem; align-items: center; margin: 1.1rem 0 0; font-size: 0.95rem; color: var(--stone); }
+  .bk-hours strong { display: inline-flex; align-items: center; gap: 0.4rem; color: var(--charcoal); }
+  .bk-hours svg { width: 18px; height: 18px; color: var(--gold-dark); }
+
+  .bk-section { padding: 3.4rem 0; }
+  .bk-warm { background: var(--cream-warm); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .bk-section h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); margin-bottom: 1.4rem; }
+
+  .bk-steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; }
+  .bk-steps li { position: relative; background: var(--white); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 1.5rem 1.4rem 1.3rem; box-shadow: var(--shadow); }
+  .bk-step-num { width: 40px; height: 40px; border-radius: 50%; background: var(--charcoal); color: var(--gold); display: grid; place-items: center; font-weight: 700; margin-bottom: 0.9rem; }
+  .bk-steps h3 { font-family: ui-sans-serif, system-ui, sans-serif; font-weight: 700; font-size: 1.12rem; letter-spacing: 0; margin-bottom: 0.35rem; }
+  .bk-steps p { margin: 0; font-size: 0.98rem; }
+
+  .bk-split { display: grid; gap: 2.6rem; }
+  .bk-checks { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.85rem; }
+  .bk-checks li { display: flex; gap: 0.75rem; color: var(--charcoal); line-height: 1.6; }
+  .bk-tick { width: 26px; height: 26px; flex-shrink: 0; border-radius: 50%; background: var(--gold); color: var(--charcoal); display: grid; place-items: center; font-weight: 700; font-size: 0.8rem; margin-top: 0.1rem; }
+  .bk-trust { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.8rem; }
+  .bk-trust li { background: var(--white); border: 1px solid var(--line); border-left: 4px solid var(--gold); border-radius: var(--radius); padding: 1rem 1.15rem; display: flex; flex-direction: column; gap: 0.2rem; }
+  .bk-trust strong { color: var(--charcoal); }
+  .bk-trust span { color: var(--stone); font-size: 0.96rem; line-height: 1.55; }
+
+  .bk-narrow { max-width: 860px; }
+  .bk-faq { border-top: 1px solid var(--line); }
+  .bk-faq > div { border-bottom: 1px solid var(--line); padding: 1.2rem 0; }
+  .bk-faq h3 { font-family: ui-sans-serif, system-ui, sans-serif; font-weight: 700; font-size: 1.1rem; letter-spacing: 0; margin-bottom: 0.4rem; }
+  .bk-faq p { margin: 0; }
+
+  .bk-final { margin-top: 2.6rem; background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%); color: var(--cream); border-radius: var(--radius-lg); padding: 1.8rem; box-shadow: var(--shadow-deep); }
+  .bk-final-title { font-family: Georgia, "Times New Roman", serif; font-size: 1.7rem; color: var(--cream); margin-bottom: 1.1rem; }
+  .bk-btn-ghost { background: transparent; color: var(--cream); border-color: rgba(250,249,246,0.35); }
+  .bk-btn-ghost:hover { background: rgba(250,249,246,0.1); border-color: var(--gold); }
+  .bk-final a:focus-visible { outline-color: var(--gold); }
+
+  @media (min-width: 780px) {
+    .bk-hero { padding: 2.6rem 0 4rem; }
+    .bk-eyebrow { display: inline-block; }
+    .bk-intro { font-size: 1.2rem; margin-bottom: 2rem; }
+    .bk-options { grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+    .bk-card { flex-direction: column; align-items: flex-start; padding: 1.5rem; gap: 1.1rem; }
+    .bk-card-title { font-size: 1.55rem; }
+    .bk-chev { display: none; }
+    .bk-section { padding: 4.6rem 0; }
+    .bk-steps { grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
+    .bk-split { grid-template-columns: 1.1fr 1fr; gap: 3.5rem; }
+    .bk-trust { grid-template-columns: 1fr 1fr; }
+    .bk-final { padding: 2.4rem; }
+  }
+</style>
