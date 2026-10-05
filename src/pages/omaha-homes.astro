@@ -6,6 +6,9 @@ const order = [
   "council-bluffs-vs-omaha-mattress-disposal",
   "bed-bugs-in-douglas-county",
   "humid-summers-and-basement-bedrooms",
+  "west-omaha-new-construction-dust",
+  "missouri-river-bottom-humidity",
+  "offutt-pcs-mattress-reset",
 ];
 const mods = Object.values(import.meta.glob<Fm>("./omaha-homes/*.md", { eager: true }))
   .map((m) => m.frontmatter)
@@ -17,7 +20,7 @@ const jsonld = [
     "@type": "CollectionPage",
     name: "Mattresses and Omaha homes",
     url: "https://omahamattresscleaning.com/omaha-homes",
-    dateModified: "2026-10-04",
+    dateModified: "2026-10-05",
     hasPart: mods.map((m) => ({ "@type": "Article", headline: m.h1, url: `https://omahamattresscleaning.com/omaha-homes/${m.slug}` })),
   },
   {
@@ -31,13 +34,13 @@ const jsonld = [
   },
 ];
 ---
-<Base title="Omaha Homes: Mattress Disposal, Bed Bugs and Humidity" description="Local answers for Omaha homes: where a mattress can go, how Council Bluffs differs, who handles bed bugs in Douglas County, and summer basement humidity." path="/omaha-homes" jsonld={jsonld}>
+<Base title="Omaha Homes: Mattress Disposal, Bed Bugs and Humidity" description="Omaha home mattress guides: disposal, bed bugs, humidity, west Omaha new-construction dust, river-bottom humidity and Offutt PCS resets." path="/omaha-homes" jsonld={jsonld}>
   <section class="section" style="padding-top:3rem;">
     <div class="container prose">
       <p style="font-size:0.9rem;"><a href="/">Home</a> › <a href="/knowledge-center">Knowledge Center</a> › Omaha homes</p>
       <span class="eyebrow">Omaha homes</span>
       <h1>Mattresses and Omaha homes</h1>
-      <p class="lead">These guides answer the questions that change when you live in Omaha: which city program takes a mattress, what Council Bluffs does differently, who to call about bed bugs in Douglas County, and what July does to a basement bedroom. Each one starts with the local facts and the source we checked.</p>
+      <p class="lead">These guides answer Omaha-home questions: which city program takes a mattress, what Council Bluffs does differently, who to call about bed bugs, what July does to a basement bedroom, west Omaha new-construction dust, Missouri river-bottom humidity and Offutt PCS mattress resets. Each one starts with local facts and the source we checked.</p>
       <dl class="facts" aria-label="Omaha facts at a glance">
         <p style="margin:0 0 .4rem; font-weight:700; color:var(--charcoal);">Omaha at a glance, checked October 3, 2026</p>
         <dt>Mattress in the trash cart?</dt><dd>No. Bulky item, drop-off only (<a href="https://www.omaharecyclingguide.org/mattresses" rel="noopener">Omaha Recycling Guide</a>).</dd>
@@ -59,7 +62,7 @@ const jsonld = [
         <li>Dates for 2027 Cleanup Saturdays, which the city posts once they are set.</li>
       </ul>
       <h2>What changed on this page?</h2>
-      <ul><li>October 3, 2026: hub and first four guides published.</li><li>October 4, 2026: section headings rewritten as questions; rental-law content removed from the bed bug guide; phone number added to every page.</li></ul>
+      <ul><li>October 3, 2026: hub and first four guides published.</li><li>October 4, 2026: section headings rewritten as questions; rental-law content removed from the bed bug guide; phone number added to every page.</li><li>October 5, 2026: added west Omaha new-construction dust, Missouri river-bottom humidity and Offutt PCS mattress reset.</li></ul>
       <p><a class="btn btn-primary" href="/book">Book or contact us</a></p>
     </div>
   </section>

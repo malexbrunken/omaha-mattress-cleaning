@@ -23,13 +23,13 @@ const events = [
   { date: "June 17 to 28, 2027", what: "Men's College World Series (June 28 only if needed)", where: "Charles Schwab Field Omaha" },
 ];
 const areas = [
-  { name: "The Ridges", where: "West Omaha, the square mile between Pacific Street, West Center Road, 180th and 192nd; 784 lots in 13 subdivisions, with Shadow Ridge Country Club alongside." },
-  { name: "The Sanctuary", where: "Elkhorn, a 94-lot Lanoha development on 229th Street off Highway 275, beside the Elkhorn River." },
-  { name: "Linden Estates", where: "West Omaha around 144th and Dodge, roughly 120 homes, with a separately managed Second Addition." },
-  { name: "Tiburon", where: "Sarpy County, per the recorded Tiburon Estates declaration, around Tiburon Golf Club at 10302 S 168th St (an Omaha 68136 mailing address)." },
-  { name: "Eagle Run", where: "Northwest Omaha around Eagle Run Golf Course, 3435 N 132nd St." },
-  { name: "Champions Run", where: "Northwest Omaha around the Champions Run club at 13800 Eagle Run Drive, Omaha 68164." },
-  { name: "Regency", where: "Between Pacific and Dodge just east of Interstate 680, with more than 450 homes and villas." },
+  { name: "The Ridges", href: "/developments/the-ridges", where: "West Omaha, the square mile between Pacific Street, West Center Road, 180th and 192nd; 784 lots in 13 subdivisions, with Shadow Ridge Country Club alongside." },
+  { name: "The Sanctuary", href: "/developments/the-sanctuary", where: "Elkhorn, a 94-lot Lanoha development on 229th Street off Highway 275, beside the Elkhorn River." },
+  { name: "Linden Estates", href: "/developments/linden-estates", where: "West Omaha around 144th and Dodge, roughly 120 homes, with a separately managed Second Addition." },
+  { name: "Tiburon", href: "/developments/tiburon", where: "Sarpy County, per the recorded Tiburon Estates declaration, around Tiburon Golf Club at 10302 S 168th St (an Omaha 68136 mailing address)." },
+  { name: "Eagle Run", href: "/developments/eagle-run", where: "Northwest Omaha around Eagle Run Golf Course, 3435 N 132nd St." },
+  { name: "Champions Run", href: "/developments/champions-run", where: "Northwest Omaha around the Champions Run club at 13800 Eagle Run Drive, Omaha 68164." },
+  { name: "Regency", href: "/developments/regency", where: "Between Pacific and Dodge just east of Interstate 680, with more than 450 homes and villas." },
 ];
 const jsonld = [
   {
@@ -37,7 +37,7 @@ const jsonld = [
     "@type": "CollectionPage",
     name: "Hosting in Omaha",
     url: "https://omahamattresscleaning.com/airbnb-hosts",
-    dateModified: "2026-10-04",
+    dateModified: "2026-10-05",
     hasPart: guides.map((g) => ({ "@type": "Article", headline: g.h1, url: `https://omahamattresscleaning.com/airbnb-hosts/${g.slug}` })),
   },
   {
@@ -51,7 +51,7 @@ const jsonld = [
   },
 ];
 ---
-<Base title="Omaha Airbnb Hosts: Event Weekends, Lodging Taxes and Mattress Care" description="CHI Health Center, Berkshire and College World Series dates, Omaha's lodging taxes worked DOR's way, Offutt's PCS season, and four guides for hosts." path="/airbnb-hosts" jsonld={jsonld}>
+<Base title="Omaha Airbnb Hosts: Event Weekends, Lodging Taxes and Mattress Care" description="CHI Health Center, Berkshire and CWS dates, lodging taxes, Offutt PCS season, midtown pet-urine turnovers and host guides. Operated by Sleep Sanitation." path="/airbnb-hosts" jsonld={jsonld}>
   <style>
     .evt { width:100%; border-collapse:collapse; font-size:.92rem; background:var(--white); margin:1rem 0 .6rem; }
     .evt th, .evt td { text-align:left; padding:.6rem .7rem; border-bottom:1px solid var(--line); vertical-align:top; }
@@ -98,9 +98,9 @@ const jsonld = [
       <p style="max-width:72ch;">This is DOR's Example 2, a city with a 5.5% occupation tax and a 1.5% city sales tax in a county with a 4% lodging tax, which are Omaha's and Douglas County's rates. Airbnb's help article 2625 says it collects Omaha's 5.5% guest tax on stays of 29 nights or fewer; on a direct booking, GIL 1-19-1 leaves the collecting to you. The <a href="/airbnb-hosts/omaha-lodging-taxes-and-direct-bookings">lodging tax guide</a> adds Omaha's city rules, the City Clerk's number and Gretna, Papillion and Bellevue rates.</p>
 
       <h2>Which neighborhoods do we often serve for hosts?</h2>
-      <p style="max-width:72ch;">Many of our Omaha-area customers live in these neighborhoods. We name them as places we often work, not as short-term rental hot spots: we don't know how many rentals any of them has, and several have homeowners associations with their own covenants.</p>
+      <p style="max-width:72ch;">Many of our Omaha-area customers live in these neighborhoods. Full travel and bedroom notes are on each <a href="/developments">developments</a> page. We name them as places we often work, not as short-term rental hot spots: we don't know how many rentals any of them has, and several have homeowners associations with their own covenants.</p>
       <dl class="areas">
-        {areas.map((a) => (<><dt>{a.name}</dt><dd>{a.where}</dd></>))}
+        {areas.map((a) => (<><dt><a href={a.href}>{a.name}</a></dt><dd>{a.where}</dd></>))}
       </dl>
 
       <h2>Which host guides can you read?</h2>
@@ -146,7 +146,7 @@ const jsonld = [
           <li><a href="https://www.ridgeshoa.com/history.html" rel="noopener">The Ridges HOA</a>, <a href="https://lanoha.com/portfolio/the-sanctuary/" rel="noopener">Lanoha: The Sanctuary</a>, <a href="https://www.omahamagazine.com/living/linden-estates/" rel="noopener">Omaha Magazine: Linden Estates</a>, <a href="https://tiburongolf.com/contact-us/" rel="noopener">Tiburon Golf Club</a>, <a href="https://www.aksarbentitle.com/uploads/1/4/1/7/141783493/tiburon-estates-sarpy_1.pdf" rel="noopener">Tiburon Estates declaration (Sarpy County, 2002)</a>, <a href="https://www.eaglerungolf.com/contact/" rel="noopener">Eagle Run Golf Course</a>, <a href="https://www.championsomaha.com/" rel="noopener">Champions Run</a>, <a href="https://regencyomaha.org/about/history" rel="noopener">Regency Homes Association: History</a> (checked October 3, 2026)</li>
         </ul>
         <h2>What changed on this page?</h2>
-        <ul><li>October 3, 2026: hub and five guides published.</li><li>October 3, 2026: the short-term rental law guide merged into the lodging tax guide; area sources corrected for Tiburon, Champions Run and Regency.</li><li>October 4, 2026: section headings rewritten as questions; phone number added to every page; checks wording corrected (two included checks; the 72-hour bedroom CO₂ test is optional, priced by quote).</li></ul>
+        <ul><li>October 3, 2026: hub and five guides published.</li><li>October 3, 2026: the short-term rental law guide merged into the lodging tax guide; area sources corrected for Tiburon, Champions Run and Regency.</li><li>October 4, 2026: section headings rewritten as questions; phone number added to every page; checks wording corrected (two included checks; the 72-hour bedroom CO₂ test is optional, priced by quote).</li><li>October 5, 2026: neighborhood names link to /developments pages; midtown pet-urine turnovers guide added.</li></ul>
         <p class="note">Published October 3, 2026. Omaha Mattress Cleaning is operated by Sleep Sanitation.</p>
       </div>
     </div>

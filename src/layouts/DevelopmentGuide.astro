@@ -1,0 +1,89 @@
+---
+/**
+ * Developments hub guide layout. Local facts first (where it sits, home type, when people book),
+ * then markdown body, FAQ, sources and changelog. Mirror of OmahaGuide with /developments paths.
+ */
+import Base from "./Base.astro";
+import { guideLastmod } from "../lib/lastmod";
+import { PHONE } from "../lib/founder";
+const { frontmatter: fm } = Astro.props as { frontmatter: any };
+const path = `/developments/${fm.slug}`;
+const url = `https://omahamattresscleaning.com${path}`;
+const fmt = (d: string) => new Date(`${d}T12:00:00Z`).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" });
+const jsonld: object[] = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: fm.h1,
+    description: fm.description,
+    datePublished: fm.published,
+    dateModified: guideLastmod(fm, "DevelopmentGuide"),
+    mainEntityOfPage: url,
+    author: { "@type": "LocalBusiness", "@id": "https://sleepsanitation.com/#business", name: "Sleep Sanitation" },
+    publisher: { "@type": "LocalBusiness", "@id": "https://sleepsanitation.com/#business", name: "Sleep Sanitation" },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://omahamattresscleaning.com/" },
+      { "@type": "ListItem", position: 2, name: "Knowledge Center", item: "https://omahamattresscleaning.com/knowledge-center" },
+      { "@type": "ListItem", position: 3, name: "Omaha developments", item: "https://omahamattresscleaning.com/developments" },
+      { "@type": "ListItem", position: 4, name: fm.h1, item: url },
+    ],
+  },
+];
+if (fm.faq?.length) {
+  jsonld.push({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: fm.faq.map((f: any) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+  });
+}
+---
+<Base title={fm.title} description={fm.description} path={path} jsonld={jsonld}>
+  <section class="section" style="padding-top:3rem;">
+    <div class="container prose">
+      <p style="font-size:0.9rem;"><a href="/">Home</a> › <a href="/knowledge-center">Knowledge Center</a> › <a href="/developments">Omaha developments</a></p>
+      <span class="eyebrow">Omaha developments</span>
+      <h1>{fm.h1}</h1>
+      <p class="lead">{fm.answer}</p>
+      <dl class="facts" aria-label="Local facts">
+        <p style="margin:0 0 .4rem; font-weight:700; color:var(--charcoal);">Local facts, checked {fmt(fm.checked)}</p>
+        {fm.facts.map((f: any) => (
+          <>
+            <dt>{f.label}</dt>
+            <dd>{f.value} <a href={f.url} rel="noopener">({f.source})</a></dd>
+          </>
+        ))}
+      </dl>
+      <slot />
+      {fm.faq?.length > 0 && (
+        <>
+          <h2>Questions owners and hosts ask</h2>
+          {fm.faq.map((f: any) => (
+            <>
+              <h3>{f.q}</h3>
+              <p>{f.a}</p>
+            </>
+          ))}
+        </>
+      )}
+      <h2>Sources</h2>
+      <ul>
+        {fm.sources.map((s: any) => (
+          <li><a href={s.url} rel="noopener">{s.name}</a>, checked {fmt(s.checked)}</li>
+        ))}
+      </ul>
+      <h2>Changelog</h2>
+      <ul>
+        {fm.changelog.map((c: any) => (
+          <li>{fmt(c.date)}: {c.note}</li>
+        ))}
+      </ul>
+      <p class="note">Published {fmt(fm.published)}{fm.updated && fm.updated !== fm.published ? `, updated ${fmt(fm.updated)}` : ""}. Written by Omaha Mattress Cleaning, operated by Sleep Sanitation.</p>
+      <p><a class="btn btn-primary" href="/book">{fm.cta ?? "Book or contact us"}</a></p>
+      <p style="margin-top:.6rem;">Call or text <a href={PHONE.tel}><strong>{PHONE.display}</strong></a>, Monday to Friday, 9am to 6pm.</p>
+    </div>
+  </section>
+</Base>

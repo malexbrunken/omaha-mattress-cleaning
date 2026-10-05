@@ -1,0 +1,74 @@
+---
+import Base from "../layouts/Base.astro";
+import { priceText } from "../lib/prices";
+import { pageLastmod } from "../lib/lastmod";
+type Fm = { frontmatter: { slug: string; name: string; h1: string; answer: string; order: number; draft?: boolean; areaLabel: string } };
+const mods = Object.values(import.meta.glob<Fm>("./developments/*.md", { eager: true }))
+  .map((m) => m.frontmatter)
+  .filter((f) => !f.draft)
+  .sort((a, b) => a.order - b.order);
+const jsonld = [
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Omaha developments we serve",
+    url: "https://omahamattresscleaning.com/developments",
+    dateModified: pageLastmod("/developments"),
+    hasPart: mods.map((m) => ({ "@type": "Article", headline: m.h1, url: `https://omahamattresscleaning.com/developments/${m.slug}` })),
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://omahamattresscleaning.com/" },
+      { "@type": "ListItem", position: 2, name: "Knowledge Center", item: "https://omahamattresscleaning.com/knowledge-center" },
+      { "@type": "ListItem", position: 3, name: "Omaha developments", item: "https://omahamattresscleaning.com/developments" },
+    ],
+  },
+];
+---
+<Base title="Omaha Developments: Ridges, Regency, Eagle Run and More" description="Mattress cleaning pages for The Ridges, The Sanctuary, Linden Estates, Tiburon, Eagle Run, Champions Run and Regency. $249 first mattress." path="/developments" jsonld={jsonld}>
+  <style>
+    .dgrid { display:grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap:1rem; margin:1.5rem 0 2.5rem; }
+    .dgrid a { display:block; background:var(--white); border:1px solid var(--line); border-top:4px solid var(--gold); border-radius:var(--radius); padding:1.1rem 1.2rem; box-shadow:var(--shadow); color:inherit; }
+    .dgrid h3 { margin:0 0 .4rem; font-size:1.1rem; }
+    .dgrid p { margin:0; font-size:.9rem; color:var(--stone); }
+  </style>
+  <section class="section" style="padding-top:3rem;">
+    <div class="container prose">
+      <p style="font-size:0.9rem;"><a href="/">Home</a> › <a href="/knowledge-center">Knowledge Center</a> › Omaha developments</p>
+      <span class="eyebrow">Named neighborhoods</span>
+      <h1>Omaha developments we serve</h1>
+      <p class="lead">Where do we clean mattresses in Omaha's named developments? Across west Omaha and Elkhorn golf and custom-home neighborhoods, from The Ridges and Regency to Eagle Run and Champions Run. Omaha Mattress Cleaning is operated by Sleep Sanitation. The first mattress is {priceText.first}, any size; see <a href="/pricing">pricing</a>.</p>
+
+      <h2>Which development pages can you read?</h2>
+      <div class="dgrid">
+        {mods.map((m) => (
+          <a href={`/developments/${m.slug}`}>
+            <h3>{m.name}</h3>
+            <p>{m.areaLabel}</p>
+          </a>
+        ))}
+      </div>
+
+      <h2>What stays the same in every development?</h2>
+      <p>Every visit is the same protocol: low-moisture dry vapor steam, HEPA vacuuming and UV-C light treatment, with gloves, shoe booties and equipment disinfected between jobs. Two checks in every visit: the moisture check after the job and the bed mite sensor on our UV-C vacuum. 72-hour bedroom CO₂ testing is optional and priced by quote. Call or text (402) 512-5658.</p>
+
+      <h2>Where do hosts and allergy season fit?</h2>
+      <p>Event weekends and lodging taxes are under <a href="/airbnb-hosts">Airbnb hosts</a>. Outdoor pollen and bed mites are under <a href="/allergy-season">allergy season</a>. City and suburb hauler rules are under <a href="/areas">areas we serve</a>.</p>
+
+      <h2>What do these pages leave to Sleep Sanitation?</h2>
+      <p>How steam works on foam and what bed mites are is the same in any city, so we link the <a href="https://sleepsanitation.com/knowledge-center">Sleep Sanitation Knowledge Center</a> instead of rewriting it.</p>
+
+      <h2>What don't we know yet?</h2>
+      <ul>
+        <li>Exact bed counts inside a given house. Tell us when you book.</li>
+        <li>HOA rules that change by association. We come as a mobile service to the address you give.</li>
+      </ul>
+
+      <h2>What changed on this page?</h2>
+      <ul><li>October 5, 2026: hub and first seven development guides published.</li></ul>
+      <p><a class="btn btn-primary" href="/book">Book or contact us</a></p>
+    </div>
+  </section>
+</Base>

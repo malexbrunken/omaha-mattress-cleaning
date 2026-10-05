@@ -22,7 +22,7 @@ const hubs = [
     path: "/omaha-homes",
     q: "What do Omaha homeowners ask about mattresses?",
     name: "Mattresses and Omaha homes",
-    blurb: "Where an old mattress can go in Omaha and Council Bluffs, who handles bed bugs in Douglas County, and what summer humidity does to a basement bedroom.",
+    blurb: "Mattress disposal, bed bugs, summer humidity, west Omaha new-construction dust, Missouri river-bottom humidity and Offutt PCS resets.",
     guides: list(import.meta.glob<Mod>("./omaha-homes/*.md", { eager: true })),
   },
   {
@@ -45,6 +45,13 @@ const hubs = [
     name: "Airbnb and short-term rental hosts",
     blurb: "Event weekends, lodging taxes and scheduling mattress care between guests in the Omaha metro.",
     guides: list(import.meta.glob<Mod>("./airbnb-hosts/*.md", { eager: true })),
+  },
+  {
+    path: "/developments",
+    q: "Which named Omaha developments do we serve?",
+    name: "Omaha developments",
+    blurb: "Travel notes, typical bedrooms and booking timing for The Ridges, The Sanctuary, Linden Estates, Tiburon, Eagle Run, Champions Run and Regency.",
+    guides: list(import.meta.glob<Mod>("./developments/*.md", { eager: true })),
   },
 ];
 
@@ -83,7 +90,7 @@ const jsonld = [
 ];
 const guideCount = hubs.reduce((n, h) => n + h.guides.length, 0);
 ---
-<Base title="Omaha Mattress Knowledge Center | Local Guides and Hubs" description={`${guideCount} Omaha guides in 4 hubs: mattress disposal, bed bugs, suburbs we serve, allergy season and Airbnb hosting. Operated by Sleep Sanitation.`} path="/knowledge-center" jsonld={jsonld}>
+<Base title="Omaha Mattress Knowledge Center | Local Guides and Hubs" description={`${guideCount} Omaha guides in 5 hubs: Omaha homes, suburbs, allergy season, Airbnb hosts and named developments. Operated by Sleep Sanitation.`} path="/knowledge-center" jsonld={jsonld}>
   <style>
     .hub { border-top:1px solid var(--line); padding-top:1.2rem; margin-top:2rem; }
     .hub ul { margin:.6rem 0 0; }
@@ -93,7 +100,7 @@ const guideCount = hubs.reduce((n, h) => n + h.guides.length, 0);
       <p style="font-size:0.9rem;"><a href="/">Home</a> › Knowledge Center</p>
       <span class="eyebrow">Knowledge Center</span>
       <h1>Omaha Mattress Cleaning Knowledge Center</h1>
-      <p class="lead">This Knowledge Center collects our Omaha-specific guides: mattress disposal and bed bugs, the suburbs we serve, allergy season and hosting short-term rentals. Omaha Mattress Cleaning & Sanitation is operated by Sleep Sanitation. The first mattress is {priceText.first}, any size; see <a href="/pricing">our pricing page</a> for every rate. Call or text <a href={PHONE.tel}>{PHONE.display}</a>.</p>
+      <p class="lead">This Knowledge Center collects our Omaha-specific guides: mattress disposal and bed bugs, the suburbs we serve, allergy season, hosting short-term rentals and named developments. Omaha Mattress Cleaning & Sanitation is operated by Sleep Sanitation. The first mattress is {priceText.first}, any size; see <a href="/pricing">our pricing page</a> for every rate. Call or text <a href={PHONE.tel}>{PHONE.display}</a>.</p>
 
       {hubs.map((h) => (
         <div class="hub">
