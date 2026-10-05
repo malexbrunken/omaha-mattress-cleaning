@@ -6,6 +6,8 @@
  * visit and price section for the hub.
  */
 import Base from "../layouts/Base.astro";
+import HubFaq from "../components/HubFaq.astro";
+import { faqLd } from "../lib/faq";
 import { priceText } from "../lib/prices";
 type Fm = { frontmatter: { slug: string; h1: string; season: string; description: string; order: number; draft?: boolean } };
 const guides = Object.values(import.meta.glob<Fm>("./allergy-season/*.md", { eager: true }))
@@ -22,13 +24,19 @@ const cal = [
   { m: "September", unmc: "DCHD weeds 54, high, on September 28, 2026", dew: "55°F", wind: "9.2 mph", note: "Ragweed named in the DCHD count that day" },
   { m: "October", unmc: "DCHD weeds 12, moderate, on October 2, 2026", dew: "41°F", wind: "9.8 mph", note: "NOAA's median first 32°F night at Eppley is October 21" },
 ];
-const jsonld = [
+const faq = [
+  { q: "When should I book a mattress cleaning around Omaha's allergy season?", a: "Any weekday works. Some households book in early spring before tree pollen, or after the first freeze ends ragweed season. We work Monday to Friday, 9am to 6pm." },
+  { q: "Is pollen the same as bed mites?", a: "No. Pollen is outdoor and seasonal; bed mites (house dust mites) live indoors year-round in mattress dust. Our visit treats the mattress, not the outdoor air." },
+  { q: "Does a mattress cleaning treat allergies?", a: "We make no allergy, asthma or other health claim. A visit is dry vapor steam, HEPA vacuuming and UV-C light treatment on the mattress. This is general information, not medical advice." },
+  { q: "How much is a visit?", a: `${priceText.first} for the first mattress, any size; ${priceText.additionalLarge} for each additional full, queen or king and ${priceText.additionalKids} for each additional kids' bed in the same visit. The 72-hour bedroom CO₂ test is optional, priced by quote.` },
+];
+const jsonld: object[] = [
   {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     name: "Allergy season in Omaha",
     url: "https://omahamattresscleaning.com/allergy-season",
-    dateModified: "2026-10-04",
+    dateModified: "2026-10-05",
     hasPart: guides.map((g) => ({ "@type": "Article", headline: g.h1, url: `https://omahamattresscleaning.com/allergy-season/${g.slug}` })),
   },
   {
@@ -41,6 +49,7 @@ const jsonld = [
     ],
   },
 ];
+jsonld.push(faqLd(faq));
 ---
 <Base title="Omaha Allergy Season: Pollen Counts, Humidity and the Bed" description="Omaha's pollen calendar from UNMC, the Douglas County weed counts for late September 2026, Eppley's wind and dew points, and five guides for the bedroom." path="/allergy-season" jsonld={jsonld}>
   <style>
@@ -91,6 +100,8 @@ const jsonld = [
         </section>
 
         <p>How heat affects bed mites (house dust mites), and why killing them isn't the same as removing them, is covered once for every city in the <a href="https://sleepsanitation.com/knowledge-center">Sleep Sanitation Knowledge Center</a>.</p>
+
+        <HubFaq faq={faq} heading="Allergy-season questions" />
 
         <h2>What don't we know yet?</h2>
         <ul>

@@ -23,7 +23,7 @@ for (const [, path, lastmod] of rows) {
     if (m) deps.push(m[1].replace(/^(\.\.\/)+/, "src/"));
   }
   // The KC index lists every guide, so any guide edit changes it.
-  if (path === "/knowledge-center") deps.push("src/pages/omaha-homes", "src/pages/areas", "src/pages/allergy-season", "src/pages/airbnb-hosts", "src/pages/developments");
+  if (path === "/knowledge-center") deps.push("src/pages/omaha-homes", "src/pages/areas", "src/pages/allergy-season", "src/pages/airbnb-hosts", "src/pages/developments", "src/pages/compare");
   const expected = deps.map((d) => gitDate(d)).sort().at(-1);
   const ok = expected === lastmod;
   if (!ok) bad++;

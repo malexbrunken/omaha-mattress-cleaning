@@ -1,5 +1,7 @@
 ---
 import Base from "../layouts/Base.astro";
+import HubFaq from "../components/HubFaq.astro";
+import { faqLd } from "../lib/faq";
 import { priceText } from "../lib/prices";
 import { pageLastmod } from "../lib/lastmod";
 type Fm = { frontmatter: { slug: string; name: string; h1: string; answer: string; order: number; draft?: boolean; areaLabel: string } };
@@ -7,7 +9,13 @@ const mods = Object.values(import.meta.glob<Fm>("./developments/*.md", { eager: 
   .map((m) => m.frontmatter)
   .filter((f) => !f.draft)
   .sort((a, b) => a.order - b.order);
-const jsonld = [
+const faq = [
+  { q: "Do you serve The Ridges, Regency, Eagle Run and other named Omaha developments?", a: "Yes. Every development on this hub is inside our Omaha–Council Bluffs service area, and the price is the same as anywhere else we work." },
+  { q: "How much is a multi-bedroom visit?", a: `${priceText.first} for the first mattress, any size, then ${priceText.additionalLarge} for each additional full, queen or king and ${priceText.additionalKids} for each additional kids' bed in the same visit.` },
+  { q: "Does my HOA need to approve the visit?", a: "We come as a mobile service to the address you give. Your association's rules are yours to check; we haven't read them." },
+  { q: "Is the 72-hour bedroom CO₂ test included?", a: "No. It's an optional service, booked on its own or added to a visit, priced by quote. It isn't a medical test." },
+];
+const jsonld: object[] = [
   {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
@@ -26,6 +34,7 @@ const jsonld = [
     ],
   },
 ];
+jsonld.push(faqLd(faq));
 ---
 <Base title="Omaha Developments: Ridges, Regency, Eagle Run and More" description="Mattress cleaning pages for The Ridges, The Sanctuary, Linden Estates, Tiburon, Eagle Run, Champions Run and Regency. $249 first mattress." path="/developments" jsonld={jsonld}>
   <style>
@@ -59,6 +68,8 @@ const jsonld = [
 
       <h2>What do these pages leave to Sleep Sanitation?</h2>
       <p>How steam works on foam and what bed mites are is the same in any city, so we link the <a href="https://sleepsanitation.com/knowledge-center">Sleep Sanitation Knowledge Center</a> instead of rewriting it.</p>
+
+      <HubFaq faq={faq} heading="Questions from Omaha developments" />
 
       <h2>What don't we know yet?</h2>
       <ul>

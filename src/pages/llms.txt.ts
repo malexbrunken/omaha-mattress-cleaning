@@ -39,6 +39,8 @@ export const GET: APIRoute = () => {
 - [Allergy season in Omaha](${u("/allergy-season")})
 - [Airbnb and short-term rental hosts](${u("/airbnb-hosts")})
 - [Omaha developments](${u("/developments")})
+- [Compare: dry vapor steam vs wet extraction](${u("/compare/dry-vapor-vs-wet-extraction")})
+- [Compare: mattress specialist or carpet cleaner](${u("/compare/mattress-cleaning-vs-carpet-cleaner")})
 - [Knowledge Center](${u("/knowledge-center")})
 - [Sleep Sanitation pricing (parent company)](https://sleepsanitation.com/pricing)
 - [Sleep Sanitation Knowledge Center](https://sleepsanitation.com/knowledge-center)

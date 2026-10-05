@@ -2,6 +2,7 @@
 import Base from "../layouts/Base.astro";
 import { PRICES, priceText } from "../lib/prices";
 import { FOUNDER } from "../lib/founder";
+import { pageLastmod } from "../lib/lastmod";
 const SANITATION = { "@type": "Service", "name": "Mattress sanitation", "provider": { "@id": "https://omahamattresscleaning.com/#business" } };
 const business = {
   "@context": "https://schema.org",
@@ -27,7 +28,7 @@ const business = {
     { "@type": "Offer", "name": "Each additional kids bed (twin or full)", "price": String(PRICES.additionalKids), "priceCurrency": "USD", "description": "Same visit as the first mattress.", "itemOffered": SANITATION }
   ]
 };
-const lead = `Omaha Mattress Cleaning & Sanitation is a mattress-only service for the Omaha–Council Bluffs metro, operated by Sleep Sanitation. We use low-moisture dry vapor steam, HEPA vacuuming and UV-C light treatment. The first mattress is ${priceText.first}, any size, with normal stains, pet odor and ordinary urine accidents included. Each additional full, queen or king is ${priceText.additionalLarge}, and each additional kids' bed is ${priceText.additionalKids}. Call or text (402) 512-5658.`;
+const lead = `Omaha Mattress Cleaning & Sanitation is a mattress-only service for the Omaha–Council Bluffs metro, operated by Sleep Sanitation. We use low-moisture dry vapor steam, HEPA vacuuming and UV-C light treatment, with a moisture check and a bed mite sensor check on every visit. The first mattress is ${priceText.first}, any size, with normal stains, pet odor and ordinary urine accidents included. Each additional full, queen or king is ${priceText.additionalLarge}, and each additional kids' bed is ${priceText.additionalKids}. Call or text (402) 512-5658.`;
 const homeFaq = [
   { q: "Do you offer mattress cleaning in West Omaha and Elkhorn?", a: `Yes. We serve West Omaha, Elkhorn, Papillion, La Vista, Bellevue and the rest of Douglas and Sarpy counties, plus Council Bluffs. If you are unsure whether your address falls within our routing, <a href="/book" style="color:var(--charcoal); font-weight:600; text-decoration:underline; text-underline-offset:3px;">send us your location</a> and we will confirm.` },
   { q: "What is the difference between mattress cleaning and mattress sanitation?", a: `<strong>Cleaning</strong> can mean anything from spot treatment to wet extraction, so ask any provider what equipment they use and how much water goes in. <strong>Sanitation</strong>, as we do it, is a disciplined protocol that treats the mattress as a sleep environment: controlled dry vapor steam, low-moisture discipline, and attention to seams, tufts and edges. If you want the whole sleep surface treated, not just visible stains, that is what sanitation covers.` },
@@ -35,6 +36,8 @@ const homeFaq = [
   { q: "Can you treat memory foam, latex and hybrid mattresses?", a: `Yes. Memory foam and latex are sensitive to soaking, which is why we avoid high-moisture extraction. We inspect the fabric and construction first and set steam temperature and pass speed for that material. Your care label and warranty terms still come first, so check them before booking.` },
   { q: "What does your price cover?", a: `Our first mattress is ${priceText.first}, with normal stains, pet odor and ordinary urine accidents included. Each additional full, queen or king is ${priceText.additionalLarge} and each additional kids bed ${priceText.additionalKids}. We arrive with dedicated dry vapor steam equipment, in gloves and shoe booties, with equipment disinfected between jobs. You are paying for an appointment that is only about your mattress.` },
   { q: "Do I need to strip the bed and move furniture before you arrive?", a: `We ask that linens and mattress protectors be removed so we can assess and treat the full sleep surface. If you need assistance with this, mention it when booking and our technician will help. We handle light furniture repositioning around the bed, but we do not require you to move heavy dressers or nightstands.` },
+  { q: "Should I hire a carpet cleaner or a mattress specialist for my mattress?", a: `A carpet cleaner for carpet and rugs, a mattress specialist for the bed. A carpet company's mattress add-on is typically done with the same hot-water extraction used on floors, and wet extraction can void some mattress warranties. We are mattress-only. Read <a href="/compare/mattress-cleaning-vs-carpet-cleaner" style="color:var(--charcoal); font-weight:600; text-decoration:underline; text-underline-offset:3px;">mattress specialist or carpet cleaner in Omaha</a> and <a href="/compare/dry-vapor-vs-wet-extraction" style="color:var(--charcoal); font-weight:600; text-decoration:underline; text-underline-offset:3px;">dry vapor steam vs wet extraction</a>.` },
+  { q: "What checks come with every visit? Is the CO₂ test included?", a: `Every visit includes two checks: a moisture check after service and the built-in bed mite sensor on our UV-C vacuum. The 72-hour bedroom CO₂ test is not included: it is a separate optional service, booked on its own or added to a visit, priced by quote, and it isn't a medical test.` },
   { q: "Do you treat bed mites?", a: `Yes. Bed mites (house dust mites) live in the dust and shed skin flakes that collect in seams, tufts and edges, and our dry vapor steam uses heat to kill them there. Published steam tests back the heat effect: Glass and Needham (2004) reported 100 percent mortality of D. farinae after a 96°C steam cleaner on carpet and mattress samples, and Colloff and colleagues (1995) found no live mites in steamed, mite-seeded carpet squares over four months. Those were study conditions, not your bedroom. Dead mites and droppings still need removing, so we HEPA vacuum too. We make no allergy or asthma claim. Sleep Sanitation's <a href="https://sleepsanitation.com/knowledge-center/mattress-dust-mites-allergens/does-steam-kill-dust-mites-in-mattresses" style="color:var(--charcoal); font-weight:600; text-decoration:underline; text-underline-offset:3px;">steam and bed mite review</a> covers both studies. <em>General information, not medical advice.</em>` },
 ];
 const strip = (h: string) => h.replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
@@ -49,7 +52,7 @@ const webpage = {
   "@id": "https://omahamattresscleaning.com/#webpage",
   "url": "https://omahamattresscleaning.com/",
   "name": "Mattress cleaning and sanitation in Omaha",
-  "dateModified": "2026-10-04",
+  "dateModified": pageLastmod("/"),
   "about": { "@id": "https://omahamattresscleaning.com/#business" },
 };
 const description = `Omaha mattress cleaning and sanitation with low-moisture dry vapor steam, UV-C light treatment and HEPA vacuuming. ${priceText.first} first mattress, any size.`;
@@ -110,7 +113,7 @@ const description = `Omaha mattress cleaning and sanitation with low-moisture dr
         <span class="eyebrow">The Upgrade</span>
         <h2>Why choose mattress sanitation over regular cleaning?</h2>
         <p class="lead" style="max-width:65ch;">
-          A mattress is not a floor or a sofa, so we don't clean it like one. Here are the questions worth asking any mattress cleaner in Omaha, and how we answer them.
+          A mattress is not a floor or a sofa, so we don't clean it like one. Here are the questions worth asking any mattress cleaner in Omaha, and how we answer them. For the longer versions, read <a href="/compare/dry-vapor-vs-wet-extraction" style="color:var(--charcoal); font-weight:600; text-decoration:underline; text-underline-offset:3px;">dry vapor steam vs wet extraction</a> and <a href="/compare/mattress-cleaning-vs-carpet-cleaner" style="color:var(--charcoal); font-weight:600; text-decoration:underline; text-underline-offset:3px;">mattress specialist or carpet cleaner</a>.
         </p>
 
         <div style="margin-top:2.5rem; overflow:hidden; border-radius:var(--radius-lg); border:1px solid var(--line); background:var(--white); box-shadow:var(--shadow);">

@@ -1,0 +1,66 @@
+---
+/**
+ * "Compare your options" hub: short, answer-first comparison pages written to be quoted
+ * (method, specialist vs carpet company). Prices from src/lib/prices.ts; no promo here.
+ */
+import Base from "../layouts/Base.astro";
+import HubFaq from "../components/HubFaq.astro";
+import { priceText } from "../lib/prices";
+import { PHONE } from "../lib/founder";
+import { pageLastmod } from "../lib/lastmod";
+import { faqLd } from "../lib/faq";
+type Fm = { frontmatter: { slug: string; h1: string; answer: string; order?: number; draft?: boolean } };
+const guides = Object.values(import.meta.glob<Fm>("./compare/*.md", { eager: true }))
+  .map((m) => m.frontmatter)
+  .filter((f) => !f.draft)
+  .sort((a, b) => (a.order ?? 99) - (b.order ?? 99));
+const SITE = "https://omahamattresscleaning.com";
+const faq = [
+  { q: "How much does mattress cleaning cost in Omaha?", a: `${priceText.first} for the first mattress, any size. Each additional full, queen or king in the same visit is ${priceText.additionalLarge}, and each additional kids' bed is ${priceText.additionalKids}. See <a href="/pricing">Omaha pricing</a> for every rate.` },
+  { q: "Is dry vapor steam better than wet extraction for a mattress?", a: `For routine mattress care, yes: dry vapor steam carries heat with very little water, while wet extraction sprays solution in and vacuums it out. Read <a href="/compare/dry-vapor-vs-wet-extraction">dry vapor steam vs wet extraction</a>.` },
+  { q: "Should I hire a carpet cleaner or a mattress specialist?", a: `A carpet cleaner for carpet and rugs; a mattress specialist for the bed. Read <a href="/compare/mattress-cleaning-vs-carpet-cleaner">mattress specialist or carpet cleaner</a>.` },
+  { q: "What checks come with every Omaha visit?", a: "Two: a moisture check after service and the built-in bed mite sensor on our UV-C vacuum. The 72-hour bedroom CO₂ test is a separate optional service, priced by quote, and isn't a medical test." },
+];
+const jsonld = [
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Compare mattress cleaning options in Omaha",
+    url: `${SITE}/compare`,
+    dateModified: pageLastmod("/compare"),
+    hasPart: guides.map((g) => ({ "@type": "Article", headline: g.h1, url: `${SITE}/compare/${g.slug}` })),
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: `${SITE}/` },
+      { "@type": "ListItem", position: 2, name: "Knowledge Center", item: `${SITE}/knowledge-center` },
+      { "@type": "ListItem", position: 3, name: "Compare your options", item: `${SITE}/compare` },
+    ],
+  },
+  faqLd(faq),
+];
+---
+<Base title="Compare Mattress Cleaning Options in Omaha" description={`Dry vapor steam vs wet extraction, and a mattress specialist vs a carpet cleaner, for Omaha homes. ${priceText.first} first mattress. Operated by Sleep Sanitation.`} path="/compare" jsonld={jsonld}>
+  <section class="section" style="padding-top:3rem;">
+    <div class="container prose">
+      <p style="font-size:0.9rem;"><a href="/">Home</a> › <a href="/knowledge-center">Knowledge Center</a> › Compare your options</p>
+      <span class="eyebrow">Compare your options</span>
+      <h1>Compare mattress cleaning options in Omaha</h1>
+      <p class="lead">Omaha Mattress Cleaning, operated by Sleep Sanitation, cleans mattresses only, with low-moisture dry vapor steam, HEPA vacuuming and UV-C light treatment. The first mattress is {priceText.first}, any size. These pages answer the two questions people ask before they pick anyone: which method, and which kind of company. Call or text <a href={PHONE.tel}>{PHONE.display}</a>.</p>
+      <h2>Which comparisons can you read?</h2>
+      <ul>
+        {guides.map((g) => (
+          <li><a href={`/compare/${g.slug}`}><strong>{g.h1}</strong></a>. {g.answer.split(". ")[0]}.</li>
+        ))}
+      </ul>
+      <HubFaq faq={faq} />
+      <h2>What do these pages leave to Sleep Sanitation?</h2>
+      <p>The science of heat, moisture and bed mites lives in the <a href="https://sleepsanitation.com/knowledge-center">Sleep Sanitation Knowledge Center</a>. These pages stay on the Omaha decision and the Omaha price.</p>
+      <h2>What changed on this page?</h2>
+      <ul><li>October 5, 2026: hub and two comparison pages published.</li></ul>
+      <p><a class="btn btn-primary" href="/book">Book or contact us</a></p>
+    </div>
+  </section>
+</Base>

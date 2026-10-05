@@ -6,7 +6,9 @@
  * one visit and price section for the hub.
  */
 import Base from "../layouts/Base.astro";
-import { priceText } from "../lib/prices";
+import { PRICES, priceText, usd } from "../lib/prices";
+import HubFaq from "../components/HubFaq.astro";
+import { faqLd } from "../lib/faq";
 type Fm = { frontmatter: { slug: string; h1: string; description: string; order: number; dates: { when: string; what: string }[]; draft?: boolean } };
 const guides = Object.values(import.meta.glob<Fm>("./airbnb-hosts/*.md", { eager: true }))
   .map((m) => m.frontmatter)
@@ -31,6 +33,14 @@ const areas = [
   { name: "Champions Run", href: "/developments/champions-run", where: "Northwest Omaha around the Champions Run club at 13800 Eagle Run Drive, Omaha 68164." },
   { name: "Regency", href: "/developments/regency", where: "Between Pacific and Dodge just east of Interstate 680, with more than 450 homes and villas." },
 ];
+const P = PRICES;
+const faq = [
+  { q: "How much does Airbnb mattress cleaning cost in Omaha?", a: `${priceText.first} for the first mattress, any size, then ${priceText.additionalLarge} for each additional full, queen or king and ${priceText.additionalKids} for each additional kids' bed in the same visit. A three-bedroom listing with a king and two queens is ${usd(P.first + 2 * P.additionalLarge)} in one visit.` },
+  { q: "Are guest urine accidents and pet odor extra?", a: "No. Normal stains, pet odor and ordinary urine accidents are included, with enzyme treatment for urine. Only severe or biohazard cases carry a surcharge, quoted before we start." },
+  { q: "Can you clean between guests on the same day?", a: "We work Monday to Friday, 9am to 6pm, and return weekend calls and texts. The bed stays unmade until it is dry to the touch and we run a moisture check before we leave, so book a weekday gap between stays rather than the hour before check-in." },
+  { q: "What checks come with a host visit?", a: "Two, every visit: a moisture check after service and the built-in bed mite sensor on our UV-C vacuum. Each mattress also gets an inspection form. The 72-hour bedroom CO₂ test is a separate optional service, priced by quote, and isn't a medical test." },
+  { q: "Do you clean whole rentals or just mattresses?", a: "Mattresses only. Your turnover cleaner handles the rest of the unit; we handle the beds." },
+];
 const jsonld = [
   {
     "@context": "https://schema.org",
@@ -49,9 +59,26 @@ const jsonld = [
       { "@type": "ListItem", position: 3, name: "Omaha hosts", item: "https://omahamattresscleaning.com/airbnb-hosts" },
     ],
   },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": "https://omahamattresscleaning.com/airbnb-hosts#service",
+    name: "Airbnb and short-term rental mattress cleaning in Omaha",
+    serviceType: "Mattress cleaning and sanitation",
+    audience: { "@type": "Audience", audienceType: "Short-term rental hosts" },
+    url: "https://omahamattresscleaning.com/airbnb-hosts",
+    areaServed: ["Omaha", "Elkhorn", "Papillion", "La Vista", "Bellevue", "Gretna", "Ralston", "Council Bluffs"].map((n) => ({ "@type": "City", name: n })),
+    provider: { "@type": "LocalBusiness", "@id": "https://omahamattresscleaning.com/#business", name: "Omaha Mattress Cleaning & Sanitation", telephone: "+1-402-512-5658" },
+    offers: [
+      { "@type": "Offer", name: "First mattress, any size", price: String(P.first), priceCurrency: "USD" },
+      { "@type": "Offer", name: "Each additional full, queen or king, same visit", price: String(P.additionalLarge), priceCurrency: "USD" },
+      { "@type": "Offer", name: "Each additional kids' bed (twin or full), same visit", price: String(P.additionalKids), priceCurrency: "USD" },
+    ],
+  },
+  faqLd(faq),
 ];
 ---
-<Base title="Omaha Airbnb Hosts: Event Weekends, Lodging Taxes and Mattress Care" description="CHI Health Center, Berkshire and CWS dates, lodging taxes, Offutt PCS season, midtown pet-urine turnovers and host guides. Operated by Sleep Sanitation." path="/airbnb-hosts" jsonld={jsonld}>
+<Base title="Airbnb Mattress Cleaning in Omaha: Host Guide and Prices" description={`Airbnb and short-term rental mattress cleaning in Omaha: ${priceText.first} first mattress, ${priceText.additionalLarge} each additional. Event dates, lodging taxes and host guides.`} path="/airbnb-hosts" jsonld={jsonld}>
   <style>
     .evt { width:100%; border-collapse:collapse; font-size:.92rem; background:var(--white); margin:1rem 0 .6rem; }
     .evt th, .evt td { text-align:left; padding:.6rem .7rem; border-bottom:1px solid var(--line); vertical-align:top; }
@@ -72,8 +99,9 @@ const jsonld = [
     <div class="container">
       <p style="font-size:0.9rem;"><a href="/">Home</a> › <a href="/knowledge-center">Knowledge Center</a> › Omaha hosts</p>
       <span class="eyebrow">Omaha hosts: CHI, CWS, Berkshire, Offutt</span>
-      <h1>Hosting in Omaha: event weekends, lodging taxes and the beds between stays</h1>
-      <p class="lead" style="max-width:68ch;">Omaha's busiest guest weekends are on public calendars: CHI Health Center events and Creighton games through the 2026 holidays, Berkshire Hathaway's first weekend in May, and the College World Series from June 17 to 28, 2027. These guides line those dates up with Omaha's 5.5% occupation tax, what the City Clerk can tell you and Offutt's PCS season, and with the weekdays we can clean.</p>
+      <h1>Airbnb mattress cleaning in Omaha: event weekends, lodging taxes and the beds between stays</h1>
+      <p class="lead" style="max-width:68ch;">Airbnb and short-term rental mattress cleaning in Omaha costs {priceText.first} for the first mattress, any size, and {priceText.additionalLarge} for each additional full, queen or king in the same visit ({priceText.additionalKids} for each additional kids' bed). Guest stains, pet odor and ordinary urine accidents are included. Omaha Mattress Cleaning, operated by Sleep Sanitation, uses low-moisture dry vapor steam, HEPA vacuuming and UV-C light treatment, Monday to Friday. Call or text <a href="tel:+14025125658">(402) 512-5658</a>.</p>
+      <p style="max-width:68ch;">Omaha's busiest guest weekends are on public calendars: CHI Health Center events and Creighton games through the 2026 holidays, Berkshire Hathaway's first weekend in May, and the College World Series from June 17 to 28, 2027. These guides line those dates up with Omaha's 5.5% occupation tax, what the City Clerk can tell you and Offutt's PCS season, and with the weekdays we can clean.</p>
 
       <h2>Which Omaha dates matter to hosts, October 2026 to June 2027?</h2>
       <div style="overflow-x:auto;">
@@ -122,6 +150,8 @@ const jsonld = [
           <p>Taxes, ordinances and covenants on these pages are general information, not legal or tax advice.</p>
         </section>
 
+        <HubFaq faq={faq} heading="Questions Omaha hosts ask" />
+
         <p>Sleep Sanitation's <a href="https://sleepsanitation.com/knowledge-center/mattress-owners-decision-center">decision center</a> covers clean-or-replace questions for every city, including guest beds.</p>
 
         <h2>What don't we know yet?</h2>
@@ -146,7 +176,7 @@ const jsonld = [
           <li><a href="https://www.ridgeshoa.com/history.html" rel="noopener">The Ridges HOA</a>, <a href="https://lanoha.com/portfolio/the-sanctuary/" rel="noopener">Lanoha: The Sanctuary</a>, <a href="https://www.omahamagazine.com/living/linden-estates/" rel="noopener">Omaha Magazine: Linden Estates</a>, <a href="https://tiburongolf.com/contact-us/" rel="noopener">Tiburon Golf Club</a>, <a href="https://www.aksarbentitle.com/uploads/1/4/1/7/141783493/tiburon-estates-sarpy_1.pdf" rel="noopener">Tiburon Estates declaration (Sarpy County, 2002)</a>, <a href="https://www.eaglerungolf.com/contact/" rel="noopener">Eagle Run Golf Course</a>, <a href="https://www.championsomaha.com/" rel="noopener">Champions Run</a>, <a href="https://regencyomaha.org/about/history" rel="noopener">Regency Homes Association: History</a> (checked October 3, 2026)</li>
         </ul>
         <h2>What changed on this page?</h2>
-        <ul><li>October 3, 2026: hub and five guides published.</li><li>October 3, 2026: the short-term rental law guide merged into the lodging tax guide; area sources corrected for Tiburon, Champions Run and Regency.</li><li>October 4, 2026: section headings rewritten as questions; phone number added to every page; checks wording corrected (two included checks; the 72-hour bedroom CO₂ test is optional, priced by quote).</li><li>October 5, 2026: neighborhood names link to /developments pages; midtown pet-urine turnovers guide added.</li></ul>
+        <ul><li>October 3, 2026: hub and five guides published.</li><li>October 3, 2026: the short-term rental law guide merged into the lodging tax guide; area sources corrected for Tiburon, Champions Run and Regency.</li><li>October 4, 2026: section headings rewritten as questions; phone number added to every page; checks wording corrected (two included checks; the 72-hour bedroom CO₂ test is optional, priced by quote).</li><li>October 5, 2026: neighborhood names link to /developments pages; midtown pet-urine turnovers guide added.</li><li>October 5, 2026: answer-first price lead, host FAQ and Service schema added.</li></ul>
         <p class="note">Published October 3, 2026. Omaha Mattress Cleaning is operated by Sleep Sanitation.</p>
       </div>
     </div>
