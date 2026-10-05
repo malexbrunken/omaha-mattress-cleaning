@@ -3,7 +3,7 @@ import { guideLastmod, kcLastmod, pageLastmod, type Layout } from "../lib/lastmo
 
 const SITE = "https://omahamattresscleaning.com";
 const STATIC = ["/", "/pricing", "/about", "/book"].map((path) => ({ path, lastmod: pageLastmod(path) }));
-const KC_GUIDES = import.meta.glob<Fm>(["./omaha-homes/*.md", "./areas/*.md", "./allergy-season/*.md", "./airbnb-hosts/*.md"], { eager: true });
+const KC_GUIDES = import.meta.glob<Fm>(["./omaha-homes/*.md", "./areas/*.md", "./allergy-season/*.md", "./airbnb-hosts/*.md", "./developments/*.md"], { eager: true });
 
 type Fm = { frontmatter?: { updated?: string; published?: string; draft?: boolean } };
 const hub = import.meta.glob<Fm>("./omaha-homes.astro", { eager: true });
@@ -14,6 +14,8 @@ const allergyHub = import.meta.glob<Fm>("./allergy-season.astro", { eager: true 
 const allergy = import.meta.glob<Fm>("./allergy-season/*.md", { eager: true });
 const hostHub = import.meta.glob<Fm>("./airbnb-hosts.astro", { eager: true });
 const hosts = import.meta.glob<Fm>("./airbnb-hosts/*.md", { eager: true });
+const devHub = import.meta.glob<Fm>("./developments.astro", { eager: true });
+const developments = import.meta.glob<Fm>("./developments/*.md", { eager: true });
 
 export const GET: APIRoute = () => {
   const entries = [...STATIC];
@@ -46,6 +48,13 @@ export const GET: APIRoute = () => {
     if (fm.draft) continue;
     const slug = file.replace("./airbnb-hosts/", "").replace(/\.md$/, "");
     entries.push({ path: `/airbnb-hosts/${slug}`, lastmod: guideLastmod(fm, "HostBrief" as Layout) });
+  }
+  if (Object.keys(devHub).length) entries.push({ path: "/developments", lastmod: pageLastmod("/developments") });
+  for (const [file, mod] of Object.entries(developments)) {
+    const fm = mod.frontmatter ?? {};
+    if (fm.draft) continue;
+    const slug = file.replace("./developments/", "").replace(/\.md$/, "");
+    entries.push({ path: `/developments/${slug}`, lastmod: guideLastmod(fm, "DevelopmentGuide" as Layout) });
   }
   const body =
     `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
