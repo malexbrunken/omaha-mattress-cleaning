@@ -48,7 +48,7 @@ const trust = [
 ];
 
 const faq = [
-  { q: "When are you open for bookings?", a: "Our hours are Monday–Friday, 9am–6pm. Call, text or email, and we'll confirm your time and your price before the visit." },
+  { q: "When are you open for bookings?", a: "Our hours are Monday–Friday, 9am–6pm. Missed a call? We return calls and texts on Saturday and Sunday too. Call, text or email, and we'll confirm your time and your price before the visit." },
   { q: "What will my visit cost?", a: `The first mattress is ${priceText.first}, any size. Each additional full, queen or king mattress in the same visit is ${priceText.additionalLarge}, and each additional kids bed is ${priceText.additionalKids}. Underside treatment is ${priceText.underside} per mattress. Normal stains, pet odor and ordinary urine accidents are included; severe or biohazard cases carry a surcharge, quoted before we start.` },
   { q: "Which areas do you serve?", a: `${AREAS.slice(0, -1).join(", ")} and ${AREAS.at(-1)}. Not sure about your address? Call, text or email and we'll confirm it.` },
   { q: "Is the 72-hour bedroom CO₂ test part of the visit?", a: "No. It's a separate optional service, booked on its own or added to a visit and priced by quote. It isn't a medical test." },
@@ -128,6 +128,7 @@ const jsonld = [
           <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="8.5" /><path d="M12 7.5V12l3 2" /></svg>
           Hours: Mon–Fri 9–6
         </strong>
+        <span>Missed a call? We return calls and texts on Saturday and Sunday too.</span>
       </p>
     </div>
   </section>
