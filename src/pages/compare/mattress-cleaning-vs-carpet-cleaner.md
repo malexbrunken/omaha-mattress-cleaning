@@ -14,7 +14,7 @@ points:
   - label: "What we clean"
     value: "Mattresses only. No carpet, rugs, tile or upholstery."
   - label: "Included every visit"
-    value: "Material inspection, dry vapor steam, HEPA vacuuming, UV-C light treatment, enzyme treatment for urine, a moisture check after service and the bed mite sensor on our UV-C vacuum."
+    value: "Material inspection, dry vapor steam, HEPA vacuuming, UV-C light treatment, enzyme treatment for urine, a moisture check after service and the built-in bed mite sensor on our UV-C vacuum."
   - label: "Hygiene"
     value: "Gloves and shoe booties on every job; equipment disinfected between jobs."
   - label: "National price context"

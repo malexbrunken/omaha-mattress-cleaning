@@ -30,7 +30,7 @@ faq:
   - q: "Is northwest Omaha in your radius?"
     a: "Yes."
   - q: "What are the two checks?"
-    a: "A moisture check after the job and the bed mite sensor on our UV-C vacuum. CO₂ testing is optional by quote."
+    a: "A moisture check after the job and the built-in bed mite sensor on our UV-C vacuum. CO₂ testing is optional by quote."
 sources:
   - name: "Eagle Run HOA"
     url: "https://www.eaglerunhoa.com/"

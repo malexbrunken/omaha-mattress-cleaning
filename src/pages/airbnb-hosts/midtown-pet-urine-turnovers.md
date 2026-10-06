@@ -29,7 +29,7 @@ claims:
     source: "CHI Health Center and Berkshire weekends"
     url: "https://omahamattresscleaning.com/airbnb-hosts/chi-health-center-and-berkshire-weekends"
     checked: "2026-10-05"
-  - fact: "Two included checks: moisture check after the job and bed mite sensor on the UV-C vacuum; CO₂ optional by quote"
+  - fact: "Two included checks: moisture check after the job and built-in bed mite sensor on the UV-C vacuum; CO₂ optional by quote"
     source: "Omaha Mattress Cleaning"
     url: "https://omahamattresscleaning.com/"
     checked: "2026-10-05"

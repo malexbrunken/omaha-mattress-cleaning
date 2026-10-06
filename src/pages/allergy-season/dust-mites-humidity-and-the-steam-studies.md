@@ -14,11 +14,11 @@ watch:
   when: "Check it in June, when Eppley's average dew point first passes 60°F, and again in October at 41°F."
   url: "https://www.epa.gov/mold/brief-guide-mold-moisture-and-your-home"
 published: "2026-10-03"
-updated: "2026-10-04"
+updated: "2026-10-05"
 faq:
   - q: "Why doesn't the NWS Omaha/Valley bulletin list dust mites?"
     a: "DCHD's numbers in that bulletin come from outdoor air and cover trees, weeds and grass. Bed mites live in indoor dust, bedding and mattresses, so DCHD's outdoor sampler and the rooftop samplers at UNMC and in Bellevue never catch them."
-  - q: "Is your dust mite sensor like UNMC's pollen count?"
+  - q: "Is your built-in bed mite sensor like UNMC's pollen count?"
     a: "No. It's built into our UV-C vacuum and is one of two checks in a visit, with the moisture check after the job. UNMC's count comes from staff identifying grains under a microscope; our sensor is a check during the visit, and we don't present it as a count of mites."
 sources:
   - name: "NOAA NCEI: U.S. Hourly Climate Normals 1991 to 2020, Omaha Eppley Airfield (USW00014942)"
@@ -68,4 +68,4 @@ Neither study measured allergy symptoms, an Omaha bedroom or our equipment, so w
 
 ## Where our checks fit
 
-Our dust mite sensor on the UV-C vacuum is a check, not a count like UNMC's or DCHD's, and so is the moisture check after the job. A 72-hour bedroom CO₂ test is a separate optional service, booked on its own or added to a visit and priced by quote; it isn't a medical test. Check your care label and warranty terms before booking.
+Our built-in bed mite sensor on the UV-C vacuum is a check, not a count like UNMC's or DCHD's, and so is the moisture check after the job. A 72-hour bedroom CO₂ test is a separate optional service, booked on its own or added to a visit and priced by quote; it isn't a medical test. Check your care label and warranty terms before booking.
