@@ -14,14 +14,14 @@ watch:
   when: "Five NWS Omaha/Valley bulletins, Monday, September 28 to Friday, October 2, 2026; the last went out at 9:58 a.m."
   url: "https://forecast.weather.gov/product.php?issuedby=OAX&product=AQI&site=OAX"
 published: "2026-10-03"
-updated: "2026-10-04"
+updated: "2026-10-05"
 faq:
   - q: "Who supplies the numbers in the NWS Omaha/Valley pollen bulletin?"
     a: "Three places. The Douglas County Health Department supplies the counts in the NWS Omaha/Valley bulletin. UNMC's Division of Allergy and Immunology posts counts on Tuesdays and Thursdays in peak season from a sampler on Durham Research Center II. The National Allergy Bureau lists Station 33, run by The Asthma & Allergy Center in Bellevue."
   - q: "Was the pollen count high in Omaha on October 2, 2026?"
     a: "No. The NWS bulletin that morning had DCHD's trees at 2 (low, mostly elm), weeds at 12 (moderate, pigweed and ragweed) and grass at 2 (low). DCHD's weeds on Monday, September 28 were 54, which the bulletin called high."
   - q: "Does a mattress cleaning change what DCHD or UNMC count?"
-    a: "No. DCHD's outdoor sampler and UNMC's rooftop sampler measure outdoor air, and we make no pollen claim. A visit includes two checks, and neither measures pollen: moisture after the job and the dust mite (bed mite) sensor on our UV-C vacuum."
+    a: "No. DCHD's outdoor sampler and UNMC's rooftop sampler measure outdoor air, and we make no pollen claim. A visit includes two checks, and neither measures pollen: moisture after the job and the built-in bed mite sensor on our UV-C vacuum."
 sources:
   - name: "National Weather Service Omaha/Valley: Omaha Pollution Index/Pollen Count, issued October 2, 2026 (counts by the Douglas County Health Department)"
     url: "https://forecast.weather.gov/product.php?issuedby=OAX&product=AQI&site=OAX"

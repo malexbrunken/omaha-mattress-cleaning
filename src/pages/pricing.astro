@@ -37,7 +37,7 @@ const included = [
   ["Inspection form", "Notes material, special care notes and any urine or odor observations, and you get a copy."],
   ["Gloves and shoe booties", "Our technicians wear both in your home."],
   ["Equipment disinfected between jobs", "Tools are cleaned and disinfected before they come into the next home."],
-  ["Dust mite (bed mite) sensor", "The built-in sensor on our UV-C vacuum. It is a check, not a lab result."],
+  ["Built-in bed mite sensor", "The sensor on our UV-C vacuum. It is a check, not a lab result."],
 ];
 
 const faq = [
@@ -47,7 +47,7 @@ const faq = [
   { q: "What does the underside add-on cost?", a: `The standard visit covers the sleep surface, seams and edges. Treating the underside as well adds ${usd(P.underside.min)} to ${usd(P.underside.max)} per mattress, depending on the mattress.` },
   { q: "When can we use the bed again?", a: "The bed stays unmade until it is dry to the touch, and we run a moisture check after service before we leave." },
   { q: "Is the 72-hour bedroom CO₂ test included?", a: `No. It is a separate optional service: book it on its own or add it to a mattress visit. It is priced by quote and it isn't a medical test. Call or text ${PHONE}.` },
-  { q: "What checks are included in every visit?", a: "Two: a moisture check after service and the built-in bed mite (dust mite) sensor on our UV-C vacuum. UV-C light treatment and HEPA vacuuming are also included on every visit." },
+  { q: "What checks are included in every visit?", a: "Two: a moisture check after service and the built-in bed mite sensor on our UV-C vacuum. UV-C light treatment and HEPA vacuuming are also included on every visit." },
   { q: "Is a mattress specialist worth it over a carpet cleaner's mattress add-on?", a: "If the job is the bed, yes. A carpet add-on is typically hot-water extraction with the floor equipment; our visit is built around the mattress, with an inspection, dry vapor steam on the seams and tufts, HEPA vacuuming, UV-C light treatment and two checks. See our comparison pages at omahamattresscleaning.com/compare." },
   { q: "Can wet cleaning affect my mattress warranty?", a: "Wet extraction or hot-water carpet cleaning can void some mattress warranties. Read your care label and warranty terms before any cleaning, ours included." },
   ...(PROMO.active ? [{ q: "Is there a current offer?", a: `Yes. During the ${PROMO.label}, the first mattress is ${priceText.promoFirst} instead of ${priceText.first}. ${priceText.promoFollowUp}` }] : []),

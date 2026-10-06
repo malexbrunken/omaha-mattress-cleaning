@@ -16,7 +16,7 @@ const faq = [
   { q: "Do you charge more for Elkhorn, Gretna, Bellevue or Council Bluffs?", a: `No. The price is the same anywhere in our Omaha–Council Bluffs service area: ${priceText.first} for the first mattress, any size, ${priceText.additionalLarge} for each additional full, queen or king and ${priceText.additionalKids} for each additional kids' bed.` },
   { q: "Which Omaha suburbs do you serve?", a: "Elkhorn, Papillion, La Vista, Bellevue, Gretna, Ralston, Chalco, Bennington, Waterloo, Valley and Council Bluffs, plus the City of Omaha. Call or text (402) 512-5658 if you're not sure about your address." },
   { q: "Can I put an old mattress out with the trash in these suburbs?", a: "It depends on the city's hauler setup, which is why each area page lists its own trash and cleanup rules with the source and date we checked them." },
-  { q: "What's included in a visit in any area?", a: "Dry vapor steam, HEPA vacuuming and UV-C light treatment, with a moisture check after service and the bed mite sensor on our UV-C vacuum. The 72-hour bedroom CO₂ test is optional, priced by quote." },
+  { q: "What's included in a visit in any area?", a: "Dry vapor steam, HEPA vacuuming and UV-C light treatment, with a moisture check after service and the built-in bed mite sensor on our UV-C vacuum. The 72-hour bedroom CO₂ test is optional, priced by quote." },
 ];
 const jsonld: object[] = [
   {
@@ -90,7 +90,7 @@ jsonld.push(faqLd(faq));
 
       <div class="prose">
         <h2>What stays the same in every area?</h2>
-        <p>Every area gets the same visit: {priceText.first} for the first mattress, with a surcharge only for severe or biohazard cases and quoted before we start; an inspection form covering the material, special care notes and urine or odor observations; and technicians in gloves and shoe booties, with equipment disinfected between jobs. Our only checks are a moisture check after the job and a built-in dust mite (bed mite) sensor on the UV-C vacuum. A 72-hour bedroom CO₂ test is a separate optional service, booked on its own or added to a visit and priced by quote; it isn't a medical test. Check your care label and warranty terms before booking.</p>
+        <p>Every area gets the same visit: {priceText.first} for the first mattress, with a surcharge only for severe or biohazard cases and quoted before we start; an inspection form covering the material, special care notes and urine or odor observations; and technicians in gloves and shoe booties, with equipment disinfected between jobs. Our only checks are a moisture check after the job and a built-in bed mite sensor on the UV-C vacuum. A 72-hour bedroom CO₂ test is a separate optional service, booked on its own or added to a visit and priced by quote; it isn't a medical test. Check your care label and warranty terms before booking.</p>
         <p>This page is general information, not medical advice.</p>
         <p>How dry vapor steam works, how a treated mattress dries and what bed mites (house dust mites) are don't change at the county line, so the <a href="https://sleepsanitation.com/knowledge-center">Sleep Sanitation Knowledge Center</a> covers them; the City of Omaha's own disposal rules and housing figures are in <a href="/omaha-homes">Mattresses and Omaha homes</a>.</p>
         <HubFaq faq={faq} heading="Questions about the areas we serve" />

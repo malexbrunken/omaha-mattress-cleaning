@@ -29,7 +29,7 @@ table:
     - ["Water left in the mattress", "Some solution stays in the fabric and padding", "Very little; the maker rates our machines at 5 to 6% moisture content"]
     - ["Built for", "Carpet, rugs and upholstery", "Mattresses and other sleep surfaces"]
     - ["Seams, tufts and edges", "Depends on the operator", "Worked on every mattress, where dust and shed skin flakes collect"]
-    - ["Follow-up steps", "Varies by provider", "HEPA vacuuming, UV-C light treatment, moisture check, bed mite sensor"]
+    - ["Follow-up steps", "Varies by provider", "HEPA vacuuming, UV-C light treatment, moisture check, built-in bed mite sensor"]
     - ["When it's the right call", "A soaked or flooded item that needs volume flushed out", "Routine mattress care, foam, latex and hybrid builds"]
 faq:
   - q: "Is dry vapor steam the same as steam cleaning a carpet?"
