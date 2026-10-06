@@ -16,7 +16,7 @@ export const GET: APIRoute = () => {
 - Service area: Omaha, Elkhorn, Papillion, La Vista, Bellevue, Gretna, Ralston, Chalco, Bennington, Waterloo, Valley and Council Bluffs.
 - Hours: Monday to Friday, 9am to 6pm. Calls and texts are returned on weekends.
 - Method: a material inspection first, then low-moisture dry vapor steam on the surface, seams, tufts, ridges and edges, HEPA vacuuming and UV-C light treatment. Enzyme treatment for urine and organic odor; organic methods by default.
-- Every visit includes two checks: a moisture check after the job and the built-in dust mite (bed mite) sensor on the UV-C vacuum.
+- Every visit includes two checks: a moisture check after the job and the built-in bed mite sensor on the UV-C vacuum.
 - The bed stays unmade until it is dry to the touch, and we run a moisture check before we leave.
 - Every job is documented on an inspection form: materials, special care notes and any urine or odor observations.
 - Technicians wear gloves and shoe booties, and equipment is disinfected between jobs.
@@ -39,6 +39,11 @@ export const GET: APIRoute = () => {
 - [Allergy season in Omaha](${u("/allergy-season")})
 - [Airbnb and short-term rental hosts](${u("/airbnb-hosts")})
 - [Omaha developments](${u("/developments")})
+- [Omaha life events: holiday guests, new baby, used or inherited mattress, new pet](${u("/life-events")})
+- [Holiday guest-room mattress reset](${u("/life-events/holiday-guest-room-reset")})
+- [New baby: mattress prep before the due date](${u("/life-events/new-baby-nursery-prep")})
+- [Used or inherited mattress](${u("/life-events/used-or-inherited-mattress")})
+- [New dog or cat: a plan for the bed](${u("/life-events/new-pet-from-the-shelter")})
 - [Compare: dry vapor steam vs wet extraction](${u("/compare/dry-vapor-vs-wet-extraction")})
 - [Compare: mattress specialist or carpet cleaner](${u("/compare/mattress-cleaning-vs-carpet-cleaner")})
 - [Knowledge Center](${u("/knowledge-center")})

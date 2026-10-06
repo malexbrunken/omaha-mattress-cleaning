@@ -1,0 +1,70 @@
+---
+/**
+ * "Omaha life events" hub: household moments where Omaha's calendar, rules or housing change
+ * the mattress answer. Spokes live in ./life-events/*.md (LifeEventGuide layout). Prices from
+ * src/lib/prices.ts; no promo here (that lives on /pricing only).
+ */
+import Base from "../layouts/Base.astro";
+import HubFaq from "../components/HubFaq.astro";
+import { priceText } from "../lib/prices";
+import { PHONE } from "../lib/founder";
+import { pageLastmod } from "../lib/lastmod";
+import { faqLd } from "../lib/faq";
+type Fm = { frontmatter: { slug: string; h1: string; answer: string; order?: number; draft?: boolean } };
+const guides = Object.values(import.meta.glob<Fm>("./life-events/*.md", { eager: true }))
+  .map((m) => m.frontmatter)
+  .filter((f) => !f.draft)
+  .sort((a, b) => (a.order ?? 99) - (b.order ?? 99));
+const SITE = "https://omahamattresscleaning.com";
+const faq = [
+  { q: "When should I book a mattress cleaning before holiday guests in Omaha?", a: `Two to three weeks ahead. In 2026 Thanksgiving is Thursday, November 26, and weekday slots before it fill first. Read <a href="/life-events/holiday-guest-room-reset">resetting the guest-room mattress</a>.` },
+  { q: "Should we clean the mattress before a new baby arrives?", a: `Clean the adult and sibling beds two to four weeks before the due date and leave the crib to its manufacturer's label. Nebraska DHHS teaches Alone, on the Back, in a Crib. Read <a href="/life-events/new-baby-nursery-prep">getting the beds ready for a new baby</a>.` },
+  { q: "Can I donate an old mattress in Omaha?", a: `Habitat for Humanity ReStore Omaha doesn't accept mattresses or box springs, and city curbside carts don't take them. Read <a href="/life-events/used-or-inherited-mattress">bringing in a used or inherited mattress</a>.` },
+  { q: "Is a new pet's urine accident on the mattress extra?", a: `No. Ordinary urine accidents, normal stains and pet odor are included in the ${priceText.first} first-mattress price; severe cases carry a surcharge quoted before we start. Read <a href="/life-events/new-pet-from-the-shelter">a new dog or cat: a plan for the bed</a>.` },
+  { q: "What does a visit include and cost?", a: `${priceText.first} for the first mattress, any size; each additional full, queen or king in the same visit is ${priceText.additionalLarge} and each additional kids' bed is ${priceText.additionalKids}. Every visit includes UV-C, HEPA and two checks: a moisture check after service and the built-in bed mite sensor on our UV-C vacuum. See <a href="/pricing">Omaha pricing</a>.` },
+];
+const jsonld = [
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Omaha life events and your mattress",
+    url: `${SITE}/life-events`,
+    dateModified: pageLastmod("/life-events"),
+    hasPart: guides.map((g) => ({ "@type": "Article", headline: g.h1, url: `${SITE}/life-events/${g.slug}` })),
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: `${SITE}/` },
+      { "@type": "ListItem", position: 2, name: "Knowledge Center", item: `${SITE}/knowledge-center` },
+      { "@type": "ListItem", position: 3, name: "Omaha life events", item: `${SITE}/life-events` },
+    ],
+  },
+  faqLd(faq),
+];
+---
+<Base title="Omaha Life Events: When to Clean a Mattress" description={`Holiday guests, a new baby, a used or inherited mattress, a new pet: what Omaha's dates and rules change. ${priceText.first} first mattress, by Sleep Sanitation.`} path="/life-events" jsonld={jsonld}>
+  <section class="section" style="padding-top:3rem;">
+    <div class="container prose">
+      <p style="font-size:0.9rem;"><a href="/">Home</a> › <a href="/knowledge-center">Knowledge Center</a> › Omaha life events</p>
+      <span class="eyebrow">Omaha life events</span>
+      <h1>Omaha life events and your mattress: when to book</h1>
+      <p class="lead">Book a mattress cleaning a week or more ahead of the household moment, not the day of it. In Omaha the calendar and the rules change the answer: Thanksgiving falls on November 26 in 2026, ReStore Omaha won't take a mattress, and a new pet needs a license within 30 days. Omaha Mattress Cleaning, operated by Sleep Sanitation, charges {priceText.first} for the first mattress, any size. Call or text <a href={PHONE.tel}>{PHONE.display}</a>.</p>
+      <h2>Which household moments do these guides cover?</h2>
+      <ul>
+        {guides.map((g) => (
+          <li><a href={`/life-events/${g.slug}`}><strong>{g.h1}</strong></a>. {g.answer.split(". ")[0]}.</li>
+        ))}
+      </ul>
+      <h2>Where are the event weekends and humidity guides?</h2>
+      <p>Already covered elsewhere, so they aren't repeated here. Hosts planning around the College World Series or the Berkshire Hathaway meeting weekend should start at the <a href="/airbnb-hosts">Airbnb and short-term rental hosts hub</a>. Basement bedrooms and Missouri River humidity are in <a href="/omaha-homes/humid-summers-and-basement-bedrooms">summer humidity and basement bedrooms</a> and <a href="/omaha-homes/missouri-river-bottom-humidity">Missouri river-bottom humidity</a>. Military families moving to or from Offutt can read the <a href="/omaha-homes/offutt-pcs-mattress-reset">Offutt PCS mattress reset</a>.</p>
+      <HubFaq faq={faq} />
+      <h2>What do these pages leave to Sleep Sanitation?</h2>
+      <p>The science of heat, moisture and bed mites lives in the <a href="https://sleepsanitation.com/knowledge-center">Sleep Sanitation Knowledge Center</a>. These pages stay on Omaha dates, Omaha rules and the Omaha price.</p>
+      <h2>What changed on this page?</h2>
+      <ul><li>October 5, 2026: hub and four guides published.</li></ul>
+      <p><a class="btn btn-primary" href="/book">Book or contact us</a></p>
+    </div>
+  </section>
+</Base>

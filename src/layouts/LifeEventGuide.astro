@@ -1,0 +1,129 @@
+---
+/**
+ * "Omaha life events" guide layout: household moments where Omaha's calendar, rules or
+ * housing change the mattress answer (holiday guests, a new baby, a used or inherited
+ * mattress, a new pet). Answer-first lead, a local-facts box with sources, optional table,
+ * the markdown body, then a price block, FAQ, sources and changelog. Schema: Article +
+ * Service (with the $249 offer) + FAQPage + BreadcrumbList. Never shows the promo (that
+ * lives on /pricing only).
+ */
+import Base from "./Base.astro";
+import { guideLastmod } from "../lib/lastmod";
+import { PHONE } from "../lib/founder";
+import { PRICES, priceText } from "../lib/prices";
+import { faqLd } from "../lib/faq";
+const { frontmatter: fm } = Astro.props as { frontmatter: any };
+const SITE = "https://omahamattresscleaning.com";
+const path = `/life-events/${fm.slug}`;
+const url = `${SITE}${path}`;
+const modified = guideLastmod(fm, "LifeEventGuide");
+const fmt = (d: string) => new Date(`${d}T12:00:00Z`).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" });
+const jsonld: object[] = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: fm.h1,
+    description: fm.description,
+    datePublished: fm.published,
+    dateModified: modified,
+    mainEntityOfPage: url,
+    about: { "@id": `${url}#service` },
+    author: { "@type": "LocalBusiness", "@id": "https://sleepsanitation.com/#business", name: "Sleep Sanitation" },
+    publisher: { "@type": "LocalBusiness", "@id": "https://sleepsanitation.com/#business", name: "Sleep Sanitation" },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${url}#service`,
+    name: fm.serviceName ?? "Mattress sanitation in Omaha",
+    serviceType: "Mattress cleaning and sanitation",
+    description: "Low-moisture dry vapor steam, HEPA vacuuming and UV-C light treatment for mattresses in the Omaha–Council Bluffs metro. Every visit includes a moisture check after service and the built-in bed mite sensor on the UV-C vacuum.",
+    url,
+    areaServed: ["Omaha", "Elkhorn", "Papillion", "La Vista", "Bellevue", "Gretna", "Ralston", "Council Bluffs"].map((n) => ({ "@type": "City", name: n })),
+    provider: { "@type": "LocalBusiness", "@id": `${SITE}/#business`, name: "Omaha Mattress Cleaning & Sanitation", telephone: "+1-402-512-5658", url: SITE },
+    offers: { "@type": "Offer", name: "First mattress, any size", price: String(PRICES.first), priceCurrency: "USD", url: `${SITE}/pricing` },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: `${SITE}/` },
+      { "@type": "ListItem", position: 2, name: "Omaha life events", item: `${SITE}/life-events` },
+      { "@type": "ListItem", position: 3, name: fm.h1, item: url },
+    ],
+  },
+];
+if (fm.faq?.length) jsonld.push(faqLd(fm.faq));
+---
+<Base title={fm.title} description={fm.description} path={path} jsonld={jsonld}>
+  <style>
+    .cmp { width:100%; border-collapse:collapse; font-size:.95rem; background:var(--white); }
+    .cmp th, .cmp td { text-align:left; padding:.7rem .9rem; border-bottom:1px solid var(--line); vertical-align:top; }
+    .cmp thead th { background:var(--cream-warm); }
+    .cmp-wrap { border:1px solid var(--line); border-radius:var(--radius); overflow-x:auto; margin:1.2rem 0 1.6rem; box-shadow:var(--shadow); }
+    .cmp-wrap caption { caption-side:bottom; text-align:left; padding:.6rem .9rem; font-size:.86rem; color:var(--stone); }
+    .price-box { border-left:6px solid var(--gold); background:var(--cream-warm); border-radius:0 var(--radius) var(--radius) 0; padding:1.2rem 1.4rem; margin:2rem 0; }
+  </style>
+  <section class="section" style="padding-top:3rem;">
+    <div class="container prose">
+      <p style="font-size:0.9rem;"><a href="/">Home</a> › <a href="/knowledge-center">Knowledge Center</a> › <a href="/life-events">Omaha life events</a></p>
+      <span class="eyebrow">Omaha life events</span>
+      <h1>{fm.h1}</h1>
+      <p class="lead">{fm.answer}</p>
+      {fm.points?.length > 0 && (
+        <dl class="facts" aria-label="Omaha facts">
+          <p style="margin:0 0 .4rem; font-weight:700; color:var(--charcoal);">Omaha facts, checked {fmt(fm.checked)}</p>
+          {fm.points.map((f: any) => (
+            <>
+              <dt>{f.label}</dt>
+              <dd>{f.value}{f.url && <> <a href={f.url} rel="noopener">({f.source})</a></>}</dd>
+            </>
+          ))}
+        </dl>
+      )}
+      {fm.table && (
+        <div class="cmp-wrap">
+          <table class="cmp">
+            <caption>{fm.table.caption}</caption>
+            <thead><tr>{fm.table.head.map((h: string) => <th scope="col">{h}</th>)}</tr></thead>
+            <tbody>
+              {fm.table.rows.map((r: string[]) => <tr><th scope="row">{r[0]}</th>{r.slice(1).map((c) => <td>{c}</td>)}</tr>)}
+            </tbody>
+          </table>
+        </div>
+      )}
+      <slot />
+      <section class="price-box" aria-label="Price">
+        <h2 style="margin-top:0;">What does it cost in Omaha?</h2>
+        <p>The first mattress is <strong>{priceText.first}</strong>, any size, with normal stains, pet odor and ordinary urine accidents included. Each additional full, queen or king in the same visit is {priceText.additionalLarge}, each additional kids' bed (twin or full) is {priceText.additionalKids}, and underside treatment is {priceText.underside} per mattress. Severe or biohazard cases carry a surcharge we quote before starting.</p>
+        <p>Every visit includes UV-C light treatment, HEPA vacuuming and two checks: a moisture check after service and the built-in bed mite sensor on our UV-C vacuum. The 72-hour bedroom CO₂ test is a separate optional service, priced by quote, and it isn't a medical test. See <a href="/pricing">Omaha pricing</a> for every rate.</p>
+      </section>
+      {fm.faq?.length > 0 && (
+        <>
+          <h2>Questions Omaha households ask</h2>
+          {fm.faq.map((f: any) => (
+            <>
+              <h3>{f.q}</h3>
+              <p>{f.a}</p>
+            </>
+          ))}
+        </>
+      )}
+      <h2>Sources</h2>
+      <ul>
+        {fm.sources.map((s: any) => (
+          <li><a href={s.url} rel="noopener">{s.name}</a>, checked {fmt(s.checked)}</li>
+        ))}
+      </ul>
+      <h2>Changelog</h2>
+      <ul>
+        {fm.changelog.map((c: any) => (
+          <li>{fmt(c.date)}: {c.note}</li>
+        ))}
+      </ul>
+      <p class="note">Published {fmt(fm.published)}{fm.updated && fm.updated !== fm.published ? `, updated ${fmt(fm.updated)}` : ""}. Written by Omaha Mattress Cleaning, operated by Sleep Sanitation. General information, not medical advice.</p>
+      <p><a class="btn btn-primary" href="/book">Book or contact us</a></p>
+      <p style="margin-top:.6rem;">Call or text <a href={PHONE.tel}><strong>{PHONE.display}</strong></a>, Monday to Friday, 9am to 6pm. We return weekend calls and texts.</p>
+    </div>
+  </section>
+</Base>
