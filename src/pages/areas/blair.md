@@ -78,7 +78,7 @@ changelog:
 
 ## Blair is in our service area
 
-Blair is the Washington County seat, north of Omaha. We drive up and clean Blair mattresses Monday to Friday at the same published prices as Omaha, with no trip charge. Book online or call or text (402) 512-5658.
+Blair is the Washington County seat, north of Omaha. We drive up and clean Blair mattresses Monday to Friday at the same published prices as Omaha. Book online or call or text (402) 512-5658.
 
 ## Blair housing by the numbers
 
