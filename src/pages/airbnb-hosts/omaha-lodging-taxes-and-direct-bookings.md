@@ -2,7 +2,7 @@
 layout: ../../layouts/HostBrief.astro
 slug: omaha-lodging-taxes-and-direct-bookings
 order: 1
-title: "Omaha Lodging Taxes and City Rules for Hosts: What Airbnb Collects"
+title: "Omaha Short-Term Rental Rules and Lodging Taxes for Airbnb Hosts"
 h1: "Omaha's lodging taxes and city rules: what Airbnb collects, and what's left to you"
 description: "Omaha's 5.5% occupation tax and what Airbnb collects, DOR's $100 example, direct bookings, and what to ask the City Clerk about short-term rental rules."
 answer: "For Airbnb stays of 29 nights or fewer, Airbnb's help center says it collects Omaha's 5.5% transient rental guest tax along with Nebraska sales and lodging taxes. DOR's GIL 1-19-1 says platforms collect state sales and lodging tax on bookings they facilitate, but a direct booking leaves the collecting to you. On October 3, 2026, we couldn't confirm an adopted Omaha short-term rental registration ordinance, so ask the City Clerk, (402) 444-5550."
@@ -13,7 +13,7 @@ dates:
   - { when: "Jul 1, 2026", what: "Current DOR local rate table" }
   - { when: "Oct 3, 2026", what: "Our last City Clerk check" }
 published: "2026-10-03"
-updated: "2026-10-03"
+updated: "2026-10-22"
 faq:
   - q: "Does Airbnb collect Omaha's 5.5% tax for me?"
     a: "For Airbnb-booked stays of 29 nights or fewer, Airbnb's help article 2625 listed Omaha's 5.5% transient rental guest tax among the taxes it collects and remits when we checked on October 3, 2026; bookings you take directly by text, email or your own website aren't covered."
