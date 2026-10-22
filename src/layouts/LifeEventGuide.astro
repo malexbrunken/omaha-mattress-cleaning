@@ -71,8 +71,8 @@ if (fm.faq?.length) jsonld.push(faqLd(fm.faq));
       <h1>{fm.h1}</h1>
       <p class="lead">{fm.answer}</p>
       {fm.points?.length > 0 && (
-        <dl class="facts" aria-label="Omaha facts">
-          <p style="margin:0 0 .4rem; font-weight:700; color:var(--charcoal);">Omaha facts, checked {fmt(fm.checked)}</p>
+        <dl class="facts" aria-label={fm.factsLabel ?? "Omaha facts"}>
+          <p style="margin:0 0 .4rem; font-weight:700; color:var(--charcoal);">{fm.factsLabel ?? "Omaha facts"}, checked {fmt(fm.checked)}</p>
           {fm.points.map((f: any) => (
             <>
               <dt>{f.label}</dt>
