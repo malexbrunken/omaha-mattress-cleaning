@@ -11,7 +11,7 @@
  * `npm run check:lastmod` (after a build) compares dist/sitemap.xml with git.
  */
 export const TEMPLATE_LASTMOD = {
-  Base: "2026-10-05",
+  Base: "2026-10-22",
   AreaPage: "2026-10-22",
   HostBrief: "2026-10-04",
   OmahaGuide: "2026-10-04",
