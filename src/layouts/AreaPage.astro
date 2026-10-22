@@ -21,7 +21,7 @@ const jsonld: object[] = [
     datePublished: fm.published,
     dateModified: guideLastmod(fm, "AreaPage"),
     mainEntityOfPage: url,
-    about: { "@type": "Place", name: `${fm.name}, Nebraska` },
+    about: { "@type": "Place", name: `${fm.name}, ${fm.state ?? "Nebraska"}` },
     author: { "@type": "LocalBusiness", "@id": "https://sleepsanitation.com/#business", name: "Sleep Sanitation" },
     publisher: { "@type": "LocalBusiness", "@id": "https://sleepsanitation.com/#business", name: "Sleep Sanitation" },
   },

@@ -14,7 +14,7 @@ const areas = Object.values(import.meta.glob<Fm>("./areas/*.md", { eager: true }
   .sort((a, b) => a.order - b.order);
 const faq = [
   { q: "Do you charge more for Elkhorn, Gretna, Bellevue or Council Bluffs?", a: `No. The price is the same anywhere in our Omaha–Council Bluffs service area: ${priceText.first} for the first mattress, any size, ${priceText.additionalLarge} for each additional full, queen or king and ${priceText.additionalKids} for each additional kids' bed.` },
-  { q: "Which Omaha suburbs do you serve?", a: "Elkhorn, Papillion, La Vista, Bellevue, Gretna, Ralston, Chalco, Bennington, Waterloo, Valley and Council Bluffs, plus the City of Omaha. Call or text (402) 512-5658 if you're not sure about your address." },
+  { q: "Which Omaha suburbs do you serve?", a: "Elkhorn, Papillion, La Vista, Bellevue, Gretna, Ralston, Chalco, Bennington, Blair, Waterloo, Valley and Council Bluffs, plus the City of Omaha. Call or text (402) 512-5658 if you're not sure about your address." },
   { q: "Can I put an old mattress out with the trash in these suburbs?", a: "It depends on the city's hauler setup, which is why each area page lists its own trash and cleanup rules with the source and date we checked them." },
   { q: "What's included in a visit in any area?", a: "Dry vapor steam, HEPA vacuuming and UV-C light treatment, with a moisture check after service and the built-in bed mite sensor on our UV-C vacuum. The 72-hour bedroom CO₂ test is optional, priced by quote." },
 ];
@@ -57,9 +57,9 @@ jsonld.push(faqLd(faq));
       <span class="eyebrow">Douglas and Sarpy counties</span>
       <h1>Areas we serve around Omaha</h1>
       <p class="lead" style="max-width:68ch;">Getting rid of a mattress around Omaha depends on where you live. Ralston and Bellevue contract with one hauler, La Vista and Gretna leave it to private companies, and part of Elkhorn is inside Omaha while part isn't; each area page cites the city or county source behind those rules and the date we checked it.</p>
-      <p style="max-width:68ch;">We bring dry vapor steam <a href="/">mattress cleaning in Omaha</a> to every area below, Monday to Friday: <a href="/areas/elkhorn">Elkhorn</a>, <a href="/areas/papillion">Papillion</a>, <a href="/areas/bellevue">Bellevue</a>, <a href="/areas/la-vista">La Vista</a>, <a href="/areas/gretna">Gretna</a>, <a href="/areas/ralston">Ralston</a> and <a href="/areas/bennington">Bennington</a>. See <a href="/pricing">pricing</a> or <a href="/book">book a visit</a>.</p>
+      <p style="max-width:68ch;">We bring dry vapor steam <a href="/">mattress cleaning in Omaha</a> to every area below, Monday to Friday: <a href="/areas/elkhorn">Elkhorn</a>, <a href="/areas/papillion">Papillion</a>, <a href="/areas/bellevue">Bellevue</a>, <a href="/areas/la-vista">La Vista</a>, <a href="/areas/gretna">Gretna</a>, <a href="/areas/ralston">Ralston</a>, <a href="/areas/bennington">Bennington</a>, <a href="/areas/blair">Blair</a> and <a href="/areas/council-bluffs">Council Bluffs</a>, plus Omaha <a href="/neighborhoods">neighborhoods</a> like Millard, Dundee and Benson. See <a href="/pricing">pricing</a> or <a href="/book">book a visit</a>.</p>
 
-      <h2>How do the seven areas compare?</h2>
+      <h2>How do the nine areas compare?</h2>
       <div class="scroll">
         <table class="cmp">
           <thead><tr><th>Area</th><th>County</th><th>Trash setup</th><th>Cleanup event</th><th>Median year built</th><th>Health department</th></tr></thead>
@@ -116,7 +116,7 @@ jsonld.push(faqLd(faq));
           <li><a href="https://www.douglascountyhealth.com/environmental/pest-control-nuisances" rel="noopener">Douglas County Health Department: Pest Control and Nuisances</a>, checked October 3, 2026</li>
         </ul>
         <h2>What changed on this page?</h2>
-        <ul><li>October 3, 2026: hub and seven area pages published.</li><li>October 4, 2026: section headings rewritten as questions; phone number added to every page; checks wording corrected (two included checks; the 72-hour bedroom CO₂ test is optional, priced by quote).</li></ul>
+        <ul><li>October 3, 2026: hub and seven area pages published.</li><li>October 22, 2026: Blair and Council Bluffs added; links to the new Omaha neighborhoods hub.</li><li>October 4, 2026: section headings rewritten as questions; phone number added to every page; checks wording corrected (two included checks; the 72-hour bedroom CO₂ test is optional, priced by quote).</li></ul>
         <p class="note">Written by Omaha Mattress Cleaning, operated by Sleep Sanitation.</p>
         <p><a class="btn btn-primary" href="/book">Book or contact us</a></p>
       </div>

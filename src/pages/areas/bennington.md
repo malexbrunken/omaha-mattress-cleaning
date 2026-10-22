@@ -14,8 +14,8 @@ hubTrash: "Trash and yard waste line; hauler not named"
 hubFree: "None found on the city site"
 hubMedian: "2002 (plus or minus 8)"
 published: "2026-10-03"
-updated: "2026-10-03"
-checked: "2026-10-03"
+updated: "2026-10-22"
+checked: "2026-10-22"
 card:
   - label: "County"
     value: "Douglas County"
@@ -53,15 +53,18 @@ contacts:
     url: "https://www.douglascountyhealth.com/environmental/pest-control-nuisances"
 faq:
   - q: "Does Bennington have a city cleanup day?"
-    a: "We didn't find one on the city's site as of October 3, 2026. Call the city office at (402) 238-2375 to ask."
+    a: "We didn't find one on the city's site or its News & Notices page when we re-checked on October 22, 2026. Call the city office at (402) 238-2375 to ask."
   - q: "Can I take a mattress to Pheasant Point myself?"
     a: "The Omaha Recycling Guide lists Pheasant Point as an option and says flat rates or special handling fees may apply. Call (866) 909-4458 first."
   - q: "Who do I call about trash in Bennington?"
-    a: "The city's services page lists a trash and yard waste number, (402) 238-2455, without naming a company. Papillion Sanitation also lists Bennington in its residential service area."
+    a: "The city's services page lists a trash and yard waste number, (402) 238-2455, with Dennis Christianson as the contact, but doesn't name a company. Papillion Sanitation also lists Bennington in its residential service area."
 sources:
   - name: "City of Bennington: Services"
     url: "https://benningtonne.com/services/"
-    checked: "2026-10-03"
+    checked: "2026-10-22"
+  - name: "City of Bennington: News & Notices"
+    url: "https://benningtonne.com/news-and-notices/"
+    checked: "2026-10-22"
   - name: "City of Bennington: Utilities"
     url: "https://benningtonne.com/utilities-trash/"
     checked: "2026-10-03"
@@ -86,13 +89,15 @@ sources:
 changelog:
   - date: "2026-10-03"
     note: "First published with Bennington's city contacts and ACS 2020 to 2024 figures."
+  - date: "2026-10-22"
+    note: "Re-checked the city's services and news pages: added the named trash contact, confirmed no 2026 cleanup event was posted, and linked nearby Blair and Millard."
 ---
 
 ## Bennington is outside Omaha's programs
 
 Bennington runs its own city government from 15505 Warehouse Street, and it isn't part of Omaha. That matters for a mattress because Omaha's free Fall Cleanup Saturdays, October 3, 10, 17 and 24 in 2026, are for City of Omaha households, and the River City bulky program is for residents inside Omaha city limits. A Bennington address qualifies for neither.
 
-What the City of Bennington does publish is a services directory. Its utilities page sends gas, sewer and water to MUD and electricity to OPPD, and its services page lists a separate phone number for trash and yard waste, (402) 238-2455. That's the first call when a Bennington mattress needs to go. Papillion Sanitation also names Bennington in its residential service area; if it's your hauler, a bulk pickup is scheduled ahead, costs extra and needs the mattress wrapped in plastic.
+What the City of Bennington does publish is a services directory. Its utilities page sends gas, sewer and water to MUD and electricity to OPPD, and its services page lists a separate phone number for trash and yard waste, (402) 238-2455, with Dennis Christianson named as the contact. That's the first call when a Bennington mattress needs to go. Papillion Sanitation also names Bennington in its residential service area; if it's your hauler, a bulk pickup is scheduled ahead, costs extra and needs the mattress wrapped in plastic.
 
 ## The landfill up the road
 
@@ -108,7 +113,11 @@ So a Bennington appointment is as likely to be in a house finished in the last f
 
 Bennington is in Douglas County, where the Douglas County Health Department's pest page describes its role with bed bugs as education, since they have not been shown to be a vector of disease. Questions go to its Environmental Health section at (402) 444-7485; treatment goes to a licensed pest professional, and cleaning comes after. This page is general information, not medical advice. Check your care label and warranty terms before booking; the [areas page](/areas) lists what stays the same at every address.
 
+## Nearby areas we serve
+
+North of Bennington, in Washington County, is [Blair](/areas/blair); south is [Elkhorn](/areas/elkhorn), and across Omaha we cover [neighborhoods](/neighborhoods) from [Millard](/neighborhoods/millard) to [Dundee](/neighborhoods/dundee-memorial-park). Same price everywhere.
+
 ## What we don't know
 
-- **Who answers the Bennington trash line.** The city lists the number but not a company name, so we haven't confirmed whether Bennington has a single contracted hauler.
-- **A Bennington cleanup event.** None was posted on the city's site when we checked.
+- **Which company answers the Bennington trash line.** The city names a contact, Dennis Christianson, but not a company, so we haven't confirmed whether Bennington has a single contracted hauler. Re-checked October 22, 2026.
+- **A Bennington cleanup event.** None was posted on the city's site or News & Notices page when we re-checked on October 22, 2026.

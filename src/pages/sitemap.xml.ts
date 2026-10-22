@@ -3,7 +3,7 @@ import { guideLastmod, kcLastmod, pageLastmod, type Layout } from "../lib/lastmo
 
 const SITE = "https://omahamattresscleaning.com";
 const STATIC = ["/", "/pricing", "/about", "/book"].map((path) => ({ path, lastmod: pageLastmod(path) }));
-const KC_GUIDES = import.meta.glob<Fm>(["./omaha-homes/*.md", "./areas/*.md", "./allergy-season/*.md", "./airbnb-hosts/*.md", "./developments/*.md", "./compare/*.md", "./life-events/*.md"], { eager: true });
+const KC_GUIDES = import.meta.glob<Fm>(["./omaha-homes/*.md", "./areas/*.md", "./allergy-season/*.md", "./airbnb-hosts/*.md", "./developments/*.md", "./neighborhoods/*.md", "./compare/*.md", "./life-events/*.md"], { eager: true });
 
 type Fm = { frontmatter?: { updated?: string; published?: string; draft?: boolean } };
 const hub = import.meta.glob<Fm>("./omaha-homes.astro", { eager: true });
@@ -16,6 +16,8 @@ const hostHub = import.meta.glob<Fm>("./airbnb-hosts.astro", { eager: true });
 const hosts = import.meta.glob<Fm>("./airbnb-hosts/*.md", { eager: true });
 const devHub = import.meta.glob<Fm>("./developments.astro", { eager: true });
 const developments = import.meta.glob<Fm>("./developments/*.md", { eager: true });
+const nbHub = import.meta.glob<Fm>("./neighborhoods.astro", { eager: true });
+const neighborhoods = import.meta.glob<Fm>("./neighborhoods/*.md", { eager: true });
 const compareHub = import.meta.glob<Fm>("./compare.astro", { eager: true });
 const compares = import.meta.glob<Fm>("./compare/*.md", { eager: true });
 const lifeHub = import.meta.glob<Fm>("./life-events.astro", { eager: true });
@@ -59,6 +61,13 @@ export const GET: APIRoute = () => {
     if (fm.draft) continue;
     const slug = file.replace("./developments/", "").replace(/\.md$/, "");
     entries.push({ path: `/developments/${slug}`, lastmod: guideLastmod(fm, "DevelopmentGuide" as Layout) });
+  }
+  if (Object.keys(nbHub).length) entries.push({ path: "/neighborhoods", lastmod: pageLastmod("/neighborhoods") });
+  for (const [file, mod] of Object.entries(neighborhoods)) {
+    const fm = mod.frontmatter ?? {};
+    if (fm.draft) continue;
+    const slug = file.replace("./neighborhoods/", "").replace(/\.md$/, "");
+    entries.push({ path: `/neighborhoods/${slug}`, lastmod: guideLastmod(fm, "NeighborhoodGuide" as Layout) });
   }
   if (Object.keys(compareHub).length) entries.push({ path: "/compare", lastmod: pageLastmod("/compare") });
   for (const [file, mod] of Object.entries(compares)) {
