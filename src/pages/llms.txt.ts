@@ -51,6 +51,7 @@ export const GET: APIRoute = () => {
 - [Allergy season in Omaha](${u("/allergy-season")})
 - [Airbnb and short-term rental hosts](${u("/airbnb-hosts")})
 - [Omaha developments](${u("/developments")})
+- [Omaha neighborhoods: Millard, Dundee, Benson, Aksarben, Blackstone](${u("/neighborhoods")})
 - [Omaha life events: holiday guests, new baby, used or inherited mattress, new pet](${u("/life-events")})
 - [Holiday guest-room mattress reset](${u("/life-events/holiday-guest-room-reset")})
 - [New baby: mattress prep before the due date](${u("/life-events/new-baby-nursery-prep")})

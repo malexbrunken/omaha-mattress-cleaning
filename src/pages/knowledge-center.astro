@@ -61,6 +61,13 @@ const hubs = [
     guides: list(import.meta.glob<Mod>("./developments/*.md", { eager: true })),
   },
   {
+    path: "/neighborhoods",
+    q: "Which Omaha neighborhoods do we serve?",
+    name: "Omaha neighborhoods",
+    blurb: "Local history, housing and booking notes for Millard, Dundee and Memorial Park, Benson, Aksarben and Elmwood, and Blackstone.",
+    guides: list(import.meta.glob<Mod>("./neighborhoods/*.md", { eager: true })),
+  },
+  {
     path: "/life-events",
     q: "When should an Omaha household book around a life event?",
     name: "Omaha life events",

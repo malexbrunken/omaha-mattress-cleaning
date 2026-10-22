@@ -12,11 +12,12 @@
  */
 export const TEMPLATE_LASTMOD = {
   Base: "2026-10-05",
-  AreaPage: "2026-10-04",
+  AreaPage: "2026-10-22",
   HostBrief: "2026-10-04",
   OmahaGuide: "2026-10-04",
   SeasonGuide: "2026-10-04",
   DevelopmentGuide: "2026-10-05",
+  NeighborhoodGuide: "2026-10-22",
   CompareGuide: "2026-10-05",
   LifeEventGuide: "2026-10-05",
 } as const;
@@ -29,10 +30,11 @@ export const PAGE_LASTMOD: Record<string, string> = {
   "/about": "2026-10-04",
   "/book": "2026-10-05",
   "/omaha-homes": "2026-10-05",
-  "/areas": "2026-10-05",
+  "/areas": "2026-10-22",
   "/allergy-season": "2026-10-05",
   "/airbnb-hosts": "2026-10-05",
   "/developments": "2026-10-05",
+  "/neighborhoods": "2026-10-22",
   "/knowledge-center": "2026-10-05",
   "/compare": "2026-10-05",
   "/life-events": "2026-10-05",
