@@ -19,7 +19,7 @@ export const TEMPLATE_LASTMOD = {
   DevelopmentGuide: "2026-10-05",
   NeighborhoodGuide: "2026-10-22",
   CompareGuide: "2026-10-05",
-  LifeEventGuide: "2026-10-05",
+  LifeEventGuide: "2026-10-22",
 } as const;
 export type Layout = keyof typeof TEMPLATE_LASTMOD;
 
@@ -29,7 +29,7 @@ export const PAGE_LASTMOD: Record<string, string> = {
   "/pricing": "2026-10-05",
   "/about": "2026-10-04",
   "/book": "2026-10-05",
-  "/omaha-homes": "2026-10-05",
+  "/omaha-homes": "2026-10-22",
   "/areas": "2026-10-22",
   "/allergy-season": "2026-10-05",
   "/airbnb-hosts": "2026-10-05",
@@ -37,7 +37,7 @@ export const PAGE_LASTMOD: Record<string, string> = {
   "/neighborhoods": "2026-10-22",
   "/knowledge-center": "2026-10-05",
   "/compare": "2026-10-05",
-  "/life-events": "2026-10-05",
+  "/life-events": "2026-10-22",
 };
 
 const latest = (...dates: (string | undefined)[]) =>
