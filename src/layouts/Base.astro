@@ -26,6 +26,7 @@ const org = {
   "legalName": "Sleep Sanitation LLC",
   "url": "https://sleepsanitation.com",
   "telephone": "+1-402-512-5658",
+  "sameAs": ["https://share.google/SIaLbtBIaHAtMZWtR"],
   "founder": FOUNDER,
   // Service-area business: no street address or map pin, only the places we drive to.
   "areaServed": SERVICE_AREA.map((c) => ({ "@type": "City", "name": c }))
@@ -55,6 +56,7 @@ const org = {
   <script type="application/ld+json" set:html={JSON.stringify(org)} />
   {jsonld.map((j) => <script type="application/ld+json" set:html={JSON.stringify(j)} />)}
   <style is:global>
+  .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
     :root {
       --charcoal: #1a1a1a;
       --charcoal-light: #2a2a2a;
@@ -258,6 +260,7 @@ const org = {
         <div style="font-size:1.25rem; font-weight:600; color:rgba(250,249,246,0.95); margin-top:0.35rem;">We come to you.</div>
         <p style="font-size:0.92rem; line-height:1.6; margin:0.5rem 0 0;">Mobile mattress cleaning at your home across the Omaha–Council Bluffs metro: {SERVICE_AREA.map((c) => c.replace(/, (NE|IA)$/, "")).slice(0, -1).join(", ")} and {SERVICE_AREA[SERVICE_AREA.length - 1].replace(/, NE$/, "")}. No storefront to visit.</p>
         <p style="font-size:0.85rem; margin:0.4rem 0 0; color:rgba(250,249,246,0.45);">Not sure about your address? Call or text {PHONE.display}.</p>
+        <p style="font-size:0.9rem; margin:0.6rem 0 0;"><a href="https://share.google/SIaLbtBIaHAtMZWtR" target="_blank" rel="noopener" style="color:#5eead4;">Find us on Google ↗</a></p>
       </div>
       <!-- Static SVG (~5 KB), lazy-loaded; no business pin or address by design. -->
       <img src="/service-area-map.svg" width="760" height="440" loading="lazy" decoding="async" alt="Map of our service area: the shaded Omaha metro, including Omaha, Council Bluffs, Bellevue, Papillion, La Vista, Ralston, Elkhorn, Gretna, Bennington, Valley, Waterloo and Blair" style="width:100%; height:auto; display:block;" />

@@ -50,7 +50,7 @@ const jsonld = [
       <p style="font-size:0.9rem;"><a href="/">Home</a> › <a href="/knowledge-center">Knowledge Center</a> › Omaha life events</p>
       <span class="eyebrow">Omaha life events</span>
       <h1>Omaha life events and your mattress: when to book</h1>
-      <p class="lead">Book a mattress cleaning a week or more ahead of the household moment, not the day of it. In Omaha the calendar and the rules change the answer: Thanksgiving falls on November 26 in 2026, ReStore Omaha won't take a mattress, and a new pet needs a license within 30 days. Omaha Mattress Cleaning, operated by Sleep Sanitation, charges {priceText.first} for the first mattress, any size. Call or text <a href={PHONE.tel}>{PHONE.display}</a>.</p>
+      <p class="lead">Book a mattress cleaning a week or more ahead of the household moment, not the day of it. In Omaha the calendar and the rules change the answer: Thanksgiving falls on November 26 in 2026, ReStore Omaha won't take a mattress, and a new pet needs a license within 30 days. Omaha Mattress Cleaning, operated by Sleep Sanitation, charges <Fragment set:html={priceText.firstHtml} /> for the first mattress, any size. Call or text <a href={PHONE.tel}>{PHONE.display}</a>.</p>
       <h2>Which household moments do these guides cover?</h2>
       <ul>
         {guides.map((g) => (

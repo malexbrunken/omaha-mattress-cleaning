@@ -290,7 +290,7 @@ const description = `Omaha mattress cleaning and sanitation with low-moisture dr
 
         <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:1.2rem; margin-top:2.5rem;">
           <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:var(--radius); padding:1.6rem;">
-            <div style="font-family: Georgia, serif; font-size: clamp(2.2rem, 3vw, 3rem); font-weight:500; color:var(--gold); line-height:1; margin-bottom:0.8rem; letter-spacing:-0.03em;">{priceText.first}</div>
+            <div style="font-family: Georgia, serif; font-size: clamp(2.2rem, 3vw, 3rem); font-weight:500; color:var(--gold); line-height:1; margin-bottom:0.8rem; letter-spacing:-0.03em;"><Fragment set:html={priceText.firstHtml} /></div>
             <h3 style="color:var(--cream); font-size:1.15rem; margin-bottom:0.4rem;">First Mattress, Any Size</h3>
             <p style="color:rgba(250,249,246,0.65); font-size:0.97rem; margin:0;">Normal stains, pet odor and ordinary urine accidents are included.</p>
           </div>
@@ -349,12 +349,12 @@ const description = `Omaha mattress cleaning and sanitation with low-moisture dr
     <section class="section" id="pricing">
       <div class="container">
         <span class="eyebrow">Published Pricing</span>
-        <h2>What's included in the {priceText.first} first-mattress price?</h2>
+        <h2>What's included in the {priceText.firstCurrent} first-mattress price?</h2>
         <div style="background:var(--white); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); overflow-x:auto; max-width:760px;">
           <table style="width:100%; border-collapse:collapse; font-size:1rem; color:var(--charcoal);">
             <thead><tr style="background:var(--cream-warm);"><th scope="col" style="text-align:left; padding:0.85rem 1.2rem;">Service</th><th scope="col" style="text-align:right; padding:0.85rem 1.2rem;">Price</th></tr></thead>
             <tbody>
-              <tr style="border-top:1px solid var(--line);"><td style="padding:0.85rem 1.2rem;"><strong>Mattress Sanitation, first mattress (any size)</strong></td><td style="padding:0.85rem 1.2rem; text-align:right; white-space:nowrap;"><strong>{priceText.first}</strong></td></tr>
+              <tr style="border-top:1px solid var(--line);"><td style="padding:0.85rem 1.2rem;"><strong>Mattress Sanitation, first mattress (any size)</strong></td><td style="padding:0.85rem 1.2rem; text-align:right; white-space:nowrap;"><strong><Fragment set:html={priceText.firstHtml} /></strong></td></tr>
               <tr style="border-top:1px solid var(--line);"><td style="padding:0.85rem 1.2rem;">Professional inspection: we identify the mattress materials and choose the steam setting and pass speed</td><td style="padding:0.85rem 1.2rem; text-align:right; white-space:nowrap;">Included</td></tr>
               <tr style="border-top:1px solid var(--line);"><td style="padding:0.85rem 1.2rem;">Gloves and shoe booties; equipment disinfected between jobs</td><td style="padding:0.85rem 1.2rem; text-align:right; white-space:nowrap;">Included</td></tr>
               <tr style="border-top:1px solid var(--line);"><td style="padding:0.85rem 1.2rem;">Dry-vapor sanitation</td><td style="padding:0.85rem 1.2rem; text-align:right; white-space:nowrap;">Included</td></tr>

@@ -48,7 +48,7 @@ const jsonld = [
       <p style="font-size:0.9rem;"><a href="/">Home</a> › <a href="/knowledge-center">Knowledge Center</a> › Compare your options</p>
       <span class="eyebrow">Compare your options</span>
       <h1>Compare mattress cleaning options in Omaha</h1>
-      <p class="lead">Omaha Mattress Cleaning, operated by Sleep Sanitation, cleans mattresses only, with low-moisture dry vapor steam, HEPA vacuuming and UV-C light treatment. The first mattress is {priceText.first}, any size. These pages answer the two questions people ask before they pick anyone: which method, and which kind of company. Call or text <a href={PHONE.tel}>{PHONE.display}</a>.</p>
+      <p class="lead">Omaha Mattress Cleaning, operated by Sleep Sanitation, cleans mattresses only, with low-moisture dry vapor steam, HEPA vacuuming and UV-C light treatment. The first mattress is <Fragment set:html={priceText.firstHtml} />, any size. These pages answer the two questions people ask before they pick anyone: which method, and which kind of company. Call or text <a href={PHONE.tel}>{PHONE.display}</a>.</p>
       <h2>Which comparisons can you read?</h2>
       <ul>
         {guides.map((g) => (
