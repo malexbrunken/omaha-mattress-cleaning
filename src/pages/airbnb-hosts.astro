@@ -6,7 +6,7 @@
  * one visit and price section for the hub.
  */
 import Base from "../layouts/Base.astro";
-import { PRICES, priceText, usd } from "../lib/prices";
+import { PRICES, priceText, usd, firstPrice } from "../lib/prices";
 import HubFaq from "../components/HubFaq.astro";
 import { faqLd } from "../lib/faq";
 type Fm = { frontmatter: { slug: string; h1: string; description: string; order: number; dates: { when: string; what: string }[]; draft?: boolean } };
@@ -35,7 +35,7 @@ const areas = [
 ];
 const P = PRICES;
 const faq = [
-  { q: "How much does Airbnb mattress cleaning cost in Omaha?", a: `${priceText.first} for the first mattress, any size, then ${priceText.additionalLarge} for each additional full, queen or king and ${priceText.additionalKids} for each additional kids' bed in the same visit. A three-bedroom listing with a king and two queens is ${usd(P.first + 2 * P.additionalLarge)} in one visit.` },
+  { q: "How much does Airbnb mattress cleaning cost in Omaha?", a: `${priceText.first} for the first mattress, any size, then ${priceText.additionalKing} for each additional king, ${priceText.additionalFullQueen} for each additional full or queen and ${priceText.additionalKids} for each additional kids' bed in the same visit. A three-bedroom listing with a king and two queens is ${usd(firstPrice.current + 2 * P.additionalFullQueen)} in one visit.` },
   { q: "Are guest urine accidents and pet odor extra?", a: "No. Normal stains, pet odor and ordinary urine accidents are included, with enzyme treatment for urine. Only severe or biohazard cases carry a surcharge, quoted before we start." },
   { q: "Can you clean between guests on the same day?", a: "We work Monday to Friday, 9am to 6pm, and return weekend calls and texts. The bed stays unmade until it is dry to the touch and we run a moisture check before we leave, so book a weekday gap between stays rather than the hour before check-in." },
   { q: "What checks come with a host visit?", a: "Two, every visit: a moisture check after service and the built-in bed mite sensor on our UV-C vacuum. Each mattress also gets an inspection form. The 72-hour bedroom CO₂ test is a separate optional service, priced by quote, and isn't a medical test." },
@@ -71,14 +71,15 @@ const jsonld = [
     provider: { "@type": "LocalBusiness", "@id": "https://omahamattresscleaning.com/#business", name: "Omaha Mattress Cleaning & Sanitation", telephone: "+1-402-512-5658" },
     offers: [
       { "@type": "Offer", name: "First mattress, any size", price: String(P.first), priceCurrency: "USD" },
-      { "@type": "Offer", name: "Each additional full, queen or king, same visit", price: String(P.additionalLarge), priceCurrency: "USD" },
-      { "@type": "Offer", name: "Each additional kids' bed (twin or full), same visit", price: String(P.additionalKids), priceCurrency: "USD" },
+      { "@type": "Offer", name: "Each additional king, same visit", price: String(P.additionalKing), priceCurrency: "USD" },
+      { "@type": "Offer", name: "Each additional full or queen, same visit", price: String(P.additionalFullQueen), priceCurrency: "USD" },
+      { "@type": "Offer", name: "Each additional twin or kids' bed, same visit", price: String(P.additionalKids), priceCurrency: "USD" },
     ],
   },
   faqLd(faq),
 ];
 ---
-<Base title="Airbnb Mattress Cleaning in Omaha: Host Guide and Prices" description={`Airbnb and short-term rental mattress cleaning in Omaha: ${priceText.first} first mattress, ${priceText.additionalLarge} each additional. Event dates, lodging taxes and host guides.`} path="/airbnb-hosts" jsonld={jsonld}>
+<Base title="Airbnb Mattress Cleaning in Omaha: Host Guide and Prices" description={`Airbnb and short-term rental mattress cleaning in Omaha: ${priceText.first} first mattress, ${priceText.additionalKids}–${priceText.additionalKing} each additional. Event dates, lodging taxes and host guides.`} path="/airbnb-hosts" jsonld={jsonld}>
   <style>
     .evt { width:100%; border-collapse:collapse; font-size:.92rem; background:var(--white); margin:1rem 0 .6rem; }
     .evt th, .evt td { text-align:left; padding:.6rem .7rem; border-bottom:1px solid var(--line); vertical-align:top; }
@@ -100,7 +101,7 @@ const jsonld = [
       <p style="font-size:0.9rem;"><a href="/">Home</a> › <a href="/knowledge-center">Knowledge Center</a> › Omaha hosts</p>
       <span class="eyebrow">Omaha hosts: CHI, CWS, Berkshire, Offutt</span>
       <h1>Airbnb mattress cleaning in Omaha: event weekends, lodging taxes and the beds between stays</h1>
-      <p class="lead" style="max-width:68ch;">Airbnb and short-term rental mattress cleaning in Omaha costs {priceText.first} for the first mattress, any size, and {priceText.additionalLarge} for each additional full, queen or king in the same visit ({priceText.additionalKids} for each additional kids' bed). Guest stains, pet odor and ordinary urine accidents are included. Omaha Mattress Cleaning, operated by Sleep Sanitation, uses low-moisture dry vapor steam, HEPA vacuuming and UV-C light treatment, Monday to Friday. Call or text <a href="tel:+14025125658">(402) 512-5658</a>.</p>
+      <p class="lead" style="max-width:68ch;">Airbnb and short-term rental mattress cleaning in Omaha costs <Fragment set:html={priceText.firstHtml} /> for the first mattress, any size, and {priceText.additionalKing} for each additional king, {priceText.additionalFullQueen} for each additional full or queen in the same visit ({priceText.additionalKids} for each additional kids' bed). Guest stains, pet odor and ordinary urine accidents are included. Omaha Mattress Cleaning, operated by Sleep Sanitation, uses low-moisture dry vapor steam, HEPA vacuuming and UV-C light treatment, Monday to Friday. Call or text <a href="tel:+14025125658">(402) 512-5658</a>.</p>
       <p style="max-width:68ch;">Omaha's busiest guest weekends are on public calendars: CHI Health Center events and Creighton games through the 2026 holidays, Berkshire Hathaway's first weekend in May, and the College World Series from June 17 to 28, 2027. These guides line those dates up with Omaha's 5.5% occupation tax, what the City Clerk can tell you and Offutt's PCS season, and with the weekdays we can clean.</p>
 
       <h2>Which Omaha dates matter to hosts, October 2026 to June 2027?</h2>
@@ -145,7 +146,7 @@ const jsonld = [
       <div class="prose">
         <section id="visit" aria-label="Prices and the visit">
           <h2 style="margin-top:0;">What does a host visit cost, and what does it include?</h2>
-          <p>For a host, the bill starts at {priceText.first} for the first mattress, then {priceText.additionalLarge} for each additional full, queen or king and {priceText.additionalKids} for each additional kids bed. Guest-left normal stains, pet odor and ordinary urine accidents carry no extra charge; only severe or biohazard cases add a surcharge, and you hear that figure before we begin.</p>
+          <p>For a host, the bill starts at <Fragment set:html={priceText.firstHtml} /> for the first mattress, then {priceText.additionalKing} for each additional king, {priceText.additionalFullQueen} for each additional full or queen and {priceText.additionalKids} for each additional kids bed. Guest-left normal stains, pet odor and ordinary urine accidents carry no extra charge; only severe or biohazard cases add a surcharge, and you hear that figure before we begin.</p>
           <p>We come Monday to Friday between 9am and 6pm. The technician fills in an inspection form first (material, special care notes, urine or odor observations), works in gloves and shoe booties with equipment disinfected between jobs, and runs our two checks: a moisture check after the job and the built-in bed mite sensor on our UV-C vacuum. A 72-hour bedroom CO₂ test is a separate optional service, booked on its own or added to a visit and priced by quote; it isn't a medical test. Read your mattress's care label and warranty terms before you book.</p>
           <p>Taxes, ordinances and covenants on these pages are general information, not legal or tax advice.</p>
         </section>

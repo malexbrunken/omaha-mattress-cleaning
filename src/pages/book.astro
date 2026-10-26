@@ -49,7 +49,7 @@ const trust = [
 
 const faq = [
   { q: "When are you open for bookings?", a: "Our hours are Monday–Friday, 9am–6pm. Missed a call? We return calls and texts on Saturday and Sunday too. Call, text or email, and we'll confirm your time and your price before the visit." },
-  { q: "What will my visit cost?", a: `The first mattress is ${priceText.first}, any size. Each additional full, queen or king mattress in the same visit is ${priceText.additionalLarge}, and each additional kids bed is ${priceText.additionalKids}. Underside treatment is ${priceText.underside} per mattress. Normal stains, pet odor and ordinary urine accidents are included; severe or biohazard cases carry a surcharge, quoted before we start.` },
+  { q: "What will my visit cost?", a: `The first mattress is ${priceText.first}, any size. Each additional king mattress in the same visit is ${priceText.additionalKing} and each additional full or queen is ${priceText.additionalFullQueen}, and each additional kids bed is ${priceText.additionalKids}. Underside treatment is ${priceText.underside} per mattress. Normal stains, pet odor and ordinary urine accidents are included; severe or biohazard cases carry a surcharge, quoted before we start.` },
   { q: "Which areas do you serve?", a: `${AREAS.slice(0, -1).join(", ")} and ${AREAS.at(-1)}. Not sure about your address? Call, text or email and we'll confirm it.` },
   { q: "Is the 72-hour bedroom CO₂ test part of the visit?", a: "No. It's a separate optional service, booked on its own or added to a visit and priced by quote. It isn't a medical test." },
 ];
@@ -102,7 +102,7 @@ const jsonld = [
       <span class="eyebrow bk-eyebrow">Omaha metro · Operated by Sleep Sanitation</span>
       <h1>Book your mattress sanitation</h1>
       <p class="bk-intro">
-        The first mattress is {priceText.first}, any size; each additional full, queen or king is {priceText.additionalLarge} and each additional kids bed is {priceText.additionalKids} (<a href="/pricing">see pricing</a>). We serve Omaha and nearby towns, operated by Sleep Sanitation.
+        The first mattress is <Fragment set:html={priceText.firstHtml} />, any size; each additional king is {priceText.additionalKing} and each additional full or queen is {priceText.additionalFullQueen} and each additional kids bed is {priceText.additionalKids} (<a href="/pricing">see pricing</a>). We serve Omaha and nearby towns, operated by Sleep Sanitation.
       </p>
 
       <ul class="bk-options" aria-label="Ways to book">

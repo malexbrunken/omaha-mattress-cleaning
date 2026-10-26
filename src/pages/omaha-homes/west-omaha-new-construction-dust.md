@@ -3,8 +3,8 @@ layout: ../../layouts/OmahaGuide.astro
 slug: west-omaha-new-construction-dust
 title: "West Omaha New-Construction Dust: Mattress Reset"
 h1: "West Omaha new-construction dust and mattress cleaning"
-description: "After drywall and flooring dust in west Omaha builds, reset mattresses before the first overnight. $249 first mattress. Operated by Sleep Sanitation."
-answer: "New west Omaha homes pick up drywall and sawdust during finish work. That dust settles into mattresses before anyone sleeps there. Omaha Mattress Cleaning, operated by Sleep Sanitation, resets bedrooms after construction at $249 for the first mattress, any size. Book once rooms are finished and furniture is in. Call or text (402) 512-5658."
+description: "After drywall and flooring dust in west Omaha builds, reset mattresses before the first overnight. {{price.first}} first mattress. Operated by Sleep Sanitation."
+answer: "New west Omaha homes pick up drywall and sawdust during finish work. That dust settles into mattresses before anyone sleeps there. Omaha Mattress Cleaning, operated by Sleep Sanitation, resets bedrooms after construction at {{price.first}} for the first mattress, any size. Book once rooms are finished and furniture is in. Call or text (402) 512-5658."
 published: "2026-10-05"
 updated: "2026-10-05"
 checked: "2026-10-05"
@@ -18,7 +18,7 @@ facts:
     source: "Omaha developments hub"
     url: "https://omahamattresscleaning.com/developments"
   - label: "Price"
-    value: "$249 first mattress; additional full/queen/king $199; kids twin/full $149 in the same visit."
+    value: "{{price.first}} first mattress; additional king {{price.additionalKing}}; additional full/queen {{price.additionalFullQueen}}; twin/kids {{price.additionalKids}} in the same visit."
     source: "Omaha Mattress Cleaning pricing"
     url: "https://omahamattresscleaning.com/pricing"
 faq:

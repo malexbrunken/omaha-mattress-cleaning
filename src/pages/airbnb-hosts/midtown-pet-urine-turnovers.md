@@ -4,8 +4,8 @@ slug: midtown-pet-urine-turnovers
 order: 6
 title: "Midtown Omaha Pet Urine: STR Mattress Turnovers"
 h1: "Midtown Omaha pet urine on short-term rental mattresses"
-description: "When pet-friendly midtown STRs need a weekday mattress reset after urine accidents. Distinct from Berkshire event timing. $249 first mattress."
-answer: "Pet-friendly midtown Omaha short-term rentals often need a mattress reset after a urine accident between guests — not because of a CHI or Berkshire weekend, but because a dog or cat stayed overnight. Omaha Mattress Cleaning, operated by Sleep Sanitation, books those weekday visits at $249 for the first mattress, with ordinary urine accidents included. Call or text (402) 512-5658."
+description: "When pet-friendly midtown STRs need a weekday mattress reset after urine accidents. Distinct from Berkshire event timing. {{price.first}} first mattress."
+answer: "Pet-friendly midtown Omaha short-term rentals often need a mattress reset after a urine accident between guests — not because of a CHI or Berkshire weekend, but because a dog or cat stayed overnight. Omaha Mattress Cleaning, operated by Sleep Sanitation, books those weekday visits at {{price.first}} for the first mattress, with ordinary urine accidents included. Call or text (402) 512-5658."
 authority: "Omaha Mattress Cleaning booking practice for pet-friendly STRs; Sleep Sanitation for method. Event calendars stay on the CHI/Berkshire host brief."
 dates:
   - { when: "Any weekday", what: "Book between guests after a pet accident" }
@@ -14,14 +14,14 @@ dates:
 published: "2026-10-05"
 updated: "2026-10-05"
 faq:
-  - q: "Is ordinary pet urine included in the $249?"
+  - q: "Is ordinary pet urine included in the {{price.first}}?"
     a: "Yes. Ordinary urine accidents are included in the first-mattress price. Tell us when you book so we bring the right chemistry."
   - q: "Is this the Berkshire weekend guide?"
     a: "No. Event timing is on the CHI Health Center and Berkshire weekends brief. This page is about pet urine between guests in midtown STRs."
   - q: "Do you clean the carpet too?"
     a: "No. Mattresses only. Carpet is a different trade."
 claims:
-  - fact: "First mattress $249 any size; ordinary stains, pet odor and ordinary urine accidents included; additional full/queen/king $199; kids twin/full $149 in the same visit"
+  - fact: "First mattress {{price.first}} any size; ordinary stains, pet odor and ordinary urine accidents included; additional king {{price.additionalKing}}; additional full/queen {{price.additionalFullQueen}}; twin/kids {{price.additionalKids}} in the same visit"
     source: "Omaha Mattress Cleaning pricing"
     url: "https://omahamattresscleaning.com/pricing"
     checked: "2026-10-05"

@@ -19,7 +19,7 @@ const jsonld = [{ "@context": "https://schema.org", "@type": "AboutPage", url: "
       </ul>
       <p>Your care label and warranty terms come before any method, ours included, so check them before you book.</p>
       <h2>What does it cost?</h2>
-      <p>The first mattress is {priceText.first}, any size. Each additional full, queen or king is {priceText.additionalLarge}, and each additional kids bed is {priceText.additionalKids}. Normal stains, pet odor and ordinary urine accidents are included. Severe or biohazard contamination is quoted before we start. The full rate table is on our <a href="/pricing">Omaha pricing page</a>, and the parent company's list is on <a href="https://sleepsanitation.com/pricing">Sleep Sanitation's pricing page</a>.</p>
+      <p>The first mattress is <Fragment set:html={priceText.firstHtml} />, any size. Each additional king is {priceText.additionalKing} and each additional full or queen is {priceText.additionalFullQueen}, and each additional kids bed is {priceText.additionalKids}. Normal stains, pet odor and ordinary urine accidents are included. Severe or biohazard contamination is quoted before we start. The full rate table is on our <a href="/pricing">Omaha pricing page</a>, and the parent company's list is on <a href="https://sleepsanitation.com/pricing">Sleep Sanitation's pricing page</a>.</p>
       <p><a class="btn btn-primary" href="/book">Book or contact us</a></p>
     </div>
   </section>

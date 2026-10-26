@@ -121,7 +121,7 @@ const guideCount = hubs.reduce((n, h) => n + h.guides.length, 0);
       <p style="font-size:0.9rem;"><a href="/">Home</a> › Knowledge Center</p>
       <span class="eyebrow">Knowledge Center</span>
       <h1>Omaha Mattress Cleaning Knowledge Center</h1>
-      <p class="lead">This Knowledge Center collects our Omaha-specific guides: method and specialist comparisons, mattress disposal and bed bugs, the suburbs we serve, allergy season, hosting short-term rentals, named developments and household life events. Omaha Mattress Cleaning & Sanitation is operated by Sleep Sanitation. The first mattress is {priceText.first}, any size; see <a href="/pricing">our pricing page</a> for every rate. Call or text <a href={PHONE.tel}>{PHONE.display}</a>.</p>
+      <p class="lead">This Knowledge Center collects our Omaha-specific guides: method and specialist comparisons, mattress disposal and bed bugs, the suburbs we serve, allergy season, hosting short-term rentals, named developments and household life events. Omaha Mattress Cleaning & Sanitation is operated by Sleep Sanitation. The first mattress is <Fragment set:html={priceText.firstHtml} />, any size; see <a href="/pricing">our pricing page</a> for every rate. Call or text <a href={PHONE.tel}>{PHONE.display}</a>.</p>
 
       {hubs.map((h) => (
         <div class="hub">

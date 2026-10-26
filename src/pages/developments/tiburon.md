@@ -6,8 +6,8 @@ name: "Tiburon"
 areaLabel: "Sarpy / SW Omaha · S 168th · Tiburon Golf Club"
 title: "Tiburon Omaha: Mattress Cleaning near 168th"
 h1: "Mattress cleaning in Tiburon, southwest Omaha / Sarpy"
-description: "Mattress cleaning for Tiburon near Tiburon Golf Club at 168th Street. Golf-course homes and newer builds. $249 first mattress."
-answer: "Tiburon sits around Tiburon Golf Club at 10302 S 168th Street (Omaha 68136 mailing address), on the Sarpy side of the metro. Golf-course and newer subdivision homes here often have multiple bedrooms. Omaha Mattress Cleaning books the area at $249 for the first mattress. Call (402) 512-5658."
+description: "Mattress cleaning for Tiburon near Tiburon Golf Club at 168th Street. Golf-course homes and newer builds. {{price.first}} first mattress."
+answer: "Tiburon sits around Tiburon Golf Club at 10302 S 168th Street (Omaha 68136 mailing address), on the Sarpy side of the metro. Golf-course and newer subdivision homes here often have multiple bedrooms. Omaha Mattress Cleaning books the area at {{price.first}} for the first mattress. Call (402) 512-5658."
 published: "2026-10-05"
 updated: "2026-10-05"
 checked: "2026-10-05"
@@ -56,7 +56,7 @@ After new construction settles, before a listing, or when a guest room collects 
 
 ## What stays the same on price?
 
-$249 first mattress; labeled additional rates on [pricing](/pricing). Promo offers appear only on that page.
+{{price.first}} first mattress; labeled additional rates on [pricing](/pricing). Promo offers appear only on that page.
 
 ## What we don't know
 

@@ -6,8 +6,8 @@ name: "Linden Estates"
 areaLabel: "West Omaha · ~144th & Dodge · Millard schools"
 title: "Linden Estates Omaha: Mattress Cleaning"
 h1: "Mattress cleaning in Linden Estates, west Omaha"
-description: "Mattress cleaning for Linden Estates near 144th and Dodge: large custom homes on private lots. $249 first mattress. Operated by Sleep Sanitation."
-answer: "Linden Estates sits near 144th and Dodge in west Omaha, with roughly 120 large custom homes on oversized lots. Multi-bedroom floor plans are the norm, so whole-house visits are common. Omaha Mattress Cleaning, operated by Sleep Sanitation, charges $249 for the first mattress, any size. Call or text (402) 512-5658."
+description: "Mattress cleaning for Linden Estates near 144th and Dodge: large custom homes on private lots. {{price.first}} first mattress. Operated by Sleep Sanitation."
+answer: "Linden Estates sits near 144th and Dodge in west Omaha, with roughly 120 large custom homes on oversized lots. Multi-bedroom floor plans are the norm, so whole-house visits are common. Omaha Mattress Cleaning, operated by Sleep Sanitation, charges {{price.first}} for the first mattress, any size. Call or text (402) 512-5658."
 published: "2026-10-05"
 updated: "2026-10-05"
 checked: "2026-10-05"
@@ -30,7 +30,7 @@ faq:
   - q: "Is there a travel fee to 144th and Dodge?"
     a: "No travel fee inside our published Omaha metro radius."
   - q: "Can you do underside treatment?"
-    a: "Yes, when the mattress needs it, at +$50–$75 per mattress, quoted before we start."
+    a: "Yes, when the mattress needs it, at {{price.underside}} per mattress, quoted before we start."
 sources:
   - name: "Omaha Magazine: Linden Estates"
     url: "https://www.omahamagazine.com/living/linden-estates/"
@@ -45,7 +45,7 @@ changelog:
 
 ## What kind of visit fits Linden Estates?
 
-Often several queen or king beds plus kids beds in one appointment. Additional mattresses in the same visit are $199 (full/queen/king) or $149 (kids twin/full). Check [pricing](/pricing) for every rate and current offers.
+Often several queen or king beds plus kids beds in one appointment. Additional mattresses in the same visit are {{price.additionalKing}} (king), {{price.additionalFullQueen}} (full/queen) or {{price.additionalKids}} (twin/kids). Check [pricing](/pricing) for every rate and current offers.
 
 ## When do owners book?
 

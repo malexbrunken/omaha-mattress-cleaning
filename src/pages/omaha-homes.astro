@@ -18,7 +18,7 @@ const mods = Object.values(import.meta.glob<Fm>("./omaha-homes/*.md", { eager: t
   .filter((f) => !f.draft)
   .sort((a, b) => order.indexOf(a.slug) - order.indexOf(b.slug));
 const faq = [
-  { q: "How much does mattress cleaning cost in Omaha?", a: `${priceText.first} for the first mattress, any size, with normal stains, pet odor and ordinary urine accidents included. Each additional full, queen or king is ${priceText.additionalLarge}; each additional kids' bed is ${priceText.additionalKids}.` },
+  { q: "How much does mattress cleaning cost in Omaha?", a: `${priceText.first} for the first mattress, any size, with normal stains, pet odor and ordinary urine accidents included. Each additional king is ${priceText.additionalKing} and each additional full or queen is ${priceText.additionalFullQueen}; each additional kids' bed is ${priceText.additionalKids}.` },
   { q: "Can an Omaha mattress go in the trash cart?", a: "No. The Omaha Recycling Guide lists mattresses as a bulky item, so they need a Cleanup Saturday, the River City program or Pheasant Point Landfill." },
   { q: "Do you treat bed bugs?", a: "No. Bed bugs need a licensed pest-control company. We treat the mattress surface and kill bed mites (house dust mites) with steam heat." },
   { q: "When can we use the bed again?", a: "The bed stays unmade until it is dry to the touch, and we run a moisture check after service before we leave. In an Omaha summer, run the air conditioning or a dehumidifier rather than opening the windows." },

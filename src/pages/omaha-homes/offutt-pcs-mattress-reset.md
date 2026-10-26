@@ -3,8 +3,8 @@ layout: ../../layouts/OmahaGuide.astro
 slug: offutt-pcs-mattress-reset
 title: "Offutt PCS Mattress Reset for Homeowners"
 h1: "Offutt PCS mattress reset for Omaha homeowners"
-description: "Permanent change of station move-out or move-in mattress cleaning for Offutt-area homeowners. Not the host guide. $249 first mattress."
-answer: "Offutt Air Force Base PCS cycles mean homeowners near Bellevue and south Omaha often need a mattress reset at move-out or move-in — for their own beds, not a short-term rental calendar. Omaha Mattress Cleaning, operated by Sleep Sanitation, books those visits at $249 for the first mattress. Host turnovers live on a different page. Call (402) 512-5658."
+description: "Permanent change of station move-out or move-in mattress cleaning for Offutt-area homeowners. Not the host guide. {{price.first}} first mattress."
+answer: "Offutt Air Force Base PCS cycles mean homeowners near Bellevue and south Omaha often need a mattress reset at move-out or move-in — for their own beds, not a short-term rental calendar. Omaha Mattress Cleaning, operated by Sleep Sanitation, books those visits at {{price.first}} for the first mattress. Host turnovers live on a different page. Call (402) 512-5658."
 published: "2026-10-05"
 updated: "2026-10-05"
 checked: "2026-10-05"
@@ -45,7 +45,7 @@ changelog:
 
 ## Why separate PCS homeowners from Offutt hosts?
 
-Hosts book around guest calendars. PCS homeowners book around a move date for beds the family actually slept on. Different timing, same $249 first-mattress rate.
+Hosts book around guest calendars. PCS homeowners book around a move date for beds the family actually slept on. Different timing, same {{price.first}} first-mattress rate.
 
 ## When in the PCS timeline should I book?
 

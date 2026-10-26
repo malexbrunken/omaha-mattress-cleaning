@@ -5,8 +5,8 @@ order: 2
 title: "Mattress Specialist or Carpet Cleaner? Omaha Guide"
 h1: "Mattress cleaning specialist or carpet cleaner in Omaha?"
 serviceName: "Mattress-only cleaning and sanitation in Omaha"
-description: "Hire a carpet cleaner for carpet and a mattress specialist for the bed. What each does in Omaha, what to ask, and our $249 first-mattress price."
-answer: "If the job is a mattress, hire a mattress specialist; if it is wall-to-wall carpet or rugs, hire a carpet cleaner. A mattress add-on on a carpet job is typically done with the same hot-water extraction equipment used on the floors. A dedicated mattress visit is built around the bed: inspection, low-moisture dry vapor steam on seams and tufts, HEPA vacuuming, UV-C light treatment and two checks. Omaha Mattress Cleaning is mattress-only, operated by Sleep Sanitation, at $249 for the first mattress. Call or text (402) 512-5658."
+description: "Hire a carpet cleaner for carpet and a mattress specialist for the bed. What each does in Omaha, what to ask, and our {{price.first}} first-mattress price."
+answer: "If the job is a mattress, hire a mattress specialist; if it is wall-to-wall carpet or rugs, hire a carpet cleaner. A mattress add-on on a carpet job is typically done with the same hot-water extraction equipment used on the floors. A dedicated mattress visit is built around the bed: inspection, low-moisture dry vapor steam on seams and tufts, HEPA vacuuming, UV-C light treatment and two checks. Omaha Mattress Cleaning is mattress-only, operated by Sleep Sanitation, at {{price.first}} for the first mattress. Call or text (402) 512-5658."
 published: "2026-10-05"
 updated: "2026-10-05"
 checked: "2026-10-05"
@@ -30,7 +30,7 @@ table:
     - ["Time on the mattress", "One item on a larger floor job", "The whole appointment is about the bed"]
     - ["Seams, tufts and edges", "Varies by provider", "Worked on every mattress"]
     - ["Included checks", "Varies by provider", "Moisture check after service; built-in bed mite sensor on the UV-C vacuum"]
-    - ["Urine and pet odor", "Varies by provider", "Enzyme treatment; ordinary accidents included in $249"]
+    - ["Urine and pet odor", "Varies by provider", "Enzyme treatment; ordinary accidents included in {{price.first}}"]
     - ["Warranty note", "Wet-extraction carpet cleaning can void some mattress warranties", "We read the care label first; your warranty terms come first"]
 faq:
   - q: "Can a carpet cleaner clean my mattress?"
@@ -42,7 +42,7 @@ faq:
   - q: "I'm having my carpets cleaned too. Which should come first?"
     a: "Have the floors done first and let them dry, then book the mattress visit. Tell us when you book so we can plan around the room."
   - q: "How much does a mattress specialist cost in Omaha?"
-    a: "$249 for the first mattress, any size. Each additional full, queen or king in the same visit is $199, each additional kids' bed is $149, and underside treatment adds $50–$75 per mattress."
+    a: "{{price.first}} for the first mattress, any size. Each additional king in the same visit is {{price.additionalKing}} and each additional full or queen is {{price.additionalFullQueen}}, each additional kids' bed is {{price.additionalKids}}, and underside treatment adds {{price.undersideRange}} per mattress."
   - q: "Do you name or rate other Omaha companies?"
     a: "No. We publish our own method and prices, and give you the questions to ask any provider."
 sources:
@@ -80,4 +80,4 @@ When the job is floors. If you need wall-to-wall carpet, area rugs or a sofa cle
 
 ## Which Omaha homes book a specialist?
 
-Households with several beds (a king, a queen and two kids' beds is $746 in one visit), hosts between guests on our [Airbnb hosts hub](/airbnb-hosts), families after [west Omaha new-construction dust](/omaha-homes/west-omaha-new-construction-dust), and anyone with a pet or urine accident. The method side is in [dry vapor steam vs wet extraction](/compare/dry-vapor-vs-wet-extraction). Every rate is on [Omaha pricing](/pricing).
+Households with several beds (a king, a queen and two kids' beds is {{price.sum:first+additionalFullQueen+additionalKids+additionalKids}} in one visit), hosts between guests on our [Airbnb hosts hub](/airbnb-hosts), families after [west Omaha new-construction dust](/omaha-homes/west-omaha-new-construction-dust), and anyone with a pet or urine accident. The method side is in [dry vapor steam vs wet extraction](/compare/dry-vapor-vs-wet-extraction). Every rate is on [Omaha pricing](/pricing).
