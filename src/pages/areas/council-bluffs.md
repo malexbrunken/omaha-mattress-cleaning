@@ -7,7 +7,7 @@ county: Pottawattamie County
 title: "Council Bluffs Mattress Cleaning: Housing, Health Contacts and Booking"
 h1: "Mattress cleaning in Council Bluffs, Iowa"
 description: "We clean mattresses in Council Bluffs at Omaha prices. Older housing stock, Pottawattamie County contacts and where to take an old mattress, checked."
-answer: "Yes, we clean mattresses in Council Bluffs, at the same price as Omaha: $249 for the first mattress, any size. Council Bluffs homes skew older, with a median year built of 1965 and about one in four built before 1940. If a mattress is leaving instead, the city's twice-a-year bulky pickup and the Recycling Center on Gifford Road are covered in our disposal guide."
+answer: "Yes, we clean mattresses in Council Bluffs, at the same price as Omaha: {{price.first}} for the first mattress, any size. Council Bluffs homes skew older, with a median year built of 1965 and about one in four built before 1940. If a mattress is leaving instead, the city's twice-a-year bulky pickup and the Recycling Center on Gifford Road are covered in our disposal guide."
 order: 8
 hubCounty: "Pottawattamie (Iowa)"
 hubHealth: "Pottawattamie County Public Health"
@@ -51,7 +51,7 @@ contacts:
     url: "https://publications.iowa.gov/52030/"
 faq:
   - q: "Do you charge extra to cross the river?"
-    a: "No. Council Bluffs is in our standard service area at the same price as Omaha: $249 for the first mattress, any size, with lower rates for additional mattresses in the same visit."
+    a: "No. Council Bluffs is in our standard service area at the same price as Omaha: {{price.first}} for the first mattress, any size, with lower rates for additional mattresses in the same visit."
   - q: "Can I put a mattress out with Council Bluffs trash?"
     a: "Only through the city's bulky waste collection by Waste Connections, which runs twice a year and requires the mattress to be bagged or shrink-wrapped. Call (712) 890-5549. The Recycling Center at 4441 Gifford Road takes drop-offs at $75 a ton, prorated, with a $10 minimum."
   - q: "Who operates Omaha Mattress Cleaning?"

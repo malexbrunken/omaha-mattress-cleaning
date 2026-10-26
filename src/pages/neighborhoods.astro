@@ -11,7 +11,7 @@ const mods = Object.values(import.meta.glob<Fm>("./neighborhoods/*.md", { eager:
   .sort((a, b) => a.order - b.order);
 const faq = [
   { q: "Do you serve Millard, Dundee, Benson, Aksarben and Blackstone?", a: "Yes. Every neighborhood on this hub is inside the City of Omaha and our standard service area, and the price is the same as anywhere else we work." },
-  { q: "How much is a multi-bedroom visit?", a: `${priceText.first} for the first mattress, any size, then ${priceText.additionalLarge} for each additional full, queen or king and ${priceText.additionalKids} for each additional kids' bed in the same visit.` },
+  { q: "How much is a multi-bedroom visit?", a: `${priceText.first} for the first mattress, any size, then ${priceText.additionalKing} for each additional king, ${priceText.additionalFullQueen} for each additional full or queen and ${priceText.additionalKids} for each additional kids' bed in the same visit.` },
   { q: "Can you clean a mattress in an older house with narrow stairs?", a: "Yes. We clean the mattress where it sits, so it never has to come down the stairs." },
   { q: "Is the 72-hour bedroom CO₂ test included?", a: "No. It's an optional service, booked on its own or added to a visit, priced by quote. It isn't a medical test." },
 ];
@@ -36,7 +36,7 @@ const jsonld: object[] = [
 ];
 jsonld.push(faqLd(faq));
 ---
-<Base title="Omaha Neighborhoods: Millard, Dundee, Benson, Aksarben, Blackstone" description="Mattress cleaning pages for Omaha neighborhoods: Millard, Dundee and Memorial Park, Benson, Aksarben and Elmwood, and Blackstone. $249 first mattress." path="/neighborhoods" jsonld={jsonld}>
+<Base title="Omaha Neighborhoods: Millard, Dundee, Benson, Aksarben, Blackstone" description={`Mattress cleaning pages for Omaha neighborhoods: Millard, Dundee and Memorial Park, Benson, Aksarben and Elmwood, and Blackstone. ${priceText.first} first mattress.`} path="/neighborhoods" jsonld={jsonld}>
   <style>
     .dgrid { display:grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap:1rem; margin:1.5rem 0 2.5rem; }
     .dgrid a { display:block; background:var(--white); border:1px solid var(--line); border-top:4px solid var(--gold); border-radius:var(--radius); padding:1.1rem 1.2rem; box-shadow:var(--shadow); color:inherit; }

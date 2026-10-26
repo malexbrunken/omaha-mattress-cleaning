@@ -4,7 +4,7 @@ slug: winter-dry-air-humidifiers-and-dust-mites
 title: "Omaha Winter Dry Air, Humidifiers and Dust Mites in the Bed"
 h1: "Omaha winter dry air, humidifiers and dust mites in the bed"
 description: "Eppley Airfield's January dew point averages 16°F, about 13% humidity once heated to 70°F. Where to set an Omaha humidifier and when to book a winter mattress cleaning."
-answer: "Omaha winter air is dry. NOAA's normals put Eppley Airfield's average dew point at 20°F in December, 16°F in January and 19°F in February; by our calculation that air warmed to 70°F indoors sits near 13 to 15 percent relative humidity. If you run a humidifier, the EPA says not to go above 50 percent, and Nebraska Extension gives 30 to 45 percent to control house dust mites. Winter is a great time to book a mattress cleaning: $249 for the first mattress, any size. Call or text (402) 512-5658."
+answer: "Omaha winter air is dry. NOAA's normals put Eppley Airfield's average dew point at 20°F in December, 16°F in January and 19°F in February; by our calculation that air warmed to 70°F indoors sits near 13 to 15 percent relative humidity. If you run a humidifier, the EPA says not to go above 50 percent, and Nebraska Extension gives 30 to 45 percent to control house dust mites. Winter is a great time to book a mattress cleaning: {{price.first}} for the first mattress, any size. Call or text (402) 512-5658."
 published: "2026-10-22"
 updated: "2026-10-22"
 checked: "2026-10-22"
@@ -35,7 +35,7 @@ faq:
   - q: "Where should the humidifier sit in a bedroom?"
     a: "Not right beside the bed. The EPA says not to let the area around a humidifier get damp or let absorbent materials like carpet and drapes get wet, and to relocate it or turn it down if water condenses on windows or walls."
   - q: "What does a winter visit cost?"
-    a: "$249 for the first mattress, any size. Each additional full, queen or king in the same visit is $199, and each additional kids' bed (twin or full) is $149. See <a href=\"/pricing\">Omaha pricing</a>."
+    a: "{{price.first}} for the first mattress, any size. Each additional king in the same visit is {{price.additionalKing}} and each additional full or queen is {{price.additionalFullQueen}}, and each additional twin or kids' bed is {{price.additionalKids}}. See <a href=\"/pricing\">Omaha pricing</a>."
 sources:
   - name: "NOAA NCEI: U.S. Climate Normals 1991 to 2020, hourly, Omaha Eppley Airfield (USW00014942)"
     url: "https://www.ncei.noaa.gov/access/services/data/v1?dataset=normals-hourly-1991-2020&stations=USW00014942&format=csv&startDate=0001-01-01&endDate=9996-12-31"

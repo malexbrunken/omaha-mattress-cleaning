@@ -16,7 +16,7 @@ const guides = Object.values(import.meta.glob<Fm>("./compare/*.md", { eager: tru
   .sort((a, b) => (a.order ?? 99) - (b.order ?? 99));
 const SITE = "https://omahamattresscleaning.com";
 const faq = [
-  { q: "How much does mattress cleaning cost in Omaha?", a: `${priceText.first} for the first mattress, any size. Each additional full, queen or king in the same visit is ${priceText.additionalLarge}, and each additional kids' bed is ${priceText.additionalKids}. See <a href="/pricing">Omaha pricing</a> for every rate.` },
+  { q: "How much does mattress cleaning cost in Omaha?", a: `${priceText.first} for the first mattress, any size. Each additional king in the same visit is ${priceText.additionalKing} and each additional full or queen is ${priceText.additionalFullQueen}, and each additional kids' bed is ${priceText.additionalKids}. See <a href="/pricing">Omaha pricing</a> for every rate.` },
   { q: "Is dry vapor steam better than wet extraction for a mattress?", a: `For routine mattress care, yes: dry vapor steam carries heat with very little water, while wet extraction sprays solution in and vacuums it out. Read <a href="/compare/dry-vapor-vs-wet-extraction">dry vapor steam vs wet extraction</a>.` },
   { q: "Should I hire a carpet cleaner or a mattress specialist?", a: `A carpet cleaner for carpet and rugs; a mattress specialist for the bed. Read <a href="/compare/mattress-cleaning-vs-carpet-cleaner">mattress specialist or carpet cleaner</a>.` },
   { q: "What checks come with every Omaha visit?", a: "Two: a moisture check after service and the built-in bed mite sensor on our UV-C vacuum. The 72-hour bedroom CO₂ test is a separate optional service, priced by quote, and isn't a medical test." },

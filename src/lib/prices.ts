@@ -12,8 +12,9 @@
  */
 export const PRICES = {
   first: 249,
-  additionalLarge: 199, // each additional full, queen or king, same visit
-  additionalKids: 149, // each additional kids bed (twin/full), same visit
+  additionalKing: 199, // each additional king or California king, same visit
+  additionalFullQueen: 179, // each additional full or queen, same visit
+  additionalKids: 149, // each additional twin or kids bed, same visit
   underside: { min: 50, max: 75 }, // underside/full-surface treatment, per mattress
 } as const;
 
@@ -30,10 +31,32 @@ export const usd = (n: number) => `$${n}`;
 
 export const priceText = {
   first: usd(PRICES.first),
-  additionalLarge: usd(PRICES.additionalLarge),
+  additionalKing: usd(PRICES.additionalKing),
+  additionalFullQueen: usd(PRICES.additionalFullQueen),
   additionalKids: usd(PRICES.additionalKids),
-  additionalRange: `${usd(PRICES.additionalKids)}–${usd(PRICES.additionalLarge)}`,
+  additionalRange: `${usd(PRICES.additionalKids)}–${usd(PRICES.additionalKing)}`,
+  undersideRange: `${usd(PRICES.underside.min)}–${usd(PRICES.underside.max)}`,
   underside: `+${usd(PRICES.underside.min)}–${usd(PRICES.underside.max)}`,
   promoFirst: usd(PROMO.first),
   promoFollowUp: `Book another cleaning within ${PROMO.rebookDays} days of your service and it's also ${usd(PROMO.rebookPrice)}.`,
 } as const;
+
+/**
+ * Fill {{price.key}} and {{price.sum:a+b+c}} tokens (used in .md pages via the
+ * remark plugin in astro.config.mjs) from PRICES/priceText, so markdown never
+ * hardcodes a price.
+ */
+export function fillPrices(raw: string): string {
+  return raw.replace(/\{\{price\.([a-zA-Z]+)(?::([a-zA-Z+]+))?\}\}/g, (m, key: string, expr?: string) => {
+    if (key === "sum" && expr) {
+      return usd(expr.split("+").reduce((t, k) => {
+        const v = (PRICES as any)[k];
+        if (typeof v !== "number") throw new Error(`Unknown price in token ${m}`);
+        return t + v;
+      }, 0));
+    }
+    const v = (priceText as any)[key];
+    if (typeof v !== "string") throw new Error(`Unknown price token ${m}`);
+    return v;
+  });
+}

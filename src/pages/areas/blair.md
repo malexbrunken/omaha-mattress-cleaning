@@ -6,7 +6,7 @@ county: Washington County
 title: "Blair Mattress Cleaning: Haulers, Spring Cleanup and Housing"
 h1: "Mattress cleaning in Blair, and where a Blair mattress can go"
 description: "We clean mattresses in Blair, Nebraska. Blair's licensed trash haulers, its residents-only Spring Cleanup and housing facts, checked and sourced."
-answer: "Yes, we clean mattresses in Blair, the Washington County seat north of Omaha, at the same price as Omaha: $249 for the first mattress, any size. Blair has no city trash service; residents hire one of the city's licensed haulers. The city's Spring Cleanup at the Public Works yard is the free route, and in 2025 it accepted mattresses and box springs."
+answer: "Yes, we clean mattresses in Blair, the Washington County seat north of Omaha, at the same price as Omaha: {{price.first}} for the first mattress, any size. Blair has no city trash service; residents hire one of the city's licensed haulers. The city's Spring Cleanup at the Public Works yard is the free route, and in 2025 it accepted mattresses and box springs."
 order: 9
 hubCounty: "Washington"
 hubHealth: "Three Rivers Public Health Department"
@@ -50,7 +50,7 @@ contacts:
     url: "https://www.threeriverspublichealth.org/About-Us/Hours-Locations"
 faq:
   - q: "Is Blair too far for you?"
-    a: "No. Blair is in our service area at the same price as Omaha: $249 for the first mattress, any size, with lower rates for additional mattresses in the same visit."
+    a: "No. Blair is in our service area at the same price as Omaha: {{price.first}} for the first mattress, any size, with lower rates for additional mattresses in the same visit."
   - q: "Can Blair residents drop off a mattress at Spring Cleanup?"
     a: "The 2025 Spring Cleanup listed mattresses and box springs among accepted items. The 2026 event ran April 10 to 26 at the Public Works yard, for residents with proof of residency. Check the city's notice for the 2027 dates and list."
   - q: "Who operates Omaha Mattress Cleaning?"

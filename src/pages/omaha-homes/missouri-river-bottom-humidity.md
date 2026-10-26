@@ -3,8 +3,8 @@ layout: ../../layouts/OmahaGuide.astro
 slug: missouri-river-bottom-humidity
 title: "Missouri River-Bottom Humidity: Omaha Mattresses"
 h1: "Missouri river-bottom humidity and Omaha mattresses"
-description: "East Omaha and Council Bluffs floodplain bedrooms hold humidity differently than inland basements. When to book mattress cleaning. $249 first mattress."
-answer: "Homes near the Missouri River floodplain — east Omaha, downtown edge and Council Bluffs bottoms — sit in a wetter air mass than inland west Omaha. Closed bedrooms can feel musty even when the dehumidifier runs. Omaha Mattress Cleaning books those addresses at $249 for the first mattress. This is distinct from inland basement humidity. Call (402) 512-5658."
+description: "East Omaha and Council Bluffs floodplain bedrooms hold humidity differently than inland basements. When to book mattress cleaning. {{price.first}} first mattress."
+answer: "Homes near the Missouri River floodplain — east Omaha, downtown edge and Council Bluffs bottoms — sit in a wetter air mass than inland west Omaha. Closed bedrooms can feel musty even when the dehumidifier runs. Omaha Mattress Cleaning books those addresses at {{price.first}} for the first mattress. This is distinct from inland basement humidity. Call (402) 512-5658."
 published: "2026-10-05"
 updated: "2026-10-05"
 checked: "2026-10-05"

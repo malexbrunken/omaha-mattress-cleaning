@@ -15,6 +15,7 @@ const NAV = [
   { href: "/knowledge-center", label: "Knowledge Center" },
   { href: "/about", label: "About" },
 ];
+const SERVICE_AREA = ["Omaha, NE", "Council Bluffs, IA", "Bellevue, NE", "Papillion, NE", "La Vista, NE", "Ralston, NE", "Elkhorn, NE", "Gretna, NE", "Bennington, NE", "Valley, NE", "Waterloo, NE", "Blair, NE"];
 const canonical = new URL(path, "https://omahamattresscleaning.com").href;
 const ogImage = "https://images.unsplash.com/photo-1505693416388-b0346efee535?auto=format&fit=crop&w=1200&q=80";
 const org = {
@@ -25,7 +26,9 @@ const org = {
   "legalName": "Sleep Sanitation LLC",
   "url": "https://sleepsanitation.com",
   "telephone": "+1-402-512-5658",
-  "founder": FOUNDER
+  "founder": FOUNDER,
+  // Service-area business: no street address or map pin, only the places we drive to.
+  "areaServed": SERVICE_AREA.map((c) => ({ "@type": "City", "name": c }))
 };
 ---
 <!DOCTYPE html>
@@ -249,6 +252,20 @@ const org = {
         <a href="mailto:info@sleepsanitation.com" style="font-size:0.92rem; color:rgba(250,249,246,0.55);">Email Us</a>
       </div>
     </div>
+    <div class="container footer-area">
+      <div>
+        <div style="font-size:0.78rem; letter-spacing:0.14em; text-transform:uppercase; color:#5eead4; font-weight:700;">Service area</div>
+        <div style="font-size:1.25rem; font-weight:600; color:rgba(250,249,246,0.95); margin-top:0.35rem;">We come to you.</div>
+        <p style="font-size:0.92rem; line-height:1.6; margin:0.5rem 0 0;">Mobile mattress cleaning at your home across the Omaha–Council Bluffs metro: {SERVICE_AREA.map((c) => c.replace(/, (NE|IA)$/, "")).slice(0, -1).join(", ")} and {SERVICE_AREA[SERVICE_AREA.length - 1].replace(/, NE$/, "")}. No storefront to visit.</p>
+        <p style="font-size:0.85rem; margin:0.4rem 0 0; color:rgba(250,249,246,0.45);">Not sure about your address? Call or text {PHONE.display}.</p>
+      </div>
+      <!-- Static SVG (~5 KB), lazy-loaded; no business pin or address by design. -->
+      <img src="/service-area-map.svg" width="760" height="440" loading="lazy" decoding="async" alt="Map of our service area: the shaded Omaha metro, including Omaha, Council Bluffs, Bellevue, Papillion, La Vista, Ralston, Elkhorn, Gretna, Bennington, Valley, Waterloo and Blair" style="width:100%; height:auto; display:block;" />
+    </div>
+    <style>
+      .footer-area { margin-top:1.6rem; display:grid; gap:1.4rem; align-items:center; }
+      @media (min-width: 800px) { .footer-area { grid-template-columns: 1fr 1.4fr; } }
+    </style>
     <div class="container" style="margin-top:1.2rem; padding-top:1.2rem; border-top:1px solid rgba(255,255,255,0.06); font-size:0.85rem; color:rgba(250,249,246,0.4);">
       © {new Date().getFullYear()} Sleep Sanitation. All rights reserved. Serving the Omaha–Council Bluffs metro.
     </div>

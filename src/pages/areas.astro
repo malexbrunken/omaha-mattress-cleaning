@@ -13,7 +13,7 @@ const areas = Object.values(import.meta.glob<Fm>("./areas/*.md", { eager: true }
   .filter((f) => !f.draft)
   .sort((a, b) => a.order - b.order);
 const faq = [
-  { q: "Do you charge more for Elkhorn, Gretna, Bellevue or Council Bluffs?", a: `No. The price is the same anywhere in our Omaha–Council Bluffs service area: ${priceText.first} for the first mattress, any size, ${priceText.additionalLarge} for each additional full, queen or king and ${priceText.additionalKids} for each additional kids' bed.` },
+  { q: "Do you charge more for Elkhorn, Gretna, Bellevue or Council Bluffs?", a: `No. The price is the same anywhere in our Omaha–Council Bluffs service area: ${priceText.first} for the first mattress, any size, ${priceText.additionalKing} for each additional king, ${priceText.additionalFullQueen} for each additional full or queen and ${priceText.additionalKids} for each additional kids' bed.` },
   { q: "Which Omaha suburbs do you serve?", a: "Elkhorn, Papillion, La Vista, Bellevue, Gretna, Ralston, Chalco, Bennington, Blair, Waterloo, Valley and Council Bluffs, plus the City of Omaha. Call or text (402) 512-5658 if you're not sure about your address." },
   { q: "Can I put an old mattress out with the trash in these suburbs?", a: "It depends on the city's hauler setup, which is why each area page lists its own trash and cleanup rules with the source and date we checked them." },
   { q: "What's included in a visit in any area?", a: "Dry vapor steam, HEPA vacuuming and UV-C light treatment, with a moisture check after service and the built-in bed mite sensor on our UV-C vacuum. The 72-hour bedroom CO₂ test is optional, priced by quote." },

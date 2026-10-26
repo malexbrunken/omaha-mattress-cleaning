@@ -17,14 +17,14 @@ const AREAS = ["Omaha","Elkhorn","Papillion","La Vista","Bellevue","Gretna","Ral
 const P = PRICES;
 const totals = [
   { home: "One queen mattress", math: `${usd(P.first)}`, total: P.first },
-  { home: "Two mattresses (a queen and a full)", math: `${usd(P.first)} + ${usd(P.additionalLarge)}`, total: P.first + P.additionalLarge },
+  { home: "Two mattresses (a queen and a full)", math: `${usd(P.first)} + ${usd(P.additionalFullQueen)}`, total: P.first + P.additionalFullQueen },
   { home: "A king plus two kids' beds", math: `${usd(P.first)} + ${usd(P.additionalKids)} + ${usd(P.additionalKids)}`, total: P.first + 2 * P.additionalKids },
-  { home: "A king, a queen and two kids' beds", math: `${usd(P.first)} + ${usd(P.additionalLarge)} + ${usd(P.additionalKids)} + ${usd(P.additionalKids)}`, total: P.first + P.additionalLarge + 2 * P.additionalKids },
-  { home: "Three queens (a guest suite and two bedrooms)", math: `${usd(P.first)} + ${usd(P.additionalLarge)} + ${usd(P.additionalLarge)}`, total: P.first + 2 * P.additionalLarge },
+  { home: "A king, a queen and two kids' beds", math: `${usd(P.first)} + ${usd(P.additionalFullQueen)} + ${usd(P.additionalKids)} + ${usd(P.additionalKids)}`, total: P.first + P.additionalFullQueen + 2 * P.additionalKids },
+  { home: "Three queens (a guest suite and two bedrooms)", math: `${usd(P.first)} + ${usd(P.additionalFullQueen)} + ${usd(P.additionalFullQueen)}`, total: P.first + 2 * P.additionalFullQueen },
   { home: "One queen with the underside add-on", math: `${usd(P.first)} + ${usd(P.underside.min)}–${usd(P.underside.max)}`, total: null, range: `${usd(P.first + P.underside.min)}–${usd(P.first + P.underside.max)}` },
 ];
 const kingPlusKids = usd(P.first + 2 * P.additionalKids);
-const twoBeds = usd(P.first + P.additionalLarge);
+const twoBeds = usd(P.first + P.additionalFullQueen);
 
 const included = [
   ["Material inspection", "We identify the mattress materials and choose the steam setting and pass speed before we start."],
@@ -41,8 +41,8 @@ const included = [
 ];
 
 const faq = [
-  { q: "How much does mattress cleaning cost in Omaha?", a: `${priceText.first} for the first mattress, any size, twin through California king. Each additional full, queen or king in the same visit is ${priceText.additionalLarge}, and each additional kids' bed is ${priceText.additionalKids}.` },
-  { q: "Does a king cost more than a twin?", a: `No. The first mattress is ${priceText.first} whatever its size. Size only matters for additional mattresses: ${priceText.additionalLarge} for each additional full, queen or king and ${priceText.additionalKids} for each additional kids' bed.` },
+  { q: "How much does mattress cleaning cost in Omaha?", a: `${priceText.first} for the first mattress, any size, twin through California king. Each additional king in the same visit is ${priceText.additionalKing} and each additional full or queen is ${priceText.additionalFullQueen}, and each additional kids' bed is ${priceText.additionalKids}.` },
+  { q: "Does a king cost more than a twin?", a: `No. The first mattress is ${priceText.first} whatever its size. Size only matters for additional mattresses: ${priceText.additionalKing} for each additional king, ${priceText.additionalFullQueen} for each additional full or queen and ${priceText.additionalKids} for each additional kids' bed.` },
   { q: "Is urine or pet odor treatment extra?", a: `No. Normal stains, pet odor and ordinary urine accidents are included, with enzyme treatment for urine and organic odor. Severe or biohazard urine or odor carries a surcharge, and we quote it before starting.` },
   { q: "What does the underside add-on cost?", a: `The standard visit covers the sleep surface, seams and edges. Treating the underside as well adds ${usd(P.underside.min)} to ${usd(P.underside.max)} per mattress, depending on the mattress.` },
   { q: "When can we use the bed again?", a: "The bed stays unmade until it is dry to the touch, and we run a moisture check after service before we leave." },
@@ -59,8 +59,9 @@ const offer = (name: string, price: number, description: string) => ({
 });
 const offers: object[] = [
   offer("First mattress, any size", P.first, "Normal stains, pet odor and ordinary urine accidents included."),
-  offer("Each additional full, queen or king mattress", P.additionalLarge, "Same visit as the first mattress."),
-  offer("Each additional kids' bed (twin or full)", P.additionalKids, "Same visit as the first mattress."),
+  offer("Each additional king mattress", P.additionalKing, "Same visit as the first mattress."),
+  offer("Each additional full or queen mattress", P.additionalFullQueen, "Same visit as the first mattress."),
+  offer("Each additional twin or kids' bed", P.additionalKids, "Same visit as the first mattress."),
   { "@type": "Offer", name: "Underside treatment add-on, per mattress", priceCurrency: "USD", url: URL_,
     priceSpecification: { "@type": "PriceSpecification", minPrice: String(P.underside.min), maxPrice: String(P.underside.max), priceCurrency: "USD" } },
   { "@type": "Offer", name: "Severe or biohazard urine or odor surcharge", description: "Custom surcharge, quoted before we start.", url: URL_ },
@@ -122,8 +123,8 @@ const jsonld = [
   },
 ];
 
-const title = "Mattress Cleaning Cost in Omaha | $249 Sanitation Price";
-const description = `Mattress sanitation price in Omaha: ${priceText.first} first mattress, ${priceText.additionalLarge} each additional full/queen/king, ${priceText.additionalKids} kids' beds. Stains and urine included.`;
+const title = `Mattress Cleaning Cost in Omaha | ${priceText.first} Sanitation Price`;
+const description = `Mattress sanitation price in Omaha: ${priceText.first} first mattress, ${priceText.additionalKing} each additional king, ${priceText.additionalFullQueen} each additional full/queen, ${priceText.additionalKids} kids' beds. Stains and urine included.`;
 ---
 <Base title={title} description={description} path="/pricing" jsonld={jsonld}>
   <style>
@@ -147,7 +148,7 @@ const description = `Mattress sanitation price in Omaha: ${priceText.first} firs
       <nav aria-label="Breadcrumb" style="font-size:0.9rem;"><a href="/">Home</a> › Pricing</nav>
       <span class="eyebrow">Published Omaha pricing</span>
       <h1>Mattress cleaning cost in Omaha</h1>
-      <p class="lead-answer">Mattress sanitation in Omaha costs {priceText.first} for the first mattress, any size, and {priceText.additionalLarge} for each additional full, queen or king in the same visit. Each additional kids' bed is {priceText.additionalKids}. Normal stains, pet odor and ordinary urine accidents are included. Treating the underside adds {usd(P.underside.min)} to {usd(P.underside.max)} per mattress, and severe or biohazard cases carry a surcharge quoted before we start. Omaha Mattress Cleaning & Sanitation is operated by Sleep Sanitation.</p>
+      <p class="lead-answer">Mattress sanitation in Omaha costs {priceText.first} for the first mattress, any size, and {priceText.additionalKing} for each additional king, {priceText.additionalFullQueen} for each additional full or queen in the same visit. Each additional kids' bed is {priceText.additionalKids}. Normal stains, pet odor and ordinary urine accidents are included. Treating the underside adds {usd(P.underside.min)} to {usd(P.underside.max)} per mattress, and severe or biohazard cases carry a surcharge quoted before we start. Omaha Mattress Cleaning & Sanitation is operated by Sleep Sanitation.</p>
       <div class="btn-row">
         <a class="btn btn-primary" href="/book">Book Omaha service</a>
         <a class="btn btn-outline" href="tel:+14025125658">Call or text {PHONE}</a>
@@ -161,8 +162,9 @@ const description = `Mattress sanitation price in Omaha: ${priceText.first} firs
           <thead><tr><th scope="col">Service</th><th scope="col" class="num">Price</th></tr></thead>
           <tbody>
             <tr><th scope="row">First mattress, any size (twin through California king)</th><td class="num"><strong>{priceText.first}</strong></td></tr>
-            <tr><th scope="row">Each additional full, queen or king mattress</th><td class="num">{priceText.additionalLarge}</td></tr>
-            <tr><th scope="row">Each additional kids' bed (twin or full)</th><td class="num">{priceText.additionalKids}</td></tr>
+            <tr><th scope="row">Each additional king mattress</th><td class="num">{priceText.additionalKing}</td></tr>
+            <tr><th scope="row">Each additional full or queen mattress</th><td class="num">{priceText.additionalFullQueen}</td></tr>
+            <tr><th scope="row">Each additional twin or kids' bed</th><td class="num">{priceText.additionalKids}</td></tr>
             <tr><th scope="row">Underside add-on, per mattress</th><td class="num">{priceText.underside}</td></tr>
             <tr><th scope="row">Severe or biohazard urine or odor</th><td class="num">Surcharge, quoted before starting</td></tr>
           </tbody>
@@ -209,7 +211,7 @@ const description = `Mattress sanitation price in Omaha: ${priceText.first} firs
         <li><strong>72-hour bedroom CO₂ test:</strong> not included; an optional service booked on its own or added to a visit, priced by quote. It isn't a medical test.</li>
       </ul>
       <p>Mattress size does not change the first-mattress price.</p>
-      <blockquote class="pull"><p>In Omaha, each additional full, queen or king mattress cleaned in the same visit is {priceText.additionalLarge}, each additional kids' bed is {priceText.additionalKids}, and an underside treatment adds {usd(P.underside.min)} to {usd(P.underside.max)} per mattress.</p></blockquote>
+      <blockquote class="pull"><p>In Omaha, each additional king mattress cleaned in the same visit is {priceText.additionalKing} and each additional full or queen is {priceText.additionalFullQueen}, each additional kids' bed is {priceText.additionalKids}, and an underside treatment adds {usd(P.underside.min)} to {usd(P.underside.max)} per mattress.</p></blockquote>
 
       <h2 id="why">Why does dry vapor sanitation cost more than a carpet cleaner's add-on?</h2>
       <p>A carpet cleaner's mattress add-on is typically done with the same hot-water extraction equipment used on the floors, as one item on a carpet job. A dedicated mattress sanitation visit is built around the mattress alone: an inspection first, low-moisture dry vapor worked into the seams and tufts, then HEPA vacuuming, UV-C light treatment and a moisture check before we leave. That takes more time and more equipment per bed.</p>

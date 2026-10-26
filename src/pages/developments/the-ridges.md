@@ -6,8 +6,8 @@ name: "The Ridges"
 areaLabel: "West Omaha · 180th–192nd / Pacific–West Center"
 title: "The Ridges Omaha: Mattress Cleaning for Golf Homes"
 h1: "Mattress cleaning in The Ridges, west Omaha"
-description: "Mattress cleaning for The Ridges near Shadow Ridge Country Club: multi-bed custom homes between 180th and 192nd. $249 first mattress."
-answer: "The Ridges sits in west Omaha between Pacific Street, West Center Road, 180th and 192nd, beside Shadow Ridge Country Club. Homes here are often multi-bedroom custom builds from the 1990s onward. Omaha Mattress Cleaning, operated by Sleep Sanitation, books the development at $249 for the first mattress, any size. Call or text (402) 512-5658."
+description: "Mattress cleaning for The Ridges near Shadow Ridge Country Club: multi-bed custom homes between 180th and 192nd. {{price.first}} first mattress."
+answer: "The Ridges sits in west Omaha between Pacific Street, West Center Road, 180th and 192nd, beside Shadow Ridge Country Club. Homes here are often multi-bedroom custom builds from the 1990s onward. Omaha Mattress Cleaning, operated by Sleep Sanitation, books the development at {{price.first}} for the first mattress, any size. Call or text (402) 512-5658."
 published: "2026-10-05"
 updated: "2026-10-05"
 checked: "2026-10-05"
@@ -27,8 +27,8 @@ facts:
 faq:
   - q: "Do you serve Whispering Hollow or Whispering Pines inside The Ridges?"
     a: "Yes. Those subdivisions are part of The Ridges community. Call with the gate or address details."
-  - q: "Is the first mattress still $249 here?"
-    a: "Yes. $249 for the first mattress, any size, with normal stains, pet odor and ordinary urine accidents included."
+  - q: "Is the first mattress still {{price.first}} here?"
+    a: "Yes. {{price.first}} for the first mattress, any size, with normal stains, pet odor and ordinary urine accidents included."
   - q: "Can you clean on a Saturday?"
     a: "No. Hours are Monday to Friday, 9am to 6pm. We return calls and texts on weekends."
 sources:
@@ -48,7 +48,7 @@ changelog:
 
 ## What kind of bedrooms do Ridges homes usually have?
 
-Large primary suites plus several secondary bedrooms are common. That often means a multi-mattress visit in one stop. Each additional full, queen or king mattress in the same visit is $199; each additional kids bed (twin/full) is $149. See [pricing](/pricing).
+Large primary suites plus several secondary bedrooms are common. That often means a multi-mattress visit in one stop. Each additional king mattress in the same visit is {{price.additionalKing}} and each additional full or queen is {{price.additionalFullQueen}}; each additional twin or kids bed is {{price.additionalKids}}. See [pricing](/pricing).
 
 ## When do Ridges owners book?
 
