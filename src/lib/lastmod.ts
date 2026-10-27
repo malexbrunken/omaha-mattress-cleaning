@@ -38,6 +38,7 @@ export const PAGE_LASTMOD: Record<string, string> = {
   "/knowledge-center": "2026-10-05",
   "/compare": "2026-10-05",
   "/life-events": "2026-10-22",
+  "/care-providers": "2026-10-27",
 };
 
 const latest = (...dates: (string | undefined)[]) =>

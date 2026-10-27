@@ -48,6 +48,7 @@ export const GET: APIRoute = () => {
     const slug = file.replace("./allergy-season/", "").replace(/\.md$/, "");
     entries.push({ path: `/allergy-season/${slug}`, lastmod: guideLastmod(fm, "SeasonGuide" as Layout) });
   }
+  entries.push({ path: "/care-providers", lastmod: pageLastmod("/care-providers") });
   if (Object.keys(hostHub).length) entries.push({ path: "/airbnb-hosts", lastmod: pageLastmod("/airbnb-hosts") });
   for (const [file, mod] of Object.entries(hosts)) {
     const fm = mod.frontmatter ?? {};

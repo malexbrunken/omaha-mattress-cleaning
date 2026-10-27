@@ -1,0 +1,123 @@
+---
+/**
+ * /care-providers: Omaha metro and Council Bluffs page for home health, hospice and home care agencies,
+ * care managers, assisted living and group homes. Approved care-provider facts only; prices from lib/prices.
+ */
+import Base from "../layouts/Base.astro";
+import { PRICES, priceText } from "../lib/prices";
+import { faqLd } from "../lib/faq";
+const SS = "https://sleepsanitation.com";
+const P = PRICES;
+const towns = ["Omaha", "Elkhorn", "Papillion", "La Vista", "Bellevue", "Gretna", "Ralston", "Council Bluffs"];
+const who = [
+  { k: "Home health and hospice", v: "Clients on long-term hospital beds, patients coming home, and families after a death at home." },
+  { k: "Home care and care managers", v: "Clients aging in place from Elkhorn to Bellevue and across the river in Council Bluffs." },
+  { k: "Assisted living and group homes", v: "Twice-a-year visits for every resident bed, plus every turnover, with a Service Summary for each room." },
+  { k: "DME suppliers", v: "A referral for clients who own their vinyl or coated hospital bed mattress." },
+];
+const delivers = [
+  "Low-moisture dry vapor steam, with the mattress surface verified at 212°F or higher with a temperature gun",
+  "HEPA vacuuming and UV-C light treatment, with bed mite sensor readings",
+  "Enzyme treatment on urine",
+  "A moisture check before we leave",
+  "The mattress protector removed during the visit, and a one-time supply of special detergent sheets left for washing it",
+  "A Service Summary every visit, with a copy to the agency with the client's or family's permission",
+];
+const faq = [
+  { q: "What does a mattress visit cost for an Omaha client?", a: `The first mattress is ${priceText.first}, any size. Additional mattresses in the same visit are ${priceText.additionalKing} for a king or California king, ${priceText.additionalFullQueen} for a full or queen and ${priceText.additionalKids} for a twin or kids' bed. Agencies and facilities that send recurring visits we can group by area get reduced partner rates, quoted on request.` },
+  { q: "Do you clean hospital bed mattresses?", a: "Yes, vinyl and coated hospital bed mattresses, steam-sanitized in place. We don't service powered air, low-air-loss or alternating-pressure mattresses. If the bed is rented, check with the supplier first." },
+  { q: "Do you move the client?", a: "No. An aide or family member handles any transfer. Allow 1–2 hours per mattress." },
+  { q: "What do you ask at booking?", a: "The address and an access contact, the number and sizes of mattresses, whether a hospital bed is rented, and whether oxygen is in use or there are breathing sensitivities or an enzyme allergy." },
+  { q: "What do you provide before the first visit?", a: "A certificate of insurance on request. Technicians are background-checked under our hiring policy, including a national sex offender registry check." },
+  { q: "Who pays?", a: "The family at our published prices, or the agency for agency-arranged visits. We're not a Medicaid or ENOA provider." },
+  { q: "What about a mattress after a death at home?", a: "Our normal price when there's no hazmat or decomposition. Those jobs are referred to a biohazard remediation company. Severe soiling carries a surcharge, disclosed before any work starts." },
+];
+const jsonld = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://omahamattresscleaning.com/" },
+      { "@type": "ListItem", position: 2, name: "Care providers", item: "https://omahamattresscleaning.com/care-providers" },
+    ],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": "https://omahamattresscleaning.com/care-providers#service",
+    name: "In-home mattress sanitation for Omaha care providers",
+    serviceType: "Mattress cleaning and sanitation",
+    audience: { "@type": "Audience", audienceType: "Home health, hospice and home care agencies, care managers, assisted living and group homes" },
+    url: "https://omahamattresscleaning.com/care-providers",
+    areaServed: towns.map((n) => ({ "@type": "City", name: n })),
+    provider: { "@type": "LocalBusiness", "@id": "https://omahamattresscleaning.com/#business", name: "Omaha Mattress Cleaning & Sanitation", telephone: "+1-402-512-5658" },
+    offers: [
+      { "@type": "Offer", name: "First mattress, any size", price: String(P.first), priceCurrency: "USD" },
+      { "@type": "Offer", name: "Each additional king, same visit", price: String(P.additionalKing), priceCurrency: "USD" },
+      { "@type": "Offer", name: "Each additional full or queen, same visit", price: String(P.additionalFullQueen), priceCurrency: "USD" },
+      { "@type": "Offer", name: "Each additional twin or kids' bed, same visit", price: String(P.additionalKids), priceCurrency: "USD" },
+    ],
+  },
+  faqLd(faq),
+];
+---
+<Base title="Mattress Sanitation for Omaha Care Providers: Home Health, Hospice, Assisted Living" description={`In-home mattress sanitation for Omaha metro and Council Bluffs home health, hospice and home care agencies, care managers and assisted living: ${priceText.first} first mattress, reduced partner rates, a Service Summary every visit.`} path="/care-providers" jsonld={jsonld}>
+  <style>
+    .cp { display:grid; grid-template-columns: minmax(0,1fr) 20rem; gap:2.2rem; align-items:start; }
+    .rail { background:var(--charcoal); color:var(--cream); border-radius:var(--radius); padding:1.4rem 1.5rem; position:sticky; top:1.5rem; }
+    .rail a { color:var(--gold); }
+    .rail ul { padding-left:1.1rem; margin:.6rem 0 1rem; }
+    .rail li { margin:.35rem 0; }
+    @media (max-width: 860px) { .cp { grid-template-columns: 1fr; } .rail { position:static; } }
+  </style>
+  <section class="section" style="padding-top:3rem;">
+    <div class="container">
+      <p style="font-size:0.9rem;"><a href="/">Home</a> › Care providers</p>
+      <span class="eyebrow">For care providers</span>
+      <h1>In-home mattress sanitation for Omaha care providers</h1>
+      <p class="lead" style="max-width:68ch;">Omaha Mattress Cleaning, operated by Sleep Sanitation, cleans and sanitizes mattresses in clients' homes and in residential care across the Omaha metro and Council Bluffs. The first mattress is <Fragment set:html={priceText.firstHtml} />, additional mattresses in the same visit are {priceText.additionalRange}, and agencies that group visits by area get reduced partner rates. Every visit ends with a Service Summary. Call or text <a href="tel:+14025125658">(402) 512-5658</a>.</p>
+      <p style="max-width:68ch;">We serve homes from the neighborhoods around Nebraska Medical Center, Methodist Hospital and CHI Health Bergan Mercy out to Elkhorn, Gretna, Papillion and Bellevue, and around Methodist Jennie Edmundson in Council Bluffs. When a client comes home from a hospital or rehab stay, we can have the bed cleaned before they arrive.</p>
+
+      <div class="cp">
+        <div style="max-width:72ch;">
+          <h2>Who we work with in the Omaha metro</h2>
+          <ul>{who.map((w) => <li><strong>{w.k}:</strong> {w.v}</li>)}</ul>
+
+          <h2>What a visit delivers</h2>
+          <ul>{delivers.map((d) => <li>{d}</li>)}</ul>
+          <p>Allow 1–2 hours per mattress. We clean regular mattresses and vinyl or coated hospital bed mattresses. We don't service powered air, low-air-loss or alternating-pressure mattresses.</p>
+
+          <h2>Booking a visit for a client</h2>
+          <p>Call or text (402) 512-5658, email <a href="mailto:info@sleepsanitation.com">info@sleepsanitation.com</a>, or request agency rates on the <a href={`${SS}/agency-partners#request`} rel="noopener">Sleep Sanitation agency partners page</a>. We'll ask about oxygen, breathing sensitivities and enzyme allergy at booking. An aide or family member handles any transfer; we don't move people. For a rented hospital bed, check with the supplier first.</p>
+
+          <h2>Rates</h2>
+          <p>The first mattress is <Fragment set:html={priceText.firstHtml} />. Additional mattresses in the same visit are {priceText.additionalKing} for a king or California king, {priceText.additionalFullQueen} for a full or queen and {priceText.additionalKids} for a twin or kids' bed. Agencies and facilities that send recurring visits we can group by area are route-efficiency partners and get reduced rates, quoted for your volume. Severe soiling carries a surcharge, disclosed before any work starts. We recommend cleaning every mattress twice a year.</p>
+
+          <h2>Questions Omaha care teams ask</h2>
+          {faq.map((f) => (<><h3>{f.q}</h3><p>{f.a}</p></>))}
+
+          <h2>Further reading</h2>
+          <ul>
+            <li><a href={`${SS}/agency-partners`} rel="noopener">Sleep Sanitation agency partner program</a></li>
+            <li><a href={`${SS}/knowledge-center/mattress-sanitation-home-care-hospice`} rel="noopener">Mattress sanitation in home health and hospice care</a></li>
+            <li><a href={`${SS}/knowledge-center/mattress-care-aging-in-place`} rel="noopener">Mattress care for aging in place</a></li>
+          </ul>
+          <h2>Changelog</h2>
+          <ul><li>October 27, 2026: page published.</li></ul>
+        </div>
+        <aside class="rail" aria-label="For agencies and facilities">
+          <span class="eyebrow" style="color:var(--gold);">For agencies and facilities</span>
+          <ul>
+            <li>Certificate of insurance on request</li>
+            <li>Background checks under our hiring policy, including a national sex offender registry check</li>
+            <li>A Service Summary every visit</li>
+            <li>Reduced partner rates for grouped visits</li>
+          </ul>
+          <p><a href={`${SS}/agency/sleep-sanitation-care-providers.pdf`} rel="noopener">Agency one-pager (PDF)</a><br /><a href={`${SS}/agency/sample-service-summary.pdf`} rel="noopener">Sample Service Summary (PDF)</a></p>
+          <p><a class="btn btn-primary" href="tel:+14025125658" style="color:var(--white);">Call (402) 512-5658</a></p>
+          <p><a href={`${SS}/agency-partners#request`} rel="noopener">Request agency rates</a></p>
+        </aside>
+      </div>
+    </div>
+  </section>
+</Base>
