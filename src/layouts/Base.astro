@@ -5,15 +5,34 @@ interface Props { title: string; description: string; path: string; jsonld?: obj
 const { title, description, path, jsonld = [], noindex = false } = Astro.props;
 import { FOUNDER, PHONE } from "../lib/founder";
 const NAV = [
-  { href: "/#upgrade", label: "Our Method" },
-  { href: "/areas", label: "Areas" },
-  { href: "/#process", label: "Process" },
   { href: "/pricing", label: "Pricing" },
-  { href: "/omaha-homes", label: "Omaha Homes" },
+  { href: "/areas", label: "Areas" },
+  { href: "/developments", label: "Developments" },
   { href: "/allergy-season", label: "Allergy Season" },
-  { href: "/airbnb-hosts", label: "Hosts" },
+  { href: "/airbnb-hosts", label: "Airbnb Hosts" },
+  { href: "/life-events", label: "Life Events" },
+  { href: "/compare", label: "Compare" },
+  { href: "/care-providers", label: "Care Providers" },
+];
+/** Footer directory: every hub plus the pages that dropped out of the header. */
+const FOOTER_LINKS = [
+  { href: "/book", label: "Book" },
+  { href: "/pricing", label: "Pricing" },
+  { href: "/about", label: "About us" },
   { href: "/knowledge-center", label: "Knowledge Center" },
-  { href: "/about", label: "About" },
+  { href: "/omaha-homes", label: "Omaha homes" },
+  { href: "/neighborhoods", label: "Omaha neighborhoods" },
+  { href: "/neighborhoods/dundee-memorial-park", label: "Dundee & Memorial Park" },
+  { href: "/developments", label: "Developments" },
+  { href: "/areas", label: "Areas we serve" },
+  { href: "/areas/gretna", label: "Gretna" },
+  { href: "/allergy-season", label: "Allergy season" },
+  { href: "/allergy-season/reading-omahas-pollen-count", label: "Omaha pollen count" },
+  { href: "/airbnb-hosts", label: "Airbnb hosts" },
+  { href: "/life-events", label: "Life events" },
+  { href: "/life-events/new-baby-nursery-prep", label: "New baby nursery prep" },
+  { href: "/compare", label: "Compare options" },
+  { href: "/care-providers", label: "Care providers" },
 ];
 const SERVICE_AREA = ["Omaha, NE", "Council Bluffs, IA", "Bellevue, NE", "Papillion, NE", "La Vista, NE", "Ralston, NE", "Elkhorn, NE", "Gretna, NE", "Bennington, NE", "Valley, NE", "Waterloo, NE", "Blair, NE"];
 const canonical = new URL(path, "https://omahamattresscleaning.com").href;
@@ -254,6 +273,9 @@ const org = {
         <a href="mailto:info@sleepsanitation.com" style="font-size:0.92rem; color:rgba(250,249,246,0.55);">Email Us</a>
       </div>
     </div>
+    <nav aria-label="Site directory" class="container footer-dir">
+      {FOOTER_LINKS.map((l) => <a href={l.href}>{l.label}</a>)}
+    </nav>
     <div class="container footer-area">
       <div>
         <div style="font-size:0.78rem; letter-spacing:0.14em; text-transform:uppercase; color:#5eead4; font-weight:700;">Service area</div>
@@ -266,6 +288,9 @@ const org = {
       <img src="/service-area-map.svg" width="760" height="440" loading="lazy" decoding="async" alt="Map of our service area: the shaded Omaha metro, including Omaha, Council Bluffs, Bellevue, Papillion, La Vista, Ralston, Elkhorn, Gretna, Bennington, Valley, Waterloo and Blair" style="width:100%; height:auto; display:block;" />
     </div>
     <style>
+      .footer-dir { margin-top:1.4rem; display:flex; flex-wrap:wrap; gap:.55rem 1.2rem; font-size:.92rem; }
+      .footer-dir a { color:rgba(250,249,246,0.75); }
+      .footer-dir a:hover { color:#5eead4; }
       .footer-area { margin-top:1.6rem; display:grid; gap:1.4rem; align-items:center; }
       @media (min-width: 800px) { .footer-area { grid-template-columns: 1fr 1.4fr; } }
     </style>

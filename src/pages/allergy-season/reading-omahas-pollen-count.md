@@ -4,8 +4,8 @@ slug: reading-omahas-pollen-count
 order: 1
 season: "Every pollen month"
 months: [3, 4, 5, 6, 7, 8, 9, 10]
-title: "Reading Omaha's Pollen Count: DCHD, UNMC and Station 33"
-h1: "How to read Omaha's pollen count, and what it can't tell you about a bedroom"
+title: "Omaha Pollen Count: How to Read DCHD, UNMC and Station 33"
+h1: "How to read the Omaha pollen count, and what it means for your bedroom"
 description: "Who counts pollen in Omaha, when each count posts, what the October 2, 2026 numbers were, and why an outdoor count says nothing about your mattress."
 answer: "The Douglas County Health Department supplies the numbers in the National Weather Service Omaha/Valley pollen bulletin, UNMC's allergy division posts its own on Tuesdays and Thursdays in peak season, and NAB Station 33 counts from a Bellevue rooftop. On October 2, 2026, DCHD had weeds at 12, a moderate count; all three sample outdoor air, not a bedroom."
 faqTopic: "Omaha's pollen count"

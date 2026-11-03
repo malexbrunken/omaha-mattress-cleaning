@@ -1,4 +1,5 @@
 ---
+import Siblings from "../components/Siblings.astro";
 /**
  * O2 "Areas we serve" page layout. Anatomy differs from the O1 OmahaGuide template:
  * a two-column page with an "area card" (county, health department, trash setup, housing age)
@@ -74,6 +75,7 @@ if (fm.faq?.length) {
             </tbody>
           </table>
           <slot />
+      <Siblings />
           {fm.faq?.length > 0 && (
             <>
               <h2>{fm.name} questions</h2>

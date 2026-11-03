@@ -4,8 +4,8 @@ slug: ragweed-to-first-freeze
 order: 4
 season: "Weed season, August to October"
 months: [8, 9, 10]
-title: "Omaha Ragweed Season: August 15 to the First Freeze"
-h1: "Ragweed in Omaha: from UNMC's August 15 rule of thumb to Eppley's median first freeze"
+title: "Omaha Ragweed Pollen Count: August 15 to the First Freeze"
+h1: "Omaha ragweed pollen count: from UNMC's August 15 rule of thumb to the first freeze"
 description: "When ragweed arrives in Nebraska per UNMC, what Omaha's weed counts did from September 28 to October 2, 2026, and NOAA's freeze dates for Eppley Airfield."
 answer: "UNMC said ragweed arrives in Nebraska around August 15, give or take a day or two. In the last week of September 2026, the Douglas County weed count ran from 54 (high) on September 28 down to 1 on October 1, then 12 on October 2. NOAA's median first 32°F night at Eppley is October 21 and its first 28°F night October 30; a freeze date isn't a pollen forecast."
 faqTopic: "ragweed season"

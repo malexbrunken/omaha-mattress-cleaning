@@ -1,25 +1,41 @@
 ---
 import Base from "../layouts/Base.astro";
 import { priceText } from "../lib/prices";
-const jsonld = [{ "@context": "https://schema.org", "@type": "AboutPage", url: "https://omahamattresscleaning.com/about", name: "Who runs Omaha Mattress Cleaning", dateModified: "2026-10-04", about: { "@id": "https://omahamattresscleaning.com/#business" } }];
+import { pageLastmod } from "../lib/lastmod";
+const jsonld = [{ "@context": "https://schema.org", "@type": "AboutPage", url: "https://omahamattresscleaning.com/about", name: "About Omaha Mattress Cleaning", dateModified: pageLastmod("/about"), about: { "@id": "https://omahamattresscleaning.com/#business" } }];
 ---
-<Base title="About Omaha Mattress Cleaning | Operated by Sleep Sanitation" description="Omaha Mattress Cleaning is operated by Sleep Sanitation LLC. Who we are, how we work in Omaha homes, and the hygiene steps on every visit." path="/about" jsonld={jsonld}>
+<Base title="About Omaha Mattress Cleaning | Operated by Sleep Sanitation" description="About Omaha Mattress Cleaning, operated by Sleep Sanitation LLC: who we are, how we clean mattresses in Omaha homes with 212°F dry vapor steam, and why Omaha families book us twice a year." path="/about" jsonld={jsonld}>
   <section class="section">
     <div class="container prose">
       <span class="eyebrow">About us</span>
-      <h1>Who runs Omaha Mattress Cleaning</h1>
-      <p>Omaha Mattress Cleaning &amp; Sanitation is locally owned and operated by <a href="https://sleepsanitation.com/about-us">Sleep Sanitation</a> (Sleep Sanitation LLC). It's the same business, the same crew and the same phone number, (402) 512-5658. This site covers Omaha, the Douglas and Sarpy county suburbs and Council Bluffs; our Lincoln customers have their own site.</p>
-      <p>Sleep Sanitation is led by its founder, <a href="https://sleepsanitation.com/matthew-brunken">Matthew Brunken</a>. Our detailed reference articles on cleaning methods, mattress materials and brands, moisture and drying, and bed mites live in the <a href="https://sleepsanitation.com/knowledge-center">Sleep Sanitation Knowledge Center</a>. This site doesn't repeat them. It covers what's specific to Omaha: where a mattress can go when you're done with it, who to call about pests here, and what our weather does to a bedroom.</p>
+      <h1>About Omaha Mattress Cleaning</h1>
+      <p>Omaha Mattress Cleaning &amp; Sanitation is locally owned and operated by <a href="https://sleepsanitation.com/about-us">Sleep Sanitation</a> (Sleep Sanitation LLC). It's the same business, the same crew and the same phone number, (402) 512-5658. We clean mattresses at your home across Omaha, the Douglas and Sarpy county suburbs and Council Bluffs, from <a href="/neighborhoods/dundee-memorial-park">Dundee and Memorial Park</a> to new builds in <a href="/areas/gretna">Gretna</a> and <a href="/areas/elkhorn">Elkhorn</a>.</p>
+      <p>Sleep Sanitation is led by its founder, <a href="https://sleepsanitation.com/matthew-brunken">Matthew Brunken</a>. Our in-depth reference articles on cleaning methods, mattress materials and brands, and bed mites live in the <a href="https://sleepsanitation.com/knowledge-center">Sleep Sanitation Knowledge Center</a>. This site focuses on Omaha: the <a href="/developments">developments</a> and <a href="/neighborhoods">neighborhoods</a> we work in, <a href="/allergy-season">Omaha's allergy season</a>, and the moments that send families looking for a cleaner, fresher bed.</p>
+
+      <h2>Why we only clean mattresses</h2>
+      <p>Most companies that offer mattress cleaning are carpet cleaners with a mattress add-on. They bring a wet extraction machine built for carpet and push water into a mattress built in layers of foam, latex, fiber and springs. We built our service around the mattress alone, with equipment and a process made for it.</p>
+      <p>That focus is the difference you feel the first night after a visit. The bed is treated top to bottom, seam to seam, by a technician who does nothing but mattresses all day. See <a href="/compare/dry-vapor-vs-wet-extraction">dry vapor vs wet extraction</a> and <a href="/compare/mattress-cleaning-vs-carpet-cleaner">mattress cleaning vs a carpet cleaner</a> for the side-by-side.</p>
+
       <h2>What happens on a visit?</h2>
       <ul>
-        <li><strong>Hygiene first.</strong> Technicians wear gloves and shoe booties, and our equipment is disinfected between jobs.</li>
-        <li><strong>Inspection.</strong> We read the care label and identify the materials, then set steam temperature and pass speed for that bed.</li>
-        <li><strong>Treatment.</strong> Low-moisture dry vapor steam across the surface and into the seams, tufts, ridges and edges where dust and shed skin flakes collect. UV-C light treatment and HEPA vacuuming are part of the same visit.</li>
-        <li><strong>Odor and accidents.</strong> Organic cleaning methods are our default, with enzyme treatment for urine and organic odor.</li>
+        <li><strong>Hygiene first.</strong> Technicians wear gloves and shoe booties in your home, and every piece of equipment is disinfected between jobs.</li>
+        <li><strong>Inspection.</strong> We read the law tag and care label and identify the materials, then set steam pass speed for that bed, whether it's memory foam, latex, a hybrid, an innerspring or an organic build.</li>
+        <li><strong>Dry vapor steam at 212°F.</strong> Low-moisture dry vapor steam across the surface and into the seams, tufts, ridges and edges where dust, bed mites and shed skin flakes collect. We verify the temperature with a temperature gun on every visit.</li>
+        <li><strong>HEPA vacuuming and UV-C light treatment.</strong> A HEPA mattress vacuum lifts what the steam leaves behind, with UV-C light treatment on the same pass.</li>
+        <li><strong>Odor and accidents.</strong> Organic cleaning methods are our default, with enzyme treatment for pet urine, child accidents and organic odor.</li>
+        <li><strong>Reset.</strong> We put the bedroom back the way we found it before we leave.</li>
       </ul>
-      <p>Your care label and warranty terms come before any method, ours included, so check them before you book.</p>
+
+      <h2>Who books us in Omaha</h2>
+      <p>Families book before a <a href="/life-events/new-baby-nursery-prep">new baby comes home to the nursery</a>, before holiday guests arrive, after <a href="/life-events/new-pet-from-the-shelter">bringing home a new pet</a> and after buying a <a href="/life-events/used-or-inherited-mattress">used or inherited mattress</a>. <a href="/airbnb-hosts">Omaha Airbnb and VRBO hosts</a> book between guests and around College World Series and Berkshire weekends. <a href="/care-providers">Care providers</a> book for clients and residents who need a clean bed at home.</p>
+      <p>Allergy sufferers book through Omaha's tree, grass and ragweed seasons, and plenty of households simply put a cleaning on the calendar every spring and fall. We recommend twice-yearly cleaning for every bed in the house, and an organic protector on the mattress in between visits keeps it fresher longer.</p>
+
+      <h2>Where we work</h2>
+      <p>We come to you anywhere in the Omaha–Council Bluffs metro, including <a href="/areas/bellevue">Bellevue</a>, <a href="/areas/papillion">Papillion</a>, <a href="/areas/la-vista">La Vista</a>, <a href="/areas/ralston">Ralston</a>, <a href="/areas/bennington">Bennington</a>, <a href="/areas/blair">Blair</a> and <a href="/areas/council-bluffs">Council Bluffs</a>. There's no storefront and nothing to haul. We treat the mattress where it sits. See <a href="/areas">every area we serve</a>.</p>
+
       <h2>What does it cost?</h2>
-      <p>The first mattress is <Fragment set:html={priceText.firstHtml} />, any size. Each additional king is {priceText.additionalKing} and each additional full or queen is {priceText.additionalFullQueen}, and each additional kids bed is {priceText.additionalKids}. Normal stains, pet odor and ordinary urine accidents are included. Severe or biohazard contamination is quoted before we start. The full rate table is on our <a href="/pricing">Omaha pricing page</a>, and the parent company's list is on <a href="https://sleepsanitation.com/pricing">Sleep Sanitation's pricing page</a>.</p>
+      <p>The first mattress is <Fragment set:html={priceText.firstHtml} />, any size. Each additional king is {priceText.additionalKing} and each additional full or queen is {priceText.additionalFullQueen}, and each additional kids bed is {priceText.additionalKids}. Normal stains, pet odor and ordinary urine accidents are included. The full rate table is on our <a href="/pricing">Omaha pricing page</a>.</p>
+      <p>Booking takes a couple of minutes online, or call or text (402) 512-5658, Monday to Friday, 9am to 6pm.</p>
       <p><a class="btn btn-primary" href="/book">Book or contact us</a></p>
     </div>
   </section>

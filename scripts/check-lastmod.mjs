@@ -1,5 +1,5 @@
 // Compare dist/sitemap.xml lastmod with git: each page's date should equal the latest
-// commit date of its source file, src/layouts/Base.astro and (for markdown) its layout.
+// commit date of its own source file (template-wide edits deliberately do not count).
 // Run after `npm run build`, in a full (non-shallow) clone.
 import { execFileSync } from "node:child_process";
 import { existsSync, readFileSync } from "node:fs";
@@ -17,11 +17,7 @@ let bad = 0;
 for (const [, path, lastmod] of rows) {
   const base = path === "/" ? "src/pages/index" : `src/pages${path}`;
   const src = [`${base}.astro`, `${base}.md`].find(existsSync);
-  const deps = [src, "src/layouts/Base.astro"];
-  if (src.endsWith(".md")) {
-    const m = readFileSync(src, "utf8").match(/^layout:\s*(\S+)/m);
-    if (m) deps.push(m[1].replace(/^(\.\.\/)+/, "src/"));
-  }
+  const deps = [src];
   // The KC index lists every guide, so any guide edit changes it.
   if (path === "/knowledge-center") deps.push("src/pages/omaha-homes", "src/pages/areas", "src/pages/allergy-season", "src/pages/airbnb-hosts", "src/pages/developments", "src/pages/compare", "src/pages/life-events");
   const expected = deps.map((d) => gitDate(d)).sort().at(-1);

@@ -1,29 +1,21 @@
 /**
  * Page "last modified" dates for the sitemap and Article dateModified.
  *
- * A page changes when its own source changes OR when a template it renders through
- * changes (e.g. #11 added the phone line to every layout). So a page's lastmod is the
- * latest of: its own date (frontmatter `updated`, or the date below for .astro pages),
- * Base.astro's date and its layout's date.
- *
- * Keep these equal to the last commit that touched each file:
- *   git log -1 --format=%cd --date=format:%Y-%m-%d -- src/layouts/<File>.astro
+ * A page's lastmod is the last git commit that touched its OWN source file
+ * (src/lib/lastmod.json, written by scripts/lastmod.mjs before each build).
+ * Template-wide edits (Base.astro, layouts, nav, footer) deliberately do not move it:
+ * stamping every URL with the same date teaches Google to ignore lastmod.
+ * Fallbacks when a file isn't in git yet: frontmatter `updated`/`published`, then PAGE_LASTMOD.
  * `npm run check:lastmod` (after a build) compares dist/sitemap.xml with git.
  */
-export const TEMPLATE_LASTMOD = {
-  Base: "2026-10-25",
-  AreaPage: "2026-10-22",
-  HostBrief: "2026-10-04",
-  OmahaGuide: "2026-10-04",
-  SeasonGuide: "2026-10-04",
-  DevelopmentGuide: "2026-10-05",
-  NeighborhoodGuide: "2026-10-22",
-  CompareGuide: "2026-10-05",
-  LifeEventGuide: "2026-10-22",
-} as const;
-export type Layout = keyof typeof TEMPLATE_LASTMOD;
+import gitDates from "./lastmod.json";
 
-/** Last edit of each .astro page's own source file. */
+const git = (file: string): string | undefined => (gitDates as Record<string, string>)[file];
+
+/** Kept for layouts that import the type. */
+export type Layout = "AreaPage" | "HostBrief" | "OmahaGuide" | "SeasonGuide" | "DevelopmentGuide" | "NeighborhoodGuide" | "CompareGuide" | "LifeEventGuide";
+
+/** Fallback dates for .astro pages not yet in git. */
 export const PAGE_LASTMOD: Record<string, string> = {
   "/": "2026-10-05",
   "/pricing": "2026-10-05",
@@ -44,16 +36,15 @@ export const PAGE_LASTMOD: Record<string, string> = {
 const latest = (...dates: (string | undefined)[]) =>
   dates.filter((d): d is string => !!d).sort().at(-1)!;
 
-/** lastmod for an .astro page that renders through Base only. */
-export const pageLastmod = (path: string) => latest(PAGE_LASTMOD[path], TEMPLATE_LASTMOD.Base);
+const astroFile = (path: string) => (path === "/" ? "src/pages/index.astro" : `src/pages${path}.astro`);
 
-/**
- * lastmod for /knowledge-center: its own source and Base, plus every guide it lists
- * (a new or updated guide changes the index).
- */
-export const kcLastmod = (guides: { updated?: string; published?: string }[]) =>
-  latest(pageLastmod("/knowledge-center"), ...guides.map((g) => g.updated ?? g.published));
+/** lastmod for an .astro page: its own file's last commit. */
+export const pageLastmod = (path: string) => git(astroFile(path)) ?? PAGE_LASTMOD[path];
 
-/** lastmod for a markdown guide: its frontmatter date, Base and its layout. */
-export const guideLastmod = (fm: { updated?: string; published?: string }, layout: Layout) =>
-  latest(fm.updated ?? fm.published, TEMPLATE_LASTMOD.Base, TEMPLATE_LASTMOD[layout]);
+/** lastmod for /knowledge-center: its own source plus every guide it lists. */
+export const kcLastmod = (guides: { updated?: string; published?: string; file?: string }[]) =>
+  latest(pageLastmod("/knowledge-center"), ...guides.map((g) => (g.file && git(g.file)) || g.updated || g.published));
+
+/** lastmod for a markdown guide at /<section>/<slug>: its own file's last commit. */
+export const guideLastmod = (fm: { updated?: string; published?: string }, _layout?: Layout, path?: string) =>
+  (path && git(`src/pages${path}.md`)) || fm.updated || fm.published || PAGE_LASTMOD["/"];

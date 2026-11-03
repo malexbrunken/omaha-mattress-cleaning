@@ -1,4 +1,5 @@
 ---
+import Siblings from "../components/Siblings.astro";
 /**
  * O1 "Mattresses and Omaha homes" guide layout. Page anatomy (different from Sleep Sanitation and Lincoln):
  * a local facts box first (facility, address, date, source), then the markdown body (a checklist),
@@ -58,6 +59,7 @@ if (fm.faq?.length) {
         ))}
       </dl>
       <slot />
+      <Siblings />
       {fm.faq?.length > 0 && (
         <>
           <h2>Questions Omaha readers ask</h2>

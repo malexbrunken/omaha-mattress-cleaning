@@ -25,28 +25,28 @@ const lifeEvents = import.meta.glob<Fm>("./life-events/*.md", { eager: true });
 
 export const GET: APIRoute = () => {
   const entries = [...STATIC];
-  const kcGuides = Object.values(KC_GUIDES).map((m) => m.frontmatter ?? {}).filter((f) => !f.draft);
+  const kcGuides = Object.entries(KC_GUIDES).filter(([, m]) => !m.frontmatter?.draft).map(([f, m]) => ({ ...(m.frontmatter ?? {}), file: `src/pages/${f.slice(2)}` }));
   entries.push({ path: "/knowledge-center", lastmod: kcLastmod(kcGuides) });
   if (Object.keys(hub).length) entries.push({ path: "/omaha-homes", lastmod: pageLastmod("/omaha-homes") });
   for (const [file, mod] of Object.entries(guides)) {
     const fm = mod.frontmatter ?? {};
     if (fm.draft) continue;
     const slug = file.replace("./omaha-homes/", "").replace(/\.md$/, "");
-    entries.push({ path: `/omaha-homes/${slug}`, lastmod: guideLastmod(fm, "OmahaGuide" as Layout) });
+    entries.push({ path: `/omaha-homes/${slug}`, lastmod: guideLastmod(fm, "OmahaGuide" as Layout, `/omaha-homes/${slug}`) });
   }
   if (Object.keys(areaHub).length) entries.push({ path: "/areas", lastmod: pageLastmod("/areas") });
   for (const [file, mod] of Object.entries(areas)) {
     const fm = mod.frontmatter ?? {};
     if (fm.draft) continue;
     const slug = file.replace("./areas/", "").replace(/\.md$/, "");
-    entries.push({ path: `/areas/${slug}`, lastmod: guideLastmod(fm, "AreaPage" as Layout) });
+    entries.push({ path: `/areas/${slug}`, lastmod: guideLastmod(fm, "AreaPage" as Layout, `/areas/${slug}`) });
   }
   if (Object.keys(allergyHub).length) entries.push({ path: "/allergy-season", lastmod: pageLastmod("/allergy-season") });
   for (const [file, mod] of Object.entries(allergy)) {
     const fm = mod.frontmatter ?? {};
     if (fm.draft) continue;
     const slug = file.replace("./allergy-season/", "").replace(/\.md$/, "");
-    entries.push({ path: `/allergy-season/${slug}`, lastmod: guideLastmod(fm, "SeasonGuide" as Layout) });
+    entries.push({ path: `/allergy-season/${slug}`, lastmod: guideLastmod(fm, "SeasonGuide" as Layout, `/allergy-season/${slug}`) });
   }
   entries.push({ path: "/care-providers", lastmod: pageLastmod("/care-providers") });
   if (Object.keys(hostHub).length) entries.push({ path: "/airbnb-hosts", lastmod: pageLastmod("/airbnb-hosts") });
@@ -54,35 +54,35 @@ export const GET: APIRoute = () => {
     const fm = mod.frontmatter ?? {};
     if (fm.draft) continue;
     const slug = file.replace("./airbnb-hosts/", "").replace(/\.md$/, "");
-    entries.push({ path: `/airbnb-hosts/${slug}`, lastmod: guideLastmod(fm, "HostBrief" as Layout) });
+    entries.push({ path: `/airbnb-hosts/${slug}`, lastmod: guideLastmod(fm, "HostBrief" as Layout, `/airbnb-hosts/${slug}`) });
   }
   if (Object.keys(devHub).length) entries.push({ path: "/developments", lastmod: pageLastmod("/developments") });
   for (const [file, mod] of Object.entries(developments)) {
     const fm = mod.frontmatter ?? {};
     if (fm.draft) continue;
     const slug = file.replace("./developments/", "").replace(/\.md$/, "");
-    entries.push({ path: `/developments/${slug}`, lastmod: guideLastmod(fm, "DevelopmentGuide" as Layout) });
+    entries.push({ path: `/developments/${slug}`, lastmod: guideLastmod(fm, "DevelopmentGuide" as Layout, `/developments/${slug}`) });
   }
   if (Object.keys(nbHub).length) entries.push({ path: "/neighborhoods", lastmod: pageLastmod("/neighborhoods") });
   for (const [file, mod] of Object.entries(neighborhoods)) {
     const fm = mod.frontmatter ?? {};
     if (fm.draft) continue;
     const slug = file.replace("./neighborhoods/", "").replace(/\.md$/, "");
-    entries.push({ path: `/neighborhoods/${slug}`, lastmod: guideLastmod(fm, "NeighborhoodGuide" as Layout) });
+    entries.push({ path: `/neighborhoods/${slug}`, lastmod: guideLastmod(fm, "NeighborhoodGuide" as Layout, `/neighborhoods/${slug}`) });
   }
   if (Object.keys(compareHub).length) entries.push({ path: "/compare", lastmod: pageLastmod("/compare") });
   for (const [file, mod] of Object.entries(compares)) {
     const fm = mod.frontmatter ?? {};
     if (fm.draft) continue;
     const slug = file.replace("./compare/", "").replace(/\.md$/, "");
-    entries.push({ path: `/compare/${slug}`, lastmod: guideLastmod(fm, "CompareGuide" as Layout) });
+    entries.push({ path: `/compare/${slug}`, lastmod: guideLastmod(fm, "CompareGuide" as Layout, `/compare/${slug}`) });
   }
   if (Object.keys(lifeHub).length) entries.push({ path: "/life-events", lastmod: pageLastmod("/life-events") });
   for (const [file, mod] of Object.entries(lifeEvents)) {
     const fm = mod.frontmatter ?? {};
     if (fm.draft) continue;
     const slug = file.replace("./life-events/", "").replace(/\.md$/, "");
-    entries.push({ path: `/life-events/${slug}`, lastmod: guideLastmod(fm, "LifeEventGuide" as Layout) });
+    entries.push({ path: `/life-events/${slug}`, lastmod: guideLastmod(fm, "LifeEventGuide" as Layout, `/life-events/${slug}`) });
   }
   const body =
     `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
