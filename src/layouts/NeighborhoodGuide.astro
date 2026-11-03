@@ -1,4 +1,5 @@
 ---
+import Siblings from "../components/Siblings.astro";
 /**
  * Neighborhoods hub guide layout. Local facts first (where it sits, home type, when people book),
  * then markdown body, FAQ, sources and changelog. Mirror of OmahaGuide with /neighborhoods paths.
@@ -58,6 +59,7 @@ if (fm.faq?.length) {
         ))}
       </dl>
       <slot />
+      <Siblings />
       {fm.faq?.length > 0 && (
         <>
           <h2>Questions owners and hosts ask</h2>

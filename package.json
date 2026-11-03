@@ -4,7 +4,9 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "astro dev",
+    "prebuild": "node scripts/lastmod.mjs",
     "build": "astro build",
+    "lastmod": "node scripts/lastmod.mjs",
     "preview": "astro preview",
     "check:lastmod": "node scripts/check-lastmod.mjs"
   },

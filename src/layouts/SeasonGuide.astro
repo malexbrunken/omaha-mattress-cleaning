@@ -1,4 +1,5 @@
 ---
+import Siblings from "../components/Siblings.astro";
 /**
  * O3 "Allergy season in Omaha" guide layout. Anatomy differs from O1 (facts box first) and O2 (two columns
  * with a sticky area card): a twelve-month strip that marks the guide's months, the short answer, a
@@ -73,6 +74,7 @@ if (fm.faq?.length) {
         <p>{fm.watch.when} <a href={fm.watch.url} rel="noopener">Open it</a></p>
       </div>
       <slot />
+      <Siblings />
       {fm.faq?.length > 0 && (
         <>
           <h2>Asked about {fm.faqTopic}</h2>

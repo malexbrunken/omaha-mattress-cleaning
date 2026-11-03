@@ -1,0 +1,46 @@
+---
+/**
+ * "Keep reading" block for a hub child: links the hub and 5 sibling guides
+ * (the next ones in hub order, wrapping), so every child gets inbound links
+ * from its neighbours instead of only from the hub.
+ */
+type Fm = { frontmatter?: { title?: string; h1?: string; name?: string; order?: number; draft?: boolean } };
+const ALL: Record<string, Record<string, Fm>> = {
+  "omaha-homes": import.meta.glob<Fm>("../pages/omaha-homes/*.md", { eager: true }),
+  areas: import.meta.glob<Fm>("../pages/areas/*.md", { eager: true }),
+  "allergy-season": import.meta.glob<Fm>("../pages/allergy-season/*.md", { eager: true }),
+  "airbnb-hosts": import.meta.glob<Fm>("../pages/airbnb-hosts/*.md", { eager: true }),
+  developments: import.meta.glob<Fm>("../pages/developments/*.md", { eager: true }),
+  neighborhoods: import.meta.glob<Fm>("../pages/neighborhoods/*.md", { eager: true }),
+  compare: import.meta.glob<Fm>("../pages/compare/*.md", { eager: true }),
+  "life-events": import.meta.glob<Fm>("../pages/life-events/*.md", { eager: true }),
+};
+const HUB_LABEL: Record<string, string> = {
+  "omaha-homes": "All Omaha home guides",
+  areas: "All areas we serve",
+  "allergy-season": "Omaha allergy season guide",
+  "airbnb-hosts": "Mattress cleaning for Omaha Airbnb hosts",
+  developments: "All Omaha developments",
+  neighborhoods: "All Omaha neighborhoods",
+  compare: "Compare your mattress cleaning options",
+  "life-events": "All Omaha life events",
+};
+const parts = Astro.url.pathname.replace(/\.html$/, "").split("/").filter(Boolean);
+const [section, slug] = parts;
+const items = Object.entries(ALL[section] ?? {})
+  .map(([file, m]) => ({ slug: file.split("/").pop()!.replace(/\.md$/, ""), fm: m.frontmatter ?? {} }))
+  .filter((x) => !x.fm.draft)
+  .sort((a, b) => (a.fm.order ?? 99) - (b.fm.order ?? 99) || a.slug.localeCompare(b.slug));
+const i = items.findIndex((x) => x.slug === slug);
+const siblings = i < 0 ? [] : [...items.slice(i + 1), ...items.slice(0, i)].slice(0, 5);
+const label = (fm: Fm["frontmatter"] & {}) => (section === "areas" && fm.name ? `Mattress cleaning in ${fm.name}` : fm.title ?? fm.h1 ?? "");
+---
+{section && HUB_LABEL[section] && (
+  <aside class="siblings" style="margin-top:2.2rem;">
+    <h2>Keep reading</h2>
+    <ul>
+      {siblings.map((s) => <li><a href={`/${section}/${s.slug}`}>{label(s.fm)}</a></li>)}
+      <li><a href={`/${section}`}><strong>{HUB_LABEL[section]}</strong></a></li>
+    </ul>
+  </aside>
+)}
